@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+.wrapper {
+
+    max-width: 800px;
+    min-height: 500px;
+    display: flex;
+    margin: auto;
+    color: white;
+    font-size: 15px;
+}
+
+.left-panel {
+    min-height: 500px;
+    background-color: #27344b;
+    flex: 1;
+    text-align: center;
+
+}
+
+.left-panel .img {
+    width: 50%;
+    border: 2px solid  white;
+    border-radius: 50%;
+    margin: 10px;
+   /* padding: 10px;*/
+}
+
+.left-panel label {
+    width: 100%;
+    height: 30px;
+    display: block;
+    background-color: #404b56;
+    border-bottom: solid thin white;
+
+
+}
+
+p{
+    padding: 0;
+    margin: 0 10px 5px 10px;
+    font-family: sans-serif;
+
+}
+
+.champ{
+    margin-top: 20px;
+}
+
+.style{
+    font-size: 15px;
+    opacity: 0.5;
+}
+
+.header{
+    background-color: #485b6c;
+    height: 70px;
+    font-size: 40px;
+    text-align: center;
+    font-family: Great Vibes;
+}
+
+.right-panel {
+    text-align: center;
+    min-height: 500px;
+    flex: 4;
+}
+
+.inner-left-panel {
+    background-color: #383e48;
+    flex: 2;
+    min-height: 430px;
+}
+
+
+.inner-right-panel {
+    background-color: #f2f7f8;
+    flex: 4;
+    min-height: 430px;
+}
+
+.container {
+    display: flex;
+}
