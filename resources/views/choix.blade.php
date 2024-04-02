@@ -28,7 +28,7 @@
                     </div>
                     <div class="login-card-form">
                         <button class="login-form-button btn">
-                            <a href="{{asset('/inscription')}}">TROUVER UN JOB</a>
+                            <a href="{{asset('inscription')}}" class="a1">TROUVER UN JOB</a>
                         </button>
                     </div>
                 </div>
@@ -45,7 +45,7 @@
                     </div>
                     <div class="login-card-form">
                         <button class="login-form-button1 btn1">
-                            <a href="{{asset('/registration')}}">TROUVER DE L'AIDE</a>
+                            <a href="{{asset('registration')}}" class="a1">TROUVER DE L'AIDE</a>
                         </button>
                     </div>
                 </div>
@@ -54,7 +54,7 @@
     </div>
 
     <div>
-        <p>Déjà membre ? <a href="{{asset('/login')}}">Se connecter</a></p>
+        <p>Déjà membre ? <a href="{{asset('login')}}" class="a2">Se connecter</a></p>
     </div>
 
 </body>

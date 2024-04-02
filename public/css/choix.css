@@ -104,10 +104,16 @@ body {
     font-weight: bold;
 }
 
-a {
+.a1 {
     text-decoration: none;
     color: #FFF;
 }
+
+.a2{
+    text-decoration: none;
+    color: #f05462;
+}
+
 
 button{
     transition: 0.3s;

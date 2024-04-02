@@ -82,3 +82,9 @@ Route::post('/register-user', [UserController::class, 'registerUser'])->name('re
 Route::get('/choix', function () {
     return view('choix');
 });
+
+
+
+Route::get('/reservation', function () {
+    return view('reservation');
+});

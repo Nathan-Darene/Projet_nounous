@@ -36,44 +36,45 @@
                         height="70" width="180">
                 </div>
                 <!-- Formulaire d'inscription -->
-                <form class="login-card-form" action="="{{route('register-user')}}" method="POST"" method="POST"
-                    id="registration-form">
+                <form class="login-card-form" action="{{route('register-user')}}" method="POST" id="registration-form">
 
-                    @if (@session('success'))
-                        <a href="#" class="botton-text"> {{ @session('success') }}</a>
+                    @if (Session::has('success'))
+                        <div class="botton-text alert alert-success"> {{Session::get('success') }}</div>
+                    @endif
+
+                    @if (Session::has('error'))
+                        <div class="botton-text alert alert-danger"> {{Session::get('error') }}</div>
                     @endif
                     @csrf
 
                     <!-- Champ pour le nom d'utilisateur -->
-                    <input type="text" placeholder="Nom d'utilisateur" name="username" value="{{old('name')}}">
+                    <input type="text" placeholder="Nom d'utilisateur" name="username" value="{{old('username')}}">
                     <span class="text-danger">@error('username') {{$message}} @enderror</span>
                     <!-- Champ pour le nom -->
-                    <input type="text" placeholder="Nom" name="lastname">
+                    <input type="text" placeholder="Nom" name="lastname" value="{{old('lastname')}}">
                     <span class="text-danger">@error('lastname') {{$message}}  @enderror</span>
                     <!-- Champ pour le prenom -->
-                    <input type="text" placeholder="Prénom" name="firstname">
+                    <input type="text" placeholder="Prénom" name="firstname" value="{{old('firstname')}}">
                     <span class="text-danger">@error('firstname') {{$message}} @enderror</span>
                     <!-- Champ pour le numéro de téléphone -->
-                    <input type="text" placeholder="Numéro de téléphone" name="phone">
+                    <input type="text" placeholder="Numéro de téléphone" name="phone" value="{{old('phone')}}">
                     <span class="text-danger">@error('phone') {{$message}} @enderror</span>
                     <!-- Champ pour la ville -->
-                    <input type="text" placeholder="Ville" name="city">
+                    <input type="text" placeholder="Ville" name="city" value="{{old('city')}}">
                     <span class="text-danger">@error('city') {{$message}} @enderror</span>
                     <!-- Champ pour le code postal -->
-                    <input type="text" placeholder="Code postal (Optionel)" name="postalcode">
+                    <input type="text" placeholder="Code postal (Optionel)" name="postalcode" value="{{old('postalcode')}}">
                     <span class="text-danger">@error('postalcode') {{$message}} @enderror</span>
                     <!-- Champ pour l'email -->
-                    <input type="email" placeholder="Adresse email" name="email">
+                    <input type="email" placeholder="Adresse email" name="email" value="{{old('email')}}">
                     <span class="text-danger">@error('email') {{$message}} @enderror</span>
                     <!-- Champ pour le mot de passe -->
-                    <input type="password" placeholder="Mot de passe" name="password">
+                    <input type="password" placeholder="Mot de passe" name="password" value="{{old('password')}}">
                     <span class="text-danger">@error('password') {{$message}} @enderror</span>
                     <!-- Champ de confirmation du mot de passe -->
-                    <input type="password" placeholder="Confirmez le mot de passe" name="confirm_password">
-                    <span class="text-danger">@error('confirm_password') {{$message}} @enderror</span>
                     <p>Acceptez les paramètres de confidentialité ?</p>
                     <label class="container">
-                        <input type="checkbox" checked="checked" name="privacy_acceptance">
+                        <input type="checkbox" checked="checked" name="privacy_acceptance" >
 
                         <div class="checkmark"></div>
                     </label>
@@ -95,7 +96,7 @@
                     <footer>
                         <!-- Lien vers la page de connexion -->
                         <div class="signup-card-footer">
-                            <p>Vous avez déjà un compte ? <a href="{{ asset('/connexion') }}" id="login-link"
+                            <p>Vous avez déjà un compte ? <a href="{{ asset('login') }}" id="login-link"
                                     class="login-link">Connectez-vous</a></p>
                         </div>
                         <!-- Section de téléchargement de l'application -->

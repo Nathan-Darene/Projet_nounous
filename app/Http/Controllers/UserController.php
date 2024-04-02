@@ -23,12 +23,11 @@ class UserController extends Controller
     public function registerUser (Request $request)
     {
         // Validation des données
-        $validatedData = $request->validate([
+        $request->validate([
             'username' => 'required|string|max:255|unique:users',
             'lastname' => 'required|string|max:255',
             'firstname' => 'required|string|max:255',
             'phone' => 'required|string|max:25|unique:users',
-            'birthdate' => 'required|date',
             'city' => 'required|string|max:255',
             'postalcode' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
@@ -37,16 +36,15 @@ class UserController extends Controller
 
         // Création d'un nouvel utilisateur
         /*$user = User::create($validatedData);*/
-        $user = new user();
-        $user->username = $request->input('username');
-        $user->lastname = $request->input('lastname');
-        $user->firstname = $request->input('firstname');
-        $user->phone = $request->input('phone');
-        $user->birthdate = $request->input('birthdate');
-        $user->city = $request->input('city');
-        $user->postalcode = $request->input('postalcode');
-        $user->email =$request->input('email');
-        $user->password = bcrypt($request->input('password'));
+        $user = new User();
+        $user->username = $request->username;
+        $user->lastname = $request->lastname;
+        $user->firstname = $request->firstname;
+        $user->phone = $request->phone;
+        $user->city = $request->city;
+        $user->postalcode = $request->postalcode;
+        $user->email =$request->email;
+        $user->password = bcrypt($request->password);
 
 
         // Sauvegarder l'utilisateur dans la base de données
@@ -58,7 +56,7 @@ class UserController extends Controller
         }
         else {
             // Rediriger l'utilisateur vers une page de confirmation ou autre
-            return back()->with('Error', 'Une erreur est survenus lors de votre inscription');
+            return back()->with('error', 'Une erreur est survenus lors de votre inscription');
         }
     }
 }

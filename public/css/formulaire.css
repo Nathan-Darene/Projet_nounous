@@ -21,6 +21,10 @@ body {
     font-family: "poppins" sans-serif;
 }
 
+span .text-danger {
+    color: red;
+}
+
 .main-card-login {
     height: 100%;
 }
