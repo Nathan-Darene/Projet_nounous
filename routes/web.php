@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\AllController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -21,70 +22,38 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-/*Route pour l'acceuil */
-
-Route::get('/acceuil', function () {
-    return view('acceuil');
-});
-
-
-
-/*Route pour la page de clandrier */
-
-Route::get('/caland', function () {
-    return view('caland');
-});
-
-Route::get('/coin', function () {
-    return view('coin');
-});
-
-
-/*Route::get('/connexion', function () {
-    return view('connexion');
-});*/
-
-
-
-
-Route::get('/inscription', function () {
-    return view('inscription');
-});
-
-Route::get('/page_user', function () {
-    return view('page_user');
-});
-
-
-/*Route pour la page de l'utilisateur */
-
-Route::get('/page_parent', function () {
-    return view('page_parent');
-});
-
-/*Route pour la page de l'administrateur */
-Route::get('/page_admin', function () {
-    return view('page_admin');
-});
-
 /*connexion */
+/*Connexion get */
+Route::get('/login',[AllController::class, 'login']);
+Route::get('/login_nounou',[AllController::class, 'login_nounou']);
 
-Route::get('/login', [UserController::class, 'login']);
-
-// Route pour afficher le formulaire d'inscription
-Route::get('/registration', [UserController::class, 'registration']);
-
-// Route pour traiter les données du formulaire d'inscription
-Route::post('/register-user', [UserController::class, 'registerUser'])->name('register-user');
-
-
-Route::get('/choix', function () {
-    return view('choix');
-});
+/*Inscriptio get */
+Route::get('/registration',[AllController::class, 'registration']);
+Route::get('/inscription',[AllController::class, 'inscription']);
 
 
+/*Inscription post */
+Route::post('/register-user',[AllController::class, 'registerUser'])->name ('register-user');
+Route::post('/register-nounou',[AllController::class, 'registerNounou'])->name ('register-nounou');
 
-Route::get('/reservation', function () {
-    return view('reservation');
-});
+/*Connexion post */
+Route::post('/login-user',[AllController::class, 'loginUser'])->name ('login-user');
+Route::post('/login-nounou',[AllController::class, 'loginNounou'])->name ('login-nounou');
+
+
+
+/*Route pour la page d'acceuil */
+
+Route::get('/acceuil',[AllController::class, 'acceuil']);
+
+Route::get('/choix',[AllController::class, 'choix']);
+
+Route::get('/caland',[AllController::class, 'caland']);
+
+Route::get('/reservation',[AllController::class, 'reservation']);
+
+Route::get('/message',[AllController::class, 'message']);
+
+Route::get('/choix2',[AllController::class, 'choix2']);
+
+

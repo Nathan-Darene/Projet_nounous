@@ -16,6 +16,7 @@
       integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer" />
+      <link rel="stylesheet" href="{{ asset ('fontawesome-free-6.5.1-web/css/all.min.css')}}">
       <link rel="icon" type="image/png" href="Logo/8900808870_4aa536ff-86f5-4f1e-9429-0e0ace5a8068.png">
       <link rel="stylesheet" href="{{ asset('fontawesome-free-6.5.1-web/css/all.min.css') }}">
     <link rel="stylesheet" href="{{asset('css/caland.css')}}" />
@@ -57,24 +58,20 @@
         <div class="events"></div>
         <div class="add-event-wrapper">
           <div class="add-event-header">
-            <div class="title">Ajouter votre date de Disponibilité</div>
-            <i class="fas fa-times close"></i>
+            <div class="title">Ajouter l'heure pour votre Annonce en fonction de la date choisis</div>
+            <i class="fa-solid fa-times close"></i>
           </div>
           <div class="add-event-body">
             <div class="add-event-input">
               <input type="text" placeholder="Event Name" class="event-name" />
             </div>
             <div class="add-event-input">
-              <input
-                type="text"
-                placeholder="Event Time From"
-                class="event-time-from" />
+                <input type="text" placeholder="Heure de debut" class="event-time-from" />
+                <i class="fa-solid fa-hourglass-start"></i>
             </div>
             <div class="add-event-input">
-              <input
-                type="text"
-                placeholder="Event Time To"
-                class="event-time-to" />
+              <input type="text" placeholder="Heure de fin" class="event-time-to" />
+              <i class="fa-solid fa-hourglass-end"></i>
             </div>
           </div>
           <div class="add-event-footer">

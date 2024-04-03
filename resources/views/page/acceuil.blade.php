@@ -21,7 +21,7 @@
                     <li><a href="#A-propos" style="--i:2;"> A propos</a></li>
                     <li><a href="#contact" style="--i:3;">Contact</a></li>
                     <li><a href="#info" style="--i:4;">Information</a></li>
-                    <li><a href="/inscription" style="--1:5;">Inscription</a></li>
+                    <li><a href="{{asset('choix')}}" style="--1:5;">Inscription</a></li>
                 </ul>
                 <div>
                     <a href="{{asset('choix')}}" style="--i:6;" class="login-btn" >Se connecter</a>

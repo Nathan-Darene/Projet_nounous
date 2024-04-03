@@ -42,6 +42,7 @@
                         <h3>J'ai besoin d'une nounou ou d'une baby-sitter</h3>
                         <p class="p2">Je suis parent et Je suis à la recherche d'une personne de confiance pour garder mes enfants
                         </p>
+                        <br>
                     </div>
                     <div class="login-card-form">
                         <button class="login-form-button1 btn1">
@@ -54,7 +55,7 @@
     </div>
 
     <div>
-        <p>Déjà membre ? <a href="{{asset('login')}}" class="a2">Se connecter</a></p>
+        <p>Déjà membre ? <a href="{{asset('choix2')}}" class="a2">Se connecter</a></p>
     </div>
 
 </body>

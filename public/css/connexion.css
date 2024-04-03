@@ -5,7 +5,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 150vh; /* Utilise la hauteur totale de la fenêtre */
+    height: 100vh; /* Utilise la hauteur totale de la fenêtre */
     background-color: #FAFAFA;
 }
 
@@ -14,9 +14,10 @@ body {
     margin-left: 250px;
 }
 
-span .text-danger {
+span {
     font-family: 'Poppins',sans-serif;
-    color: red;
+    color:red;
+    text-align: center;
 }
 
 .main {
@@ -146,9 +147,9 @@ input[type="file"] {
 .login-card-footer {
     background-color: #FFFFFF;
     border: 1px solid rgb(212, 211, 211);
+    border-radius: 50px 0 50px 0;
     padding: 1.5em;
-    margin-left: 20px;
-    margin-top: 10px;
+    margin: 10px 20px 0 20px;
     font-family: sans-serif;
     font-weight: 200;
     font-size: 15px;
@@ -197,9 +198,38 @@ input[type="file"] {
     color:#f05462;
 }
 
+.or {
+    color:#f05462;
+    ;
+}
+
 a {
     text-decoration: none;
+}
 
+.link {
+    color: #0095F6;
+}
+
+.link1 {
+    color: #f05462;
+}
+
+.link1:hover{
+    transform: scale(1.03);
+}
+
+/*.return{
+
+}
+*/
+label .container {
+    display: flex;
+    align-items: center;
+}
+
+label p {
+    margin:0 5px 0 0 ;
 }
 
 button{
@@ -210,8 +240,11 @@ button:hover,
 input[type="submit"]{
     cursor: pointer;
     transform: scale(1.1);
+    background-color: #f05462;
 }
 
 button:active {
     transform: scale(0.9);
+    background-color: #51e218;
+
 }

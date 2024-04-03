@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Users extends Migration
+class CreateNounouTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,18 @@ class Users extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('nounou', function (Blueprint $table) {
             $table->id();
-            $table->string('username');
+            $table->string('username')->unique();
             $table->string('lastname');
             $table->string('firstname');
-            $table->string('phone');
+            $table->string('phone')->unique();
             $table->date('birthdate');
+            $table->string('imageUpload')->unique();
             $table->string('city');
             $table->string('postalcode')->nullable();
             $table->string('email')->unique();
             $table->string('password');
-            $table->boolean('privacy_acceptance');
             $table->timestamps();
         });
     }
@@ -36,6 +36,6 @@ class Users extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('nounou');
     }
 }

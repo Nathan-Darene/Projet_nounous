@@ -38,12 +38,12 @@
                 <!-- Formulaire d'inscription -->
                 <form class="login-card-form" action="{{route('register-user')}}" method="POST" id="registration-form">
 
-                    @if (Session::has('success'))
-                        <div class="botton-text alert alert-success"> {{Session::get('success') }}</div>
+                @if (Session::has('success'))
+                    <div class="botton-text alert alert-success"> {{Session::get('success') }}</div>
                     @endif
 
                     @if (Session::has('error'))
-                        <div class="botton-text alert alert-danger"> {{Session::get('error') }}</div>
+                    <div class="botton-text alert alert-danger"> {{Session::get('error') }}</div>
                     @endif
                     @csrf
 
@@ -64,7 +64,6 @@
                     <span class="text-danger">@error('city') {{$message}} @enderror</span>
                     <!-- Champ pour le code postal -->
                     <input type="text" placeholder="Code postal (Optionel)" name="postalcode" value="{{old('postalcode')}}">
-                    <span class="text-danger">@error('postalcode') {{$message}} @enderror</span>
                     <!-- Champ pour l'email -->
                     <input type="email" placeholder="Adresse email" name="email" value="{{old('email')}}">
                     <span class="text-danger">@error('email') {{$message}} @enderror</span>
@@ -72,9 +71,8 @@
                     <input type="password" placeholder="Mot de passe" name="password" value="{{old('password')}}">
                     <span class="text-danger">@error('password') {{$message}} @enderror</span>
                     <!-- Champ de confirmation du mot de passe -->
-                    <p>Acceptez les paramètres de confidentialité ?</p>
                     <label class="container">
-                        <input type="checkbox" checked="checked" name="privacy_acceptance" >
+                        <input type="checkbox" checked="checked" name="privacy_acceptance" ><p>Acceptez-vous les paramètres de confidentialité ?</p>
 
                         <div class="checkmark"></div>
                     </label>

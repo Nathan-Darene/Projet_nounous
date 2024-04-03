@@ -5,13 +5,19 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Utilise la hauteur totale de la fenêtre */
+    height: 130vh; /* Utilise la hauteur totale de la fenêtre */
     background-color: #FAFAFA;
 }
 
 .main-image {
     margin-top: 45px;
     margin-left: 250px;
+}
+
+span {
+    font-family: 'Poppins',sans-serif;
+    color:red;
+    text-align: center;
 }
 
 .main {
@@ -21,12 +27,9 @@ body {
     font-family: "poppins" sans-serif;
 }
 
-span .text-danger {
-    color: red;
-}
-
 .main-card-login {
     height: 100%;
+    margin: 20px 0 20px 0;
 }
 
 .login-card {
@@ -36,6 +39,10 @@ span .text-danger {
     margin-left: 20px;
     margin-top: 60px;
     height: 50%;
+}
+
+.login-card p{
+    text-align: center;
 }
 
 .login-card-header-image {
@@ -54,10 +61,9 @@ input[type="text"],
 input[type="email"],
 input[type="number"],
 input[type="date"],
-select,
-option,
-.dat,
-input[type="password"] {
+.cadre p,
+input[type="password"],
+input[type="file"] {
     display: flex;
     flex-direction: column;
     flex-wrap: center;
@@ -76,11 +82,8 @@ input[type="password"] {
     margin-right: 20px;
 }
 
-
-.ico {
-    position: relative;
-    display: table;
-    border-collapse: separate
+.preview{
+    align-items: center;
 }
 
 .login-form-button {
@@ -94,7 +97,6 @@ input[type="password"] {
     width: 95%;
     margin-top: 10px;
     margin-left: 5px;
-    margin-bottom:20px;
     font-weight: bold;
 }
 
@@ -145,9 +147,9 @@ input[type="password"] {
 .login-card-footer {
     background-color: #FFFFFF;
     border: 1px solid rgb(212, 211, 211);
+    border-radius: 50px 0 50px 0;
     padding: 1.5em;
-    margin-left: 20px;
-    margin-top: 10px;
+    margin: 10px 20px 0 20px;
     font-family: sans-serif;
     font-weight: 200;
     font-size: 15px;
@@ -168,36 +170,98 @@ input[type="password"] {
     justify-content: center;
 }
 
-
-.dat {
-    text-align:center;
-    font-size: 20px;
-    font-family: 'poppins' sans-serif;
-}
 .download-app-buttons {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    margin: 20px 0 10px 0;
+
 }
 
 .download-app-buttons img {
     margin-left: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+
+
+}
+
+
+.imgs{
+    margin-left: 50px;
+}
+.download-app-buttons img:hover{
+    transform: scale(1.03);
+}
+
+.login-link {
+    text-decoration: none;
+    color:#f05462;
+}
+
+.or {
+    color:#f05462;
+    ;
 }
 
 a {
     text-decoration: none;
 }
 
+.link {
+    color: #0095F6;
+}
+
+.link1 {
+    color: #f05462;
+}
+
+.link1:hover{
+    transform: scale(1.03);
+}
+
+.cadre p{
+    font-family: 'poppins', sans-serif;
+    font-size: 15px;
+    color: #8b8b8b;
+
+}
+
+/*.cadre p{
+    border: 1px solid rgb(212, 211, 211);
+    width: 90%;
+    font-size: 13px;
+    font-weight: lighter;
+    border-radius: 3px;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: 5px;
+    margin-right: 20px;
+}
+
+*/
+label.container {
+    display: flex;
+    align-items: center;
+}
+
+label p {
+    margin:0 5px 0 0 ;
+}
+
 button{
-    transition: 1s;
+    transition: 0.3s;
 }
 
 button:hover,
 input[type="submit"]{
     cursor: pointer;
     transform: scale(1.1);
+    background-color: #f05462;
 }
 
 button:active {
     transform: scale(0.9);
+    background-color: #51e218;
+
 }

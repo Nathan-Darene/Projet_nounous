@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Users extends Model
+class Nounou extends Model
 {
     use HasFactory;
 
@@ -14,6 +14,8 @@ class Users extends Model
         'lastname',
         'firstname',
         'phone',
+        'birthdate',
+        /*'imageUpload',*/
         'city',
         'postalcode',
         'role',

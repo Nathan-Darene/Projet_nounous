@@ -15,9 +15,18 @@
                 <div class="login-card-header-image">
                     <img src="{{ asset ('Logo/8900808870_4aa536ff-86f5-4f1e-9429-0e0ace5a8068.png') }}" height="70" width="180">
                 </div>
-                <form action="" method="POST" class="login-card-form">
-                    <input type="text" placeholder="Numéro de téléphone, nom d'utilisateur ou...">
-                    <input type="password" placeholder="Mot de passe">
+                <form action="{{route('login-nounou')}}" method="POST" class="login-card-form">
+                    @if (Session::has('success'))
+                    <div class="botton-text alert alert-success"> {{Session::get('success') }}</div>
+                    @endif
+                    @if (Session::has('error'))
+                    <div class="botton-text alert alert-danger"> {{Session::get('error') }}</div>
+                    @endif
+                    @csrf
+                    <input type="email" placeholder="Adresse Email" name="email" value="{{old('email')}}">
+                    <span class="text-danger texte">@error('email') {{$message}} @enderror</span>
+                    <input type="password" placeholder="Mot de passe" name="password" value="{{old('password')}}">
+                    <span class="text-danger texte">@error('password') {{$message}} @enderror</span>
                     <button type="submit" class="login-form-button">Connexion</button>
                     <div class="login-or">
                         <hr class="login-or-first-separation">
@@ -31,11 +40,11 @@
                         </p>
                     </div>
                     <div class="forgot-password">
-                        <p><a href="{{('/reset')}}">Mot de passe oublié ?</a></p>
+                        <p><a href="{{('reset')}}">Mot de passe oublié ?</a></p>
                     </div>
                 </form>
                 <div class="login-card-footer">
-                    <p>Vous n'avez pas de compte ? <a href="/registration">s'inscrire</a></p>
+                    <p>Vous n'avez pas de compte ? <a href="{{('auth.inscription')}}">s'inscrire en tant que Nounou</a></p>
                 </div>
                 <div class="download-app">
                     <p>Téléchargez l'application.</p>
