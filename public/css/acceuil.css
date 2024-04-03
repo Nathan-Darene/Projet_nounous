@@ -131,6 +131,7 @@ nav ul li a {
     position: absolute;
     bottom: 0;
     right: 10%;
+    border-radius: 45%;
 }
 
 .feature-img.anim {

@@ -44,7 +44,7 @@
                     </div>
                 </form>
                 <div class="login-card-footer">
-                    <p>Vous n'avez pas de compte ? <a href="{{('auth.inscription')}}">s'inscrire en tant que Nounou</a></p>
+                    <p>Vous n'avez pas de compte ? <a href="{{('inscription')}}">s'inscrire en tant que Nounou</a></p>
                 </div>
                 <div class="download-app">
                     <p>Téléchargez l'application.</p>

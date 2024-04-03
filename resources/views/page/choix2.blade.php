@@ -52,6 +52,9 @@
             </div>
         </div>
     </div>
+    <div>
+        <p>Vous n'avez pas de compte ? <a href="{{asset('choix')}}" class="a2">Inscrivez-vous !</a></p>
+    </div>
 
 </body>
 

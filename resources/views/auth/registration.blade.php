@@ -8,7 +8,7 @@
     <!-- Titre de la page -->
     <title>Social Home - Inscription</title>
     <!-- Feuilles de style -->
-    <link rel="stylesheet" href="../test/fontawesome-free-6.5.1-web/css/all.min.css">
+    <link rel="stylesheet" href="fontawesome-free-6.5.1-web/css/all.min.css">
     <!-- Nouveau fichier CSS pour la page d'inscription -->
     <link rel="stylesheet" href="{{ asset('css/formulaire.css') }}">
     <link rel="stylesheet" href="{{asset('css/poppup.css')}}">
@@ -42,6 +42,9 @@
         <!-- Carte d'inscription -->
         <div class="main-card-login">
             <div class="login-card">
+                <div>
+                    <a href="{{asset('acceuil')}}"><i class="fa-solid fa-close"></i></a>
+                </div>
                 <!-- Logo -->
                 <div class="login-card-header-image" id="logo-section">
                     <img src="{{ asset('Logo/8900808870_4aa536ff-86f5-4f1e-9429-0e0ace5a8068.png') }}" alt="Logo"

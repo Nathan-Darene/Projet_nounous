@@ -10,9 +10,6 @@ use Illuminate\Http\Request;
 
 class AllController extends Controller
 {
-    public function page_parent(){
-        return view('page.page_parent');
-    }
     public function  acceuil(){
         return  view('page.acceuil');
     }
@@ -111,7 +108,7 @@ class AllController extends Controller
             'password' => 'required|string',
         ]);
 
-        $user =  Nounou::where('email', $request->email)->first();
+        $user =  Nounou::where('email', '=', $request->email)->first();
         if ($user){
             if(Hash::check($request->password, $user->password)){
                 $request->session()->put('loginId', $user->id);
@@ -178,27 +175,32 @@ class AllController extends Controller
             'password' => 'required|string',
         ]);
 
-        $user =  Users::where('email', $request->email)->first();
+        $user =  Users::where('email', '=', $request->email)->first();
         if ($user){
             if(Hash::check($request->password, $user->password)){
                 $request->session()->put('loginId', $user->id);
-                return view('page.page_parent');
             }
             else{
-                return back()->with('fail', 'Mots de oasse incorect');
+                return back()->with('fail', 'Mots de passe incorect');
             }
         }
         else{
             return back()->with('fail', 'Adresse email incorrect');
         }
 
+        $data = array();
+        if(Session::get('loginId')){
+            $data =  Users::where('id', '=',Session::get('loginId'))->first();
+        }
+        return view('page.page_parent', compact('data'));
+
 
     }
 
 
 
-    public function welcome(){
-        return view('page.page_user');
+    public function page_parent(){
+        return  view('page.page_parent');
     }
 
 }

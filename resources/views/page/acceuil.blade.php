@@ -24,7 +24,7 @@
                     <li><a href="{{asset('choix')}}" style="--1:5;">Inscription</a></li>
                 </ul>
                 <div>
-                    <a href="{{asset('choix')}}" style="--i:6;" class="login-btn" >Se connecter</a>
+                    <a href="{{asset('choix2')}}" style="--i:6;" class="login-btn" >Se connecter</a>
                     <a href="#" class="btn">Téléchargé l'App</a>
                 </div>
             </nav>

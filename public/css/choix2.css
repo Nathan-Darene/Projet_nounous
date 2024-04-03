@@ -110,6 +110,16 @@ body {
 }
 
 
+p .a2{
+    text-decoration: none;
+    color: #f05462;
+    transform: scale(1.03);
+}
+
+.a2:hover{
+    transform: scale(1.03);
+}
+
 button{
     transition: 0.3s;
 }

@@ -61,3 +61,6 @@ Route::get('/choix2',[AllController::class, 'choix2']);
 
 Route::get('/page_parent',[AllController::class, 'page_parent']);
 
+/*Deconnexion */
+
+Route::get('/logout',[AllController::class, 'logout']);

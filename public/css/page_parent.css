@@ -19,33 +19,14 @@ a {
 li {
     list-style: none;
 }
-.nbr {
-    color: black;
-}
 
 h1,
 h2 {
     color: #444;
 }
 
-.fa-star{
-    color: rgba(255, 255, 0, 1);
-}
-
 h3 {
     color: #999;
-}
-
-.img {
-    margin: 0 10px 0 10px;
-}
-
-.btn1 {
-    margin-right: 5px;
-}
-
-.username {
-    margin-left: 10px;
 }
 
 
@@ -81,9 +62,17 @@ td {
     padding: 8px;
 }
 
+
+.distance {
+    cursor: pointer;
+    color: #0095F6;
+
+}
+
+
 .side-menu {
     position: fixed;
-    background: #f05462;
+    background: #d8d8d8;
     width: 20vw;
     min-height: 100vh;
     display: flex;
@@ -96,7 +85,6 @@ td {
     align-items: center;
     justify-content: center;
 }
-
 .side-menu li {
     cursor: pointer;
     font-size: 24px;
@@ -105,11 +93,24 @@ td {
     display: flex;
     align-items: center;
 }
-
 .side-menu li:hover {
     background: white;
     color: #f05462;
 }
+
+.fa-phone{
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    transition: 0.5s;
+    font-size: 20px;
+}
+
+.fa-phone:hover{
+    color: #f05462;
+    transform: scale(1.3);
+    transition: 0.3s;
+}
+
 
 .container {
     position: absolute;
@@ -140,7 +141,6 @@ td {
 }
 
 .container .header .nav .search {
-    margin: 0;
     flex: 3;
     display: flex;
     justify-content: center;
@@ -151,10 +151,6 @@ td {
     background: #f1f1f1;
     padding: 10px;
     width: 50%;
-}
-
-.img-case {
-    margin-left: 15px;
 }
 
 .container .header .nav .search button {
@@ -176,6 +172,13 @@ td {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.nom {
+    font-size: 20px;
+    color: #f05462;
+    cursor: pointer;
+    margin: 0 10px 0 10px;
 }
 
 .container .header .nav .user img {
@@ -234,7 +237,7 @@ td {
 .container .content .content-2 .recent-payments {
     min-height: 50vh;
     flex: 5;
-    background: rgb(219, 217, 217);
+    background: white;
     margin: 0 25px 25px 25px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     display: flex;
@@ -256,7 +259,7 @@ td {
     width: 40px;
 }
 
-@media screen and (max-width: 1050px) {
+/*@media screen and (max-width: 1050px) {
     .side-menu li {
         font-size: 18px;
     }
@@ -280,18 +283,23 @@ td {
         border: 2px solid white;
         border-radius: 10px;
 
-        transition: transform 1s; /* Ajout de la propriété transform dans la transition */
+        transition: transform 1s;
         transform: translateY(
             -10px
-        ); /* Utilisation de translateY pour déplacer l'élément verticalement */
+        );
     }
 
     .logo {
         width: 130px;
     }
 }
+*/
+/*Etoille*/
+.fa-star{
+    color: rgba(255, 215, 0, 1);
+}
 
-@media screen and (max-width: 536px) {
+/*@media screen and (max-width: 536px) {
     .brand-name h1 {
         font-size: 16px;
     }
@@ -307,7 +315,6 @@ td {
         display: none;
     }
 
-
     .logo {
         width: 90px;
     }
@@ -315,7 +322,7 @@ td {
         color: #f05462;
     }
 }
-
+*/
 /*Animation*/
 @keyframes vibration {
     0%,

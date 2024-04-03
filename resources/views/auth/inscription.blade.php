@@ -9,12 +9,12 @@
     <title>Social Home - Inscription</title>
     <!-- Feuilles de style -->
     <link rel="icon" type="image/png" href="{{ asset('Logo/8900808870_4aa536ff-86f5-4f1e-9429-0e0ace5a8068.png') }}">
-    <link rel="stylesheet" href="../test/fontawesome-free-6.5.1-web/css/all.min.css">
+    <link rel="stylesheet" href="{{asset('fontawesome-free-6.5.1-web/css/all.min.css')}}">
     <!-- Nouveau fichier CSS pour la page d'inscription -->
     <link rel="stylesheet" href="{{ asset('css/formulaire.css') }}">
     <link rel="stylesheet" href="{{ asset('css/cheickbox.css') }}">
     <link rel="stylesheet" href="{{ asset('css/poppup.css') }}">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/6.5.1/css/font-awesome.min.css">
     <!-- Icône de la page -->
     <link rel="icon" type="image/png" href="../test/Logo/8900808870_4aa536ff-86f5-4f1e-9429-0e0ace5a8068.png">
     <style>
@@ -40,7 +40,11 @@
         </div>
         <!-- Carte d'inscription -->
         <div class="main-card-login">
+
             <div class="login-card">
+                <div>
+                    <a href="{{asset('acceuil')}}"><i class="fa-solid fa-close"></i></a>
+                </div>
                 <!-- Logo -->
                 <div class="login-card-header-image" id="logo-section">
                     <!--i class="fa-solid fa-close"></i-->
@@ -126,7 +130,7 @@
                     <footer>
                         <!-- Lien vers la page de connexion -->
                         <div class="signup-card-footer">
-                            <p>Vous avez déjà un compte ? <a href="{{asset('/auth/login')}}" id="login-link" class="login-link">Connectez-vous</a></p>
+                            <p>Vous avez déjà un compte ? <a href="{{asset('login_nounou')}}" id="login-link" class="login-link">Connectez-vous</a></p>
                         </div>
                         <!-- Section de téléchargement de l'application -->
                         <div class="download-app">
