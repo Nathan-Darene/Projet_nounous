@@ -13,7 +13,6 @@
 <body>
     <div class="main">
         <div class="main-card-login">
-            <i class="fa-solid fa-arrow-turn-up return"></i>
             <div class="login-card">
                 <div class="login-card-header-image">
                     <img src="{{ asset ('Logo/8900808870_4aa536ff-86f5-4f1e-9429-0e0ace5a8068.png') }}" height="70" width="180">
@@ -23,8 +22,8 @@
                     <div class="botton-text alert alert-success"> {{Session::get('success') }}</div>
                     @endif
 
-                    @if (Session::has('error'))
-                    <div class="botton-text alert alert-danger"> {{Session::get('error') }}</div>
+                    @if (Session::has('fail'))
+                    <div class="botton-text alert alert-danger"> {{Session::get('fail') }}</div>
                     @endif
                     @csrf
                     <span class="text-danger texte">@error('email') {{$message}} @enderror</span>

@@ -8,15 +8,21 @@
     <!-- Titre de la page -->
     <title>Social Home - Inscription</title>
     <!-- Feuilles de style -->
-    <link rel="icon" type="image/png" href="{{ asset('Logo/8900808870_4aa536ff-86f5-4f1e-9429-0e0ace5a8068.png') }}">
     <link rel="stylesheet" href="../test/fontawesome-free-6.5.1-web/css/all.min.css">
     <!-- Nouveau fichier CSS pour la page d'inscription -->
-    <link rel="stylesheet" href="{{ asset('css/connexion.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/formulaire.css') }}">
+    <link rel="stylesheet" href="{{asset('css/poppup.css')}}">
     <link rel="stylesheet" href="{{ asset('css/cheickbox.css') }}">
+
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <ink rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <!-- Icône de la page -->
     <link rel="icon" type="image/png" href="../test/Logo/8900808870_4aa536ff-86f5-4f1e-9429-0e0ace5a8068.png">
+    <style>
+        .disabled {
+            background-color: gray;
+            pointer-events: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -26,19 +32,31 @@
     </header>
     <!-- Contenu principal de la page -->
     <main class="main">
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <span class="close-popup" onclick="closePopup()">&times;</span>
+                <p>Bienvenue dans la famille !</p>
+            </div>
+        </div>
+
         <!-- Carte d'inscription -->
         <div class="main-card-login">
             <div class="login-card">
                 <!-- Logo -->
                 <div class="login-card-header-image" id="logo-section">
-                    <!--i class="fa-solid fa-close"></i-->
                     <img src="{{ asset('Logo/8900808870_4aa536ff-86f5-4f1e-9429-0e0ace5a8068.png') }}" alt="Logo"
                         height="70" width="180">
                 </div>
                 <!-- Formulaire d'inscription -->
                 <form class="login-card-form" action="{{route('register-user')}}" method="POST" id="registration-form">
 
-                @if (Session::has('success'))
+                    @if (Session::has('success'))
+                    <script>
+                        showPopup();
+                    </script>
+                    @endif
+
+                    @if (Session::has('success'))
                     <div class="botton-text alert alert-success"> {{Session::get('success') }}</div>
                     @endif
 
@@ -72,13 +90,12 @@
                     <span class="text-danger">@error('password') {{$message}} @enderror</span>
                     <!-- Champ de confirmation du mot de passe -->
                     <label class="container">
-                        <input type="checkbox" checked="checked" name="privacy_acceptance" ><p>Acceptez-vous les paramètres de confidentialité ?</p>
-
+                        <input type="checkbox" name="privacy_acceptance" id="privacy_acceptance">
+                        <p>Acceptez-vous les paramètres de confidentialité ?</p>
                         <div class="checkmark"></div>
                     </label>
                     <!-- Bouton d'inscription -->
-                    <!--input class="login-form-button" type="submit" placeholder="S'inscrire" id="register-button"-->
-                    <button type="submit" class="login-card-form-button login-form-button">Inscription</button>
+                    <button type="submit" class="login-card-form-button login-form-button disabled" id="register-button">Inscription</button>
                     <div class="login-or">
                         <hr class="login-or-first-separation">
                         <span>OU</span>
@@ -110,10 +127,12 @@
                         </div>
                     </footer>
                 </form>
-
             </div>
         </div>
     </main>
+
+
+    <script src="{{asset('js/check.js')}}"></script>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </html>

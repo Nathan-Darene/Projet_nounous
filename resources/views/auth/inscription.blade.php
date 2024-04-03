@@ -13,9 +13,16 @@
     <!-- Nouveau fichier CSS pour la page d'inscription -->
     <link rel="stylesheet" href="{{ asset('css/formulaire.css') }}">
     <link rel="stylesheet" href="{{ asset('css/cheickbox.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/poppup.css') }}">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <!-- Icône de la page -->
     <link rel="icon" type="image/png" href="../test/Logo/8900808870_4aa536ff-86f5-4f1e-9429-0e0ace5a8068.png">
+    <style>
+        .disabled {
+            background-color: gray;
+            pointer-events: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -25,6 +32,12 @@
     </header>
     <!-- Contenu principal de la page -->
     <main class="main">
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <span class="close-popup" onclick="closePopup()">&times;</span>
+                <p>Bienvenue dans la famille !</p>
+            </div>
+        </div>
         <!-- Carte d'inscription -->
         <div class="main-card-login">
             <div class="login-card">
@@ -36,6 +49,13 @@
                 </div>
                 <!-- Formulaire d'inscription -->
                 <form class="login-card-form" action="{{route('register-nounou')}}" method="POST" id="registration-form">
+
+                    @if (Session::has('success'))
+                    <script>
+                        showPopup();
+                    </script>
+                    @endif
+
                     @if (Session::has('success'))
                     <div class="botton-text alert alert-success"> {{Session::get('success') }}</div>
                     @endif
@@ -83,14 +103,14 @@
                     <input type="password" placeholder="Confirmez le mot de passe" name="confirm_password" value="{{old('confirm_password')}}">
                     <span class="text-danger texte">@error('confirm_password') {{$message}} @enderror</span>
                     <label class="container">
-                        <p>Acceptez les paramètres de confidentialité ?</p>
-                        <input type="checkbox" checked="checked" name="privacy_acceptance"value="{{old('privacy_acceptance')}}">
+                        <input type="checkbox" name="privacy_acceptance" id="privacy_acceptance">
+                        <p>Acceptez-vous les paramètres de confidentialité ?</p>
                         <div class="checkmark"></div>
                     </label>
                     <span class="text-danger texte">@error('privacy_acceptance') {{$message}} @enderror</span>
                     <!-- Bouton d'inscription -->
                     <!--input class="login-form-button" type="submit" placeholder="S'inscrire" id="register-button"-->
-                    <button type="submit" class="login-card-form-button login-form-button">Inscription</button>
+                    <button type="submit" class="login-card-form-button login-form-button disabled" id="register-button">Inscription</button>
                     <div class="login-or">
                         <hr class="login-or-first-separation">
                         <span>OU</span>
@@ -125,6 +145,7 @@
         </div>
     </main>
     <script src="{{ asset('/js/photo.js')}}"></script>
+    <script src="{{ asset('/js/check.js')}}"></script>
 </body>
 
 </html>

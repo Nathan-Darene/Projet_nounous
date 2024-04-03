@@ -57,3 +57,7 @@ Route::get('/message',[AllController::class, 'message']);
 Route::get('/choix2',[AllController::class, 'choix2']);
 
 
+Route::get('/choix2',[AllController::class, 'choix2']);
+
+Route::get('/page_parent',[AllController::class, 'page_parent']);
+
