@@ -1,0 +1,17 @@
+/* Barre de défilement pour les navigateurs WebKit */
+.scrollable::-webkit-scrollbar {
+    width: 5px; /* Largeur de la barre de défilement */
+}
+
+.scrollable::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Couleur de l'arrière-plan de la piste */
+}
+
+.scrollable::-webkit-scrollbar-thumb {
+    background: #f05462; /* Couleur de la poignée de la barre de défilement */
+    border-radius: 5px; /* Bordure arrondie de la poignée */
+}
+
+.scrollable::-webkit-scrollbar-thumb:hover {
+    background: #0095F6; /* Couleur de la poignée au survol */
+}

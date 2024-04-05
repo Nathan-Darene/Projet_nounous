@@ -1,0 +1,45 @@
+/* Smartphones (portrait et paysage) ----------- */
+@media only screen and (max-width : 768px) {
+    .side-menu {
+        width: 100%;
+        min-width: 100%;
+        max-width: 100%;
+        position: relative;
+    }
+    .container {
+        width: 100%;
+        min-width: 100%;
+        max-width: 100%;
+        position: relative;
+    }
+    .container .header {
+        width: 100%;
+        min-width: 100%;
+        max-width: 100%;
+        position: relative;
+    }
+    .container .header .nav .search input[type="text"] {
+        width: 70%;
+    }
+}
+
+/* Tablettes (portrait et paysage) ----------- */
+@media only screen and (min-width : 768px) and (max-width : 1024px) {
+    .side-menu {
+        width: 50%;
+    }
+    .container {
+        width: 50%;
+    }
+    .container .header {
+        width: 50%;
+    }
+    .container .header .nav .search input[type="text"] {
+        width: 50%;
+    }
+}
+
+/* Styles supplémentaires pour les tablettes en mode paysage */
+@media only screen and (min-width : 768px) and (max-width : 1024px) and (orientation : landscape) {
+    /* Ajoutez des styles supplémentaires ici */
+}

@@ -36,6 +36,6 @@ class CreateNounouTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('nounou');
+        Schema::dropIfExists('nounous');
     }
 }

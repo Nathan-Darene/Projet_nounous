@@ -134,14 +134,9 @@
                     </div>
                     <div class="user">
                         <a href="#"><img src="img/notifications.png" class="img"></a>
-                        @if($data ?? '')
-                            <span class="nom">{{$data['username']}}</span>
-                        @endif
+                        <span class="nom">user</span>
                         <div class="img-case">
-                            @if($data ?? '')
-                                <img src="uploads/{{ $data['imageUpload'] }}" alt="">
-                            @endif
-                            <!--span class="nom"></!--span--->
+                            <img src="img/user.png" alt="">
                         </div>
                     </div>
                 </div>
@@ -149,7 +144,19 @@
 
             <section class="affichage">
                 <div class="nounou-affiche">
-
+                    <div>
+                        <div class="img-nounou">
+                            <img src="img/nounou.png" alt="">
+                        </div>
+                        <div class="info-nounou">
+                            <div class="nom-nounou">
+                                <h3><NAME></h3>
+                            </div>
+                            <div class="exp-nounou">
+                                <p>Etude</p>
+                            </div>
+                        </div>
+                    </div>
                     </div>
                 </div>
             </section>
@@ -159,7 +166,6 @@
     <!-- select2 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
     <!-- jQuery -->
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="{{ asset('js/profil.js') }}"></script>
     <script src="{{ asset('js/message.js') }}"></script>

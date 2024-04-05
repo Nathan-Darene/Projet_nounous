@@ -1,0 +1,173 @@
+/* Ajoutez ces règles à votre fichier CSS */
+
+/* Styles généraux */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    color: var(--primary);
+    background-color: var(--neutral-lightest);
+}
+
+/* Styles pour la section side-menu */
+
+.side-menu {
+    position: fixed;
+    background: #ffffff;
+    width: 100%; /* Pleine largeur */
+    max-width: 320px; /* Limite de largeur */
+    padding: 20px; /* Marge intérieure */
+    overflow-y: auto; /* Défilement vertical si nécessaire */
+}
+
+.side-menu .filter-box,
+.side-menu .local-distance,
+.side-menu .Exp {
+    margin-bottom: 20px; /* Espacement entre les éléments */
+}
+
+.side-menu .filter-box select,
+.side-menu .Exp select {
+    width: 100%; /* Pleine largeur */
+}
+
+.side-menu .local-distance input[type="range"] {
+    width: 100%; /* Pleine largeur */
+}
+
+.side-menu .btn {
+    width: 100%; /* Pleine largeur */
+}
+
+/* Styles pour la section affichage-nounou */
+
+.affichage-nounou .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.affichage-nounou .header {
+    width: 100%;
+    max-width: 600px; /* Limite de largeur */
+    margin-bottom: 20px; /* Espacement en bas */
+}
+
+.affichage-nounou .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px; /* Espacement en bas */
+}
+
+.affichage-nounou .search input[type="text"] {
+    width: 70%; /* Largeur ajustable */
+}
+
+.affichage-nounou .user {
+    display: flex;
+    align-items: center;
+}
+
+.affichage-nounou .user .nom {
+    margin-right: 10px; /* Espacement à droite */
+}
+
+.affichage-nounou .user .img {
+    width: 40px; /* Taille de l'image */
+    height: 40px; /* Taille de l'image */
+    border-radius: 50%; /* Forme circulaire */
+    margin-right: 10px; /* Espacement à droite */
+}
+
+/* Media queries pour la responsivité */
+
+@media screen and (max-width: 768px) {
+    .side-menu {
+        width: 100%; /* Pleine largeur */
+        max-width: none; /* Aucune limite de largeur */
+    }
+
+    .affichage-nounou .container .header,
+    .affichage-nounou .container .nav {
+        flex-direction: column; /* Empilage vertical */
+        align-items: flex-start; /* Alignement à gauche */
+    }
+
+    .affichage-nounou .search input[type="text"] {
+        width: 100%; /* Pleine largeur */
+    }
+
+    .affichage-nounou .user .nom {
+        margin: 0; /* Suppression des marges */
+    }
+}
+
+/* Ajoutez ces règles à votre fichier CSS */
+
+/* Media queries pour les appareils mobiles */
+@media screen and (max-width: 576px) {
+    .side-menu {
+        width: 100%;
+        max-width: none;
+    }
+
+    .affichage-nounou .container .header,
+    .affichage-nounou .container .nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .affichage-nounou .search input[type="text"] {
+        width: 100%;
+    }
+
+    .affichage-nounou .user .nom {
+        margin: 10px 0; /* Ajout de marges en haut et en bas */
+    }
+}
+
+
+
+/* Ajoutez ces règles à votre fichier CSS */
+
+/* Media query pour les petits écrans */
+@media only screen and (max-width: 576px) {
+    .side-menu {
+        width: 100%;
+        max-width: none;
+    }
+
+    .affichage-nounou .container .header .nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .affichage-nounou .search input[type="text"] {
+        width: 100%;
+    }
+
+    .affichage-nounou .user .nom {
+        margin: 10px 0;
+    }
+}
+
+/* Media query pour les écrans de taille moyenne */
+@media only screen and (min-width: 576px) and (max-width: 992px) {
+    .side-menu {
+        width: 50%;
+    }
+}
+
+/* Media query pour les grands écrans */
+@media only screen and (min-width: 992px) {
+    .side-menu {
+        width: 30%;
+    }
+}

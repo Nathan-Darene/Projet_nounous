@@ -1,54 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>n</title>
+    <title>Document</title>
+    <style>
+        .toggle-switch {
+    position: relative;
+    display: inline-block; /* Assurez-vous que la bascule de commutation est un élément en ligne */
+    vertical-align: middle; /* Alignement vertical au milieu */
+}
+
+.switch {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: red;
+    border-radius: 34px;
+    transition: background-color 0.3s;
+    width: 60px; /* Largeur de la bascule */
+    height: 34px; /* Hauteur de la bascule */
+}
+
+.switch:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+
+.checkbox:checked + .label-text .switch {
+    background-color: #23fc1c; /* Couleur de fond lorsque la case à cocher est activée */
+}
+
+.checkbox:checked + .label-text .switch:before {
+    transform: translateX(26px); /* Décalage de la bascule lorsque la case à cocher est activée */
+}
+
+.checkbox {
+    display: none; /* Masquer la case à cocher par défaut */
+}
+
+    </style>
 </head>
-
 <body>
-    <form>
-        <div class="filter-box">
-            <div class="filter-name">Ma recherche</div>
-            <div class="filter-select">
-                <select>
-                    <option>Type de service</option>
-                    <option value="assistante_maternelle">Assistante maternelle (garde les enfants chez elle uniquement)</option>
-                    <option value="nounou">Nounou ou baby-sitter (garde au domicile des parents)</option>
-                    <option value="tous_types_nounou">Tous les types de nounou</option>
-                </select>
-            </div>
-            <div class="filter-select">
-                <select>
-                    <option value="">Choix de la garde</option>
-                    <option value="garde_occasionnelle">Garde occasionnelle</option>
-                    <option value="temps_partiel">Temps partiel (Sortie d'école, etc.)</option>
-                    <option value="plein_temps">Plein temps</option>
-                    <option value="tous_types_garde">Tous les types de garde</option>
-                </select>
-                <label for="distance">Distance de recherche :</label>
-                <input type="range" id="distance" name="distance" min="1" max="100" value="50"
-                    oninput="updateDistance(this.value)">
-                <div><span id="distanceValue">50 </span>km</div>
-            </div>
+    <div class="plus">
+        <div class="box">
+            <input type="checkbox" name="" id="checkbox1" class="checkbox">
+            <label for="checkbox1" class="label-text toggle-switch">
+                <strong>La nounou est véhiculé(é) <i class="fa-solid fa-car"></i></strong>
+                <div class="switch"></div>
+            </label>
         </div>
+        <!-- Ajoutez les autres cases à cocher ici -->
+    </div>
 
-        <label for="adresse">Adresse :</label>
-        <input type="text" id="adresse" name="adresse" placeholder="Entrez votre adresse" style="color: red;">
-    </form>
-
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCztRpaXkxh9IhAns4buznZi1eAnXKj_fA&signed_in=true&libraries=places&callback=initAutocomplete" type="ad94cb3f7edd7cce22053fb5-text/javascript"></script>
-    <script src="/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="ad94cb3f7edd7cce22053fb5-|49" defer></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317" integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA==" data-cf-beacon='{"rayId":"86e9734d5e3673d5","version":"2024.3.0","token":"99d424006f154c9399a7b5f019b29c3d"}' crossorigin="anonymous"></script>
-    <script>
-        var input = document.getElementById('adresse');
-        var autocomplete = new google.maps.places.Autocomplete(input);
-    </script>
-    <script>
-        function updateDistance(value) {
-            document.getElementById('distanceValue').textContent = value;
-        }
-    </script>
 </body>
-
 </html>

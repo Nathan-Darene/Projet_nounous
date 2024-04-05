@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="{{ asset('css/poppup.css') }}">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/6.5.1/css/font-awesome.min.css">
     <!-- Icône de la page -->
-    <link rel="icon" type="image/png" href="../test/Logo/8900808870_4aa536ff-86f5-4f1e-9429-0e0ace5a8068.png">
+    <link rel="icon" type="image/png" href="Logo/8900808870_4aa536ff-86f5-4f1e-9429-0e0ace5a8068.png">
     <style>
         .disabled {
             background-color: gray;
@@ -52,7 +52,7 @@
                         height="70" width="180">
                 </div>
                 <!-- Formulaire d'inscription -->
-                <form class="login-card-form" action="{{route('register-nounou')}}" method="POST" id="registration-form">
+                <form class="login-card-form" action="{{route('register-nounou')}}" method="POST" id="registration-form" enctype="multipart/form-data">
 
                     @if (Session::has('success'))
                     <script>
@@ -86,10 +86,10 @@
                     </div>
                     <input type="date" placeholder="Date de naissance" name="birthdate" value="{{old('birthdate')}}">
                     <span class="text-danger texte">@error('birthdate') {{$message}} @enderror</span>
-                    <!-- Champ pour la photo de profile -->
-                    <!--p class="par">Ajoutez votre photo d'identité</!--p>
+                    <!--Champ pour la photo de profile-->
+                    <p class="par">Ajoutez votre photo d'identité</p>
                     <input type="file" id="imageUpload" name="imageUpload" accept="image/*" onchange="previewImage(event)" class="photo" value="{/*{old('imageUpload')}}"-->
-                    <!--span class="text-danger texte">@/*error('imageUpload') {/*{$message}} @/*enderror</!--span>
+                    <span class="text-danger texte">@error('imageUpload') {{$message}} @enderror</span>
                     <div-- id="imagePreview" class="imgs"></div-->
                     <!-- Champ pour la ville -->
                     <input type="text" placeholder="Ville" name="city" value="{{old('city')}}">
