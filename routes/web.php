@@ -30,6 +30,7 @@ Route::get('/login_nounou',[AllController::class, 'login_nounou']);
 /*Inscriptio get */
 Route::get('/registration',[AllController::class, 'registration']);
 Route::get('/inscription',[AllController::class, 'inscription']);
+Route::get('/profile',[AllController::class, 'profile']);
 
 
 /*Inscription post */
@@ -39,6 +40,11 @@ Route::post('/register-nounou',[AllController::class, 'registerNounou'])->name (
 /*Connexion post */
 Route::post('/login-user',[AllController::class, 'loginUser'])->name ('login-user');
 Route::post('/login-nounou',[AllController::class, 'loginNounou'])->name ('login-nounou');
+
+/*Affichage des donnée sur la page de l'utilisateur */
+Route::get('/AfficheProfileNounou',[AllController::class, 'AfficheProfileNounou'])->name ('AfficheProfileNounou');
+
+
 
 
 
@@ -60,6 +66,7 @@ Route::get('/choix2',[AllController::class, 'choix2']);
 Route::get('/choix2',[AllController::class, 'choix2']);
 
 Route::get('/page_parent',[AllController::class, 'page_parent']);
+
 
 /*Deconnexion */
 

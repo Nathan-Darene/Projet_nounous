@@ -334,7 +334,7 @@ input[type="range"]{
     align-items: center;
 }
 
-.nom {
+.nom a {
     font-size: 20px;
     color: #f05462;
     cursor: pointer;

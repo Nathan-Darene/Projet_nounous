@@ -147,6 +147,17 @@ class AllController extends Controller
         }
         return view('page/page_parent', compact('data'));
 
+
+
+    }
+
+    /*Affichage des donnée sur la page de l'utilisateur */
+    public function AfficheProfileNounou(Request $request){
+        $data1 = array();
+        if(Session::get('loginId')){
+        $data1 =  Nounou::where('id', '=',Session::get('loginId'))->first();
+        }
+        return view('page/profile', compact('data1'));
     }
 
 /*###############################################################################" */
@@ -219,12 +230,23 @@ class AllController extends Controller
         }
         return view('page/page_parent', compact('data'));
 
+        /*Affichage des donnée sur la page de l'utilisateur */
+        $data1 = array();
+        if(Session::get('loginId')){
+            $data1 =  Users::where('id', '=',Session::get('loginId'))->first();
+        }
+        return view('page/profile', compact('data'));
+
     }
 
 
 
     public function page_parent(){
         return  view('page/page_parent');
+    }
+
+    public function profile(){
+        return  view('page/profile');
     }
 
 }

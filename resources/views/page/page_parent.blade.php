@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="{{ asset('fontawesome-free-6.5.1-web/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/page_parent.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link rel="stylesheet" href="{{asset('css/scrolbare.css')}}">
-    <link rel="stylesheet" href="{{asset('css/screen.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/scrolbare.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/screen.css') }}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
     <title> Social Home</title>
 </head>
@@ -120,6 +120,7 @@
                         </div>
                     </div>
                     <button type="submit" class="btn">Rechercher les profils disponible</button>
+                </div>
             </form>
         </div>
     </section>
@@ -134,12 +135,13 @@
                     </div>
                     <div class="user">
                         <a href="#"><img src="img/notifications.png" class="img"></a>
-                        @if($data ?? '')
-                            <span class="nom">{{$data['username']}}</span>
+                        @if ($data ?? '')
+                            <i class="fa-solid fa-user-check"></i><span class="nom"><a href="{{ route('AfficheProfileNounou') }}">{{ $data['username'] }}</a></span>
                         @endif
                         <div class="img-case">
-                            @if($data ?? '')
-                                <img src="uploads/{{ $data['imageUpload'] }}" class="profil" alt="photo de profil de {{$data['username']}}" >
+                            @if ($data ?? '')
+                                <img src="uploads/{{ $data['imageUpload'] }}" class="profil"
+                                    alt="photo de profil de {{ $data['username'] }}">
                             @endif
                             <!--span class="nom"></!--span--->
                         </div>
@@ -150,10 +152,10 @@
             <section class="affichage_profil">
                 <div class="nounou-affiche">
 
-                    </div>
                 </div>
-            </section>
         </div>
+    </section>
+    </div>
     </section>
 
     <!-- select2 -->
