@@ -11,13 +11,13 @@
     <link rel="stylesheet" href="{{asset('css/scrolbare.css')}}">
     <link rel="stylesheet" href="{{asset('css/screen.css')}}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
-    <title>Social Home</title>
+    <title> Social Home</title>
 </head>
 
 <body>
     <section class="side-menu scrollable">
         <div class="side-menu-block">
-            <h2 class="search_ title">RECHERCHE<i class="fa-solid fa-magnifying-glass"></i></h2>
+            <h2 class="search_ title">RECHERCHE <i class="fa-solid fa-magnifying-glass"></i></h2>
             <form action="" method="" class="filters">
                 <div class="filter-box">
                     <button type="button" class="close-btn"></button>
@@ -48,7 +48,7 @@
                     </div>
 
                     <div class="local-distance">
-                        <label for="distance" class="dist1">Distance de recherche <i
+                        <label for="distance" class="dist1">Distance<i
                                 class="fa-solid fa-map-location-dot local1"></i></label>
                         <input type="range" id="distance" name="distance" min="1" max="500"
                             value="10" oninput="updateDistance(this.value)" class="distance">
@@ -139,7 +139,7 @@
                         @endif
                         <div class="img-case">
                             @if($data ?? '')
-                                <img src="uploads/{{ $data['imageUpload'] }}" alt="">
+                                <img src="uploads/{{ $data['imageUpload'] }}" class="profil" alt="photo de profil de {{$data['username']}}" >
                             @endif
                             <!--span class="nom"></!--span--->
                         </div>
@@ -147,7 +147,7 @@
                 </div>
             </div>
 
-            <section class="affichage">
+            <section class="affichage_profil">
                 <div class="nounou-affiche">
 
                     </div>
@@ -165,6 +165,7 @@
     <script src="{{ asset('js/message.js') }}"></script>
     <script src="{{ asset('js/distance.js') }}"></script>
     <script src="{{ asset('js/icon.js') }}"></script>
+    <script src="{{ asset('js/affichage.js') }}"></script>
 </body>
 
 </html>

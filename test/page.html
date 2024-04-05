@@ -4,64 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        .toggle-switch {
-    position: relative;
-    display: inline-block; /* Assurez-vous que la bascule de commutation est un élément en ligne */
-    vertical-align: middle; /* Alignement vertical au milieu */
-}
-
-.switch {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: red;
-    border-radius: 34px;
-    transition: background-color 0.3s;
-    width: 60px; /* Largeur de la bascule */
-    height: 34px; /* Hauteur de la bascule */
-}
-
-.switch:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    border-radius: 50%;
-    transition: transform 0.3s;
-}
-
-.checkbox:checked + .label-text .switch {
-    background-color: #23fc1c; /* Couleur de fond lorsque la case à cocher est activée */
-}
-
-.checkbox:checked + .label-text .switch:before {
-    transform: translateX(26px); /* Décalage de la bascule lorsque la case à cocher est activée */
-}
-
-.checkbox {
-    display: none; /* Masquer la case à cocher par défaut */
-}
-
-    </style>
 </head>
 <body>
-    <div class="plus">
-        <div class="box">
-            <input type="checkbox" name="" id="checkbox1" class="checkbox">
-            <label for="checkbox1" class="label-text toggle-switch">
-                <strong>La nounou est véhiculé(é) <i class="fa-solid fa-car"></i></strong>
-                <div class="switch"></div>
-            </label>
-        </div>
-        <!-- Ajoutez les autres cases à cocher ici -->
-    </div>
-
+    
 </body>
 </html>
