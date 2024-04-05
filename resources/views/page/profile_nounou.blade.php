@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{{ asset('fontawesome-free-6.5.1-web/css/all.min.css') }}">
 
-    <title>Profile de {{ $data1['username'] }}</title>
+    <title>Profile de {{ $data['username'] }}</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
     <!-- CSS -->
@@ -15,25 +15,26 @@
 </head>
 
 <body>
+
     <div class="header__wrapper">
         <header></header>
         <form action="" method="post">
             <div class="cols__container">
                 <div class="left__col">
                     <div class="img__container">
-                    @if ($data1 ?? '')
-                        <img src="uploads/{{ $data1['imageUpload'] }}" alt="{{ $data1['username'] }}" />
+                    @if ($data ?? '')
+                        <img src="uploads/{{ $data['imageUpload'] }}" alt="{{ $data['username'] }}" />
                     @endif
                         <span></span>
                     </div>
-                @if ($data1 ?? '')
-                    <h2>${{ $data1['username'] }}</h2>
-                    <p>{{ $data1['firstname'] }} {{ $data1['lastname'] }}</p>
-                    <p>{{ $data1['phone'] }}</p>
-                    <p>{{ $data1['city'] }}</p>
-                    <p>{{ $data1['postalcode'] }}</p>
-                    <p>{{ $data1['email'] }}</p>
-                    <p>{{ $data1['Fonction'] }}</p>
+                @if ($data ?? '')
+                    <h2>{{ $data['username'] }}</h2>
+                    <p>{{ $data['firstname'] }} {{ $data['lastname'] }}</p>
+                    <p>{{ $data['phone'] }}</p>
+                    <p>{{ $data['city'] }}</p>
+                    <p>{{ $data['postalcode'] }}</p>
+                    <p>{{ $data['email'] }}</p>
+                    <p>{{ $data['Fonction'] }}</p>
                 @endif
 
                     <ul class="about">
@@ -46,8 +47,8 @@
                         <h2>Recherche Enfant à garder . Nounou dévouée</h2>
                         @if ($data1 ?? '')
                         <p>
-                            Je m’appelle <strong>{{$data1['firstname'] }}</strong> , j’ai <strong>{{$data1['Age'] }} </strong>je suis étudiante en licence
-                            Langues Étrangères Appliquées, à L’université Lyon 2 et je reside a <strong>{{ $data1['city'] }}</strong>.
+                            Je m’appelle <strong>{{$data1['firstname'] }}</strong> , j’ai <strong>{{$data1['age'] }} </strong>je suis étudiante en licence
+                            Langues Étrangères Appliquées, à L’université Lyon 2 .
                             Je recherche un job étudiant pour le permettre de faire
                             un peu d’économies étant loin de mes parants, notamment dans la garde d’enfants .
                             Je suis issu d’une famille de 7 frères et sœurs .
@@ -64,9 +65,8 @@
                 <div class="right__col">
                     <nav>
                         <ul>
-                            <li><a href="">Home</a></li>
                             <li><a href="">Profil</a></li>
-                            <li><a href="">Reservation</a></li>
+                            <li><a href="">galleries</a></li>
                             <li><a href="">groups</a></li>
                             <li><a href="">about</a></li>
                         </ul>

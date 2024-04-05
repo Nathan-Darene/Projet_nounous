@@ -240,6 +240,15 @@ input[type="range"]{
 /*Section 2*/
 
 
+/*.container {
+    position: absolute;
+    display: flex;
+    right: 0;
+    width: 70vw;
+    height: 100vh;
+    background: #d1d1d1;
+}*/
+
 .container {
     position: absolute;
     display: flex;
@@ -247,6 +256,9 @@ input[type="range"]{
     width: 70vw;
     height: 100vh;
     background: #d1d1d1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .container .header {
@@ -266,7 +278,7 @@ input[type="range"]{
 }
 
 
-.container .headers{
+.container .header{
     top: 0;
     right: 0;
     width: 50vw;
@@ -362,10 +374,20 @@ input[type="range"]{
 }
 
 .container .content {
-    position: relative;
-    margin-top: 10vh;
-    min-height: 90vh;
-    background: #f1f1f1;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20%;
+    margin-left: 20px;
+    height:100px;
+   /* background: #15a810;*/
+}
+
+
+.container .content .nounou-affiche{
+    border: 1px solid #444;
+    margin-left: 20px;
+    align-items: center;
+
 }
 
 .container .content .cards {

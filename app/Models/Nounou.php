@@ -15,6 +15,7 @@ class Nounou extends Model
         'firstname',
         'phone',
         'birthdate',
+        /*'Age',*/
         'imageUpload',
         'city',
         'postalcode',

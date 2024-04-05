@@ -99,6 +99,7 @@
                                 </div>
                             </label>
                         </div>
+                        <!--Ajoute des paragraphe-->
 
                         <div class="box">
                             <label for="" class="label-text">
@@ -118,45 +119,99 @@
                                 </div>
                             </label>
                         </div>
+                        </->
+                        <button type="submit" class="btn">Rechercher les profils disponible</button>
                     </div>
-                    <button type="submit" class="btn">Rechercher les profils disponible</button>
-                </div>
             </form>
         </div>
     </section>
 
-    <section class="affichage-nounou container">
-        <div class="container">
-            <div class="header">
-                <div class="nav">
-                    <div class="search">
-                        <input type="text" placeholder="Recherche..">
-                        <button type="submit" class="btn1"><i class="fas fa-search"></i></button>
-                    </div>
-                    <div class="user">
-                        <a href="#"><img src="img/notifications.png" class="img"></a>
-                        @if ($data ?? '')
-                            <i class="fa-solid fa-user-check"></i><span class="nom"><a href="{{ route('AfficheProfileNounou') }}">{{ $data['username'] }}</a></span>
-                        @endif
+    <section class="container">
+        <div class="header">
+             <div class="nav">
+                <div class="search">
+                    <input type="text" placeholder="Recherche..">
+                    <button type="submit" class="btn1"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="user">
+                    <a href="#"><img src="img/notifications.png" class="img"></a>
+                    @if ($data ?? '')
+                        <i class="fa-solid fa-user-check"></i><span class="nom"><a href="{{ route('AfficheProfileUser') }}">{{ $data['username'] }}</a></span>
                         <div class="img-case">
-                            @if ($data ?? '')
-                                <img src="uploads/{{ $data['imageUpload'] }}" class="profil"
-                                    alt="photo de profil de {{ $data['username'] }}">
-                            @endif
-                            <!--span class="nom"></!--span--->
+                            <img src="uploads/{{ $data['imageUpload'] }}" class="profil" alt="photo de profil de {{ $data['username'] }}">
                         </div>
-                    </div>
+                    @endif
+                </div>
+            </div>
+        </div>
+
+        <div class="error"><span>message</span></div>
+
+        <div class="content">
+            <div class="nounou-affiche">
+                <div class="nounou">
+                    <img src="" alt="">
+                    <h2>username</h2>
+                    <p>Ville</p>
+                    <p>description</p>
+                    <p>prix/heure</p>
+                    <p>Statut</p>
+                    <p>Disponibilité</p>
                 </div>
             </div>
 
-            <section class="affichage_profil">
-                <div class="nounou-affiche">
-
+            <div class="nounou-affiche">
+                <div class="nounou">
+                    <img src="" alt="">
+                    <h2>username</h2>
+                    <p>Ville</p>
+                    <p>description</p>
+                    <p>prix/heure</p>
+                    <p>Statut</p>
+                    <p>Disponibilité</p>
                 </div>
-        </div>
+            </div>
+
+            <div class="nounou-affiche">
+                <div class="nounou">
+                    <img src="" alt="">
+                    <h2>username</h2>
+                    <p>Ville</p>
+                    <p>description</p>
+                    <p>prix/heure</p>
+                    <p>Statut</p>
+                    <p>Disponibilité</p>
+                </div>
+            </div>
+
+            <div class="nounou-affiche">
+                 <div class="nounou">
+                    <img src="" alt="">
+                    <h2>username</h2>
+                    <p>Ville</p>
+                    <p>description</p>
+                    <p>prix/heure</p>
+                    <p>Statut</p>
+                    <p>Disponibilité</p>
+                </div>
+            </div>
+
+            <div class="nounou-affiche">
+                <div class="nounou">
+                    <img src="" alt="">
+                    <h2>username</h2>
+                    <p>Ville</p>
+                    <p>description</p>
+                    <p>prix/heure</p>
+                    <p>Statut</p>
+                    <p>Disponibilité</p>
+                </div>
+            </div>
+            </div>
     </section>
-    </div>
-    </section>
+
+
+
 
     <!-- select2 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>

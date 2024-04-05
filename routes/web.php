@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AllController;
+use App\Http\Controllers\ProfilController;
+
+
 
 
 /*
@@ -43,8 +46,14 @@ Route::post('/login-nounou',[AllController::class, 'loginNounou'])->name ('login
 
 /*Affichage des donnée sur la page de l'utilisateur */
 Route::get('/AfficheProfileNounou',[AllController::class, 'AfficheProfileNounou'])->name ('AfficheProfileNounou');
+Route::get('/AfficheProfileUser',[AllController::class, 'AfficheProfileUser'])->name ('AfficheProfileUser');
 
 
+Route::get('/Recherche',[AllController::class, 'Recherche'])->name ('Recherche');
+
+
+
+Route::get('/profile', [ProfilController::class,'ProfileController'])->name('profile-show');
 
 
 
@@ -66,6 +75,8 @@ Route::get('/choix2',[AllController::class, 'choix2']);
 Route::get('/choix2',[AllController::class, 'choix2']);
 
 Route::get('/page_parent',[AllController::class, 'page_parent']);
+
+Route::get('/page_user',[AllController::class, 'page_user']);
 
 
 /*Deconnexion */

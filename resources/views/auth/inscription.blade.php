@@ -86,6 +86,9 @@
                     </div>
                     <input type="date" placeholder="Date de naissance" name="birthdate" value="{{old('birthdate')}}">
                     <span class="text-danger texte">@error('birthdate') {{$message}} @enderror</span>
+
+                    <input type="text" placeholder="Votre Age" name="Age" value="{{old('Age')}}">
+                    <span class="text-danger texte">@error('Age') {{$message}} @enderror</span>
                     <!--Champ pour la photo de profile-->
                     <p class="par">Ajoutez votre photo d'identité</p>
                     <input type="file" id="imageUpload" name="imageUpload" accept="image/*" onchange="previewImage(event)" class="photo" value="{/*{old('imageUpload')}}"-->

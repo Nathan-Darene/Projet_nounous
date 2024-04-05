@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="{{ asset ('https://cdnjs.cloudflare.com/ajax/libs/fontawesome-6.5.1-beta3/css/all.min.css')}}">
         <!--link rel="stylesheet" href="acceuil.css" /-->
         <link rel="stylesheet" href="{{ asset('css/acceuil.css') }}">
-        <title>Baby</title>
+        <title>Social Home</title>
     </head>
 
     <body>

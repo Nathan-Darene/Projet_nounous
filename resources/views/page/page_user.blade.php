@@ -41,11 +41,13 @@
                 </div>
                 <div class="user">
                     <!--a href="#" class="btn">Add New</!--a-->
+                    @if ($data ?? '')
                     <a href="#"><img src="img/notifications.png" class="img"></a>
-                    <span class="nom">username</span>
+                    <span class="nom"><a href="{{ route('AfficheProfileNounou') }}">{{ $data['username'] }}</a></span>
                     <div class="img-case">
-                        <img src="img/user.png" alt="">
+                        <a href="{{ route('AfficheProfileNounou') }}"><img src="uploads/{{ $data['imageUpload'] }}" alt="{{ $data['username'] }}" alt=""></a>
                     </div>
+                    @endif
                 </div>
             </div>
         </div>
