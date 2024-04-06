@@ -143,3 +143,45 @@ button:active {
  {
     background-color: #f05462;
  }
+
+/* Styles pour les écrans de 920px de largeur ou moins */
+@media screen and (max-width: 915px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+     }
+}
+
+/*
+
+@media screen and (max-width: 940px) {
+    .side-menu li span {
+        display: none;
+    }
+    .side-menu {
+        align-items: center;
+    }
+    .side-menu li img {
+        width: 40px;
+        height: 40px;
+    }
+    .side-menu li:hover {
+        background: white;
+        color: #f05462;
+        padding: 8px 38px;
+        border: 2px solid white;
+        border-radius: 10px;
+
+        transition: transform 1s;
+        transform: translateY(
+            -10px
+        );
+    }
+
+    .logo {
+        width: 130px;
+    }
+}
+*/

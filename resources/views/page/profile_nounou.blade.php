@@ -11,7 +11,7 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
     <!-- CSS -->
-    <link rel="stylesheet" href="{{ asset('css/profil.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/profil_nounou.css') }}" />
 </head>
 
 <body>
@@ -45,10 +45,10 @@
 
                     <div class="content">
                         <h2>Recherche Enfant à garder . Nounou dévouée</h2>
-                        @if ($data1 ?? '')
+                        @if ($data ?? '')
                         <p>
-                            Je m’appelle <strong>{{$data1['firstname'] }}</strong> , j’ai <strong>{{$data1['age'] }} </strong>je suis étudiante en licence
-                            Langues Étrangères Appliquées, à L’université Lyon 2 .
+                            Je m’appelle <strong>{{$data['firstname'] }}</strong> , j’ai <strong>{{$data['Age'] }} </strong> ans je suis {{$data['role']}}je suis étudiante en licence
+                            Langues Étrangères Appliquées, à L’université Lyon 2 résident a <strong>{{$data['city']}}</strong>.
                             Je recherche un job étudiant pour le permettre de faire
                             un peu d’économies étant loin de mes parants, notamment dans la garde d’enfants .
                             Je suis issu d’une famille de 7 frères et sœurs .
@@ -65,22 +65,31 @@
                 <div class="right__col">
                     <nav>
                         <ul>
-                            <li><a href="">Profil</a></li>
-                            <li><a href="">galleries</a></li>
-                            <li><a href="">groups</a></li>
-                            <li><a href="">about</a></li>
+                            <li><i class="fa-solid fa-user"></i><a href="#">Profil</a></li>
+                            <li><a href="#" class="a">>Annonce</a></li>
+                            <li><a href="#" class="a">>Service</a></li>
+                            <li><a href="{{route("About")}}" class="a">>about</a></li>
                         </ul>
-                        <button>Follow</button>
+                        <button>Editer</button>
                     </nav>
 
-                    <div class="photos">
+                    <!--div class="photos">
                         <img src="img/img_1.avif" alt="Photo" />
                         <img src="img/img_2.avif" alt="Photo" />
                         <img src="img/img_3.avif" alt="Photo" />
                         <img src="img/img_4.avif" alt="Photo" />
                         <img src="img/img_5.avif" alt="Photo" />
                         <img src="img/img_6.avif" alt="Photo" />
-                    </div>
+                    </div-->
+                    <form action="">
+                        <div class="annonce">
+                            <h2>Annonce</h2>
+                            <p>Ajouter une annnce</p>
+                            <input type="text" placeholder="Titre de l'annonce" />
+                            <textarea name="description" placeholder="Description de l'annonce"></textarea>
+                            <button>Ajouter</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </form>

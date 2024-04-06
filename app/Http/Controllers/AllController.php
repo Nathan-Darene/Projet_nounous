@@ -66,6 +66,10 @@ class AllController extends Controller
             'phone' => 'required|string|max:20|unique:nounous',
             'birthdate' => 'required|date|max:255',
             'Age' => 'required|string|max:255',
+            'niveau' => 'required|string|max:255',
+            'experience' => 'required|string|max:255',
+            'prix_heure' => 'required|string|max:255',
+            'role' => 'required|string|max:255',
             'imageUpload' => 'file|image|mimes:jpeg,png,jpg,gif,webp,jpej,svg,avif|max:4048|unique:nounous',
             'city' => 'required|string|max:255',
             'postalcode' => 'string|max:255',
@@ -82,6 +86,10 @@ class AllController extends Controller
         $user->phone = $request->phone;
         $user->birthdate = $request->birthdate;
         $user->Age = $request->Age;
+        $user->niveau = $request->niveau;
+        $user->experience = $request->experience;
+        $user->prix_heure = $request->prix_heure;
+        $user->role = $request->role;
         $user->imageUpload = $request->imageUpload;
         $user->city = $request->city;
         $user->postalcode = $request->postalcode;
@@ -165,6 +173,14 @@ class AllController extends Controller
         return view('page/profile_nounou', compact('data'));
     }
 
+
+    public function About(Request $request){
+        $data = array();
+        if(Session::get('loginId')){
+        $data =  Nounou::where('id', '=',Session::get('loginId'))->first();
+        }
+        return view('page/page_user' , compact('data'));
+    }
 /*###############################################################################" */
 
     /*Enregistrement du parent ou de l'utilisateur */

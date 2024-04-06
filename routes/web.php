@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AllController;
 use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\AgendaController;
 
 
 
@@ -49,8 +50,12 @@ Route::get('/AfficheProfileNounou',[AllController::class, 'AfficheProfileNounou'
 Route::get('/AfficheProfileUser',[AllController::class, 'AfficheProfileUser'])->name ('AfficheProfileUser');
 
 
+Route::get('/About',[AllController::class, 'About'])->name ('About');
+
 Route::get('/Recherche',[AllController::class, 'Recherche'])->name ('Recherche');
 
+
+Route::get('/agenda', [AgendaController::class, 'agenda'])->name('agenda');
 
 
 Route::get('/profile', [ProfilController::class,'ProfileController'])->name('profile-show');

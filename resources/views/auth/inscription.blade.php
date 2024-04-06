@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{{ asset('css/formulaire.css') }}">
     <link rel="stylesheet" href="{{ asset('css/cheickbox.css') }}">
     <link rel="stylesheet" href="{{ asset('css/poppup.css') }}">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/6.5.1/css/font-awesome.min.css">
+    <!--link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/6.5.1/css/font-awesome.min.css"-->
     <!-- Icône de la page -->
     <link rel="icon" type="image/png" href="Logo/8900808870_4aa536ff-86f5-4f1e-9429-0e0ace5a8068.png">
     <style>
@@ -42,8 +42,8 @@
         <div class="main-card-login">
 
             <div class="login-card">
-                <div>
-                    <a href="{{asset('acceuil')}}"><i class="fa-solid fa-close"></i></a>
+                <div class="icon-return">
+                    <a href="{{asset('acceuil')}}"><i class="fa-solid fa-close a1"></i></a>
                 </div>
                 <!-- Logo -->
                 <div class="login-card-header-image" id="logo-section">
@@ -87,13 +87,44 @@
                     <input type="date" placeholder="Date de naissance" name="birthdate" value="{{old('birthdate')}}">
                     <span class="text-danger texte">@error('birthdate') {{$message}} @enderror</span>
 
-                    <input type="text" placeholder="Votre Age" name="Age" value="{{old('Age')}}">
+                    <input type="number" placeholder="Votre Age" name="Age" value="{{old('Age')}}">
                     <span class="text-danger texte">@error('Age') {{$message}} @enderror</span>
                     <!--Champ pour la photo de profile-->
                     <p class="par">Ajoutez votre photo d'identité</p>
                     <input type="file" id="imageUpload" name="imageUpload" accept="image/*" onchange="previewImage(event)" class="photo" value="{/*{old('imageUpload')}}"-->
                     <span class="text-danger texte">@error('imageUpload') {{$message}} @enderror</span>
                     <div-- id="imagePreview" class="imgs"></div-->
+                    <!-- Champ pour le niveau d'etube -->
+                    <div class="cadre">
+                        <p class="par">Niveau d'étude</p>
+                    </div>
+                    <select name="niveau" id="niveau">
+                        <option value="">Choisissez un niveau d'étude</option>
+                        <option value="Aucun">Aucun</option>
+                        <option value="Brevet/BEPC/CAP">Brevet/BEPC/CAP</option>
+                        <option value="Lycée">Lycée</option>
+                        <option value="Baccalauréat">Baccalauréat</option>
+                        <option value="Licence">Licence</option>
+                        <option value="Master">Master</option>
+                        <option value="Doctorat">Doctorat</option>
+                    </select>
+                    <!-- Champ pour l'année d'experience -->
+                    <input type="number" name="experience" id="experience" placeholder="Année d'experience" value="{{old('experience')}}">
+                    <span class="text-danger texte">@error('experience') {{$message}} @enderror</span>
+                    <!-- Champ pour le salaire par heure -->
+                    <input type="text" name="prix_heure" id="prix_heure" placeholder="prix par heure" value="{{old('prix_heure')}}">
+                    <span class="text-danger texte">@error('prix_heure') {{$message}} @enderror</span>
+                    <!-- Champ pour le role -->
+                    <div class="cadre">
+                        <p class="par">Role</p>
+                    </div>
+                    <select name="role" id="role" value="{{old('prix_heure')}}">
+                        <option value="">Choisissez un role</option>
+                        <option value="Assistante">Assistante maternelle (garde les enfabce chez elle uniquement)</option>
+                        <option value="Nounou">Nounou (garde au domicille des parents)</option>
+                        <option value="Baby_sister">Baby Sister (garde au domicille des parents(accasionelle))</option>
+                    </select>
+                    <span class="text-danger texte">@error('role') {{$message}} @enderror</span>
                     <!-- Champ pour la ville -->
                     <input type="text" placeholder="Ville" name="city" value="{{old('city')}}">
                     <span class="text-danger texte">@error('city') {{$message}} @enderror</span>
@@ -125,7 +156,7 @@
                     </div>
                     <div class="login-with-facebook" id="facebook-login">
                         <p>
-                            <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                            <i class="fab fa-facebook-square" aria-hidden="true"></i>
                             Se connecter avec Facebook
                         </p>
                     </div>

@@ -10,13 +10,19 @@ class Nounou extends Model
     use HasFactory;
 
     protected $fillable = [
+
+
+
         'username',
         'lastname',
         'firstname',
         'phone',
         'birthdate',
-        /*'Age',*/
+        'Age',
         'imageUpload',
+        'niveau',
+        'experience',
+        'prix_heure',
         'city',
         'postalcode',
         'role',
@@ -24,3 +30,4 @@ class Nounou extends Model
         'password',
     ];
 }
+
