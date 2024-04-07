@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{{ asset('fontawesome-free-6.5.1-web/css/all.min.css') }}">
     <link rel="icon" type="image/png" href="Logo/8900808870_4aa536ff-86f5-4f1e-9429-0e0ace5a8068.png">
     <link rel="stylesheet" href="{{ asset('fontawesome-free-6.5.1-web/css/all.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/caland.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/calanda.css') }}" />
     <title>Calendrier</title>
 </head>
 

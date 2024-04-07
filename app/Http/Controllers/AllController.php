@@ -38,9 +38,20 @@ class AllController extends Controller
         return  view('page.page_user');
     }
 
+    public function  profile_nounou(){
+        return  view('page.profile_nounou');
+    }
 
     public function  login(){
         return  view('auth.login');
+    }
+
+    public function  logout_nounou(){
+        return  view('auth.logout_nounou');
+    }
+
+    public function  logout(){
+        return  view('auth.logout');
     }
 
     public function  login_nounou(){
@@ -164,6 +175,51 @@ class AllController extends Controller
 
     }
 
+
+
+    public function logoutNounou (Request $request){
+        $data = array();
+        if(Session::get('loginId')){
+        $data =  Nounou::where('id', '=',Session::get('loginId'))->first();
+        }
+        return view('auth/logout_nounou', compact('data'));
+
+    }
+
+    public function update(Request $request)
+    {
+        // Récupérer l'identifiant de l'utilisateur connecté depuis la session
+        $loginId = Session::get('loginId');
+
+        // Récupérer l'utilisateur connecté
+        $nounou = Nounou::find($loginId);
+
+        // Validation des données
+        $request->validate([
+            'username' => 'required|string|max:255',
+            'username' => 'required|string|max:255|unique:nounous',
+            'lastname' => 'required|string|max:255',
+            'firstname' => 'required|string|max:255',
+            'phone' => 'required|string|max:20|unique:nounous',
+            'birthdate' => 'required|date|max:255',
+            'Age' => 'required|string|max:255',
+            'niveau' => 'required|string|max:255',
+            'experience' => 'required|string|max:255',
+            'prix_heure' => 'required|string|max:255',
+            'role' => 'required|string|max:255',
+            'imageUpload' => 'file|image|mimes:jpeg,png,jpg,gif,webp,jpej,svg,avif|max:4048|unique:nounous',
+            'city' => 'required|string|max:255',
+            'postalcode' => 'string|max:255',
+            'email' => 'required|string|email|max:255|unique:nounous',
+            'password' => 'required|string|min:8|',
+        ]);
+
+        // Mettre à jour les informations de l'utilisateur
+        $nounou->update($request->all());
+
+        return response()->json(['message' => 'Profil mis à jour avec succès']);
+    }
+
     /*Affichage des donnée sur la page de l'utilisateur */
     public function AfficheProfileNounou(Request $request){
         $data = array();
@@ -252,6 +308,20 @@ class AllController extends Controller
         return view('page/profile_user', compact('data'));
 
     }
+
+
+
+    public function logoutUser (Request $request){
+        $data = array();
+        if(Session::get('loginId')){
+        $data =  Users::where('id', '=',Session::get('loginId'))->first();
+        }
+        return view('auth/logout', compact('data'));
+
+    }
+
+
+
 
     /*Affichage des donnée sur la page de l'utilisateur */
     public function AfficheProfileUser(Request $request){

@@ -45,6 +45,21 @@ Route::post('/register-nounou',[AllController::class, 'registerNounou'])->name (
 Route::post('/login-user',[AllController::class, 'loginUser'])->name ('login-user');
 Route::post('/login-nounou',[AllController::class, 'loginNounou'])->name ('login-nounou');
 
+/*Déconnexion get */
+/*Route::get('/logout}', [AllController::class, 'logoutNounou'])->name('logout-nounou');*/
+Route::get('/logoutNounou', [AllController::class, 'logoutNounou'])->name('logoutNounou');
+Route::get('/logout-user', [AllController::class, 'logoutUser'])->name('logout-user');
+
+
+Route::get('/logout_nounou', [AllController::class, 'logout_nounou']);
+Route::get('/logout', [AllController::class, 'logout']);
+
+
+
+/*Edite Profil */
+
+Route::post('/update-profile', [AllController::class, 'update'])->name('update');
+
 /*Affichage des donnée sur la page de l'utilisateur */
 Route::get('/AfficheProfileNounou',[AllController::class, 'AfficheProfileNounou'])->name ('AfficheProfileNounou');
 Route::get('/AfficheProfileUser',[AllController::class, 'AfficheProfileUser'])->name ('AfficheProfileUser');
@@ -52,7 +67,7 @@ Route::get('/AfficheProfileUser',[AllController::class, 'AfficheProfileUser'])->
 
 Route::get('/About',[AllController::class, 'About'])->name ('About');
 
-Route::get('/Recherche',[AllController::class, 'Recherche'])->name ('Recherche');
+Route::get('/profile_nounou',[AllController::class, 'profile_nounou']);
 
 
 Route::get('/agenda', [AgendaController::class, 'agenda'])->name('agenda');

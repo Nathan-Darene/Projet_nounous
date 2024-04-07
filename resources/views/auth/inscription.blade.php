@@ -120,9 +120,9 @@
                     </div>
                     <select name="role" id="role" value="{{old('prix_heure')}}">
                         <option value="">Choisissez un role</option>
-                        <option value="Assistante">Assistante maternelle (garde les enfabce chez elle uniquement)</option>
+                        <option value="Assistant(e) maternelle">Assistante maternelle (garde les enfabce chez elle uniquement)</option>
                         <option value="Nounou">Nounou (garde au domicille des parents)</option>
-                        <option value="Baby_sister">Baby Sister (garde au domicille des parents(accasionelle))</option>
+                        <option value="Baby sister">Baby Sister (garde au domicille des parents(accasionelle))</option>
                     </select>
                     <span class="text-danger texte">@error('role') {{$message}} @enderror</span>
                     <!-- Champ pour la ville -->

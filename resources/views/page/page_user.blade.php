@@ -9,7 +9,7 @@
     <link rel="stylesheet"
         href="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/fontawesome-6.5.1-beta3/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/page_user.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/caland1.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/calanda.css') }}" />
 
     <title>Admin Panel</title>
 </head>
@@ -23,15 +23,17 @@
             <img src="{{ asset('Logo/8900808870_4aa536ff-86f5-4f1e-9429-0e0ace5a8068.png') }}" class="logo" />
         </div>
         <ul class="choixx">
-            <li><i class="fa-solid fa-user"></i>&nbsp; <span>Profile</span> </li>
-            <li><i class="fa-solid fa-clipboard-list"></i>&nbsp;<span>Dashboard</span> </li>
-            <li><i class="fa-solid fa-bell"></i>&nbsp;<span>Notifications</span> </li>
-            <li class="choix" data-target="agendaSection"><i class="fa-solid fa-calendar-check"></i>&nbsp;<span>Agenda</span> </li>
-            <li><i class="fa-solid fa-hand-holding-dollar"></i>&nbsp;<span>Coin</span> </li>
-            <li><i class="fa-solid fa-envelope-circle-check"></i>&nbsp;<span>Messagerie</span> </li>
-            <li><i class="fa-solid fa-lightbulb"></i>&nbsp; <span>Aide</span></li>
-            <li><i class="fa-solid fa-gears"></i>&nbsp;<span>Paramètre</span> </li>
-            <li><i class="fa-solid fa-door-open"></i>&nbsp;<span>Déconnexion</span> </li>
+            <li class="choix li" ><i class="fa-solid fa-user"></i>&nbsp; <span><a href="{{ route('AfficheProfileNounou') }}" class="profil">Profile</a></span> </li>
+
+            <li class="choix li" data-target="dashboardSection"><i class="fa-solid fa-clipboard-list"></i>&nbsp;<span>Dashboard</span> </li>
+            <li class="choix li" data-target="notificationSection"><i class="fa-solid fa-bell"></i>&nbsp;<span>Notifications</span> </li>
+            <li class="choix li" data-target="agendaSection"><i class="fa-solid fa-calendar-check"></i>&nbsp;<span>Agenda</span> </li>
+            <li class="choix li" data-target="coinSection"><i class="fa-solid fa-hand-holding-dollar"></i>&nbsp;<span>Coin</span> </li>
+            <li class="choix li" data-target="messagingSection"><i class="fa-solid fa-envelope-circle-check"></i>&nbsp;<span>Messagerie</span> </li>
+            <li class="choix li" data-target="helpSection"><i class="fa-solid fa-lightbulb"></i>&nbsp; <span>Aide</span></li>
+
+            <li class="choix li" data-target="settingSection"><i class="fa-solid fa-gears"></i>&nbsp;<span>Paramètre</span> </li>
+            <li class="li dec"><i class="fa-solid fa-door-open"></i>&nbsp;<a href="{{ route('logoutNounou') }}" class="logout"><span>Déconnexion</span></a></li>
         </ul>
     </div>
     <div class="container">
@@ -48,15 +50,15 @@
                         <span class="nom"><i class="fa-solid fa-user-check"></i> <a
                                 href="{{ route('AfficheProfileNounou') }}">{{ $data['username'] }}</a></span>
                         <div class="img-case">
-                            <a href="{{ route('AfficheProfileNounou') }}"><img src="uploads/{{ $data['imageUpload'] }}"
-                                    alt="{{ $data['username'] }}" class="profiel"></a>
+                            <a href="{{ route('AfficheProfileNounou') }}"><img src="uploads/{{ $data['imageUpload'] }}" alt="{{ $data['username'] }}" class="profiel"></a>
+                            <span></span>
                         </div>
                     @endif
                 </div>
             </div>
         </div>
         <section class="content">
-            <section class="affiche">
+            <section id="dashboardSection" class="affiche">
                 <div class="cards">
                     <div class="card">
                         <div class="box">
@@ -194,6 +196,10 @@
         </section>
     </div>
 
+    <!--Section Notification-->
+    <section id="notificationSection"></section>
+
+    <!--Section Agenda-->
     <section id="agendaSection" class="agenda" style="display: none;">
         <div class="body">
             <div class="containers">
@@ -260,44 +266,40 @@
         </div>
     </section>
 
+    <!--Section Coin-->
+    <section id="coinSection">
+
+    </section>
+
+    <!--Section Messagerie-->
+
+    <section id="messagingSection">
+
+    </section>
+
+    <!--Section Aide-->
+
+    <section id="helpSection">
+
+    </section>
+
+    <!--Section Parametre-->
+
+    <section id="settingSection">
+
+    </section>
+
+
+
+
     <!-- jQuery -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="{{ asset('js/profil.js') }}"></script>
-    <script src="{{ asset('js/message.js') }}"></script>
+    <script src="{{ asset('js/selection.js') }}"></script>
 
-    <script src="{{ asset('/js/caland.js') }}"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-    // Sélectionnez tous les éléments avec la classe "choix"
-    const choices = document.querySelectorAll('.choix');
 
-    // Boucle à travers chaque élément avec la classe "choix"
-    choices.forEach(choice => {
-        // Écoutez l'événement de clic pour chaque élément
-        choice.addEventListener('click', function () {
-            // Récupérez l'ID de l'élément cliqué
-            const targetId = this.getAttribute('data-target');
-
-            // Sélectionnez l'élément cible en fonction de son ID
-            const targetElement = document.getElementById(targetId);
-
-            // Vérifiez si l'élément cible existe
-            if (targetElement) {
-                // Récupérez tous les éléments avec la classe "affiche" et masquez-les
-                const afficheElements = document.querySelectorAll('.affiche');
-                afficheElements.forEach(element => {
-                    element.style.display = 'none';
-                });
-
-                // Affichez l'élément cible
-                targetElement.style.display = 'block';
-            }
-        });
-    });
-});
-
-    </script>
+    <script src="{{asset('/js/caland.js') }}"></script>
+    <script src="{{asset('/js/affiche_section.js')}}"></script>
 
 
 

@@ -5,7 +5,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Utilise la hauteur totale de la fenêtre */
+    height: 120vh; /* Utilise la hauteur totale de la fenêtre */
     background-color: #FAFAFA;
 }
 
@@ -59,13 +59,44 @@ span {
     padding-right: 20px;
 }
 
-input[type="text"],
+.img-case{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.profile{
+    width: 200px;
+    height: 205px;
+    border-radius: 50%;
+}
+
+.statut {
+    position: relative;
+    background: #bb0000;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    bottom: 35px;
+    left: 63px;
+    border: 2px solid #fff;
+}
+.nom{
+    font-size: 25px;
+    font-weight: bold;
+    bottom: 30px;
+    position: relative;
+}
+
+.star{
+    font-family: 'poppins',sans-serif;
+    color: #8E8E8E;
+}
+
+
 input[type="email"],
-input[type="number"],
-input[type="date"],
-select,
-input[type="password"],
-input[type="file"] {
+input[type="password"]{
     display: flex;
     flex-direction: column;
     flex-wrap: center;

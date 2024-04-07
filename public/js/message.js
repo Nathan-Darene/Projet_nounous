@@ -1,32 +1,21 @@
-// Attend que le document soit prêt
-$(document).ready(function () {
-    // Ajoutez un gestionnaire de clic à tous les éléments li du menu
-    $("ul li").click(function (e) {
-        // Récupère le texte de l'élément cliqué
-        var clickedText = $(this).text().trim();
+function _(element){
+    return document.getElementById(element);
+}
 
-        // Si l'élément cliqué est "Message"
-        if (clickedText === "Messagerie") {
-            // Empêche le comportement par défaut du lien
-            e.preventDefault();
+var label = _("label_chat");
+label.addEventListener("click",function(){
+    var inner_panel = _("inner_left_panel");
 
-            // URL par défaut du message (à ajuster selon vos besoins)
-            var messageUrl = "/message";
+    var ajax = new XMLHttpRequest();
+    ajax.onload = function(){
 
-            // Charge le contenu de la page de message via AJAX
-            $.ajax({
-                url: messageUrl,
-                type: "GET",
-                success: function (data) {
-                    // Remplace le contenu de la page par le contenu de la page de message
-                    $("#container").html(data);
-                },
-                error: function () {
-                    alert(
-                        "Une erreur est survenue lors du chargement de la page de message."
-                    );
-                },
-            });
+        if(ajax.status == 200 || ajax.readyState == 4){
+
+            inner_panel.innerHTML = ajax.responseText;
         }
-    });
-});
+    }
+
+    ajax.open("POST", "file.txt", true);
+    ajax.send();
+
+})

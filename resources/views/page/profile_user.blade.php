@@ -46,11 +46,7 @@
                         <h2>Recherche Enfant à garder . Nounou dévouée</h2>
                         @if ($data ?? '')
                         <p>
-                            Je m’appelle <strong>{{$data['firstname'] }}</strong> , j’ai <strong>{{$data['age'] }} </strong>je suis étudiante en licence
-                            Langues Étrangères Appliquées, à L’université Lyon 2 .
-                            Je recherche un job étudiant pour le permettre de faire
-                            un peu d’économies étant loin de mes parants, notamment dans la garde d’enfants .
-                            Je suis issu d’une famille de 7 frères et sœurs .
+                            
                         </p>
                         @endif
                         <ul>

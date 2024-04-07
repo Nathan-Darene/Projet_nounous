@@ -10,7 +10,7 @@
     font-size: 15px;
 }
 
-.left-panel {
+.left_panel {
     min-height: 500px;
     background-color: #27344b;
     flex: 1;
@@ -18,7 +18,7 @@
 
 }
 
-.left-panel .img {
+.left_panel .img {
     width: 50%;
     border: 2px solid  white;
     border-radius: 50%;
@@ -26,12 +26,31 @@
    /* padding: 10px;*/
 }
 
-.left-panel label {
-    width: 100%;
+.left_panel label {
+    width: 93%;
     height: 30px;
     display: block;
     background-color: #404b56;
-    border-bottom: solid thin white;
+    border-bottom: solid thin rgb(214, 214, 214);
+    cursor: pointer;
+    padding:5px 5px 5px 5px;
+    transition: all 1s ease;
+
+
+}
+
+.left_panel label:hover{
+
+    background-color: #778593;
+
+
+
+}
+
+.left_panel label i{
+    float: right;
+    width: 25px;
+    padding-right: 10px;
 
 
 }
@@ -60,24 +79,40 @@ p{
     font-family: Great Vibes;
 }
 
-.right-panel {
+.right_panel {
     text-align: center;
     min-height: 500px;
     flex: 4;
 }
 
-.inner-left-panel {
+.inner_left_panel {
     background-color: #383e48;
     flex: 2;
     min-height: 430px;
 }
 
 
-.inner-right-panel {
+.inner_right_panel {
     background-color: #f2f7f8;
     flex: 4;
     min-height: 430px;
+    transition:all 2s ease ;
 }
+
+/*#radio_chat:checked ~ .inner-right-panel {
+    flex: 0;
+}
+*/
+#radio_settings:checked ~ .inner_right_panel {
+    flex: 0;
+}
+
+#radio_Famille:checked ~ .inner_right_panel {
+    flex: 0;
+}
+
+
+
 
 .container {
     display: flex;

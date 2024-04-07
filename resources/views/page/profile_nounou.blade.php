@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
     <!-- CSS -->
     <link rel="stylesheet" href="{{ asset('css/profil_nounou.css') }}" />
+    <link rel="stylesheet" href="{{asset('css/texterea.css')}}">
 </head>
 
 <body>
@@ -44,10 +45,10 @@
                     </ul>
 
                     <div class="content">
-                        <h2>Recherche Enfant à garder . Nounou dévouée</h2>
                         @if ($data ?? '')
+                        <h2>Recherche Enfant à garder . {{$data['role']}} dévouée</h2>
                         <p>
-                            Je m’appelle <strong>{{$data['firstname'] }}</strong> , j’ai <strong>{{$data['Age'] }} </strong> ans je suis {{$data['role']}}je suis étudiante en licence
+                            Je m’appelle <strong>{{$data['firstname'] }}</strong> , j’ai <strong>{{$data['Age'] }} </strong> ans, je suis {{$data['role']}}, étudiante en licence
                             Langues Étrangères Appliquées, à L’université Lyon 2 résident a <strong>{{$data['city']}}</strong>.
                             Je recherche un job étudiant pour le permettre de faire
                             un peu d’économies étant loin de mes parants, notamment dans la garde d’enfants .
@@ -66,27 +67,19 @@
                     <nav>
                         <ul>
                             <li><i class="fa-solid fa-user"></i><a href="#">Profil</a></li>
-                            <li><a href="#" class="a">>Annonce</a></li>
+                            <li><a href="#annonce" class="a">>Annonce</a></li>
                             <li><a href="#" class="a">>Service</a></li>
                             <li><a href="{{route("About")}}" class="a">>about</a></li>
                         </ul>
                         <button>Editer</button>
                     </nav>
 
-                    <!--div class="photos">
-                        <img src="img/img_1.avif" alt="Photo" />
-                        <img src="img/img_2.avif" alt="Photo" />
-                        <img src="img/img_3.avif" alt="Photo" />
-                        <img src="img/img_4.avif" alt="Photo" />
-                        <img src="img/img_5.avif" alt="Photo" />
-                        <img src="img/img_6.avif" alt="Photo" />
-                    </div-->
                     <form action="">
-                        <div class="annonce">
+                        <div class="annonce wrapper" id="annonce">
                             <h2>Annonce</h2>
                             <p>Ajouter une annnce</p>
                             <input type="text" placeholder="Titre de l'annonce" />
-                            <textarea name="description" placeholder="Description de l'annonce"></textarea>
+                            <textarea name="description" spellcheck="false" placeholder="Description de l'annonce"></textarea>
                             <button>Ajouter</button>
                         </div>
                     </form>
@@ -94,6 +87,14 @@
             </div>
         </form>
     </div>
+    <script>
+        const textarea = document.querySelector("textarea");
+        textarea.addEventListener("keyup", e =>{
+          textarea.style.height = "63px";
+          let scHeight = e.target.scrollHeight;
+          textarea.style.height = `${scHeight}px`;
+        });
+      </script>
 </body>
 
 </html>

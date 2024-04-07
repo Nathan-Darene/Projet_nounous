@@ -13,7 +13,7 @@ body {
     width: 150px;
 }
 
-a {
+a{
     text-decoration: none;
 }
 
@@ -21,9 +21,6 @@ li {
     list-style: none;
 }
 
-li:active {
-    background-color: white;
-}
 
 h1,
 h2 {
@@ -89,17 +86,30 @@ td {
     align-items: center;
     justify-content: center;
 }
-.side-menu li {
+.side-menu .li{
     cursor: pointer;
+    font-weight: 600;
     font-size: 24px;
     padding: 10px 40px;
     color: white;
     display: flex;
     align-items: center;
 }
-.side-menu li:hover {
-    background: white;
+.side-menu .li:hover
+{
     color: #f05462;
+    background: white;
+}
+
+.side-menu .choixx .li.clicked {
+    color: #f05462;
+    background-color: white;
+
+}
+
+.dec a{
+    color: red;
+    font-weight: 700;
 }
 
 .fa-phone{
@@ -183,11 +193,12 @@ td {
 }
 
 .nom a{
-    font-size: 20px;
+    font-size: 25px;
+    font-weight: 580;
     color: #f05462;
     cursor: pointer;
     margin: 0 10px 0 10px;
-    transition: 1s;
+    transition: 0.5s;
 
 }
 
@@ -196,7 +207,7 @@ td {
     color: #0095F6;
     transform: scale(1.2);
     font-weight: 600;
-    transition: 1s;
+    transition: 0.8s;
 }
 
 .container .header .nav .user img {
@@ -221,9 +232,23 @@ td {
     left: 0;
     width: 100%;
     height: 100%;
+    transition: 0.5s;
 }
 
+.container .header .nav .user .img-case img:hover {
+    transform: scale(1.3);
+}
 
+.container .header .nav .user .img-case span {
+    position: absolute;
+    background: #2afa6a;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    bottom: 1px;
+    left: 35px;
+    border: 2px solid #fff;
+  }
 .container .content {
     position: relative;
     margin-top: 10vh;

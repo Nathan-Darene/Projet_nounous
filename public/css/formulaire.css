@@ -5,7 +5,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 190vh; /* Utilise la hauteur totale de la fenêtre */
+    height: 235vh; /* Utilise la hauteur totale de la fenêtre */
     background-color: #FAFAFA;
 }
 
