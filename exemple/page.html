@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nounou - Recherche</title>
+    <link href="page.css" rel="stylesheet">
+    <script src="/js/main-new.js" type="958c1f0eb0a1b0a7bda69afa-text/javascript" defer></script>
+
+    <!--script type="958c1f0eb0a1b0a7bda69afa-text/javascript">
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:465421,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+     </!--script>
+<script data-cfasync="false">
+    //     window.$crisp = [];
+    //     window.CRISP_WEBSITE_ID = "8e07a8b0-0b26-4266-8c6d-160ca5a3a13c";
+    //     (function () {
+    //         d = document;
+    //         s = d.createElement("script");
+    //         s.src = "https://client.crisp.chat/l.js";
+    //         s.async = 1;
+    //         d.getElementsByTagName("head")[0].appendChild(s);
+    //     })();
+     </script>
+<script--- type="958c1f0eb0a1b0a7bda69afa-text/javascript">
+      (function(w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer'
+            ? '&l=' + l
+            : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-TCR8SQN');
+    </script-->
+</head>
+
+<body class="page-parents" id="recherche">
+
+    <header class="full">
+        <div class="container">
+            <a class="header-logo" href="/dashboard" title="Accueil" tabindex="1">
+                <img src="/assets/img/logo.png" alt="Garder mes Enfants">
+            </a>
+            <a class="header-msg " href="/mesmessages/" title="Messagerie">
+                <div class="msg-icon-box">
+                    <img class="msg-icon" src="/assets/icons/message.svg" alt="Messagerie">
+                </div>
+            </a>
+            <button class="header-btn" title="Ouvrir le menu">
+                <div class="btn-sub toggle-btn" data-target=".menu-popup" data-toggle="open" title="Ouvrir le menu" role="button" tabindex="0">
+                    <img class="btn-icon" src="/assets/icons/menu.svg" alt="Menu">
+                </div>
+                <a class="btn-sub" href="#" title="Voir mon profil" tabindex="0">
+                    <img class="avatar" src="https://ui-avatars.com/api/?name=stephanie+OWEN&background=FFAE69&color=fff&size=150&font-size=0.33" alt="Avatar">
+                </a>
+            </button>
+        </div>
+
+        <nav class="header-nav">
+            <ul class="nav-list container">
+                <li class="list-item">
+                    <a class="nav-link" href="/dashboard">Tableau de
+                        bord</a>
+                </li>
+                <li class="list-item">
+                    <a class="nav-link " href="/mesAnnonces/1267750">Mon
+                        annonce</a>
+                </li>
+                <li class="list-item">
+                    <a class="nav-link " href="/mesmessages/">Messagerie</a>
+                </li>
+                <li class="list-item">
+                    <a class="nav-link active" href="/search/advert">Recherche</a>
+                </li>
+                <li class="list-item">
+                    <a class="nav-link" href="/mesFavoris">Mes favoris</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="popup menu-popup">
+        <div class="container">
+            <div class="menu-head">
+                <img class="avatar" src="https://ui-avatars.com/api/?name=stephanie+OWEN&background=FFAE69&color=fff&size=150&font-size=0.33" alt="Avatar">
+                <p class="title menu-title">stephanie</p>
+                <a class="link" href="/edit-profile">Voir mon compte</a>
+                <button class="close-btn"></button>
+            </div>
+            <nav class="menu-nav">
+                <ul class="nav-primary">
+                    <li>
+                        <a class="nav-link active" href="/search/advert">
+                            <img src="/assets/icons/search.svg" alt>
+                            Rechercher
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="/dashboard">
+                            <img src="/assets/icons/home.svg" alt>
+                            Tableau de bord</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="/mesAnnonces/1267750">
+                            <img src="/assets/icons/profil.svg" alt>
+                            Mes annonces</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="/mesmessages/">
+                            <img src="/assets/icons/message-light.svg" alt>
+                            Messagerie
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="/mesFavoris">
+                            <img src="/assets/icons/heart-light.svg" alt>
+                            Mes favoris</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="/pricing-plan">
+                            <img src="/assets/icons/card.svg" alt>
+                            Mon abonnement</a>
+                    </li>
+                    <li>
+                        <a class="nav-link " href="/search/advertpartage">
+                            <img src="/assets/icons/search.svg" alt>
+                            Recherche de garde partagée
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav-secondary">
+                    <li>
+                        <a class="nav-link link" href="https://guide.garder-mes-enfants.fr/fr/" target="_blank">Aide</a>
+                    </li>
+                    <li>
+                        <a class="nav-link link" href="/blog">Blog</a>
+                    </li>
+                    <li>
+                        <a class="nav-link link" href="/cgu.html">Mentions
+                            légales</a>
+                    </li>
+                    <li>
+                        <a class="nav-link link" href="/logout">
+                            Déconnexion</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="menu-help">
+                <img class="help-img" src="/assets/img/agence.png" alt>
+                <p class="title">Me faire accompagner par une agence</p>
+                <p class="help-text">
+                    Profitez de l’experience sans rien payer !
+                </p>
+                <button class="btn"><a href="/leadAfterAdvert">Etre
+                        accompagné</a></button>
+            </div>
+        </div>
+    </div>
+
+    <form class="popup account-popup" id="compte">
+        <div class="container details-layout">
+            <div class="account-content details-form">
+                <div class="account-header">
+                    <img class="avatar account-img-output" src="../../assets/img/avatar.png" alt="Avatar">
+                    <p class="account-name">Patrick</p>
+                    <label class="account-desktop-img link">
+                        Modifier la photo
+                        <input class="account-img-input" id="account-img" name="account-img" type="file" accept="image/*">
+                    </label>
+                </div>
+                <div class="account-premium-alert">
+                    <p class="title">Devenez premium !</p>
+                    <p class="premium-text">
+                        Accèdez aux téléphones et à l'envoie de messages
+                        illimités.
+                    </p>
+                    <button class="btn" type="button">
+                        Devenir membre Premium
+                    </button>
+                </div>
+                <div class="account-verify">
+                    <p class="verify-text">Votre email n'est pas verifié</p>
+                    <button class="verify-btn link" type="button">
+                        Vérifier
+                    </button>
+                    <button class="close-btn not-popup" data-cf-modified-958c1f0eb0a1b0a7bda69afa- type="button" onclick="if (!window.__cfRLUnblockHandlers) return false; this.parentNode.classList.add('hidden')"></button>
+                </div>
+                <fieldset class="account-fields form-fields">
+                    <legend class="fields-name">Mes données</legend>
+                    <input class="input" name="first-name" type="text" placeholder="Prénom" value="Aurélie">
+                    <input class="input" name="last-name" type="text" placeholder="Nom" value="Timberland">
+                    <input class="input" name="city" type="text" placeholder="Ville" value="75001 Paris">
+                    <input class="input" name="phone" type="tel" title="Numéro sans espaces avec le 0 du début" placeholder="Numéro de téléphone" value="0565658754" pattern="0[1-9](?:\d{2}){4}" minlength="10" maxlength="10">
+                    <input class="input" name="email" type="email" placeholder="Email" value="Aurélie.t@gmail.com">
+                </fieldset>
+                <fieldset class="account-fields form-fields">
+                    <legend class="fields-name">
+                        Modifier mon mot de passe
+                    </legend>
+                    <input class="input" name="first-name" type="password" placeholder="Actuel mot de passe">
+                    <input class="input" name="last-name" type="password" placeholder="Nouveau mot de passe">
+                </fieldset>
+                <fieldset class="account-fields form-fields">
+                    <legend class="fields-name">Mes notifications</legend>
+                    <select class="select select-multiple" name="notifications">
+                        <option value="Me notifier sur : " selected hidden>
+                            Me notifier sur : Sms, Email
+                        </option>
+                        <option class="added" value="Sms">- Sms</option>
+                        <option class="added" value="Email">- Email</option>
+                    </select>
+                    <div class="toggle-box">
+                        <label class="toggle-label" for="toggle-notif-push">
+                            Recevoir les notifications push
+                        </label>
+                        <input class="toggle-input" id="toggle-notif-push" name="toggle-notif-push" type="checkbox" checked>
+                    </div>
+                </fieldset>
+                <fieldset class="account-fields form-fields">
+                    <legend class="fields-name">
+                        Je souhaite être notifié(e) lors ..
+                    </legend>
+                    <div class="toggle-box">
+                        <label class="toggle-label" for="toggle-notif-news">
+                            Des nouvelles annonces
+                        </label>
+                        <input class="toggle-input" id="toggle-notif-news" name="toggle-notif-news" type="checkbox" checked>
+                    </div>
+                </fieldset>
+                <fieldset class="account-fields form-fields">
+                    <legend class="fields-name">Frequence d’envoie</legend>
+                    <select class="select" name="notifs-frequency">
+                        <option value="Instantanément" selected>
+                            Instantanément
+                        </option>
+                        <option value="choix-2">Choix 2</option>
+                    </select>
+                </fieldset>
+                <fieldset class="account-fields form-fields">
+                    <legend class="fields-name">
+                        Distance max des annonces
+                        <div class="slider-value">
+                            <span class="value-output">10</span>km
+                        </div>
+                    </legend>
+                    <div class="range-slider">
+                        <input class="slider-input" id="account-distance" name="account-distance" type="range" value="10" min="1" max="30">
+                    </div>
+                </fieldset>
+                <div class="toggle-box">
+                    <label class="toggle-label" for="toggle-notif-sms">
+                        Recevoir une notification par SMS à chaque nouvelle
+                        proposition d'un parent
+                    </label>
+                    <input class="toggle-input" id="toggle-notif-sms" name="toggle-notif-sms" type="checkbox" checked>
+                </div>
+                <fieldset class="account-fields form-fields">
+                    <legend class="fields-name">Mes abonnements</legend>
+                    <div class="toggle-box">
+                        <label class="toggle-label" for="toggle-bons-plans">
+                            Bons plans
+                        </label>
+                        <input class="toggle-input" id="toggle-bons-plans" name="toggle-bons-plans" type="checkbox" checked>
+                    </div>
+                    <div class="toggle-box">
+                        <label class="toggle-label" for="toggle-newsletter">
+                            Newsletter
+                        </label>
+                        <input class="toggle-input" id="toggle-newsletter" name="toggle-newsletter" type="checkbox">
+                    </div>
+                </fieldset>
+            </div>
+            <div class="account-buttons">
+                <button class="btn btn-secondary toggle-btn" data-target=".account-popup" data-toggle="open" type="button">
+                    Annuler
+                </button>
+                <button class="btn" type="submit">Enregistrer</button>
+            </div>
+        </div>
+    </form>
+
+    <main class="recherche-grid container">
+
+        <section class="recherche-box" id="filters">
+            <button class="toggle-btn filter-toggle" data-target=".filters-popup" data-toggle="open" type="button"></button>
+            <form class="container" name="search_advert_form_type_v2" method="post" action="/search/advert">
+                <div class="filters-popup popup popup-full">
+                    <div class="container">
+                        <button class="close-btn" type="button"></button>
+                        <div class="popup-content">
+                            <h2 class="title">Filtres</h2>
+                            <fieldset class="filter-box">
+                                <legend class="filter-name">Tri</legend>
+                                <select class="select form-control" id="search_advert_form_type_v2_triPar" name="search_advert_form_type_v2[triPar]">
+                                    <option value=""></option>
+                                    <option value="u.points DESC">Recommandé</option>
+                                    <option value="u.lastLogin DESC" selected="selected">Derniere
+                                        connexion</option>
+                                    <option value="Distance ASC">Distance</option>
+                                </select>
+                            </fieldset>
+                            <fieldset class="filter-box">
+                                <legend class="filter-name">
+                                    Ma recherche
+                                </legend>
+                                <select class="select form-control" id="search_advert_form_type_v2_typeNounou" name="search_advert_form_type_v2[typeNounou]">
+                                    <option value="1">Assistante maternelle
+                                        (garde les enfants chez elle
+                                        uniquement)</option>
+                                    <option value="2">Nounou ou baby-sitter
+                                        (garde au domicile des
+                                        parents)</option>
+                                    <option value="3" selected="selected">Tous les types
+                                        de nounou</option>
+                                </select>
+                                <select class="select form-control" id="search_advert_form_type_v2_typeGardeFinal" name="search_advert_form_type_v2[typeGardeFinal]">
+                                    <option value="1">Garde
+                                        occasionnelle</option>
+                                    <option value="2">Temps partiel (Sortie
+                                        d&#039;école, etc.)</option>
+                                    <option value="3">Plein
+                                        temps</option>
+                                    <option value="4" selected="selected">Tous les types
+                                        de garde</option>
+                                </select>
+                            </fieldset>
+                            <fieldset class="filter-box">
+                                <legend class="filter-name">Localisation</legend>
+                                <input class="input autocomplete form-control" id="search_advert_form_type_v2_adresse" name="search_advert_form_type_v2[adresse]" type="text" required="required" placeholder="Paris, France">
+                                <input id="search_advert_form_type_v2_lat" name="search_advert_form_type_v2[lat]" type="hidden">
+                                <input id="search_advert_form_type_v2_lng" name="search_advert_form_type_v2[lng]" type="hidden">
+                                <div class="range-slider">
+
+                                    <label class="slider-label" for="distance">Distance</label>
+                                    <div class="slider-value">
+                                        <span class="value-output">
+                                            10
+                                        </span>km
+                                    </div>
+                                    <input class="slider-input form-control" id="search_advert_form_type_v2_distance" name="search_advert_form_type_v2[distance]" type="range" min="1" max="40" value="10">
+                                </div>
+                            </fieldset>
+                            <fieldset class="filter-box">
+                                <legend class="filter-name">
+                                    Ma recherche
+                                </legend>
+                                <select class="select form-control" id="search_advert_form_type_v2_anneesExperience" name="search_advert_form_type_v2[anneesExperience]" placeholder="Expérience">
+                                    <option value selected="selected">Expérience</option>
+                                    <option value="moins de 1 an">Moins de 1
+                                        an</option>
+                                    <option value="de 1 à 2 ans">De 1 à 2
+                                        ans</option>
+                                    <option value="de 3 à 5 ans">De 3 à 5
+                                        ans</option>
+                                    <option value="plus de 5 ans">Plus de 5
+                                        ans</option>
+                                </select>
+                                <select class="select form-control" id="search_advert_form_type_v2_niveauEtude" name="search_advert_form_type_v2[niveauEtude]" placeholder="Expérience">
+                                    <option value selected="selected">Niveau
+                                        d&#039;étude</option>
+                                    <option value="Brevet/BEP/CAP">Brevet/BEP/CAP</option>
+                                    <option value="Lycée">Lycée</option>
+                                    <option value="BAC">BAC</option>
+                                    <option value="BAC +2">BAC
+                                        +2</option>
+                                    <option value="BAC +3">BAC
+                                        +3</option>
+                                    <option value="BAC +5">BAC
+                                        +5</option>
+                                </select>
+                            </fieldset>
+                            <div class="toggle-box">
+                                <label class="toggle-label" for="toggle-vehicule">
+                                    <strong>La nounou est
+                                        véhiculé(e)</strong>
+                                </label>
+                                <input class="toggle-input" id="toggle-vehicule" name="search_advert_form_type_v2[vehicule]" type="checkbox">
+                            </div>
+                            <div class="toggle-box">
+                                <label class="toggle-label" for="toggle-dispoConfirm">
+                                    <strong>Dispo confirmés</strong>
+                                    <p>
+                                        La nounou a confirmé qu'elle était
+                                        disponible récemment
+                                    </p>
+                                </label>
+                                <input class="toggle-input" id="toggle-dispoConfirm" name="search_advert_form_type_v2[dispoConfirm]" type="checkbox">
+                            </div>
+                            <div class="toggle-box">
+                                <label class="toggle-label" for="toggle-photo">
+                                    <strong>Photo de profil</strong>
+                                    <p>
+                                        La nounou a une photo de profil
+                                    </p>
+                                </label>
+                                <input class="toggle-input" id="toggle-photo" name="search_advert_form_type_v2[photo]" type="checkbox">
+                            </div>
+                            <div class="toggle-box">
+                                <label class="toggle-label" for="toggle-avis">
+                                    <strong>Avis</strong>
+                                    <p>
+                                        La nounou a un ou plusieurs avis ou
+                                        recommandations
+                                    </p>
+                                </label>
+                                <input class="toggle-input" id="toggle-avis" name="search_advert_form_type_v2[avis]" type="checkbox">
+                            </div>
+                            <button class="btn" type="submit">
+                                Appliquer
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <input id="search_advert_form_type_v2__token" name="search_advert_form_type_v2[_token]" type="hidden" value="GDzR97UG1l8RIMtFJLhsRpJ25C6cX9w3zTbir6plTlU">
+            </form>
+        </section>
+
+        <section class="recherche-box" id="resultats">
+            <h2 class="title">0
+                nounous disponibles</h2>
+            <ul class="profiles-list">
+            </ul>
+        </section>
+    </main>
+    <!--script type="958c1f0eb0a1b0a7bda69afa-text/javascript">
+        var placeSearch;
+        //autocomplete; initAutocompleteMb();
+
+        function initAutocomplete() {
+
+            var acInputs = document.getElementsByClassName("autocomplete");
+
+            for (var i = 0; i < acInputs.length; i++) {
+
+                var autocomplete = new google.maps.places.Autocomplete(acInputs[i], {
+                    types: ['geocode'],
+                    componentRestrictions: {
+                        country: [
+                            "fr",
+                            "gp",
+                            "mq",
+                            "gf",
+                            "re",
+                            "pm",
+                            "yt",
+                            "nc",
+                            "pf",
+                            "mf",
+                            "tf"
+                        ]
+                    }
+                });
+                autocomplete.inputId = acInputs[i].id;
+
+                google.maps.event.addListener(autocomplete, 'place_changed', function() {
+                    //var place = autocomplete.getPlace();
+                    textId = this.inputId;
+                    document.getElementById(textId.replace('adresse', 'lat')).value = this.getPlace().geometry.location.lat();
+                    document.getElementById(textId.replace('adresse', 'lng')).value = this.getPlace().geometry.location.lng();
+                    //document.getElementById("log").innerHTML = 'You used input with id ' + this.inputId;
+                });
+            }
+
+        }
+    </!script-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCztRpaXkxh9IhAns4buznZi1eAnXKj_fA&signed_in=true&libraries=places&callback=initAutocomplete" type="958c1f0eb0a1b0a7bda69afa-text/javascript"></script>
+    <script data-cf-settings="958c1f0eb0a1b0a7bda69afa-|49" src="/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" defer></script>
+    <!--script data-cf-beacon="{"rayId":"86fc51e7087e4eb2","version":"2024.3.0","token":"99d424006f154c9399a7b5f019b29c3d"}" src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317" defer integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA==" crossorigin="anonymous"></!script-->
+    <script src="page.js"></script>
+</body>
+
+</html>
