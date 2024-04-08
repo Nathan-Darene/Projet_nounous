@@ -14,6 +14,8 @@ class Users extends Model
         'lastname',
         'firstname',
         'phone',
+        'gender',
+        'imageUpload',
         'city',
         'postalcode',
         'role',

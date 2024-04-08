@@ -5,7 +5,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 220vh; /* Utilise la hauteur totale de la fenêtre */
+    height: 120vh; /* Utilise la hauteur totale de la fenêtre */
     background-color: #FAFAFA;
 }
 
@@ -77,8 +77,6 @@ span {
 }*/
 
 .login-card-header-image {
-    display:flex;
-    justify-content:center;
     padding-left: 80px;
     padding-right: 80px;
     padding-top: 20px;
@@ -143,8 +141,6 @@ select{
 
 .preview{
     align-items: center;
-    display:flex;
-    justify-content:center;
 }
 
 .login-form-button {
@@ -247,10 +243,9 @@ select{
 }
 
 
-.imgs{
-    align-items: center;
-    /*margin-left: 40px;*/
-    /*border-radius: 50%;*/
+.imgs img{
+    margin-left: 40px;
+    border-radius: 50%;
 }
 .download-app-buttons img:hover{
     transform: scale(1.03);

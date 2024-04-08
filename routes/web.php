@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AllController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\AgendaController;
-
+use App\Http\Controllers\NounouController;
 
 
 
@@ -74,7 +74,8 @@ Route::get('/agenda', [AgendaController::class, 'agenda'])->name('agenda');
 
 
 Route::get('/profile', [ProfilController::class,'ProfileController'])->name('profile-show');
-
+/*Recherche*/
+Route::post('/rechercher-nounous', [NounouController::class, 'rechercher'])->name('rechercher.nounous');
 
 
 /*Route pour la page d'acceuil */

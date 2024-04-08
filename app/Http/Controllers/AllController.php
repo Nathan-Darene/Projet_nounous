@@ -75,6 +75,7 @@ class AllController extends Controller
             'lastname' => 'required|string|max:255',
             'firstname' => 'required|string|max:255',
             'phone' => 'required|string|max:20|unique:nounous',
+            'gender' => 'required|string|max:10',
             'birthdate' => 'required|date|max:255',
             'Age' => 'required|string|max:255',
             'niveau' => 'required|string|max:255',
@@ -95,6 +96,7 @@ class AllController extends Controller
         $user->lastname = $request->lastname;
         $user->firstname = $request->firstname;
         $user->phone = $request->phone;
+        $user->gender = $request->gender;
         $user->birthdate = $request->birthdate;
         $user->Age = $request->Age;
         $user->niveau = $request->niveau;
@@ -196,7 +198,6 @@ class AllController extends Controller
 
         // Validation des données
         $request->validate([
-            'username' => 'required|string|max:255',
             'username' => 'required|string|max:255|unique:nounous',
             'lastname' => 'required|string|max:255',
             'firstname' => 'required|string|max:255',
@@ -247,8 +248,10 @@ class AllController extends Controller
             'lastname' => 'required|string|max:255',
             'firstname' => 'required|string|max:255',
             'phone' => 'required|string|max:20|unique:users',
-            'city' => 'required|string|max:255|unique:users',
-            'postalcode' => 'required|string|max:255|unique:users',
+            'gender' => 'required|string|max:10',
+            'imageUpload' => 'file|image|mimes:jpeg,png,jpg,gif,webp,jpej,svg,avif|max:4048',
+            'city' => 'required|string|max:255',
+            'postalcode' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|',
         ]);
@@ -260,11 +263,22 @@ class AllController extends Controller
         $user->lastname = $request->lastname;
         $user->firstname = $request->firstname;
         $user->phone = $request->phone;
+        $user->gender = $request->gender;
+        $user->imageUpload = $request->imageUpload;
         $user->city = $request->city;
         $user->postalcode = $request->postalcode;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
 
+
+
+    if($request->hasfile('imageUpload')){
+        $file = $request->file('imageUpload');
+        $extenstion = $file->getClientOriginalExtension();
+        $filename = time().'.'.$extenstion;
+        $file->move('uploads/', $filename);
+        $user->imageUpload = $filename;
+        }
 
         // Sauvegarder l'utilisateur dans la base de données
         $res = $user->save();
@@ -277,6 +291,8 @@ class AllController extends Controller
             // Rediriger l'utilisateur vers une page de confirmation ou autre
             return back()->with('error', 'Une erreur est survenus lors de votre inscription');
         }
+
+
     }
 
 

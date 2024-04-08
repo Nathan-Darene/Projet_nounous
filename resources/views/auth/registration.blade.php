@@ -10,7 +10,7 @@
     <!-- Feuilles de style -->
     <link rel="stylesheet" href="fontawesome-free-6.5.1-web/css/all.min.css">
     <!-- Nouveau fichier CSS pour la page d'inscription -->
-    <link rel="stylesheet" href="{{ asset('css/formulaire.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/formulaire_User.css') }}">
     <link rel="stylesheet" href="{{asset('css/poppup.css')}}">
     <link rel="stylesheet" href="{{ asset('css/cheickbox.css') }}">
 
@@ -80,6 +80,16 @@
                     <!-- Champ pour le numéro de téléphone -->
                     <input type="text" placeholder="Numéro de téléphone" name="phone" value="{{old('phone')}}">
                     <span class="text-danger">@error('phone') {{$message}} @enderror</span>
+                    <!-- Champ pour la photo de profile -->
+                    <input type="file" placeholder="Photo de profile" name="photo" value="{{old('photo')}}">
+                    <span class="text-danger">@error('photo') {{$message}} @enderror</span>
+                    <!-- Champ pour le genre -->
+                    <select name="gender">
+                        <option value="Homme">Homme</option>
+                        <option value="Femme">Femme</option>
+                    </select>
+                    <span class="text-danger">@error('gender') {{$message}} @enderror</span>
+                    <!-- Champ pour le pays -->
                     <!-- Champ pour la ville -->
                     <input type="text" placeholder="Ville" name="city" value="{{old('city')}}">
                     <span class="text-danger">@error('city') {{$message}} @enderror</span>

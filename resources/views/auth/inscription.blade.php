@@ -89,11 +89,18 @@
 
                     <input type="number" placeholder="Votre Age" name="Age" value="{{old('Age')}}">
                     <span class="text-danger texte">@error('Age') {{$message}} @enderror</span>
+                    <!-- Champ pour le genre -->
+                    <select name="gender">
+                        <option value="">Genre</option>
+                        <option value="Homme">Homme</option>
+                        <option value="Femme">Femme</option>
+                    </select>
+                    <span class="text-danger">@error('gender') {{$message}} @enderror</span>
                     <!--Champ pour la photo de profile-->
                     <p class="par">Ajoutez votre photo d'identité</p>
                     <input type="file" id="imageUpload" name="imageUpload" accept="image/*" onchange="previewImage(event)" class="photo" value="{/*{old('imageUpload')}}"-->
                     <span class="text-danger texte">@error('imageUpload') {{$message}} @enderror</span>
-                    <div-- id="imagePreview" class="imgs"></div-->
+                    <div id="imagePreview" class="imgs"></div>
                     <!-- Champ pour le niveau d'etube -->
                     <div class="cadre">
                         <p class="par">Niveau d'étude</p>

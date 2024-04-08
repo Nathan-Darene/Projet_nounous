@@ -1,0 +1,52 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class NounouController extends Controller
+{
+    public function rechercher(Request $request)
+    {
+        // Récupérer les critères de recherche depuis la requête
+        $criteria = $request->all();
+
+        // Implémentez ici votre logique de filtrage des profils de nounous basée sur les critères
+        // Initialiser la requête de recherche des nounous
+        $query = Nounou::query();
+
+        // Filtrer par expérience professionnelle
+        if (!empty($criteria['exp'])) {
+            $query->where('experience', '>=', $criteria['exp']);
+        }
+
+        // Filtrer par niveau d'étude
+        if (!empty($criteria['exp1'])) {
+            $query->where('education_level', $criteria['exp1']);
+        }
+
+        // Exemple de filtre supplémentaire : disponibilité confirmée
+        if (!empty($criteria['disponibilite'])) {
+            $query->where('disponibilite', true);
+        }
+
+        // Exemple de filtre supplémentaire : localisation
+        if (!empty($criteria['adresse'])) {
+            $query->where('adresse', 'like', '%'.$criteria['adresse'].'%');
+        }
+
+        // Exemple de tri par dernière connexion
+        if ($criteria['tri'] === 'connexion') {
+            $query->orderBy('last_login', 'desc');
+        }
+
+        // Exécuter la requête et récupérer les résultats
+        $nounous = $query->get();
+
+        // Par exemple, supposons que vous récupériez les profils filtrés depuis la base de données
+        //$nounous = Nounou::where('experience', '>=', $criteria['exp'])->get();
+
+        // Retourner les profils de nounous filtrés (peut-être sous forme de JSON)
+        return response()->json(['nounous' => $nounous]);
+    }
+}
