@@ -16,7 +16,7 @@
 
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <!-- Icône de la page -->
-    <link rel="icon" type="image/png" href="../test/Logo/8900808870_4aa536ff-86f5-4f1e-9429-0e0ace5a8068.png">
+    <link rel="icon" type="image/png" href="/Logo/8900808870_4aa536ff-86f5-4f1e-9429-0e0ace5a8068.png">
     <style>
         .disabled {
             background-color: gray;
@@ -42,16 +42,14 @@
         <!-- Carte d'inscription -->
         <div class="main-card-login">
             <div class="login-card">
-                <div>
-                    <a href="{{asset('acceuil')}}"><i class="fa-solid fa-close"></i></a>
-                </div>
+
                 <!-- Logo -->
                 <div class="login-card-header-image" id="logo-section">
-                    <img src="{{ asset('Logo/8900808870_4aa536ff-86f5-4f1e-9429-0e0ace5a8068.png') }}" alt="Logo"
-                        height="70" width="180">
+                    <a href="{{asset('acceuil')}}"><img src="{{ asset('Logo/8900808870_4aa536ff-86f5-4f1e-9429-0e0ace5a8068.png') }}" alt="Logo"
+                        height="70" width="180"></a>
                 </div>
                 <!-- Formulaire d'inscription -->
-                <form class="login-card-form" action="{{route('register-user')}}" method="POST" id="registration-form">
+                <form class="login-card-form" action="{{route('register-user')}}" method="POST" id="registration-form" enctype="multipart/form-data">
 
                     @if (Session::has('success'))
                     <script>
@@ -81,8 +79,12 @@
                     <input type="text" placeholder="Numéro de téléphone" name="phone" value="{{old('phone')}}">
                     <span class="text-danger">@error('phone') {{$message}} @enderror</span>
                     <!-- Champ pour la photo de profile -->
-                    <input type="file" placeholder="Photo de profile" name="photo" value="{{old('photo')}}">
-                    <span class="text-danger">@error('photo') {{$message}} @enderror</span>
+                    <div class="cadre">
+                        <p class="par">Ajouter une photo de profile</p>
+                    </div>
+                    <input type="file" id="imageUpload" name="imageUpload" accept="image/*" onchange="previewImage(event)" class="photo" value="{/*{old('imageUpload')}}"-->
+                    <span class="text-danger texte">@error('imageUpload') {{$message}} @enderror</span>
+                    <div id="imagePreview" class="imgs"></div>
                     <!-- Champ pour le genre -->
                     <select name="gender">
                         <option value="Homme">Homme</option>
@@ -145,7 +147,10 @@
     </main>
 
 
-    <script src="{{asset('js/check.js')}}"></script>
+    <script src="{{asset('/js/check.js')}}"></script>
+    <script src="{{asset('/js/photo.js')}}"></script>
+    <script src="{{ asset('js/music.js') }}"></script>
+
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </html>

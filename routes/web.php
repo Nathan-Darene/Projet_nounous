@@ -8,6 +8,8 @@ use App\Http\Controllers\NounouController;
 
 
 
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -70,12 +72,23 @@ Route::get('/About',[AllController::class, 'About'])->name ('About');
 Route::get('/profile_nounou',[AllController::class, 'profile_nounou']);
 
 
+
+Route::get('/users', [UserController::class, 'showUsers']);
+
+
 Route::get('/agenda', [AgendaController::class, 'agenda'])->name('agenda');
 
 
 Route::get('/profile', [ProfilController::class,'ProfileController'])->name('profile-show');
 /*Recherche*/
 Route::post('/rechercher-nounous', [NounouController::class, 'rechercher'])->name('rechercher.nounous');
+
+Route::get('/users', [UserController::class, 'index'])->name('page.page_user');
+
+
+/*Annonce */
+Route::post('/profiel_nounou', [AllController::class, 'annonce'])->name('annonce');
+
 
 
 /*Route pour la page d'acceuil */

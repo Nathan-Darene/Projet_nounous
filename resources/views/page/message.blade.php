@@ -54,5 +54,6 @@
     </div>
     <script src="{{asset('/js/message.js')}}"></script>
 </body>
+<script src="{{ asset('js/music.js') }}"></script>
 
 </html>

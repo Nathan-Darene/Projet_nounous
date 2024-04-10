@@ -1,7 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Users;
+use App\Models\Nounou;
+use Session;
+use Hash;
 use Illuminate\Http\Request;
 
 class NounouController extends Controller
@@ -15,7 +18,7 @@ class NounouController extends Controller
         $query = Nounou::query();
 
         // Filtrer par tri
-        if (!empty($criteria['tri'])) {
+       /* if (!empty($criteria['tri'])) {
             if ($criteria['tri'] === 'connexion') {
                 $query->orderBy('last_login', 'desc');
             } elseif ($criteria['tri'] === 'recommande') {
@@ -23,22 +26,23 @@ class NounouController extends Controller
             } elseif ($criteria['tri'] === 'distance') {
                 // Implémentez la logique de tri par distance si nécessaire
             }
-        }
+        }*/
 
         // Filtrer par type d'aide
         if (!empty($criteria['type_aide'])) {
-            $query->where('type_aide', $criteria['type_aide']);
+            $query->where('role', $criteria['type_aide']);
         }
 
         // Filtrer par localisation
         if (!empty($criteria['adresse'])) {
-            $query->where('adresse', 'like', '%' . $criteria['adresse'] . '%');
+            $query->where('city', 'like', '%' . $criteria['adresse'] . '%');
         }
 
+        /*
         // Filtrer par distance
         if (!empty($criteria['distance'])) {
             // Implémentez la logique de filtrage par distance si nécessaire
-        }
+        }*/
 
         // Filtrer par expérience professionnelle
         if (!empty($criteria['exp'])) {

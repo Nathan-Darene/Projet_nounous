@@ -11,8 +11,6 @@ class Nounou extends Model
 
     protected $fillable = [
 
-
-
         'username',
         'lastname',
         'firstname',

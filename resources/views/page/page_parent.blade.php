@@ -34,7 +34,7 @@
                         <div class="filter-name">J'ai Besoin de :</div>
                         <select name="type_aide" class="filter-select1">
                             <option value="">Type d'aide</option>
-                            <option value="assistante_maternelle">Assistante maternelle</option>
+                            <option value="assistantematernelle">Assistante maternelle</option>
                             <option value="nounou">Nounou ou baby-sitter</option>
                             <option value="tous">Tous les types de nounou</option>
                         </select>
@@ -58,23 +58,16 @@
                         <div class="Exp">
                             <p class="filter-name">Expérience professionnelle <i class="fa-solid fa-"></i></p>
                             <div class="Exp1">
-                                <select name="exp" class="exp">
-                                    <option value="">Expérience</option>
-                                    <option value="moins_1_an">Moins de 1 an</option>
-                                    <option value="1_2_ans">De 1 à 2 ans</option>
-                                    <option value="3_5_ans">De 3 à 5 ans</option>
-                                    <option value="plus_5_ans">Plus de 5 ans</option>
-                                </select>
+                                <input type="number" name="exp" class="exp" placeholder="Année d'experience dans le domaine">
                                 <select name="exp1" class="exp">
                                     <option value="" selected="selected">Niveau d'étude</option>
+                                    <option value="Null">Aucun</option>
                                     <option value="brevet_bep_cap">Brevet/BEP/CAP</option>
                                     <option value="lycee">Lycée</option>
-                                    <option value="bac">BAC</option>
-                                    <option value="bac_1">BAC +1</option>
-                                    <option value="bac_2">BAC +2</option>
-                                    <option value="bac_3">BAC +3</option>
-                                    <option value="bac_4">BAC +4</option>
-                                    <option value="bac_5">BAC +5</option>
+                                    <option value="Baccalauréat">Baccalauréat</option>
+                                    <option value="Licence">Licence</option>
+                                    <option value="Master">Master</option>
+                                    <option value="Doctorat">Doctorat</option>
                                 </select>
                             </div>
                         </div>
@@ -166,6 +159,8 @@
     <script src="{{ asset('js/icon.js') }}"></script>
     <script src="{{ asset('js/affichage.js') }}"></script>
     <script src="{{ asset('js/recherche.js') }}"></script>
+    <script src="{{ asset('js/music.js') }}"></script>
+
 </body>
 
 </html>

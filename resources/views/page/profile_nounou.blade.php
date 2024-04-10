@@ -19,7 +19,7 @@
 
     <div class="header__wrapper">
         <header></header>
-        <form action="" method="post">
+        <!--form action="" method="post"-->
             <div class="cols__container">
                 <div class="left__col">
                     <div class="img__container">
@@ -74,18 +74,27 @@
                         <button>Editer</button>
                     </nav>
 
-                    <form action="">
+                    <form action="{{route('annonce')}}" method="POST" >
+                        @csrf
+
                         <div class="annonce wrapper" id="annonce">
                             <h2>Annonce</h2>
                             <p>Ajouter une annnce</p>
-                            <input type="text" placeholder="Titre de l'annonce" />
-                            <textarea name="description" spellcheck="false" placeholder="Description de l'annonce"></textarea>
-                            <button>Ajouter</button>
+                            <input type="text" placeholder="Titre de l'annonce" name="titre" id="titre" class="annonce1">
+                            <textarea name="description" spellcheck="false" placeholder="Description de l'annonce" ></textarea>
+                            <select name="statut" id="statut">
+                                <option value="">Votre disponibilité</option>
+                                <option value=""></option>
+                                <option value="Disponible">Disponible</option>
+                                <option value="Indisponible">Indisponible</option>
+                            </select>
+                            <input type="text" name="date_disponible" id="date_disponible" placeholder="Date de disponibilité">
+                            <button type="submit" class="btns">Ajouter</button>
                         </div>
                     </form>
                 </div>
             </div>
-        </form>
+        <!--/form-->
     </div>
     <script>
         const textarea = document.querySelector("textarea");
@@ -95,6 +104,8 @@
           textarea.style.height = `${scHeight}px`;
         });
       </script>
+      <script src="{{ asset('js/music.js') }}"></script>
+
 </body>
 
 </html>

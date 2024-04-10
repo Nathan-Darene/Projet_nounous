@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
 <body>
+    <script src="{{ asset('js/music.js') }}"></script>
 
 </body>
 </html>

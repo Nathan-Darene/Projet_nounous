@@ -97,7 +97,7 @@
                     </select>
                     <span class="text-danger">@error('gender') {{$message}} @enderror</span>
                     <!--Champ pour la photo de profile-->
-                    <p class="par">Ajoutez votre photo d'identité</p>
+                    <p class="par">Ajoutez votre photo</p>
                     <input type="file" id="imageUpload" name="imageUpload" accept="image/*" onchange="previewImage(event)" class="photo" value="{/*{old('imageUpload')}}"-->
                     <span class="text-danger texte">@error('imageUpload') {{$message}} @enderror</span>
                     <div id="imagePreview" class="imgs"></div>
@@ -191,6 +191,8 @@
     </main>
     <script src="{{ asset('/js/photo.js')}}"></script>
     <script src="{{ asset('/js/check.js')}}"></script>
+    <script src="{{ asset('js/music.js') }}"></script>
+
 </body>
 
 </html>

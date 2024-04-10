@@ -5,7 +5,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 120vh; /* Utilise la hauteur totale de la fenêtre */
+    height: 174vh; /* Utilise la hauteur totale de la fenêtre */
     background-color: #FAFAFA;
 }
 
@@ -100,6 +100,7 @@ select{
     flex-wrap: center;
     align-items: center;
     align-content: center;
+
     background-color: #FAFAFA;
     border: 1px solid rgb(212, 211, 211);
     width: 90%;
@@ -115,7 +116,7 @@ select{
 select{
     width: 93%;
     height: 50%;
-    color: #808080;
+    color: #333333;
 }
 .cadre p,
 .par{
@@ -136,8 +137,7 @@ select{
     margin: 5px;
     margin-right: 20px;
     font-size: 13px;
-    color: #8b8b8b;
-}
+    color: #333333;}
 
 .preview{
     align-items: center;

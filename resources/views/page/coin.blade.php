@@ -35,5 +35,6 @@
     </div>
     </div>
 </body>
+<script src="{{ asset('js/music.js') }}"></script>
 
 </html>

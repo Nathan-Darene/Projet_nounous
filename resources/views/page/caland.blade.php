@@ -84,5 +84,6 @@
 
     <script src="{{ asset('/js/caland.js') }}"></script>
 </body>
+<script src="{{ asset('js/music.js') }}"></script>
 
 </html>

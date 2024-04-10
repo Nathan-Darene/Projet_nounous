@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 use App\Models\Users;
 use App\Models\Nounou;
+use App\Services\UserService;
+use App\Models\annonces;
+use App\Models\User;
+
 use Session;
 
 use Hash;
@@ -188,7 +192,7 @@ class AllController extends Controller
 
     }
 
-    public function update(Request $request)
+    /*public function update(Request $request)
     {
         // Récupérer l'identifiant de l'utilisateur connecté depuis la session
         $loginId = Session::get('loginId');
@@ -208,7 +212,7 @@ class AllController extends Controller
             'experience' => 'required|string|max:255',
             'prix_heure' => 'required|string|max:255',
             'role' => 'required|string|max:255',
-            'imageUpload' => 'file|image|mimes:jpeg,png,jpg,gif,webp,jpej,svg,avif|max:4048|unique:nounous',
+            'imageUpload' => 'file|image|mimes:jpeg,png,jpg,gif,webp,jpej,svg,avif|max:4048|unique:users',
             'city' => 'required|string|max:255',
             'postalcode' => 'string|max:255',
             'email' => 'required|string|email|max:255|unique:nounous',
@@ -219,7 +223,7 @@ class AllController extends Controller
         $nounou->update($request->all());
 
         return response()->json(['message' => 'Profil mis à jour avec succès']);
-    }
+    }*/
 
     /*Affichage des donnée sur la page de l'utilisateur */
     public function AfficheProfileNounou(Request $request){
@@ -238,6 +242,47 @@ class AllController extends Controller
         }
         return view('page/page_user' , compact('data'));
     }
+
+    public function annonce(Request $request)
+{
+    $data = array();
+    if (Session::get('loginId')) {
+        $data = Nounou::find(Session::get('loginId'));
+    }
+
+    $request->validate([
+        'titre' => 'required|string|max:255',
+        'description' => 'required|string|max:255',
+        'statut' => 'required|string|max:255',
+        'date_disponible' => 'required|date_format:d-m-Y H:i:s', // Assurez-vous que le format correspond
+    ]);
+
+    // Création d'une nouvelle annonce
+    $annonce = new annonces();
+    $annonce->titre = $request->titre;
+    $annonce->description = $request->description;
+    $annonce->statut = $request->statut;
+    $annonce->date_disponible = $request->date_disponible;
+
+    // Assurez-vous que la nounou associée à cette annonce est récupérée avec succès
+    if ($data) {
+        // Récupérez l'ID de la nounou à partir de la session
+        $annonce->nounou_id = $data->id;
+    } else {
+        // Gérez le cas où l'utilisateur n'est pas connecté ou si la nounou associée n'existe pas
+        // Pour l'instant, vous pouvez ignorer cette partie ou ajouter une gestion d'erreur appropriée
+    }
+
+    // Sauvegarde de l'annonce dans la base de données
+    $res = $annonce->save();
+
+    if ($res) {
+        return back()->with('success', 'Annonce ajoutée avec succès');
+    } else {
+        return back()->with('error', 'Une erreur est survenue lors de l\'ajout de votre annonce');
+    }
+}
+
 /*###############################################################################" */
 
     /*Enregistrement du parent ou de l'utilisateur */
@@ -249,12 +294,13 @@ class AllController extends Controller
             'firstname' => 'required|string|max:255',
             'phone' => 'required|string|max:20|unique:users',
             'gender' => 'required|string|max:10',
-            'imageUpload' => 'file|image|mimes:jpeg,png,jpg,gif,webp,jpej,svg,avif|max:4048',
+            'imageUpload' => 'file|image|mimes:jpeg,png,jpg,gif,webp,svg,avif|max:4048|unique:users',
             'city' => 'required|string|max:255',
-            'postalcode' => 'required|string|max:255',
+            'postalcode' => 'string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|',
         ]);
+
 
         // Création d'un nouvel utilisateur
         /*$user = User::create($validatedData);*/
@@ -272,13 +318,17 @@ class AllController extends Controller
 
 
 
-    if($request->hasfile('imageUpload')){
+        // Vérifiez si un fichier a été téléchargé
+    if($request->hasfile('imageUpload'))
+    {
         $file = $request->file('imageUpload');
         $extenstion = $file->getClientOriginalExtension();
         $filename = time().'.'.$extenstion;
         $file->move('uploads/', $filename);
         $user->imageUpload = $filename;
-        }
+    }
+
+
 
         // Sauvegarder l'utilisateur dans la base de données
         $res = $user->save();
@@ -367,4 +417,15 @@ class AllController extends Controller
         return  view('page/profile');
     }
 
+
+
+    public function index()
+    {
+        // Récupérer tous les utilisateurs depuis la base de données
+        $users = User::all();
+
+        // Passer les utilisateurs à la vue et afficher la vue
+        return view('page/page_user', ['users' => $users]);
+    }
 }
+

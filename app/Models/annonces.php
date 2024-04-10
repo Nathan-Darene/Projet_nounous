@@ -10,10 +10,9 @@ class annonces extends Model
     use HasFactory;
 
     protected $fillable = [
-        'tittre',
-        'Description',
+        'titre',
+        'description',
         'statut',
-        'prix_heure',
         'date_disponible',
     ];
 
@@ -22,4 +21,10 @@ class annonces extends Model
         return $this->belongsTo(Nounou::class, 'nounou_id');
     }
 
+    // Mutateur pour le champ date_disponible
+    public function setDateDisponibleAttribute($value)
+    {
+        // Conversion de la date au format datetime
+        $this->attributes['date_disponible'] = \Carbon\Carbon::createFromFormat('d-m-Y H:i:s', $value);
+    }
 }

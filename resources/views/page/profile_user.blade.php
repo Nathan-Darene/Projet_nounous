@@ -46,7 +46,7 @@
                         <h2>Recherche Enfant à garder . Nounou dévouée</h2>
                         @if ($data ?? '')
                         <p>
-                            
+
                         </p>
                         @endif
                         <ul>
@@ -61,7 +61,7 @@
                     <nav>
                         <ul>
                             <li><a href="">Profil</a></li>
-                            <li><a href="{{ route('Recherche') }}">Rchercher</a></li>
+                            <li><a href="">Rchercher</a></li>
                             <li><a href="">groups</a></li>
                             <li><a href="">about</a></li>
                         </ul>
@@ -81,5 +81,7 @@
         </form>
     </div>
 </body>
+<script src="{{ asset('js/music.js') }}"></script>
+
 
 </html>

@@ -18,7 +18,6 @@ class Users extends Model
         'imageUpload',
         'city',
         'postalcode',
-        'role',
         'email',
         'password',
     ];

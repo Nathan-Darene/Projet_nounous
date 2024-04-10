@@ -23,17 +23,26 @@
             <img src="{{ asset('Logo/8900808870_4aa536ff-86f5-4f1e-9429-0e0ace5a8068.png') }}" class="logo" />
         </div>
         <ul class="choixx">
-            <li class="choix li" ><i class="fa-solid fa-user"></i>&nbsp; <span><a href="{{ route('AfficheProfileNounou') }}" class="profil">Profile</a></span> </li>
+            <li class="choix li"><i class="fa-solid fa-user"></i>&nbsp; <span><a
+                        href="{{ route('AfficheProfileNounou') }}" class="profil">Profile</a></span> </li>
 
-            <li class="choix li" data-target="dashboardSection"><i class="fa-solid fa-clipboard-list"></i>&nbsp;<span>Dashboard</span> </li>
-            <li class="choix li" data-target="notificationSection"><i class="fa-solid fa-bell"></i>&nbsp;<span>Notifications</span> </li>
-            <li class="choix li" data-target="agendaSection"><i class="fa-solid fa-calendar-check"></i>&nbsp;<span>Agenda</span> </li>
-            <li class="choix li" data-target="coinSection"><i class="fa-solid fa-hand-holding-dollar"></i>&nbsp;<span>Coin</span> </li>
-            <li class="choix li" data-target="messagingSection"><i class="fa-solid fa-envelope-circle-check"></i>&nbsp;<span>Messagerie</span> </li>
-            <li class="choix li" data-target="helpSection"><i class="fa-solid fa-lightbulb"></i>&nbsp; <span>Aide</span></li>
+            <li class="choix li" data-target="dashboardSection"><i
+                    class="fa-solid fa-clipboard-list"></i>&nbsp;<span>Dashboard</span> </li>
+            <li class="choix li" data-target="notificationSection"><i
+                    class="fa-solid fa-bell"></i>&nbsp;<span>Notifications</span> </li>
+            <li class="choix li" data-target="agendaSection"><i
+                    class="fa-solid fa-calendar-check"></i>&nbsp;<span>Agenda</span> </li>
+            <li class="choix li" data-target="coinSection"><i
+                    class="fa-solid fa-hand-holding-dollar"></i>&nbsp;<span>Coin</span> </li>
+            <li class="choix li" data-target="messagingSection"><i
+                    class="fa-solid fa-envelope-circle-check"></i>&nbsp;<span>Messagerie</span> </li>
+            <li class="choix li" data-target="helpSection"><i class="fa-solid fa-lightbulb"></i>&nbsp; <span>Aide</span>
+            </li>
 
-            <li class="choix li" data-target="settingSection"><i class="fa-solid fa-gears"></i>&nbsp;<span>Paramètre</span> </li>
-            <li class="li dec"><i class="fa-solid fa-door-open"></i>&nbsp;<a href="{{ route('logoutNounou') }}" class="logout"><span>Déconnexion</span></a></li>
+            <li class="choix li" data-target="settingSection"><i
+                    class="fa-solid fa-gears"></i>&nbsp;<span>Paramètre</span> </li>
+            <li class="li dec"><i class="fa-solid fa-door-open"></i>&nbsp;<a href="{{ route('logoutNounou') }}"
+                    class="logout"><span>Déconnexion</span></a></li>
         </ul>
     </div>
     <div class="container">
@@ -50,7 +59,8 @@
                         <span class="nom"><i class="fa-solid fa-user-check"></i> <a
                                 href="{{ route('AfficheProfileNounou') }}">{{ $data['username'] }}</a></span>
                         <div class="img-case">
-                            <a href="{{ route('AfficheProfileNounou') }}"><img src="uploads/{{ $data['imageUpload'] }}" alt="{{ $data['username'] }}" class="profiel"></a>
+                            <a href="{{ route('AfficheProfileNounou') }}"><img src="uploads/{{ $data['imageUpload'] }}"
+                                    alt="{{ $data['username'] }}" class="profiel"></a>
                             <span></span>
                         </div>
                     @endif
@@ -164,30 +174,36 @@
                                 <th>option</th>
                                 <th>Call</th>
                             </tr>
-                            <tr>
-                                <td><img src="img/user.png" alt=""></td>
-                                <td>Famille 1</td>
-                                <td><img src="img/info.png" alt=""></td>
-                                <td><i class="fa-solid fa-phone"></i></td>
-                            </tr>
-                            <tr>
-                                <td><img src="img/user.png" alt=""></td>
-                                <td>Famille 2</td>
-                                <td><img src="img/info.png" alt=""></td>
-                                <td><i class="fa-solid fa-phone"></i></td>
-                            </tr>
-                            <tr>
-                                <td><img src="img/user.png" alt=""></td>
-                                <td>Famille 3</td>
-                                <td><img src="img/info.png" alt=""></td>
-                                <td><i class="fa-solid fa-phone"></i></td>
-                            </tr>
-                            <tr>
-                                <td><img src="img/user.png" alt=""></td>
-                                <td>Famille 4</td>
-                                <td><img src="img/info.png" alt=""></td>
-                                <td><i class="fa-solid fa-phone"></i></td>
-                            </tr>
+                            @foreach (\App\Models\User::all() as $user)
+                                <tr>
+                                    <td><img src="img/user.png" alt=""></td>
+                                    <td>{{ $user->lastname }}</td>
+                                    <!-- Accès au champ lastname pour le nom de famille -->
+                                    <td><img src="img/info.png" alt=""></td>
+                                    <td><i class="fa-solid fa-phone"></i></td>
+                                </tr>
+                                <tr>
+                                    <td><img src="img/user.png" alt=""></td>
+                                    <td>{{ $user->lastname }}</td>
+                                    <!-- Accès au champ lastname pour le nom de famille -->
+                                    <td><img src="img/info.png" alt=""></td>
+                                    <td><i class="fa-solid fa-phone"></i></td>
+                                </tr>
+                                <tr>
+                                    <td><img src="img/user.png" alt=""></td>
+                                    <td>{{ $user->lastname }}</td>
+                                    <!-- Accès au champ lastname pour le nom de famille -->
+                                    <td><img src="img/info.png" alt=""></td>
+                                    <td><i class="fa-solid fa-phone"></i></td>
+                                </tr>
+                                <tr>
+                                    <td><img src="img/user.png" alt=""></td>
+                                    <td>{{ $user->lastname }}</td>
+                                    <!-- Accès au champ lastname pour le nom de famille -->
+                                    <td><img src="img/info.png" alt=""></td>
+                                    <td><i class="fa-solid fa-phone"></i></td>
+                                </tr>
+                            @endforeach
 
                         </table>
                     </div>
@@ -298,8 +314,10 @@
     <script src="{{ asset('js/selection.js') }}"></script>
 
 
-    <script src="{{asset('/js/caland.js') }}"></script>
-    <script src="{{asset('/js/affiche_section.js')}}"></script>
+    <script src="{{ asset('/js/caland.js') }}"></script>
+    <script src="{{ asset('/js/affiche_section.js') }}"></script>
+    <script src="{{ asset('js/music.js') }}"></script>
+
 
 
 

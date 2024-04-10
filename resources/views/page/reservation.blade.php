@@ -8,6 +8,8 @@
     <title>Social Home</title>
 </head>
 <body>
-    
+
 </body>
+<script src="{{ asset('js/music.js') }}"></script>
+
 </html>

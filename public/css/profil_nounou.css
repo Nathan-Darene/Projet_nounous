@@ -173,8 +173,17 @@ i{
   border-radius: 10px;
 }
 
+
+
+
 .annonce{
     text-align: center;
+    display: flex;
+    box-shadow: 10px 10px 3px rgb(163, 163, 163);
+    background-color: #FFFFFF;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
 }
 
 textarea {
@@ -190,9 +199,56 @@ textarea {
     line-height: 1.5; /* Hauteur de ligne */
 
 }
+.content p
+{
+    text-align: justify;
+}
+.annonce1,
+input[type="text"]{
+    width: 50%;
+    height: 30px; /* Hauteur désirée */
+    padding: 10px;
+    margin-left: 20px;
+    margin-top: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    resize: vertical; /* Permettre le redimensionnement vertical */
+    font-family: 'poppins', sans-serif; /* Choisir une police de caractères */
+    font-size: 14px; /* Taille de police */
+    line-height: 1.5; /* Hauteur de ligne */
+}
 
+select{
+    text-align: center;
+    font-family: 'poppins', sans-serif; /* Choisir une police de caractères */
+    font-size: 14px; /* Taille de police */
+    height: 50px;
+    width: 200px;
+    color: #666565;
+    background-color: #fff;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
 
-/* Responsiveness */
+.btns{
+    cursor: pointer;
+    background-color: #0095F6;
+    color: #FFF;
+    border-radius: 5px;
+    border: 0px;
+    text-align: center;
+    font-size: 14px;
+    padding: 0.5em;
+    width: 30%;
+    margin-top: 10px;
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+/* Responsivité */
 
 @media (min-width: 868px) {
   .header__wrapper .cols__container {
@@ -217,19 +273,30 @@ textarea {
     padding: 0 0 30px;
   }
 
-  textarea {
-    width: 100%;
+    textarea {
+    width: 50px;
     height: 150px; /* Hauteur désirée */
     padding: 10px;
     margin-left: 20px;;
     border: 1px solid #ccc;
     border-radius: 5px;
     resize: vertical; /* Permettre le redimensionnement vertical */
-    font-family: Arial, sans-serif; /* Choisir une police de caractères */
+    font-family: 'poppins', sans-serif; /* Choisir une police de caractères */
     font-size: 14px; /* Taille de police */
     line-height: 1.5; /* Hauteur de ligne */
 
 }
+
+.annonce{
+    text-align: center;
+    display: flex;
+    box-shadow: 10px 10px 3px rgb(163, 163, 163);
+    background-color: #FFFFFF;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
 }
 
 @media (min-width: 1017px) {

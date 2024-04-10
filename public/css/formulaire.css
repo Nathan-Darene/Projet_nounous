@@ -5,7 +5,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 220vh; /* Utilise la hauteur totale de la fenêtre */
+    height: 260vh; /* Utilise la hauteur totale de la fenêtre */
     background-color: #FAFAFA;
 }
 
@@ -145,6 +145,11 @@ select{
     align-items: center;
     display:flex;
     justify-content:center;
+}
+
+.imgs img{
+    margin-left: 40px;
+    border-radius: 50%;
 }
 
 .login-form-button {
