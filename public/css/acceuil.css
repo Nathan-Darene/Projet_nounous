@@ -16,10 +16,10 @@
     transition: 1.2s;
 }
 
-
-.navbar a:hover,
 .navbar a.active {
-  color:#df4881;
+    background-color: #df4881;
+    color:#ffffff;
+    font-weight: 600;
 }
 
 .navbar a {
@@ -31,7 +31,7 @@
 /**/
 .hero {
     width: 100%;
-    min-height: 100vh;
+    min-height: 98vh;
     background-image: url(../img/back-image.png);
     background-position: center;
     background-size: cover;
@@ -62,19 +62,26 @@ nav {
 nav ul li {
     display: inline-block;
     list-style: none;
-    margin: 10px 15px;
+    margin: 10px 10px;
+    transition: 0.3s;
 }
 
 nav ul li a {
     text-decoration: none;
     color: #333;
-    font-weight: 400;
+    /*font-weight: 400;*/
+}
+
+.ul li:hover,
+.lo_gin a:hover{
+    transition: 0.3s;
+    transform: translateY(-10px);
 }
 
 .login-btn {
     text-decoration: none;
     color: #333;
-    margin-right: 15px;
+    margin-right: 10px;
     font-weight: 400;
 }
 
@@ -110,6 +117,32 @@ nav ul li a {
     margin: 10px 0 30px;
     color: #333;
     animation-delay: 0.5s;
+}
+
+.play {
+    font-weight: 500;
+    color: #090909;
+    padding: 0.7em 1.7em;
+    font-size: 15px;
+    border-radius: 0.5em;
+    background: #e8e8e8;
+    cursor: pointer;
+    border: 1px solid #e8e8e8;
+    transition: all 0.3s;
+    box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+
+}
+
+.play:hover{
+    background-color: #df4881;
+    color: #fff;
+}
+
+.play:active{
+    color: #df4881;
+    background-color: #fff;
+    box-shadow: inset 4px 4px 12px #df3777, inset -4px -4px 12px #fff;
+
 }
 
 .pad {
@@ -195,6 +228,7 @@ nav ul li a {
     box-shadow: 10px 10px 3px rgb(183, 183, 183);
     width: 350px;
     margin-bottom: 20px;
+    transition: 0.3s;
 }
 
 .info {

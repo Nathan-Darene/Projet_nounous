@@ -26,6 +26,10 @@
 </head>
 
 <body>
+    <audio id="hover-poppup">
+        <source src="{{asset('poppup/multi-pop-4-188169.mp3')}}" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
     <!-- En-tête de la page -->
     <header>
 
@@ -155,7 +159,7 @@
                     <span class="text-danger texte">@error('privacy_acceptance') {{$message}} @enderror</span>
                     <!-- Bouton d'inscription -->
                     <!--input class="login-form-button" type="submit" placeholder="S'inscrire" id="register-button"-->
-                    <button type="submit" class="login-card-form-button login-form-button disabled" id="register-button">Inscription</button>
+                    <button type="submit" class="login-card-form-button login-form-button disabled box" id="register-button">Inscription</button>
                     <div class="login-or">
                         <hr class="login-or-first-separation">
                         <span>OU</span>
@@ -192,6 +196,7 @@
     <script src="{{ asset('/js/photo.js')}}"></script>
     <script src="{{ asset('/js/check.js')}}"></script>
     <script src="{{ asset('js/music.js') }}"></script>
+    <script src="{{asset('js/popup.js')}}"></script>
 
 </body>
 

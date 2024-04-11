@@ -1,11 +1,9 @@
-/*$(document).ready(function () {
+$(document).ready(function () {
     $("form.filters").submit(function (event) {
         event.preventDefault(); // Empêcher la soumission du formulaire par défaut
 
         var formData = $(this).serialize(); // Sérialiser les données du formulaire
-
-        // Vérifier les données du formulaire dans la console
-        console.log(formData);
+        
         // Effectuer une requête AJAX
         $.ajax({
             type: "POST",
@@ -60,4 +58,3 @@
         });
     });
 });
-*/

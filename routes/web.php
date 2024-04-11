@@ -30,7 +30,7 @@ Route::get('/', function () {
 
 /*connexion */
 /*Connexion get */
-Route::get('/login',[AllController::class, 'login']);
+Route::get('/login',[AllController::class, 'login'])->name ('login');
 Route::get('/login_nounou',[AllController::class, 'login_nounou']);
 
 /*Inscriptio get */
@@ -81,6 +81,9 @@ Route::get('/agenda', [AgendaController::class, 'agenda'])->name('agenda');
 
 Route::get('/profile', [ProfilController::class,'ProfileController'])->name('profile-show');
 /*Recherche*/
+Route::get('/recherche', [AllController::class, 'recherche'])->name('recherche');
+
+
 Route::post('/rechercher-nounous', [NounouController::class, 'rechercher'])->name('rechercher.nounous');
 
 Route::get('/users', [UserController::class, 'index'])->name('page.page_user');

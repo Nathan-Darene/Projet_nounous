@@ -13,25 +13,27 @@
 </head>
 
 <body>
-
+    <audio id="hover-sound">
+        <source src="{{asset('poppup/happy-pop-1-185286.mp3')}}" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
     <div class="hero" id="Acceuil">
         <nav class="navbar">
             <img src="{{ asset('Logo/8900808870_4aa536ff-86f5-4f1e-9429-0e0ace5a8068.png') }}" class="logo" />
-            <ul>
-                <li><a href="#Accueil" style="--i:1;" class="active">Accueil</a></li>
-                <li><a href="#A-propos" style="--i:2;"> A propos</a></li>
-                <li><a href="#contact" style="--i:3;">Contact</a></li>
-                <li><a href="#info" style="--i:4;">Information</a></li>
-                <li>
-                    <audio id="lecteur-audio" src="{{asset('sound/lofi-fruits-music-crescent-moon-200737.mp3')}}" type="audio/mp3" loop></audio>
-                    <button id="bouton-toggle">Play/Pause</button>
-                    <input id="slider-volume" type="range" min="0" max="100" value="100">
+            <ul class="ul">
+                <li class="poppup"><a href="#Accueil" style="--i:1;" class="active play" >Accueil</a></li>
+                <li class="poppup"><a href="#A-propos" style="--i:2;" class="play"> A propos</a></li>
+                <li class="poppup"><a href="#contact" style="--i:3;" class="play">Contact</a></li>
+                <li class="poppup"><a href="#info" style="--i:4;" class="play">Information</a></li>
+                <li class="poppup">
+                    <audio id="lecteur-audio" src="{{asset('sound/relaxed-vlog-night-street-131746.mp3')}}" type="audio/mp3" loop></audio>
+                    <button id="bouton-toggle" class="play"></button>
                 </li>
-                <li><a href="{{ asset('choix') }}" style="--1:5;">Inscription</a></li>
+                <li class="poppup"><a href="{{ asset('choix') }}" style="--1:5;" class="play">Inscription</a></li>
             </ul>
-            <div>
-                <a href="{{ asset('choix2') }}" style="--i:6;" class="login-btn">Se connecter</a>
-                <a href="#" class="btn">Téléchargé l'App</a>
+            <div class="lo_gin">
+                <a href="{{ asset('choix2') }}" style="--i:6;" class="login-btn poppup play">Se connecter</a>
+                <a href="#" class="btn poppup play">Téléchargé l'App</a>
             </div>
         </nav>
         <div class="content acceuil">
@@ -83,7 +85,7 @@
             <h2 class="info">Information</h2>
         </center>
         <div class="list-info">
-            <div class="box">
+            <div class="box poppup">
                 <img src="{{ asset('img/wrench.svg') }}" alt>
                 <h3>Fonctionnalités Mises en Avant :</h3>
                 <p class="pad">Explorez nos fonctionnalités avancées de gestion des
@@ -96,7 +98,7 @@
 
             <!--******************-->
 
-            <div class="box">
+            <div class="box poppup">
                 <img src="{{ asset('img/user-group.svg') }}" alt>
                 <h3>Pour les Parents :</h3>
                 <p class="pad">Facilitez votre quotidien avec notre interface conviviale
@@ -112,7 +114,7 @@
 
             <!--******************-->
 
-            <div class="box">
+            <div class="box poppup">
                 <img src="{{ asset('img/user-nurse.svg') }}" alt>
                 <h3>Pour les Nounous :</h3>
                 <p class="pad">Optimisez votre expérience de travail en accédant à des
@@ -129,11 +131,11 @@
 
     <section class="info">
         <div class="list-info">
-            <div class="box">
+            <div class="box poppup">
 
                 <img src="{{ asset('img/secure.svg') }}">
                 <h3>Engagement envers la Sécurité et la Fiabilité :</h3>
-                <p class="pad">Chez NannyCare, la sécurité de vos enfants est notre
+                <p class="pad">A Sociel Home, la sécurité de vos enfants est notre
                     priorité absolue. Toutes nos nounous sont
                     soigneusement vérifiées et évaluées pour vous garantir
                     une
@@ -143,10 +145,10 @@
 
             <!--******************-->
 
-            <div class="box">
+            <div class="box poppup">
                 <img src="{{ asset('img/v.svg') }}">
                 <h3>Inscription Rapide et Gratuite :</h3>
-                <p class="pad">Rejoignez dès maintenant la communauté NannyCare en vous
+                <p class="pad">Rejoignez dès maintenant la communauté Sociel Home en vous
                     inscrivant gratuitement. Commencez à profiter
                     de tous les avantages de notre plateforme dès
                     aujourd'hui!
@@ -155,7 +157,7 @@
 
             <!--******************-->
 
-            <div class="box">
+            <div class="box poppup">
                 <img src="{{ asset('img/face.svg') }}">
                 <h3>Témoignages ou Évaluations :</h3>
                 <p class="pad">Découvrez ce que nos utilisateurs disent de Social Home.
@@ -278,8 +280,11 @@
         <a href="#Acceuil"><img src="{{ asset('img/up.svg') }}" alt=""></a>
     </div>
 
-    <footer></footer>
+    <footer>
+
+    </footer>
 </body>
 <script src="{{ asset('js/music.js') }}"></script>
+<script src="{{asset('js/popup.js')}}"></script>
 
 </html>

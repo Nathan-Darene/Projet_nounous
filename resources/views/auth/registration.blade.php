@@ -26,6 +26,10 @@
 </head>
 
 <body>
+    <audio id="hover-poppup">
+        <source src="{{asset('poppup/multi-pop-4-188169.mp3')}}" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
     <!-- En-tête de la page -->
     <header>
 
@@ -150,6 +154,7 @@
     <script src="{{asset('/js/check.js')}}"></script>
     <script src="{{asset('/js/photo.js')}}"></script>
     <script src="{{ asset('js/music.js') }}"></script>
+    <script src="{{ asset('js/popup.js') }}"></script>
 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

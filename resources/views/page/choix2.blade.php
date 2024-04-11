@@ -11,6 +11,10 @@
 </head>
 
 <body>
+    <audio id="hover-sound">
+        <source src="{{asset('poppup/happy-pop-1-185286.mp3')}}" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
     <div>
         <img src="{{ asset('Logo/8900808870_4aa536ff-86f5-4f1e-9429-0e0ace5a8068.png') }}" height="70"
             width="180">
@@ -58,5 +62,7 @@
 
 </body>
 <script src="{{ asset('js/music.js') }}"></script>
+<script src="{{asset('js/popup.js')}}"></script>
+
 
 </html>

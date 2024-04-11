@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Users;
 use App\Models\Nounou;
 use App\Services\UserService;
-use App\Models\annonces;
+use App\Models\Annonces;
 use App\Models\User;
 
 use Session;
@@ -244,34 +244,42 @@ class AllController extends Controller
     }
 
     public function annonce(Request $request)
-{
-    $data = array();
-    if (Session::get('loginId')) {
+    {
+        $data = array();
+        if (Session::get('loginId')) {
         $data = Nounou::find(Session::get('loginId'));
-    }
+        }
 
-    $request->validate([
-        'titre' => 'required|string|max:255',
-        'description' => 'required|string|max:255',
-        'statut' => 'required|string|max:255',
-        'date_disponible' => 'required|date_format:d-m-Y H:i:s', // Assurez-vous que le format correspond
-    ]);
 
-    // Création d'une nouvelle annonce
-    $annonce = new annonces();
-    $annonce->titre = $request->titre;
-    $annonce->description = $request->description;
-    $annonce->statut = $request->statut;
-    $annonce->date_disponible = $request->date_disponible;
+        $request->validate([
+            'titre' => 'required|string|max:255',
+            'description' => 'required|string|max:255',
+            'statut' => 'required|string|max:255',
+            'date_disponible' => 'required|date_format:d-m-Y H:i:s',
+            'active' => 'nullable|boolean',
+        ]);
 
-    // Assurez-vous que la nounou associée à cette annonce est récupérée avec succès
-    if ($data) {
-        // Récupérez l'ID de la nounou à partir de la session
-        $annonce->nounou_id = $data->id;
-    } else {
+        // Assignez la valeur false au champ "active" si elle est null
+        $active = $request->input('active') ?? false;
+
+        // Création d'une nouvelle annonce
+        $annonce = new annonces();
+        $annonce->titre = $request->titre;
+        $annonce->description = $request->description;
+        $annonce->statut = $request->statut;
+        $annonce->date_disponible = $request->date_disponible;
+        $annonce->active = $active; // Assignez la valeur au champ "active"
+        //vas Vérifie si la case à cocher 'active' est cochée
+
+        // Assurez-vous que la nounou associée à cette annonce est récupérée avec succès
+        if ($data) {
+            // Récupérez l'ID de la nounou à partir de la session
+            $annonce->nounou_id = $data->id;
+        }
+        else {
         // Gérez le cas où l'utilisateur n'est pas connecté ou si la nounou associée n'existe pas
-        // Pour l'instant, vous pouvez ignorer cette partie ou ajouter une gestion d'erreur appropriée
-    }
+        // Pour l'instant, j'ai ignorer cette partie ou ajouter une gestion d'erreur appropriée
+        }
 
     // Sauvegarde de l'annonce dans la base de données
     $res = $annonce->save();
@@ -324,7 +332,7 @@ class AllController extends Controller
         $file = $request->file('imageUpload');
         $extenstion = $file->getClientOriginalExtension();
         $filename = time().'.'.$extenstion;
-        $file->move('uploads/', $filename);
+        $file->move('profile_users/', $filename);
         $user->imageUpload = $filename;
     }
 
@@ -399,7 +407,7 @@ class AllController extends Controller
     }
 
 
-    public function Recherche(Request $request){
+    public function recherche(Request $request){
         $data = array();
         if(Session::get('loginId')){
         $data =  Users::where('id', '=',Session::get('loginId'))->first();

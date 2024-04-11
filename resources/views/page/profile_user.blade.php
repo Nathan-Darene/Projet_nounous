@@ -22,7 +22,7 @@
                 <div class="left__col">
                     <div class="img__container">
                     @if ($data ?? '')
-                        <img src="uploads/{{ $data['imageUpload'] }}" alt="{{ $data['username'] }}" />
+                        <img src="profile_users/{{ $data['imageUpload'] }}" alt="{{ $data['username'] }}" />
                     @endif
                         <span></span>
                     </div>
@@ -60,10 +60,10 @@
                 <div class="right__col">
                     <nav>
                         <ul>
-                            <li><a href="">Profil</a></li>
-                            <li><a href="">Rchercher</a></li>
-                            <li><a href="">groups</a></li>
-                            <li><a href="">about</a></li>
+                            <li><a href="#">Profil</a></li>
+                            <li><a href="{{route('recherche')}}">Rchercher</a></li>
+                            <li><a href="#">groups</a></li>
+                            <li><a href="#">about</a></li>
                         </ul>
                         <button>Follow</button>
                     </nav>

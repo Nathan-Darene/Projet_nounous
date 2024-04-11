@@ -438,10 +438,14 @@ input[type="range"]{
 }
 
 .container .content .content-2 .new-students table td:nth-child(1) img {
-    height: 40px;
-    width: 40px;
+    height: 50px;
+    width: 50px;
 }
 
+.container .content .content-2 .new-students table tr td img {
+    border-radius: 50
+    ù;
+}
 /*@media screen and (max-width: 1050px) {
     .side-menu li {
         font-size: 18px;

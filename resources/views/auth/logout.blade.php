@@ -14,6 +14,10 @@
 </head>
 
 <body>
+    <audio id="hover-poppup">
+        <source src="{{asset('poppup/multi-pop-4-188169.mp3')}}" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
     <div class="main">
         <div class="main-card-login">
             <div class="login-card">
@@ -85,5 +89,7 @@
 
 </body>
 <script src="{{ asset('js/music.js') }}"></script>
+<script src="{{asset('js/popup.js')}}"></script>
+
 
 </html>

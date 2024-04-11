@@ -132,7 +132,7 @@
                             </tr>
                             <tr>
                                 <td>name</td>
-                                <td> Famille 2</td>
+                                <td>Famille 2</td>
                                 <td>$120</td>
                                 <td><a href="#" class="btn">Voir</a></td>
                             </tr>
@@ -174,32 +174,11 @@
                                 <th>option</th>
                                 <th>Call</th>
                             </tr>
-                            @foreach (\App\Models\User::all() as $user)
+                            @foreach (\App\Models\Users::inRandomOrder()->take(6)->get() as $user)
                                 <tr>
-                                    <td><img src="img/user.png" alt=""></td>
-                                    <td>{{ $user->lastname }}</td>
                                     <!-- Accès au champ lastname pour le nom de famille -->
-                                    <td><img src="img/info.png" alt=""></td>
-                                    <td><i class="fa-solid fa-phone"></i></td>
-                                </tr>
-                                <tr>
-                                    <td><img src="img/user.png" alt=""></td>
+                                    <td><img src="uploads/{{ $user->imageUpload }}"  alt="" style="border-radius: 50%"></td>
                                     <td>{{ $user->lastname }}</td>
-                                    <!-- Accès au champ lastname pour le nom de famille -->
-                                    <td><img src="img/info.png" alt=""></td>
-                                    <td><i class="fa-solid fa-phone"></i></td>
-                                </tr>
-                                <tr>
-                                    <td><img src="img/user.png" alt=""></td>
-                                    <td>{{ $user->lastname }}</td>
-                                    <!-- Accès au champ lastname pour le nom de famille -->
-                                    <td><img src="img/info.png" alt=""></td>
-                                    <td><i class="fa-solid fa-phone"></i></td>
-                                </tr>
-                                <tr>
-                                    <td><img src="img/user.png" alt=""></td>
-                                    <td>{{ $user->lastname }}</td>
-                                    <!-- Accès au champ lastname pour le nom de famille -->
                                     <td><img src="img/info.png" alt=""></td>
                                     <td><i class="fa-solid fa-phone"></i></td>
                                 </tr>
