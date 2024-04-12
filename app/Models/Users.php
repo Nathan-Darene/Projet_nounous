@@ -17,7 +17,7 @@ class Users extends Model
         'gender',
         'imageUpload',
         'city',
-        'postalcode',
+        /*'postalcode',*/
         'email',
         'password',
     ];

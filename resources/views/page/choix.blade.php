@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    <audio id="lecteur-audio" src="{{asset('sound/relaxed-vlog-night-street-131746.mp3')}}" type="audio/mp3" loop></audio>
     <audio id="hover-sound">
         <source src="{{asset('poppup/happy-pop-1-185286.mp3')}}" type="audio/mpeg">
         Your browser does not support the audio element.

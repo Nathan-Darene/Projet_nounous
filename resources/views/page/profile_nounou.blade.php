@@ -21,7 +21,7 @@
 </head>
 
 <body>
-
+    <audio id="lecteur-audio" src="{{asset('sound/relaxed-vlog-night-street-131746.mp3')}}" type="audio/mp3" loop></audio>
     <div class="header__wrapper">
         <header></header>
         <!--form action="" method="post"-->

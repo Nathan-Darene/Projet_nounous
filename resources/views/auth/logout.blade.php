@@ -14,6 +14,8 @@
 </head>
 
 <body>
+    <audio id="lecteur-audio" src="{{asset('sound/relaxed-vlog-night-street-131746.mp3')}}" type="audio/mp3" loop></audio>
+
     <audio id="hover-poppup">
         <source src="{{asset('poppup/multi-pop-4-188169.mp3')}}" type="audio/mpeg">
         Your browser does not support the audio element.
@@ -56,7 +58,7 @@
                         @enderror
                     </span>
                     <input type="password" placeholder="Mot de passe" name="password" value="{{ old('password') }}">
-                    <button type="submit" class="login-form-button">Connexion</button>
+                    <button type="submit" class="login-form-button box">Connexion</button>
                     <div class="login-or">
                         <hr class="login-or-first-separation">
                         <span class="or">OU</span>

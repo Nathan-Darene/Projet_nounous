@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    <audio id="lecteur-audio" src="{{asset('sound/relaxed-vlog-night-street-131746.mp3')}}" type="audio/mp3" loop></audio>
     <audio id="hover-sound">
         <source src="{{asset('poppup/happy-pop-1-185286.mp3')}}" type="audio/mpeg">
         Your browser does not support the audio element.
@@ -30,7 +31,7 @@
                         <p class="p1">Je possede déjà un compte a Social Home</p>
                     </div>
                         <div class="login-card-form">
-                            <button class="login-form-button btn">
+                            <button class="login-form-button btn poppup">
                                 <a href="{{ asset('login_nounou') }}" class="a1">Se connecter</a>
                             </button>
                         </div>
@@ -47,7 +48,7 @@
 
                         </div>
                         <div class="login-card-form">
-                            <button class="login-form-button1 btn1">
+                            <button class="login-form-button1 btn1 poppup">
                                 <a href="{{ asset('login') }}" class="a1">Se connecter</a>
                             </button>
                         </div>

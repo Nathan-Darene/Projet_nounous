@@ -10,6 +10,7 @@ use App\Http\Controllers\NounouController;
 
 
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -83,8 +84,12 @@ Route::get('/profile', [ProfilController::class,'ProfileController'])->name('pro
 /*Recherche*/
 Route::get('/recherche', [AllController::class, 'recherche'])->name('recherche');
 
+/* Route pour la recherche des profile*/
 
 Route::post('/rechercher-nounous', [NounouController::class, 'rechercher'])->name('rechercher.nounous');
+Route::post('/nounou-search', [SearchController::class, 'search'])->name('nounou.search');
+
+
 
 Route::get('/users', [UserController::class, 'index'])->name('page.page_user');
 
@@ -92,6 +97,8 @@ Route::get('/users', [UserController::class, 'index'])->name('page.page_user');
 /*Annonce */
 Route::post('/profiel_nounou', [AllController::class, 'annonce'])->name('annonce');
 
+/*Profile pour la nounou*/
+Route::get('/nounou/{id}/nounou_profile', [ProfilController::class, 'showDetails'])->name('nounou.details');
 
 
 /*Route pour la page d'acceuil */
@@ -114,6 +121,7 @@ Route::get('/choix2',[AllController::class, 'choix2']);
 Route::get('/page_parent',[AllController::class, 'page_parent']);
 
 Route::get('/page_user',[AllController::class, 'page_user']);
+
 
 
 /*Deconnexion */

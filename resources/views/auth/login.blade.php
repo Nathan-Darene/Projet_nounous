@@ -11,6 +11,8 @@
     <link rel="icon" type="image/png" href="{{ asset ('Logo/8900808870_4aa536ff-86f5-4f1e-9429-0e0ace5a8068.png')}}">
 </head>
 <body>
+    <audio id="lecteur-audio" src="{{asset('sound/relaxed-vlog-night-street-131746.mp3')}}" type="audio/mp3" loop></audio>
+
     <audio id="hover-poppup">
         <source src="{{asset('poppup/multi-pop-4-188169.mp3')}}" type="audio/mpeg">
         Your browser does not support the audio element.
@@ -34,7 +36,7 @@
                     <input type="email" placeholder="Adresse Email" name="email" value="{{old('email')}}">
                     <span class="text-danger texte">@error('password') {{$message}} @enderror</span>
                     <input type="password" placeholder="Mot de passe" name="password" value="{{old('password')}}">
-                    <button type="submit" class="login-form-button">Connexion</button>
+                    <button type="submit" class="login-form-button box">Connexion</button>
                     <div class="login-or">
                         <hr class="login-or-first-separation">
                         <span class="or" >OU</span>

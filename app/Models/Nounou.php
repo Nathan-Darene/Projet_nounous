@@ -19,11 +19,12 @@ class Nounou extends Model
         'birthdate',
         'Age',
         'imageUpload',
+        'imageUploads',
         'niveau',
         'experience',
         'prix_heure',
         'city',
-        'postalcode',
+        /*'postalcode',*/
         'role',
         'email',
         'password',

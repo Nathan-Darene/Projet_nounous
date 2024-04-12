@@ -1,63 +1,40 @@
-/*$(document).ready(function () {
-    $("form.filters").submit(function (event) {
-        event.preventDefault(); // Empêcher la soumission du formulaire par défaut
 
-        var formData = $(this).serialize(); // Sérialiser les données du formulaire
-
-        // Vérifier les données du formulaire dans la console
-        console.log(formData);
-        // Effectuer une requête AJAX
+  /*  // Définir la fonction pour récupérer les données depuis le contrôleur Laravel et les afficher
+    function afficherNounous() {
+        // Effectuer une requête Ajax vers votre route Laravel
         $.ajax({
-            type: "POST",
-            url: $(this).attr("action"), // Récupérer l'URL d'action du formulaire
-            data: formData,
-            dataType: "json", // Attendre une réponse JSON
-            success: function (response) {
-                var nounous = response.nounous; // Récupérer les données des nounous
-                var annonces = response.annonces; // Récupérer les données des annonces
-                var nounouAffiche = $(".nounou-affiche"); // Sélectionner la section d'affichage des nounous
-                var annoncesAffiche = $(".annonces-affiche"); // Sélectionner la section d'affichage des annonces // Sélectionner la section d'affichage des nounous
+            url: '{{ route('rechercher.nounous') }}', // Utiliser la route Laravel pour la recherche
+            type: 'POST', // Utiliser la méthode POST pour envoyer les données
+            dataType: 'json', // Attendre une réponse JSON
+            data: $('.filters').serialize(), // Envoyer les données du formulaire
+            success: function(response) {
+                // Effacer le contenu précédent
+                $('.nounou-affiche').empty();
 
-                // Effacer le contenu précédent de la section
-                nounouAffiche.empty();
-
-                // Parcourir les données des nounous et les ajouter à la section
-                $.each(nounous, function (index, nounou) {
-                    // Créer un élément HTML pour afficher les détails de la nounou
-                    var nounouHtml = '<div class="nounou-details">';
-                    nounouHtml += '<img src="uploads/' + nounou.imageUpload +'"alt="' + nounou.username + '">'; // Remplacer 'nom' par le nom réel de la colonne de votre base de données
-                    nounouHtml += '<h2>' + nounou.firstname + '</h2>'; // Remplacer 'firstname' par le nom réel de la colonne de votre base de données
-                    nounouHtml += '<i class="fa-solid fa-user">' + nounou.role + '</i>'; // Remplacer 'role' par le role réel de la colonne de votre base de données
-                    nounouHtml += '<i class="fa-solid fa-location-pin">' + nounou.city + '</i>'; // Remplacer 'city' par la ville  réel de la colonne de votre base de données
-                    nounouHtml += '<p>' + nounou.description + '</p>'; // Remplacer 'nom' par le nom réel de la colonne de votre base de données
-                    nounouHtml += '<p>' + nounou.prix_heure + '/heure</p>'; // Remplacer 'prix_heure' par le prix par heure réel de la colonne de votre base de données
-                    nounouHtml += '<p>' + nounou.disponibilité + '</p>'; // Remplacer 'nom' par le nom réel de la colonne de votre base de données
-
-                    nounouHtml += '</div>';
-
-                    // Ajouter l'élément HTML à la section d'affichage des nounous
-                    nounouAffiche.append(nounouHtml);
+                // Afficher les résultats de la recherche
+                $.each(response.nounous, function(index, nounou) {
+                    var html = '<div class="nounou">' +
+                                    '<h3>' + nounou.username + '</h3>' +
+                                    '<p>' + nounou.city + '</p>' +
+                                '</div>';
+                    $('.nounou-affiche').append(html);
                 });
-
-                // Parcourir les données des annonces et les ajouter à la section
-                $.each(annonces, function (index, annonce) {
-                    // Créer un élément HTML pour afficher les détails de l'annonce
-                    var annonceHtml = '<div class="annonce-details">';
-                    annonceHtml += '<h3>' + annonce.titre + '</h3>'; // Remplacer 'titre' par le titre réel de la colonne de votre base de données
-                    annonceHtml += '<p>' + annonce.description + '</p>'; // Remplacer 'description' par la description réelle de la colonne de votre base de données
-
-                    annonceHtml += '</div>';
-                    // Ajouter l'élément HTML à la section d'affichage des annonces
-                    annoncesAffiche.append(annonceHtml);
-                });
-
-
             },
-            error: function (xhr, status, error) {
-                // Gérer les erreurs de la requête AJAX
-                console.error(error);
-            },
+            error: function(xhr, status, error) {
+                // Gérer les erreurs
+                console.error(xhr.responseText);
+            }
+        });
+    }
+
+    // Appeler la fonction pour afficher les nounous lorsque la page est prête
+    $(document).ready(function() {
+        afficherNounous();
+
+        // Ajouter un écouteur d'événement sur le formulaire pour afficher les résultats lors de la soumission
+        $('.filters').submit(function(event) {
+            event.preventDefault(); // Empêcher le rechargement de la page
+            afficherNounous(); // Appeler la fonction pour afficher les nounous
         });
     });
-});
 */

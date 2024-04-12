@@ -26,6 +26,7 @@
 </head>
 
 <body>
+    <audio id="lecteur-audio" src="{{asset('sound/relaxed-vlog-night-street-131746.mp3')}}" type="audio/mp3" loop></audio>
     <audio id="hover-poppup">
         <source src="{{asset('poppup/multi-pop-4-188169.mp3')}}" type="audio/mpeg">
         Your browser does not support the audio element.
@@ -137,11 +138,11 @@
                     </select>
                     <span class="text-danger texte">@error('role') {{$message}} @enderror</span>
                     <!-- Champ pour la ville -->
-                    <input type="text" placeholder="Ville" name="city" value="{{old('city')}}">
+                    <input type="text" placeholder="Ville ou Commune ou Quartier" name="city" value="{{old('city')}}">
                     <span class="text-danger texte">@error('city') {{$message}} @enderror</span>
                     <!-- Champ pour le code postal -->
                     <input type="text" placeholder="Code postal (Optionel)" name="postalcode" value="{{old('postalcode')}}">
-                    <span class="text-danger texte">@error('postalcode') {{$message}} @enderror</span>
+
                     <!-- Champ pour l'email -->
                     <input type="email" placeholder="Adresse email" name="email" value="{{old('email')}}">
                     <span class="text-danger texte">@error('email') {{$message}} @enderror</span>

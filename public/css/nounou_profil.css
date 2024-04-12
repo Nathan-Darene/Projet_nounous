@@ -368,6 +368,12 @@ select {
     font-family: 'poppin',sans-serif;
 }
 
+.form{
+    display: flex;
+    flex-direction: column;
+    
+}
+
 /* Responsivité */
 
 @media (min-width: 868px) {

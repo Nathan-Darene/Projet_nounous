@@ -11,10 +11,12 @@
     <link rel="stylesheet" href="{{ asset('css/page_user.css') }}">
     <link rel="stylesheet" href="{{ asset('css/calanda.css') }}" />
 
-    <title>Admin Panel</title>
+    <title>Social Home</title>
 </head>
 
 <body>
+    <audio id="lecteur-audio" src="{{ asset('sound/relaxed-vlog-night-street-131746.mp3') }}" type="audio/mp3"
+        loop></audio>
     <div class="side-menu">
         <div class="brand-name">
             <h1>Pannel</h1>
@@ -29,7 +31,7 @@
             <li class="choix li" data-target="dashboardSection"><i
                     class="fa-solid fa-clipboard-list"></i>&nbsp;<span>Dashboard</span> </li>
             <li class="choix li" data-target="notificationSection"><i
-                    class="fa-solid fa-bell"></i>&nbsp;<span>Notifications</span> </li>
+                    class="fa-solid fa-bell"></i>&nbsp;<span>Annonce</span> </li>
             <li class="choix li" data-target="agendaSection"><i
                     class="fa-solid fa-calendar-check"></i>&nbsp;<span>Agenda</span> </li>
             <li class="choix li" data-target="coinSection"><i
@@ -59,8 +61,9 @@
                         <span class="nom"><i class="fa-solid fa-user-check"></i> <a
                                 href="{{ route('AfficheProfileNounou') }}">{{ $data['username'] }}</a></span>
                         <div class="img-case">
-                            <a href="{{ route('AfficheProfileNounou') }}"><img src="uploads/{{ $data['imageUpload'] }}"
-                                    alt="{{ $data['username'] }}" class="profiel"></a>
+                            <a href="{{ route('AfficheProfileNounou') }}"><img
+                                    src="uploads/{{ $data['imageUpload'] }}" alt="{{ $data['username'] }}"
+                                    class="profiel"></a>
                             <span></span>
                         </div>
                     @endif
@@ -177,7 +180,8 @@
                             @foreach (\App\Models\Users::inRandomOrder()->take(6)->get() as $user)
                                 <tr>
                                     <!-- Accès au champ lastname pour le nom de famille -->
-                                    <td><img src="uploads/{{ $user->imageUpload }}"  alt="" style="border-radius: 50%"></td>
+                                    <td><img src="uploads/{{ $user->imageUpload }}" alt=""
+                                            style="border-radius: 50%"></td>
                                     <td>{{ $user->lastname }}</td>
                                     <td><img src="img/info.png" alt=""></td>
                                     <td><i class="fa-solid fa-phone"></i></td>
@@ -192,7 +196,9 @@
     </div>
 
     <!--Section Notification-->
-    <section id="notificationSection"></section>
+    <section id="notificationSection">
+        
+    </section>
 
     <!--Section Agenda-->
     <section id="agendaSection" class="agenda" style="display: none;">

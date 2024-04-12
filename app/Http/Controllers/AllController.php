@@ -88,7 +88,7 @@ class AllController extends Controller
             'role' => 'required|string|max:255',
             'imageUpload' => 'file|image|mimes:jpeg,png,jpg,gif,webp,jpej,svg,avif|max:4048|unique:nounous',
             'city' => 'required|string|max:255',
-            'postalcode' => 'string|max:255',
+            /*'postalcode' => 'string|max:255',*/
             'email' => 'required|string|email|max:255|unique:nounous',
             'password' => 'required|string|min:8|',
         ]);
@@ -108,8 +108,9 @@ class AllController extends Controller
         $user->prix_heure = $request->prix_heure;
         $user->role = $request->role;
         $user->imageUpload = $request->imageUpload;
+        $user->imageUploads = $request->imageUpload;
         $user->city = $request->city;
-        $user->postalcode = $request->postalcode;
+        /*$user->postalcode = $request->postalcode;*/
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
 
@@ -129,7 +130,11 @@ class AllController extends Controller
         $filename = time().'.'.$extenstion;
         $file->move('uploads/', $filename);
         $user->imageUpload = $filename;
+
+        $user->imageUploads = 'uploads/' . $filename;
     }
+
+
 
 
 
@@ -304,7 +309,7 @@ class AllController extends Controller
             'gender' => 'required|string|max:10',
             'imageUpload' => 'file|image|mimes:jpeg,png,jpg,gif,webp,svg,avif|max:4048|unique:users',
             'city' => 'required|string|max:255',
-            'postalcode' => 'string|max:255',
+            /*'postalcode' => 'string|max:255',*/
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|',
         ]);
@@ -320,7 +325,7 @@ class AllController extends Controller
         $user->gender = $request->gender;
         $user->imageUpload = $request->imageUpload;
         $user->city = $request->city;
-        $user->postalcode = $request->postalcode;
+        /*$user->postalcode = $request->postalcode;*/
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
 
