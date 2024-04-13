@@ -6,6 +6,8 @@ use App\Models\Nounou;
 use App\Services\UserService;
 use App\Models\Annonces;
 use App\Models\User;
+use App\Models\calendriers;
+
 
 use Session;
 
@@ -300,10 +302,13 @@ class AllController extends Controller
     $res = $annonce->save();
 
     if ($res) {
-        return back()->with('success', 'Annonce ajoutée avec succès');
-    } else {
-        return back()->with('error', 'Une erreur est survenue lors de l\'ajout de votre annonce');
+        session()->flash('success', 'Annonce ajoutée avec succès');
     }
+    else {
+        session()->flash('error', 'Une erreur est survenue lors de l\'ajout de votre annonce');
+    }
+
+    return back();
 }
 
 /*###############################################################################" */
@@ -450,5 +455,92 @@ class AllController extends Controller
         // Passer les utilisateurs à la vue et afficher la vue
         return view('page/page_user', ['users' => $users]);
     }*/
-}
 
+    public function enregistrerDonnees(Request $request)
+    {
+        // Récupérer les données de l'utilisateur connecté
+        $data = null;
+        if (Session::has('loginId')) {
+            $data = Nounou::find(Session::get('loginId'));
+        }
+
+        // Récupération des données des cases à cocher
+        $donneesCalendrier = $request->only([
+            'lun_avant_ecole',
+            'mar_avant_ecole',
+            'mer_avant_ecole',
+            'jeu_avant_ecole',
+            'ven_avant_ecole',
+            'sam_avant_ecole',
+            'dim_avant_ecole',
+            'lun_matin',
+            'mar_matin',
+            'mer_matin',
+            'jeu_matin',
+            'ven_matin',
+            'sam_matin',
+            'dim_matin',
+            'lun_midi',
+            'mar_midi',
+            'mer_midi',
+            'jeu_midi',
+            'ven_midi',
+            'sam_midi',
+            'dim_midi',
+            'lun_après_midi',
+            'mar_après_midi',
+            'mer_après_midi',
+            'jeu_après_midi',
+            'ven_après_midi',
+            'sam_après_midi',
+            'dim_après_midi',
+            'lun_après_école',
+            'mar_après_école',
+            'mer_après_école',
+            'jeu_après_école',
+            'ven_après_école',
+            'sam_après_école',
+            'dim_après_école',
+            'lun_en_soiree',
+            'mar_en_soiree',
+            'mer_en_soiree',
+            'jeu_en_soiree',
+            'ven_en_soiree',
+            'sam_en_soiree',
+            'dim_en_soiree',
+            'lun_nuit',
+            'mar_nuit',
+            'mer_nuit',
+            'jeu_nuit',
+            'ven_nuit',
+            'sam_nuit',
+            'dim_nuit',
+
+
+        ]);
+        // Enregistrement des données dans la base de données
+        $calendrier = new Calendriers();
+        $calendrier->fill($donneesCalendrier);
+
+        // Assurer que la nounou associée à cette annonce est récupérée avec succès
+        if ($data) {
+            // Récupérer l'ID de la nounou à partir de la session
+            $calendrier->nounou_id = $data->id;
+            } else {
+                // Gérer le cas où l'utilisateur n'est pas connecté ou si la nounou associée n'existe pas
+           // Pour l'instant, j'ai ignoré cette partie ou ajouté une gestion d'erreur appropriée
+         }
+
+        $res = $calendrier->save();
+
+        if ($res) {
+           session()->flash('success', ' ajoutée avec succès');
+        }
+        else {
+        session()->flash('error', 'Une erreur est survenue lors de l\'ajout de votre Disponibilité de la semmaine');
+        }
+
+        return back();
+    }
+
+}

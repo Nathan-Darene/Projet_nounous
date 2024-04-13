@@ -24,19 +24,27 @@
             <img src="{{ asset('Logo/8900808870_4aa536ff-86f5-4f1e-9429-0e0ace5a8068.png') }}" class="logo" />
             <ul class="ul">
                 <li class="poppup"><a href="#Accueil" style="--i:1;" class="active play">Accueil</a></li>
+                <li class="poppup"><a href="#info" style="--i:4;" class="play">Information</a></li>
                 <li class="poppup"><a href="#A-propos" style="--i:2;" class="play"> A propos</a></li>
                 <li class="poppup"><a href="#contact" style="--i:3;" class="play">Contact</a></li>
-                <li class="poppup"><a href="#info" style="--i:4;" class="play">Information</a></li>
                 <li class="poppup">
-                    <audio id="lecteur-audio" src="{{ asset('sound/relaxed-vlog-night-street-131746.mp3') }}"
-                        type="audio/mp3" loop></audio>
-                    <button id="bouton-toggle" class="play"></button>
+                    <div class="musics">
+                        <audio id="lecteur-audio" src="{{ asset('sound/relaxed-vlog-night-street-131746.mp3') }}"
+                            type="audio/mp3" loop></audio>
+                        <button id="bouton-toggle" class="play"></button>
+                        <ul class="wave-menu">
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div>
                 </li>
                 <li class="poppup"><a href="{{ asset('choix') }}" style="--1:5;" class="play">Inscription</a></li>
             </ul>
             <div class="lo_gin">
                 <a href="{{ asset('choix2') }}" style="--i:6;" class="login-btn poppup play">Se connecter</a>
-                <a href="#" class="btn poppup play">Téléchargé l'App</a>
             </div>
         </nav>
         <div class="homestart">
@@ -50,16 +58,19 @@
                     votre
                     solution tout-en-un <br> pour simplifier la gestion des nounou et de la garde de vos
                     enfants.
-                    Proposez vos service en tanque
-                    <strong class="span">Nounou</strong> <br>ou
+                    Proposez vos service en tant que
+                    <strong class="span">Nounou</strong> ou,<br>
                     <!--si vous etes un parents, vous-->
-                    Trouvez des nounous fiables, planifiez facilement <br>les
+                    trouvez des nounous fiables si vous êtes un parents  , planifiez facilement les
                     horaires de
-                    garde, et restez connectés avec les <br>soignants de vos
+                    garde, de disponibilité<br> et restez connectés avec les soignants de vos
                     enfants, le tout
-                    sur une seule <br>plateforme conviviale.
+                    sur une seule plateforme conviviale.
+                    <br>
+                    Ici, a <strong class="span">Social Home</strong> nous prenons soin de vos enfants comme si c'étaient les miens
                 </p>
-                <a href="{{ asset('/choix') }}" class="btn anim play">Join Now</a>
+                <a href="{{ asset('/choix') }}" class="btn poppup anim play">Join Now</a>
+                <a href="#" class="btn poppup anim play">Téléchargé l'App</a>
             </div>
             <!--img src="{/*{ asset('img/nounou_black.jpg') }}" class="feature-img anim"-->
             <div>

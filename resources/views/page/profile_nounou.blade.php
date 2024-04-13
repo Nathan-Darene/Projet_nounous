@@ -13,6 +13,8 @@
     <!-- CSS -->
     <link rel="stylesheet" href="{{ asset('css/profil_nounou.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/texterea.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/calendar.css') }}">
+
     <style>
         #annonce {
             display: none;
@@ -21,7 +23,9 @@
 </head>
 
 <body>
-    <audio id="lecteur-audio" src="{{asset('sound/relaxed-vlog-night-street-131746.mp3')}}" type="audio/mp3" loop></audio>
+    <label for=""></label>
+    <audio id="lecteur-audio" src="{{ asset('sound/relaxed-vlog-night-street-131746.mp3') }}" type="audio/mp3"
+        loop></audio>
     <div class="header__wrapper">
         <header></header>
         <!--form action="" method="post"-->
@@ -81,32 +85,43 @@
                     <button>Editer</button>
                 </nav>
                 <div class="affichage">
-                <form action="{{ route('annonce') }}" method="POST">
-                    @csrf
-
-                    <div class="annonce wrapper" id="annonce">
-                        <h2>Annonce</h2>
-                        <p>Ajouter une annnce</p>
-                        <input type="text" placeholder="Titre de l'annonce" name="titre" id="titre"
-                            class="annonce1">
-                        <textarea name="description" spellcheck="false" placeholder="Description de l'annonce"></textarea>
-                        <div class="event">
-                            <select name="statut" id="statut">
-                                <option value="">Votre disponibilité</option>
-                                <option value=""></option>
-                                <option value="Disponible">Disponible</option>
-                                <option value="Indisponible">Indisponible</option>
-                            </select>
-                            <input type="text" name="date_disponible" id="date_disponible"
-                                placeholder="Date de disponibilité">
+                    @if (session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
                         </div>
-                        <div class="form-group">
-                            <div class="containe">
-                                <input style="display: none;" id="cbx" type="checkbox" id="active"
-                                    name="active" value="1">
-                                <label class="check" for="cbx">Véhiculé ?:
-                                    <svg viewBox="0 0 18 18" height="18px" width="18px">
-                                        <path
+                    @endif
+
+                    @if (session('error'))
+                        <div class="alert alert-danger">
+                            {{ session('error') }}
+                        </div>
+                    @endif
+                    <form action="{{ route('annonce') }}" method="POST">
+                        @csrf
+
+                        <div class="annonce wrapper" id="annonce">
+                            <h2>Annonce</h2>
+                            <p>Ajouter une annnce</p>
+                            <input type="text" placeholder="Titre de l'annonce" name="titre" id="titre"
+                                class="annonce1">
+                            <textarea name="description" spellcheck="false" placeholder="Description de l'annonce"></textarea>
+                            <div class="event">
+                                <select name="statut" id="statut">
+                                    <option value="">Votre disponibilité</option>
+                                    <option value=""></option>
+                                    <option value="Disponible">Disponible</option>
+                                    <option value="Indisponible">Indisponible</option>
+                                </select>
+                                <input type="text" name="date_disponible" id="date_disponible"
+                                    placeholder="Date de disponibilité">
+                            </div>
+                            <div class="form-group">
+                                <div class="containe">
+                                    <input style="display: none;" id="cbx" type="checkbox" id="active"
+                                        name="active" value="1">
+                                    <label class="check" for="cbx">Véhiculé ?:
+                                        <svg viewBox="0 0 18 18" height="18px" width="18px">
+                                            <path
                                             d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z">
                                         </path>
                                         <polyline points="1 9 7 14 15 4"></polyline>
@@ -120,7 +135,98 @@
 
 
                 </form>
-            </div>
+                <form action="{{ route('check') }}" method="POST">
+                    @csrf
+                        <div class="calendar">
+                            <div class="calendar-row calendar-days">
+                                <div></div>
+                                <div>Lun</div>
+                                <div>Mar</div>
+                                <div>Mer</div>
+                                <div>Jeu</div>
+                                <div>Ven</div>
+                                <div>Sam</div>
+                                <div>Dim</div>
+                            </div>
+                            <div class="calendar-row">
+                                <div>Avant L'école</div>
+                                <input type="checkbox" name="lun_avant_ecole" id="">
+                                <input type="checkbox" name="mar_avant_ecole" id="">
+                                <input type="checkbox" name="mer_avant_ecole" id="">
+                                <input type="checkbox" name="jeu_avant_ecole" id="">
+                                <input type="checkbox" name="ven_avant_ecole" id="">
+                                <input type="checkbox" name="sam_avant_ecole" id="">
+                                <input type="checkbox" name="dim_avant_ecole" id="">
+                            </div>
+                            <div class="calendar-row">
+                                <div>Le matin</div>
+                                <input type="checkbox" name="lun_matin" id="">
+                                <input type="checkbox" name="mar_matin" id="">
+                                <input type="checkbox" name="mer_matin" id="">
+                                <input type="checkbox" name="jeu_matin" id="">
+                                <input type="checkbox" name="ven_matin" id="">
+                                <input type="checkbox" name="sam_matin" id="">
+                                <input type="checkbox" name="dim_matin" id="">
+                            </div>
+                            <div class="calendar-row">
+                                <div>Le midi</div>
+                                <input type="checkbox" name="lun_midi" id="">
+                                <input type="checkbox" name="mar_midi" id="">
+                                <input type="checkbox" name="mer_midi" id="">
+                                <input type="checkbox" name="jeu_midi" id="">
+                                <input type="checkbox" name="ven_midi" id="">
+                                <input type="checkbox" name="sam_midi" id="">
+                                <input type="checkbox" name="dim_midi" id="">
+                            </div>
+                            <div class="calendar-row">
+                                <div>L'après midi</div>
+                                <input type="checkbox" name="lun_après_midi" id="">
+                                <input type="checkbox" name="mar_après_midi" id="">
+                                <input type="checkbox" name="mer_après_midi" id="">
+                                <input type="checkbox" name="jeu_après_midi" id="">
+                                <input type="checkbox" name="ven_après_midi" id="">
+                                <input type="checkbox" name="sam_après_midi" id="">
+                                <input type="checkbox" name="dim_après_midi" id="">
+                            </div>
+                            <div class="calendar-row">
+                                <div>Après L'école</div>
+                                <input type="checkbox" name="lun_après_école" id="">
+                                <input type="checkbox" name="mar_avant_ecole" id="">
+                                <input type="checkbox" name="mer_avant_ecole" id="">
+                                <input type="checkbox" name="jeu_avant_ecole" id="">
+                                <input type="checkbox" name="ven_avant_ecole" id="">
+                                <input type="checkbox" name="sam_avant_ecole" id="">
+                                <input type="checkbox" name="dim_après_école" id="">
+                            </div>
+                            <div class="calendar-row">
+                                <div>En Soirée</div>
+                                <input type="checkbox" name="lun_en_soiree" id="">
+                                <input type="checkbox" name="mar_en_soiree" id="">
+                                <input type="checkbox" name="mer_en_soiree" id="">
+                                <input type="checkbox" name="jeu_en_soiree" id="">
+                                <input type="checkbox" name="ven_en_soiree" id="">
+                                <input type="checkbox" name="sam_en_soiree" id="">
+                                <input type="checkbox" name="dim_en_soiree" id="">
+                            </div>
+                            <div class="calendar-row">
+                                <div>La nuit</div>
+                                <input type="checkbox" name="lun_nuit" id="">
+                                <input type="checkbox" name="mar_nuit" id="">
+                                <input type="checkbox" name="mer_nuit" id="">
+                                <input type="checkbox" name="jeu_nuit" id="">
+                                <input type="checkbox" name="ven_nuit" id="">
+                                <input type="checkbox" name="sam_nuit" id="">
+                                <input type="checkbox" name="dim_nuit" id="">
+                            </div>
+
+
+
+
+
+                        </div>
+                        <button type="submit">Enregistrer</button>
+                    </form>
+                </div>
                 <div class="service" id="service">
 
                 </div>

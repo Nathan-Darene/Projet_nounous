@@ -1,13 +1,13 @@
 // Fonction pour démarrer la lecture audio
 function startAudio() {
     lecteurAudio.play();
-    boutonToggle.textContent = 'Pause';
+    boutonToggle.textContent = 'pause';
 }
 
 // Fonction pour mettre en pause la lecture audio
 function pauseAudio() {
     lecteurAudio.pause();
-    boutonToggle.textContent = 'Play';
+    boutonToggle.textContent = 'play';
 }
 
 // Récupérer le lecteur audio et le bouton de lecture

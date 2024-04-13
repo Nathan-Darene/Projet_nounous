@@ -5,6 +5,7 @@ use App\Http\Controllers\AllController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\NounouController;
+use App\Http\Controllers\CheckboxlController;
 use App\Models\User;
 
 
@@ -92,16 +93,11 @@ Route::post('/rechercher-nounous', [NounouController::class, 'rechercher'])->nam
 Route::post('/nounou-search', [SearchController::class, 'search'])->name('nounou.search');
 
 
+/*CheckBox*/
+
+Route::post('/enregistrer-donnees', [AllController::class, 'enregistrerDonnees'])->name('check');
+
 /*Page acceuil*/
-
-// Dans votre fichier de routes web.php
-Route::post('/nounou', [AllController::class, 'getNounous'])->name('getNounous');
-
-/*Route::get('users', function () {
-    $users = Users::all();
-    return response()->json($users);
-});*/
-
 
 
 Route::get('/users', [UserController::class, 'index'])->name('page.page_user');

@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/scrolbare.css') }}">
     <link rel="stylesheet" href="{{ asset('css/screen.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/card.css') }}">
     <link rel="stylesheet" href="{{ asset('css/swiper.css') }}">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/handlebars/dist/handlebars.min.js"></script>
@@ -80,7 +82,7 @@
                         <div class="filter-box">
                             <div class="filter-name">J'ai Besoin de :</div>
                             <select name="type_aide" class="filter-select1">
-                                <option value="">Type d'aide</option>
+                                <option value="">Tout les Types</option>
                                 <option value="assistant(e) maternelle">Assistant(e) maternelle</option>
                                 <option value="Nounou">Nounou</option>
                                 <option value="Baby sister">Baby sitter</option>
@@ -150,7 +152,8 @@
     <section class="container">
         <div class="header">
             <div class="nav">
-                <form action="" method="POST" >
+                
+                <form action="{{ route('rechercher.nounous') }}" method="POST">
                     <div class="search">
                         <input type="text" name="search" placeholder="Recherche..">
                         <button type="submit" class="btn1"><i class="fas fa-search"></i></button>
@@ -213,19 +216,21 @@
                     // Modifier le code pour afficher les nounous dans le carrousel Swiper
                     $.each(response.nounous, function(index, nounou) {
                         var html = '<swiper-slide class="slide">' +
-                            '<img src="uploads/' + nounou.imageUpload + '" class="img-nounou">' +
-                            '<div class="nounou-info">' +
-                            '<h3>' + nounou.username + '</h3>' +
-                            '<p>' + nounou.id + '</p>' +
-                            '<h3> Age: ' + nounou.Age + '</h3>' +
-                            '<p>' + nounou.role + '</p>' +
-                            '<p>' + nounou.city + '</p>' +
-                            '<p>' + nounou.prix_heure + '</p>' +
-                            '</div>' +
-                            '<a href="/nounou/' + nounou.id +
-                            '/nounou_profile" class="view-more" data-nounou-id="' + nounou.id +
-                            '">Voir plus</a>' +
-                            '</swiper-slide>';
+                                        '<div class="wave"></div>'+
+                                        '<div class="wave"></div>'+
+                                        '<div class="wave"></div>'+
+                                        '<img src="uploads/' + nounou.imageUpload + '" class="img-nounou">' +
+                                        '<div class="infos">'+
+                                            '<h2 style="color:white;">' + nounou.username + '</h2>' +
+                                            '<div class="nounou-info">' +
+                                                '<h4 style="color:white;"> Age: ' + nounou.Age + ' ans</h4>' +
+                                                '<h3 style="color:white;">' + nounou.role + '</h3>' +
+                                                '<h3 style="color:white;">' + nounou.city + '</h3>' +
+                                                '<h3 style="color:white;">' + nounou.prix_heure + '</h3>' +
+                                            '</div>' +
+                                        '</div>'+
+                                        '<a href="/nounou/' + nounou.id + '/nounou_profile" class="view-more" data-nounou-id="' + nounou.id + ' style="color:white;"" >Voir plus</a>' +
+                                    '</swiper-slide>';
                         mySwiper.appendSlide(html);
                         /*$('.nounou-affiche').append(html);*/
                     });

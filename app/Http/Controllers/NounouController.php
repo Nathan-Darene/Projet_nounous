@@ -29,6 +29,14 @@ class NounouController extends Controller
             $query->where('city', 'like', '%' . $criteria['adresse'] . '%');
         }
 
+        if (!empty($criteria['search'])) {
+            $query->whereRaw('city', 'LIKE ?', ['%' . $criteria['search'] . '%']);
+        }
+
+        if (!empty($criteria['search'])) {
+            $query->whereRaw('username', 'LIKE ?', ['%' . $criteria['search'] . '%']);
+        }
+
         // Filtrer par expérience professionnelle
         if (!empty($criteria['exp'])) {
             $query->where('experience', '>=', $criteria['exp']);

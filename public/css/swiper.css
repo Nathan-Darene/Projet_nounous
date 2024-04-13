@@ -1,25 +1,6 @@
-/*html,
-    .body {
-      position: relative;
-      height: 100%;
-    }
 
-    .body {
-      background: #eee;
-      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-      font-size: 14px;
-      color: #000;
-      margin: 0;
-      padding: 0;
-    }
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
-    .body {
-      background: #fff;
-      font-size: 14px;
-      color: #000;
-      margin: 0;
-      padding: 0;
-    }*/
 
 html,
 .body {
@@ -44,10 +25,18 @@ swiper-container swiper-slide {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-radius: 18px;
+    /*border-radius: 18px;
     font-size: 22px;
     font-weight: bold;
-    color: #ffffff;
+    color: #ffffff;*/
+    width: 340px;
+    height: 530px;
+    margin: 100px auto;
+    background: #fff;
+    box-shadow: 0px 8px 28px -9px rgba(0,0,0,0.45);
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
 }
 
 .slide {
@@ -55,18 +44,59 @@ swiper-container swiper-slide {
 }
 
 .slide .img-nounou{
+    display: flex;
+    position: absolute;
     align-items: center;
     border-radius: 50%;
     border: 2px solid #fff;
-    width: 170px;
-    height: 170px;
+    width: 120px;
+    height: 120px;
+    top: 30px;
+}
+.slide h2{
+    position: relative;
+    display: flex;
+    font-family: 'Great Vibes', sans-serif;
+    flex-direction: column;
+    align-items: center;
+    bottom: 30px;
+    font-weight: 400;
+    font-size: 40px;
 }
 
-.slide .img-nounou {
-    bottom: 25px;
+.infos{
+    display: flex;
+    align-content: space-between;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 
-swiper-slide:nth-child(1n) {
+.nounou-info{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    bottom: 20px;
+
+}
+
+
+.view-more{
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+
+}
+
+
+
+
+/*swiper-slide:nth-child(1n) {
     background-color: rgb(206, 17, 17);
 }
 
@@ -123,3 +153,4 @@ swiper-slide:nth-child(13n) {
 swiper-slide:nth-child(13n) {
     background-color: rgb(10, 13, 207);
   }
+*/

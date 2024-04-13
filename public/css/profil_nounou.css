@@ -268,6 +268,12 @@ i {
     flex-direction: column;
     align-items: center;
 }
+
+.affichage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .annonce {
     text-align: center;
     display: flex;
