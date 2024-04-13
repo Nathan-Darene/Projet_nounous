@@ -25,7 +25,7 @@
             <div class="left__col">
                 <div class="img__container">
 
-                        <img id="profile-image" src="/uploads/{{ $nounou['username'] }}" alt="{{ $nounou->username }}" />
+                    <img id="profile-image" src="{{ asset('uploads/' . $nounou['imageUpload']) }}" alt="{{ $nounou->username }}" />
 
                     <span></span>
                 </div>
@@ -208,21 +208,7 @@
     </div>
 
     <script>
-       /* // Assurez-vous que la page est entièrement chargée avant d'exécuter le code JavaScript
-        document.addEventListener('DOMContentLoaded', function() {
-            // Récupérer l'élément img avec l'identifiant unique
-            var profileImage = document.getElementById('profile-image');
-
-            // Vérifier si l'utilisateur a une image de profil
-            /*if ("{{ $nounou->imageUpload }}") {
-                // Définir la source de l'image en utilisant l'URL de l'image de profil de l'utilisateur
-                profileImage.src = "{{ asset($nounou->imageUpload) }}";
-            } /*else {
-                // Si l'utilisateur n'a pas d'image de profil, vous pouvez afficher une image par défaut
-                profileImage.src =
-                    ""; // Remplacez 'placeholder_image.jpg' par le chemin de votre image par défaut
-            }
-        });*/
+        
     </script>
 
 

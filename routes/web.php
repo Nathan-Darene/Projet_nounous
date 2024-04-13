@@ -5,6 +5,8 @@ use App\Http\Controllers\AllController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\NounouController;
+use App\Models\User;
+
 
 
 
@@ -90,6 +92,17 @@ Route::post('/rechercher-nounous', [NounouController::class, 'rechercher'])->nam
 Route::post('/nounou-search', [SearchController::class, 'search'])->name('nounou.search');
 
 
+/*Page acceuil*/
+
+// Dans votre fichier de routes web.php
+Route::post('/nounou', [AllController::class, 'getNounous'])->name('getNounous');
+
+/*Route::get('users', function () {
+    $users = Users::all();
+    return response()->json($users);
+});*/
+
+
 
 Route::get('/users', [UserController::class, 'index'])->name('page.page_user');
 
@@ -122,7 +135,7 @@ Route::get('/page_parent',[AllController::class, 'page_parent']);
 
 Route::get('/page_user',[AllController::class, 'page_user']);
 
-
+Route::get('/slide',[AllController::class, 'slide']);
 
 /*Deconnexion */
 

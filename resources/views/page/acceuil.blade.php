@@ -9,24 +9,27 @@
         href="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/fontawesome-6.5.1-beta3/css/all.min.css') }}">
     <!--link rel="stylesheet" href="acceuil.css" /-->
     <link rel="stylesheet" href="{{ asset('css/acceuil.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/slide.css') }}">
     <title>Social Home</title>
+
 </head>
 
 <body>
     <audio id="hover-sound">
-        <source src="{{asset('poppup/happy-pop-1-185286.mp3')}}" type="audio/mpeg">
+        <source src="{{ asset('poppup/happy-pop-1-185286.mp3') }}" type="audio/mpeg">
         Your browser does not support the audio element.
-      </audio>
+    </audio>
     <div class="hero" id="Acceuil">
         <nav class="navbar">
             <img src="{{ asset('Logo/8900808870_4aa536ff-86f5-4f1e-9429-0e0ace5a8068.png') }}" class="logo" />
             <ul class="ul">
-                <li class="poppup"><a href="#Accueil" style="--i:1;" class="active play" >Accueil</a></li>
+                <li class="poppup"><a href="#Accueil" style="--i:1;" class="active play">Accueil</a></li>
                 <li class="poppup"><a href="#A-propos" style="--i:2;" class="play"> A propos</a></li>
                 <li class="poppup"><a href="#contact" style="--i:3;" class="play">Contact</a></li>
                 <li class="poppup"><a href="#info" style="--i:4;" class="play">Information</a></li>
                 <li class="poppup">
-                    <audio id="lecteur-audio" src="{{asset('sound/relaxed-vlog-night-street-131746.mp3')}}" type="audio/mp3" loop></audio>
+                    <audio id="lecteur-audio" src="{{ asset('sound/relaxed-vlog-night-street-131746.mp3') }}"
+                        type="audio/mp3" loop></audio>
                     <button id="bouton-toggle" class="play"></button>
                 </li>
                 <li class="poppup"><a href="{{ asset('choix') }}" style="--1:5;" class="play">Inscription</a></li>
@@ -36,28 +39,54 @@
                 <a href="#" class="btn poppup play">Téléchargé l'App</a>
             </div>
         </nav>
-        <div class="content acceuil">
-            <h1 class="anim">Social<br />Home</h1>
-            <h2 class="anim">
-                Votre Solution Intégrée pour une Garde <br> d'Enfants Simplifiée
-            </h2>
-            <p class="anim">
-                Bienvenue sur <strong class="span">Social Home</strong>,
-                votre
-                solution tout-en-un <br> pour simplifier la gestion de la garde
-                d'enfants. <br>
-                Proposez votre vos service en tanque
-                <strong class="span">Nounou</strong> <br>ou
-                <!--si vous etes un parents, vous-->
-                Trouvez des nounous fiables, planifiez facilement <br>les
-                horaires de
-                garde, et restez connectés avec les <br>soignants de vos
-                enfants, le tout
-                sur une seule <br>plateforme conviviale.
-            </p>
-            <a href="{{ asset('/choix') }}" class="btn anim">Join Now</a>
+        <div class="homestart">
+            <div class="content acceuil">
+                <h1 class="anim">Social<br />Home</h1>
+                <h2 class="anim">
+                    Votre Solution Intégrée pour une Garde <br> d'Enfants Simplifiée
+                </h2>
+                <p class="anim slogan">
+                    Bienvenue sur <strong class="span">Social Home</strong>,
+                    votre
+                    solution tout-en-un <br> pour simplifier la gestion des nounou et de la garde de vos
+                    enfants.
+                    Proposez vos service en tanque
+                    <strong class="span">Nounou</strong> <br>ou
+                    <!--si vous etes un parents, vous-->
+                    Trouvez des nounous fiables, planifiez facilement <br>les
+                    horaires de
+                    garde, et restez connectés avec les <br>soignants de vos
+                    enfants, le tout
+                    sur une seule <br>plateforme conviviale.
+                </p>
+                <a href="{{ asset('/choix') }}" class="btn anim play">Join Now</a>
+            </div>
+            <!--img src="{/*{ asset('img/nounou_black.jpg') }}" class="feature-img anim"-->
+            <div>
+                <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" navigation="true"
+                    space-between="30" centered-slides="true" autoplay-delay="2500"
+                    autoplay-disable-on-interaction="false">
+                    <swiper-slide><img src="{{ 'nounou/1.jpg' }}" alt></swiper-slide>
+                    <swiper-slide><img src="{{ 'nounou/11.jpg' }}" alt></swiper-slide>
+                    <swiper-slide><img src="{{ 'nounou/14.jpg' }}" alt></swiper-slide>
+                    <swiper-slide><img src="{{ 'nounou/15.jpg' }}" alt></swiper-slide>
+                    <swiper-slide><img src="{{ 'nounou/20.jpg' }}" alt></swiper-slide>
+                    <swiper-slide><img src="{{ 'nounou/21.jpg' }}" alt></swiper-slide>
+                    <swiper-slide><img src="{{ 'nounou/22.jpg' }}" alt></swiper-slide>
+                    <swiper-slide><img src="{{ 'nounou/23.jpg' }}" alt></swiper-slide>
+                    <swiper-slide><img src="{{ 'nounou/24.jpg' }}" alt></swiper-slide>
+                    <swiper-slide><img src="{{ 'nounou/29.jpg' }}" alt></swiper-slide>
+
+
+                    <div class="autoplay-progress" slot="container-end">
+                        <svg viewBox="0 0 48 48">
+                            <circle cx="24" cy="24" r="20"></circle>
+                        </svg>
+                        <span></span>
+                    </div>
+                </swiper-container>
+            </div>
         </div>
-        <img src="{{ asset('img/nounou_black.jpg') }}" class="feature-img anim">
     </div>
 
 
@@ -167,16 +196,6 @@
                     et nounous.
                 </p>
             </div>
-
-            <!--******************-->
-
-            <!--div class="7">
-                    <h3>Appel à l'Action :</h3>
-                    "Prêt à découvrir la facilité de gestion de la garde
-                    d'enfants avec NannyCare? Inscrivez-vous dès
-                    maintenant et commencez votre voyage vers une garde
-                    d'enfants simplifiée et plus efficace!"
-                </div-->
         </div>
     </section>
 
@@ -283,8 +302,23 @@
     <footer>
 
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+        const progressCircle = document.querySelector(".autoplay-progress svg");
+        const progressContent = document.querySelector(".autoplay-progress span");
+
+        const swiperEl = document.querySelector("swiper-container");
+        swiperEl.addEventListener("autoplaytimeleft", (e) => {
+            const [swiper, time, progress] = e.detail;
+            progressCircle.style.setProperty("--progress", 1 - progress);
+            progressContent.textContent = `${Math.ceil(time / 10000)}s`;
+        });
+    </script>
 </body>
 <script src="{{ asset('js/music.js') }}"></script>
-<script src="{{asset('js/popup.js')}}"></script>
+<script src="{{ asset('js/popup.js') }}"></script>
 
 </html>

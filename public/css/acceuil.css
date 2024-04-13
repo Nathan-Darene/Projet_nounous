@@ -28,6 +28,18 @@
     animation-delay: calc(.2s * var(--i));
 }
 
+.slide_effect{
+    display: flex;
+}
+.homestart{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
 /**/
 .hero {
     width: 100%;
@@ -98,7 +110,7 @@ nav ul li a {
 }
 
 .content {
-    margin-top: 9%;
+    margin-top: 100px;
     max-width: 600px;
 }
 
@@ -118,6 +130,9 @@ nav ul li a {
     color: #333;
     animation-delay: 0.5s;
 }
+
+
+
 
 .play {
     font-weight: 500;
@@ -150,14 +165,17 @@ nav ul li a {
 }
 
 .content .btn {
+    background: #df4881;
     padding: 15px 80px;
     font-size: 15px;
     animation-delay: 1s;
 }
 
 .btn:hover {
-    border-top-right-radius: 30px;
-    border-bottom-left-radius: 0;
+    color: #df4881;
+    font-size: 20px;
+    font-weight: 600;
+    background-color: #fff;
 }
 
 .feature-img {

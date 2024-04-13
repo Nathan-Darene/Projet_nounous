@@ -14,8 +14,19 @@ use Illuminate\Http\Request;
 
 class AllController extends Controller
 {
+
     public function  acceuil(){
         return  view('page.acceuil');
+    }
+
+    public function getNounou()
+    {
+        $nounous = Nounou::all();
+        return response()->json($nounous);
+    }
+
+    public function slide(){
+        return  view('page.slide');
     }
 
     public function  choix(){
@@ -69,7 +80,6 @@ class AllController extends Controller
     public function inscription(){
         return view('auth.inscription');
     }
-
 
     /*Enregistrement de la nounou */
     public function registerNounou(Request $request){
@@ -432,13 +442,13 @@ class AllController extends Controller
 
 
 
-    public function index()
+    /*public function index()
     {
         // Récupérer tous les utilisateurs depuis la base de données
         $users = User::all();
 
         // Passer les utilisateurs à la vue et afficher la vue
         return view('page/page_user', ['users' => $users]);
-    }
+    }*/
 }
 
