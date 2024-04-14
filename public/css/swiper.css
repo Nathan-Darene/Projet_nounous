@@ -25,15 +25,11 @@ swiper-container swiper-slide {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /*border-radius: 18px;
-    font-size: 22px;
-    font-weight: bold;
-    color: #ffffff;*/
     width: 340px;
     height: 530px;
     margin: 100px auto;
     background: #fff;
-    box-shadow: 0px 8px 28px -9px rgba(0,0,0,0.45);
+    /*box-shadow: 0px 8px 28px -9px rgba(0,0,0,0.45);*/
     position: relative;
     border-radius: 18px;
     overflow: hidden;
@@ -82,7 +78,7 @@ swiper-container swiper-slide {
 }
 
 
-.view-more{
+/*.view-more{
     position: absolute;
     bottom: 20px;
     right: 20px;
@@ -91,7 +87,7 @@ swiper-container swiper-slide {
     text-decoration: none;
     text-transform: uppercase;
 
-}
+}*/
 
 
 

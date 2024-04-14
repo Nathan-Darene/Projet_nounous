@@ -270,9 +270,9 @@ class AllController extends Controller
 
         $request->validate([
             'titre' => 'required|string|max:255',
-            'description' => 'required|string|max:255',
+            'description' => 'required|string|max:9999',
             'statut' => 'required|string|max:255',
-            'date_disponible' => 'required|date_format:d-m-Y H:i:s',
+            /*'date_disponible' => 'required|date_format:d-m-Y H:i:s',*/
             'active' => 'nullable|boolean',
         ]);
 
@@ -284,7 +284,7 @@ class AllController extends Controller
         $annonce->titre = $request->titre;
         $annonce->description = $request->description;
         $annonce->statut = $request->statut;
-        $annonce->date_disponible = $request->date_disponible;
+        /*$annonce->date_disponible = $request->date_disponible;*/
         $annonce->active = $active; // Assignez la valeur au champ "active"
         //vas Vérifie si la case à cocher 'active' est cochée
 
@@ -465,62 +465,163 @@ class AllController extends Controller
         }
 
         // Récupération des données des cases à cocher
-        $donneesCalendrier = $request->only([
-            'lun_avant_ecole',
-            'mar_avant_ecole',
-            'mer_avant_ecole',
-            'jeu_avant_ecole',
-            'ven_avant_ecole',
-            'sam_avant_ecole',
-            'dim_avant_ecole',
-            'lun_matin',
-            'mar_matin',
-            'mer_matin',
-            'jeu_matin',
-            'ven_matin',
-            'sam_matin',
-            'dim_matin',
-            'lun_midi',
-            'mar_midi',
-            'mer_midi',
-            'jeu_midi',
-            'ven_midi',
-            'sam_midi',
-            'dim_midi',
-            'lun_après_midi',
-            'mar_après_midi',
-            'mer_après_midi',
-            'jeu_après_midi',
-            'ven_après_midi',
-            'sam_après_midi',
-            'dim_après_midi',
-            'lun_après_école',
-            'mar_après_école',
-            'mer_après_école',
-            'jeu_après_école',
-            'ven_après_école',
-            'sam_après_école',
-            'dim_après_école',
-            'lun_en_soiree',
-            'mar_en_soiree',
-            'mer_en_soiree',
-            'jeu_en_soiree',
-            'ven_en_soiree',
-            'sam_en_soiree',
-            'dim_en_soiree',
-            'lun_nuit',
-            'mar_nuit',
-            'mer_nuit',
-            'jeu_nuit',
-            'ven_nuit',
-            'sam_nuit',
-            'dim_nuit',
-
-
+        $request->validate([
+            'lun_avant_ecole' => 'nullable|boolean',
+            'mar_avant_ecole' => 'nullable|boolean',
+            'mer_avant_ecole' => 'nullable|boolean',
+            'jeu_avant_ecole' => 'nullable|boolean',
+            'ven_avant_ecole' => 'nullable|boolean',
+            'sam_avant_ecole' => 'nullable|boolean',
+            'dim_avant_ecole' => 'nullable|boolean',
+            'lun_matin' => 'nullable|boolean',
+            'mar_matin' => 'nullable|boolean',
+            'mer_matin' => 'nullable|boolean',
+            'jeu_matin' => 'nullable|boolean',
+            'ven_matin' => 'nullable|boolean',
+            'sam_matin' => 'nullable|boolean',
+            'dim_matin' => 'nullable|boolean',
+            'lun_midi' => 'nullable|boolean',
+            'mar_midi' => 'nullable|boolean',
+            'mer_midi' => 'nullable|boolean',
+            'jeu_midi' => 'nullable|boolean',
+            'ven_midi' => 'nullable|boolean',
+            'sam_midi' => 'nullable|boolean',
+            'dim_midi' => 'nullable|boolean',
+            'lun_apres_midi' => 'nullable|boolean',
+            'mar_apres_midi' => 'nullable|boolean',
+            'mer_apres_midi' => 'nullable|boolean',
+            'jeu_apres_midi' => 'nullable|boolean',
+            'ven_apres_midi' => 'nullable|boolean',
+            'sam_apres_midi' => 'nullable|boolean',
+            'dim_apres_midi' => 'nullable|boolean',
+            'lun_apres_ecole' => 'nullable|boolean',
+            'mar_apres_ecole' => 'nullable|boolean',
+            'mer_apres_ecole' => 'nullable|boolean',
+            'jeu_apres_ecole' => 'nullable|boolean',
+            'ven_apres_ecole' => 'nullable|boolean',
+            'sam_apres_ecole' => 'nullable|boolean',
+            'dim_apres_ecole' => 'nullable|boolean',
+            'lun_en_soiree' => 'nullable|boolean',
+            'mar_en_soiree' => 'nullable|boolean',
+            'mer_en_soiree' => 'nullable|boolean',
+            'jeu_en_soiree' => 'nullable|boolean',
+            'ven_en_soiree' => 'nullable|boolean',
+            'sam_en_soiree' => 'nullable|boolean',
+            'dim_en_soiree' => 'nullable|boolean',
+            'lun_nuit' => 'nullable|boolean',
+            'mar_nuit' => 'nullable|boolean',
+            'mer_nuit' => 'nullable|boolean',
+            'jeu_nuit' => 'nullable|boolean',
+            'ven_nuit' => 'nullable|boolean',
+            'sam_nuit' => 'nullable|boolean',
+            'dim_nuit' => 'nullable|boolean',
         ]);
+
+        $active1 = $request->input('lun_avant_ecole') ?? false;
+        $active2 = $request->input('mar_avant_ecole') ?? false;
+        $active3 = $request->input('mer_avant_ecole') ?? false;
+        $active4 = $request->input('jeu_avant_ecole') ?? false;
+        $active5 = $request->input('ven_avant_ecole') ?? false;
+        $active6 = $request->input('sam_avant_ecole') ?? false;
+        $active7 = $request->input('dim_avant_ecole') ?? false;
+        $active8 = $request->input('lun_matin') ?? false;
+        $active9 = $request->input('mar_matin') ?? false;
+        $active10 = $request->input('mer_matin') ?? false;
+        $active11 = $request->input('jeu_matin') ?? false;
+        $active12 = $request->input('ven_matin') ?? false;
+        $active13 = $request->input('sam_matin') ?? false;
+        $active14 = $request->input('dim_matin') ?? false;
+        $active15 = $request->input('lun_midi') ?? false;
+        $active16 = $request->input('mar_midi') ?? false;
+        $active17 = $request->input('mer_midi') ?? false;
+        $active18 = $request->input('jeu_midi') ?? false;
+        $active19 = $request->input('ven_midi') ?? false;
+        $active20 = $request->input('sam_midi') ?? false;
+        $active21 = $request->input('dim_midi') ?? false;
+        $active22 = $request->input('lun_apres_midi') ?? false;
+        $active23 = $request->input('mar_apres_midi') ?? false;
+        $active24 = $request->input('mer_apres_midi') ?? false;
+        $active25 = $request->input('jeu_apres_midi') ?? false;
+        $active26 = $request->input('ven_apres_midi') ?? false;
+        $active27 = $request->input('sam_apres_midi') ?? false;
+        $active28 = $request->input('dim_apres_midi') ?? false;
+        $active29 = $request->input('lun_apres_ecole') ?? false;
+        $active30 = $request->input('mar_apres_ecole') ?? false;
+        $active31 = $request->input('mer_apres_ecole') ?? false;
+        $active32 = $request->input('jeu_apres_ecole') ?? false;
+        $active33 = $request->input('ven_apres_ecole') ?? false;
+        $active34 = $request->input('sam_apres_ecole') ?? false;
+        $active35 = $request->input('dim_apres_ecole') ?? false;
+        $active36 = $request->input('lun_en_soiree') ?? false;
+        $active37 = $request->input('mar_en_soiree') ?? false;
+        $active38 = $request->input('mer_en_soiree') ?? false;
+        $active39 = $request->input('jeu_en_soiree') ?? false;
+        $active40 = $request->input('ven_en_soiree') ?? false;
+        $active41 = $request->input('sam_en_soiree') ?? false;
+        $active42 = $request->input('dim_en_soiree') ?? false;
+        $active43 = $request->input('lun_nuit') ?? false;
+        $active44 = $request->input('mar_nuit') ?? false;
+        $active45 = $request->input('mer_nuit') ?? false;
+        $active46 = $request->input('jeu_nuit') ?? false;
+        $active47 = $request->input('ven_nuit') ?? false;
+        $active48 = $request->input('sam_nuit') ?? false;
+        $active49 = $request->input('dim_nuit') ?? false;
+
         // Enregistrement des données dans la base de données
         $calendrier = new Calendriers();
-        $calendrier->fill($donneesCalendrier);
+        $calendrier->lun_avant_ecole = $active1;
+        $calendrier->mar_avant_ecole = $active2;
+        $calendrier->mer_avant_ecole = $active3;
+        $calendrier->jeu_avant_ecole = $active4;
+        $calendrier->ven_avant_ecole = $active5;
+        $calendrier->sam_avant_ecole = $active6;
+        $calendrier->dim_avant_ecole = $active7;
+        $calendrier->lun_matin = $active8;
+        $calendrier->mar_matin = $active9;
+        $calendrier->mer_matin = $active10;
+        $calendrier->jeu_matin = $active11;
+        $calendrier->ven_matin = $active12;
+        $calendrier->sam_matin = $active13;
+        $calendrier->dim_matin = $active14;
+        $calendrier->lun_midi = $active15;
+        $calendrier->mar_midi = $active16;
+        $calendrier->mer_midi = $active17;
+        $calendrier->jeu_midi = $active18;
+        $calendrier->ven_midi = $active19;
+        $calendrier->sam_midi = $active20;
+        $calendrier->dim_midi = $active21;
+        $calendrier->lun_apres_midi = $active22;
+        $calendrier->mar_apres_midi = $active23;
+        $calendrier->mer_apres_midi = $active24;
+        $calendrier->jeu_apres_midi = $active25;
+        $calendrier->ven_apres_midi = $active26;
+        $calendrier->sam_apres_midi = $active27;
+        $calendrier->dim_apres_midi = $active28;
+        $calendrier->lun_apres_ecole = $active29;
+        $calendrier->mar_apres_ecole = $active30;
+        $calendrier->mer_apres_ecole = $active31;
+        $calendrier->jeu_apres_ecole = $active32;
+        $calendrier->ven_apres_ecole = $active33;
+        $calendrier->sam_apres_ecole = $active34;
+        $calendrier->dim_apres_ecole = $active35;
+        $calendrier->lun_en_soiree = $active36;
+        $calendrier->mar_en_soiree = $active37;
+        $calendrier->mer_en_soiree = $active38;
+        $calendrier->jeu_en_soiree = $active39;
+        $calendrier->ven_en_soiree = $active40;
+        $calendrier->sam_en_soiree = $active41;
+        $calendrier->dim_en_soiree = $active42;
+        $calendrier->lun_nuit = $active43;
+        $calendrier->mar_nuit = $active44;
+        $calendrier->mer_nuit = $active45;
+        $calendrier->jeu_nuit = $active46;
+        $calendrier->ven_nuit = $active47;
+        $calendrier->sam_nuit = $active48;
+        $calendrier->dim_nuit = $active49;
+
+
+
+        /*$calendrier->fill($donneesCalendrier);*/
 
         // Assurer que la nounou associée à cette annonce est récupérée avec succès
         if ($data) {
@@ -534,7 +635,7 @@ class AllController extends Controller
         $res = $calendrier->save();
 
         if ($res) {
-           session()->flash('success', ' ajoutée avec succès');
+           session()->flash('success', 'Vos jours de disponibilité on été ajoutée avec succès');
         }
         else {
         session()->flash('error', 'Une erreur est survenue lors de l\'ajout de votre Disponibilité de la semmaine');

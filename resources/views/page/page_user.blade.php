@@ -30,8 +30,6 @@
 
             <li class="choix li" data-target="dashboardSection"><i
                     class="fa-solid fa-clipboard-list"></i>&nbsp;<span>Dashboard</span> </li>
-            <li class="choix li" data-target="notificationSection"><i
-                    class="fa-solid fa-bell"></i>&nbsp;<span>Annonce</span> </li>
             <li class="choix li" data-target="agendaSection"><i
                     class="fa-solid fa-calendar-check"></i>&nbsp;<span>Agenda</span> </li>
             <li class="choix li" data-target="coinSection"><i
@@ -180,7 +178,7 @@
                             @foreach (\App\Models\Users::inRandomOrder()->take(6)->get() as $user)
                                 <tr>
                                     <!-- Accès au champ lastname pour le nom de famille -->
-                                    <td><img src="uploads/{{ $user->imageUpload }}" alt=""
+                                    <td><img src="profile_users/{{ $user->imageUpload }}" alt=""
                                             style="border-radius: 50%"></td>
                                     <td>{{ $user->lastname }}</td>
                                     <td><img src="img/info.png" alt=""></td>
@@ -196,8 +194,8 @@
     </div>
 
     <!--Section Notification-->
-    <section id="notificationSection">
-        
+    <section id="notificationSection" >
+        cijdsdsnkc
     </section>
 
     <!--Section Agenda-->
@@ -268,26 +266,94 @@
     </section>
 
     <!--Section Coin-->
-    <section id="coinSection">
-
+    <section id="coinSection" >
+        <div class="body">
+            <div class="containers">
+                <div class="left">
+                    <div class="calendar">
+                        <div class="month">
+                            <i class="fas fa-angle-left prev"></i>
+                            <div class="date">MAI 2025</div>
+                            <i class="fas fa-angle-right next"></i>
+                        </div>
+                        <div class="weekdays">
+                            <div>Dimmanche</div>
+                            <div>Lundi</div>
+                            <div>Mardi</div>
+                            <div>Mercredi</div>
+                            <div>Jeudi</div>
+                            <div>Vendredi</div>
+                            <div>Samedi</div>
+                        </div>
+                        <div class="days"></div>
+                        <div class="goto-today">
+                            <div class="goto">
+                                <input type="text" placeholder="mm/yyyy" class="date-input" />
+                                <button class="goto-btn"><i
+                                        class="fa-solid fa-magnifying-glass"></i>Recherche</button>
+                            </div>
+                            <button class="today-btn">Date Actuelle</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="today-date">
+                        <div class="event-day">wed</div>
+                        <div class="event-date">25 MAI 2025</div>
+                    </div>
+                    <div class="events"></div>
+                    <div class="add-event-wrapper">
+                        <div class="add-event-header">
+                            <div class="title">Ajouter l'heure pour votre Annonce en fonction de la date choisis</div>
+                            <i class="fa-solid fa-times close"></i>
+                        </div>
+                        <div class="add-event-body">
+                            <div class="add-event-input">
+                                <input type="text" placeholder="Event Name" class="event-name" />
+                            </div>
+                            <div class="add-event-input">
+                                <input type="text" placeholder="Heure de debut" class="event-time-from" />
+                                <i class="fa-solid fa-hourglass-start"></i>
+                            </div>
+                            <div class="add-event-input">
+                                <input type="text" placeholder="Heure de fin" class="event-time-to" />
+                                <i class="fa-solid fa-hourglass-end"></i>
+                            </div>
+                        </div>
+                        <div class="add-event-footer">
+                            <button class="add-event-btn">Ajouter L'événement</button>
+                        </div>
+                    </div>
+                </div>
+                <button class="add-event">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
+        </div>
     </section>
 
     <!--Section Messagerie-->
 
     <section id="messagingSection">
+        <div class="body" style="background: red">
 
+        </div>
     </section>
 
     <!--Section Aide-->
 
-    <section id="helpSection">
+    <section id="helpSection" >
+        <div class="body" style="background: rgba(54, 181, 29, 0.479)">
 
+        </div>
     </section>
 
     <!--Section Parametre-->
 
     <section id="settingSection">
+        <div class="body" style="background: rgb(53, 11, 168)">
 
+        </div>
     </section>
 
 

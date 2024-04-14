@@ -11,50 +11,14 @@
     <link rel="stylesheet" href="{{ asset('css/scrolbare.css') }}">
     <link rel="stylesheet" href="{{ asset('css/screen.css') }}">
     <link rel="stylesheet" href="{{ asset('css/card.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/affichage_dynamique.css') }}">
     <link rel="stylesheet" href="{{ asset('css/swiper.css') }}">
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/handlebars/dist/handlebars.min.js"></script>
     <title> Social Home</title>
-    <style>
-        .swiper-slide {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .img-nounou {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            margin-bottom: 10px;
-        }
-
-        .nounou-info h3 {
-            font-size: 18px;
-            margin-bottom: 5px;
-        }
-
-        .nounou-info p {
-            font-size: 14px;
-            color: #888;
-        }
-
-        .view-more {
-            margin-top: 10px;
-            text-decoration: none;
-            color: #007bff;
-            font-weight: bold;
-        }
-    </style>
-
 </head>
 
 <body>
@@ -152,10 +116,10 @@
     <section class="container">
         <div class="header">
             <div class="nav">
-                
-                <form action="{{ route('rechercher.nounous') }}" method="POST">
+
+                <form action="{{ route('rechercher.nounous') }}" method="POST" class="filters">
                     <div class="search">
-                        <input type="text" name="search" placeholder="Recherche..">
+                        <input type="text" name="search" placeholder="Recherche un Nom...">
                         <button type="submit" class="btn1"><i class="fas fa-search"></i></button>
                     </div>
                 </form>
@@ -219,17 +183,21 @@
                                         '<div class="wave"></div>'+
                                         '<div class="wave"></div>'+
                                         '<div class="wave"></div>'+
-                                        '<img src="uploads/' + nounou.imageUpload + '" class="img-nounou">' +
+                                        '<img src="uploads/' + nounou.imageUpload + '" class="img-nounou" >' +
                                         '<div class="infos">'+
-                                            '<h2 style="color:white;">' + nounou.username + '</h2>' +
+                                            '<h2 style="color:white; margin-top:35px">' + nounou.username + '</h2>' +
                                             '<div class="nounou-info">' +
-                                                '<h4 style="color:white;"> Age: ' + nounou.Age + ' ans</h4>' +
-                                                '<h3 style="color:white;">' + nounou.role + '</h3>' +
-                                                '<h3 style="color:white;">' + nounou.city + '</h3>' +
-                                                '<h3 style="color:white;">' + nounou.prix_heure + '</h3>' +
+                                                '<h4 style="color:white; margin-bottom:10px"> Age: ' + nounou.Age + ' ans</h4>' +
+                                                '<h3 style="color:white;"> Type de service proposé :</h3>' +
+                                                '<h3 style="color:white; margin-bottom:10px" > ' + nounou.role + '</h3>' +
+                                                '<h3 style="color:white; margin-bottom:10px" > <i class="fa-solid fa-location-dot"></i>' + nounou.city + '</h3>' +
+                                                '<h3 style="color:white; margin-bottom:10px">' + nounou.prix_heure + ' / heure</h3>' +
+                                                '<div class="star">'+
+                                                    '<i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>'+
+                                                '</div>' +
                                             '</div>' +
                                         '</div>'+
-                                        '<a href="/nounou/' + nounou.id + '/nounou_profile" class="view-more" data-nounou-id="' + nounou.id + ' style="color:white;"" >Voir plus</a>' +
+                                        '<a href="/nounou/' + nounou.id + '/nounou_profile" class="view-more" data-nounou-id="' + nounou.id + ' style="color:white;" >Voir plus</a>' +
                                     '</swiper-slide>';
                         mySwiper.appendSlide(html);
                         /*$('.nounou-affiche').append(html);*/

@@ -13,7 +13,7 @@ class annonces extends Model
         'titre',
         'description',
         'statut',
-        'date_disponible',
+        /*'date_disponible',*/
         'active',
     ];
 

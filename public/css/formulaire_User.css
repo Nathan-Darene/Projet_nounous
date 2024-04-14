@@ -113,8 +113,21 @@ select{
     margin: 5px;
     margin-right: 20px;
 }
+.user{
+    display: flex;
+}
+
+.city{
+    width: 50%;
+}
+
+.sms{
+    display: block;
+    flex-direction: column;
+}
+
 select{
-    width: 93%;
+    width: 56%;
     height: 50%;
     color: #333333;
 }

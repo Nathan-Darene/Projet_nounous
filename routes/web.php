@@ -90,6 +90,8 @@ Route::get('/recherche', [AllController::class, 'recherche'])->name('recherche')
 /* Route pour la recherche des profile*/
 
 Route::post('/rechercher-nounous', [NounouController::class, 'rechercher'])->name('rechercher.nounous');
+
+
 Route::post('/nounou-search', [SearchController::class, 'search'])->name('nounou.search');
 
 

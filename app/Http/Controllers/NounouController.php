@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Users;
 use App\Models\Nounou;
+use App\Models\Calendriers;
+
 use App\Models\Annonces; // Assurez-vous d'importer le modèle Annonce
 use Session;
 use Hash;
@@ -30,11 +32,7 @@ class NounouController extends Controller
         }
 
         if (!empty($criteria['search'])) {
-            $query->whereRaw('city', 'LIKE ?', ['%' . $criteria['search'] . '%']);
-        }
-
-        if (!empty($criteria['search'])) {
-            $query->whereRaw('username', 'LIKE ?', ['%' . $criteria['search'] . '%']);
+            $query->where('username', 'like', '%' . $criteria['search'] . '%');
         }
 
         // Filtrer par expérience professionnelle
@@ -47,11 +45,20 @@ class NounouController extends Controller
             $query->where('niveau', $criteria['exp1']);
         }
 
+        /*$query->with('calendriers');*/
+
         // Exécuter la requête et récupérer les résultats
         $nounous = $query->get();
 
+
+        // Charger les calendriers pour chaque nounou
+        foreach ($nounous as $nounou) {
+            $calendrier = Calendriers::where('nounou_id', $nounou->id)->first();
+            $nounou->calendrier = $calendrier;
+        }
+
         // Initialiser la requête de recherche des annonces
-        $annonces = Annonces::query();
+        $annonces = annonces::query();
 
         // Filtrer les annonces par disponibilité si nécessaire
         if (!empty($criteria['disponibilite']) && $criteria['disponibilite'] === 'on') {
@@ -66,6 +73,7 @@ class NounouController extends Controller
             });
 
         }
+
         // Retourner les profils de nounous filtrés
         return response()->json(['nounous' => $nounous, 'annonces' => $annonces->get()]);
     }
