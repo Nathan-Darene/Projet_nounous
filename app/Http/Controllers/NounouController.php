@@ -54,7 +54,13 @@ class NounouController extends Controller
         // Charger les calendriers pour chaque nounou
         foreach ($nounous as $nounou) {
             $calendrier = Calendriers::where('nounou_id', $nounou->id)->first();
-            $nounou->calendrier = $calendrier;
+            if ($calendrier) {
+                $nounou->calendrier = $calendrier;
+            }
+            else {
+              // Aucun calendrier trouvé pour cette nounou, vous pouvez lui assigner une valeur par défaut
+             $nounou->calendrier = null; // Ou toute autre valeur par défaut que vous souhaitez
+            }
         }
 
         // Initialiser la requête de recherche des annonces

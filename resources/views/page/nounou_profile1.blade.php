@@ -115,9 +115,6 @@
                             <div class="niveau">
                                 <div class="atout">
                                     <h2>Compétences</h2>
-                                    @if ($nounou->calendrier)
-                                        <h2> {{ $nounou->calendrier->lun_avant_ecole }}</h2>
-                                    @endif
                                     <div class="up">
                                         <i class="fa-solid fa-user-graduate"> <span
                                                 class="span">{{ $nounou->niveau }}</span></i>
@@ -145,146 +142,190 @@
                                             <div>Sam</div>
                                             <div>Dim</div>
                                         </div>
-
-
-
-                                        @if ($nounou->calendrier)
+                                        @if ($nounou ?? '')
+                                            <!-- Avant L'école -->
+                                            <!-- Avant L'école -->
                                             <div class="calendar-row">
                                                 <div>Avant L'école</div>
                                                 <input type="checkbox" name="lun_avant_ecole" id="lun_avant_ecole"
-                                                    value="{{ $nounou->calendrier->lun_avant_ecole }}" disabled>
+                                                    value="{{$nounou->calendrier->lun_avant_ecole}}"
+                                                    disabled>
                                                 <input type="checkbox" name="mar_avant_ecole" id="mar_avant_ecole"
-                                                    value="{{ $nounou->calendrier->mar_avant_ecole }}" disabled>
+                                                    value="{{ $nounou->calendrier ? $nounou->calendrier->mar_avant_ecole : '' }}"
+                                                    disabled>
                                                 <input type="checkbox" name="mer_avant_ecole" id="mer_avant_ecole"
-                                                    value="{{ $nounou->calendrier->mer_avant_ecole }}" disabled>
+                                                    value="{{ $nounou->calendrier ? $nounou->calendrier->mer_avant_ecole : '' }}"
+                                                    disabled>
                                                 <input type="checkbox" name="jeu_avant_ecole" id="jeu_avant_ecole"
-                                                    value="{{ $nounou->calendrier->jeu_avant_ecole }}" disabled>
+                                                    value="{{ $nounou->calendrier ? $nounou->calendrier->jeu_avant_ecole : '' }}"
+                                                    disabled>
                                                 <input type="checkbox" name="ven_avant_ecole" id="ven_avant_ecole"
-                                                    value="{{ $nounou->calendrier->ven_avant_ecole }}" disabled>
+                                                    value="{{ $nounou->calendrier ? $nounou->calendrier->ven_avant_ecole : '' }}"
+                                                    disabled>
                                                 <input type="checkbox" name="sam_avant_ecole" id="sam_avant_ecole"
-                                                    value="{{ $nounou->calendrier->sam_avant_ecole }}" disabled>
+                                                    value="{{ $nounou->calendrier ? $nounou->calendrier->sam_avant_ecole : '' }}"
+                                                    disabled>
                                                 <input type="checkbox" name="dim_avant_ecole" id="dim_avant_ecole"
-                                                    value="{{ $nounou->calendrier->dim_avant_ecole }}" disabled>
+                                                    value="{{ $nounou->calendrier ? $nounou->calendrier->dim_avant_ecole : '' }}"
+                                                    disabled>
                                             </div>
 
                                             <!-- Le matin -->
                                             <div class="calendar-row">
                                                 <div>Le matin</div>
                                                 <input type="checkbox" name="lun_matin" id="lun_matin"
-                                                    value="{{ $nounou->calendrier->lun_matin }}" disabled>
+                                                    value="{{ $nounou->calendrier ? $nounou->calendrier->lun_matin : '' }}"
+                                                    disabled>
                                                 <input type="checkbox" name="mar_matin" id="mar_matin"
-                                                    value="{{ $nounou->calendrier->mar_matin }}" disabled>
+                                                    value="{{ $nounou->calendrier ? $nounou->calendrier->mar_matin : '' }}"
+                                                    disabled>
                                                 <input type="checkbox" name="mer_matin" id="mer_matin"
-                                                    value="{{ $nounou->calendrier->mer_matin }}" disabled>
+                                                    value="{{ $nounou->calendrier ? $nounou->calendrier->mer_matin : '' }}"
+                                                    disabled>
                                                 <input type="checkbox" name="jeu_matin" id="jeu_matin"
-                                                    value="{{ $nounou->calendrier->jeu_matin }}" disabled>
+                                                    value="{{ $nounou->calendrier ? $nounou->calendrier->jeu_matin : '' }}"
+                                                    disabled>
                                                 <input type="checkbox" name="ven_matin" id="ven_matin"
-                                                    value="{{ $nounou->calendrier->ven_matin }}" disabled>
+                                                    value="{{ $nounou->calendrier ? $nounou->calendrier->ven_matin : '' }}"
+                                                    disabled>
                                                 <input type="checkbox" name="sam_matin" id="sam_matin"
-                                                    value="{{ $nounou->calendrier->sam_matin }}" disabled>
+                                                    value="{{ $nounou->calendrier ? $nounou->calendrier->sam_matin : '' }}"
+                                                    disabled>
                                                 <input type="checkbox" name="dim_matin" id="dim_matin"
-                                                    value="{{ $nounou->calendrier->dim_matin }}" disabled>
+                                                    value="{{ $nounou->calendrier ? $nounou->calendrier->dim_matin : '' }}"
+                                                    disabled>
                                             </div>
 
                                             <!-- Le midi -->
                                             <div class="calendar-row">
                                                 <div>Le midi</div>
                                                 <input type="checkbox" name="lun_midi" id="lun_midi"
-                                                    value="{{ $nounou->calendrier->lun_midi }}" disabled>
+                                                    value="{{ $nounou->calendrier ? $nounou->calendrier->lun_midi : '' }}"
+                                                    disabled>
                                                 <input type="checkbox" name="mar_midi" id="mar_midi"
-                                                    value="{{ $nounou->calendrier->mar_midi }}" disabled>
+                                                    value="{{ $nounou->calendrier ? $nounou->calendrier->mar_midi : '' }}"
+                                                    disabled>
                                                 <input type="checkbox" name="mer_midi" id="mer_midi"
-                                                    value="{{ $nounou->calendrier->mer_midi }}" disabled>
+                                                    value="{{ $nounou->calendrier ? $nounou->calendrier->mer_midi : '' }}"
+                                                    disabled>
                                                 <input type="checkbox" name="jeu_midi" id="jeu_midi"
-                                                    value="{{ $nounou->calendrier->jeu_midi }}" disabled>
+                                                    value="{{ $nounou->calendrier ? $nounou->calendrier->jeu_midi : '' }}"
+                                                    disabled>
                                                 <input type="checkbox" name="ven_midi" id="ven_midi"
-                                                    value="{{ $nounou->calendrier->ven_midi }}" disabled>
+                                                    value="{{ $nounou->calendrier ? $nounou->calendrier->ven_midi : '' }}"
+                                                    disabled>
                                                 <input type="checkbox" name="sam_midi" id="sam_midi"
-                                                    value="{{ $nounou->calendrier->sam_midi }}" disabled>
+                                                    value="{{ $nounou->calendrier ? $nounou->calendrier->sam_midi : '' }}"
+                                                    disabled>
                                                 <input type="checkbox" name="dim_midi" id="dim_midi"
-                                                    value="{{ $nounou->calendrier->dim_midi }}" disabled>
+                                                    value="{{ $nounou->calendrier ? $nounou->calendrier->dim_midi : '' }}"
+                                                    disabled>
                                             </div>
 
                                             <!-- L'après-midi -->
                                             <div class="calendar-row">
                                                 <div>L'après-midi</div>
                                                 <input type="checkbox" name="lun_apres_midi" id="lun_apres_midi"
-                                                    value="{{ $nounou->calendrier->lun_apres_midi }}" disabled>
+                                                    value="{{ $nounou->calendrier ? $nounou->calendrier->lun_apres_midi : '' }}"
+                                                    disabled>
                                                 <input type="checkbox" name="mar_apres_midi" id="mar_apres_midi"
-                                                    value="{{ $nounou->calendrier->mar_apres_midi }}" disabled>
+                                                    value="{{ $nounou->calendrier ? $nounou->calendrier->mar_apres_midi : '' }}"
+                                                    disabled>
                                                 <input type="checkbox" name="mer_apres_midi" id="mer_apres_midi"
-                                                    value="{{ $nounou->calendrier->mer_apres_midi }}" disabled>
+                                                    value="{{ $nounou->calendrier ? $nounou->calendrier->mer_apres_midi : '' }}"
+                                                    disabled>
                                                 <input type="checkbox" name="jeu_apres_midi" id="jeu_apres_midi"
-                                                    value="{{ $nounou->calendrier->jeu_apres_midi }}" disabled>
+                                                    value="{{ $nounou->calendrier ? $nounou->calendrier->jeu_apres_midi : '' }}"
+                                                    disabled>
                                                 <input type="checkbox" name="ven_apres_midi" id="ven_apres_midi"
-                                                    value="{{ $nounou->calendrier->ven_apres_midi }}" disabled>
+                                                    value="{{ $nounou->calendrier ? $nounou->calendrier->ven_apres_midi : '' }}"
+                                                    disabled>
                                                 <input type="checkbox" name="sam_apres_midi" id="sam_apres_midi"
-                                                    value="{{ $nounou->calendrier->sam_apres_midi }}" disabled>
+                                                    value="{{ $nounou->calendrier ? $nounou->calendrier->sam_apres_midi : '' }}"
+                                                    disabled>
                                                 <input type="checkbox" name="dim_apres_midi" id="dim_apres_midi"
-                                                    value="{{ $nounou->calendrier->dim_apres_midi }}" disabled>
+                                                    value="{{ $nounou->calendrier ? $nounou->calendrier->dim_apres_midi : '' }}"
+                                                    disabled>
                                             </div>
 
                                             <!-- Après L'école -->
                                             <div class="calendar-row">
                                                 <div>Après L'école</div>
                                                 <input type="checkbox" name="lun_apres_ecole" id="lun_apres_ecole"
-                                                    value="{{ $nounou->calendrier->lun_apres_ecole }}" disabled>
+                                                    value="{{ $nounou->calendrier ? $nounou->calendrier->lun_apres_ecole : '' }}"
+                                                    disabled>
                                                 <input type="checkbox" name="mar_apres_ecole" id="mar_apres_ecole"
-                                                    value="{{ $nounou->calendrier->mar_apres_ecole }}" disabled>
+                                                    value="{{ $nounou->calendrier ? $nounou->calendrier->mar_apres_ecole : '' }}"
+                                                    disabled>
                                                 <input type="checkbox" name="mer_apres_ecole" id="mer_apres_ecole"
-                                                    value="{{ $nounou->calendrier->mer_apres_ecole }}" disabled>
+                                                    value="{{ $nounou->calendrier ? $nounou->calendrier->mer_apres_ecole : '' }}"
+                                                    disabled>
                                                 <input type="checkbox" name="jeu_apres_ecole" id="jeu_apres_ecole"
-                                                    value="{{ $nounou->calendrier->jeu_apres_ecole }}" disabled>
+                                                    value="{{ $nounou->calendrier ? $nounou->calendrier->jeu_apres_ecole : '' }}"
+                                                    disabled>
                                                 <input type="checkbox" name="ven_apres_ecole" id="ven_apres_ecole"
-                                                    value="{{ $nounou->calendrier->ven_apres_ecole }}" disabled>
+                                                    value="{{ $nounou->calendrier ? $nounou->calendrier->ven_apres_ecole : '' }}"
+                                                    disabled>
                                                 <input type="checkbox" name="sam_apres_ecole" id="sam_apres_ecole"
-                                                    value="{{ $nounou->calendrier->sam_apres_ecole }}" disabled>
+                                                    value="{{ $nounou->calendrier ? $nounou->calendrier->sam_apres_ecole : '' }}"
+                                                    disabled>
                                                 <input type="checkbox" name="dim_apres_ecole" id="dim_apres_ecole"
-                                                    value="{{ $nounou->calendrier->dim_apres_ecole }}" disabled>
+                                                    value="{{ $nounou->calendrier ? $nounou->calendrier->dim_apres_ecole : '' }}"
+                                                    disabled>
                                             </div>
 
                                             <!-- En soirée -->
                                             <div class="calendar-row">
                                                 <div>En Soirée</div>
                                                 <input type="checkbox" name="lun_en_soiree" id="lun_en_soiree"
-                                                    value="{{ $nounou->calendrier->lun_en_soiree }}" disabled>
+                                                    value="{{ $nounou->calendrier ? $nounou->calendrier->lun_en_soiree : '' }}"
+                                                    disabled>
                                                 <input type="checkbox" name="mar_en_soiree" id="mar_en_soiree"
-                                                    value="{{ $nounou->calendrier->mar_en_soiree }}" disabled>
+                                                    value="{{ $nounou->calendrier ? $nounou->calendrier->mar_en_soiree : '' }}"
+                                                    disabled>
                                                 <input type="checkbox" name="mer_en_soiree" id="mer_en_soiree"
-                                                    value="{{ $nounou->calendrier->mer_en_soiree }}" disabled>
+                                                    value="{{ $nounou->calendrier ? $nounou->calendrier->mer_en_soiree : '' }}"
+                                                    disabled>
                                                 <input type="checkbox" name="jeu_en_soiree" id="jeu_en_soiree"
-                                                    value="{{ $nounou->calendrier->jeu_en_soiree }}" disabled>
+                                                    value="{{ $nounou->calendrier ? $nounou->calendrier->jeu_en_soiree : '' }}"
+                                                    disabled>
                                                 <input type="checkbox" name="ven_en_soiree" id="ven_en_soiree"
-                                                    value="{{ $nounou->calendrier->ven_en_soiree }}" disabled>
+                                                    value="{{ $nounou->calendrier ? $nounou->calendrier->ven_en_soiree : '' }}"
+                                                    disabled>
                                                 <input type="checkbox" name="sam_en_soiree" id="sam_en_soiree"
-                                                    value="{{ $nounou->calendrier->sam_en_soiree }}" disabled>
+                                                    value="{{ $nounou->calendrier ? $nounou->calendrier->sam_en_soiree : '' }}"
+                                                    disabled>
                                                 <input type="checkbox" name="dim_en_soiree" id="dim_en_soiree"
-                                                    value="{{ $nounou->calendrier->dim_en_soiree }}" disabled>
+                                                    value="{{ $nounou->calendrier ? $nounou->calendrier->dim_en_soiree : '' }}"
+                                                    disabled>
                                             </div>
 
                                             <!-- La nuit -->
                                             <div class="calendar-row">
                                                 <div>La nuit</div>
                                                 <input type="checkbox" name="lun_nuit" id="lun_nuit"
-                                                    value="{{ $nounou->calendrier->lun_nuit }}" disabled>
+                                                    value="{{ $nounou->calendrier ? $nounou->calendrier->lun_nuit : '' }}"
+                                                    disabled>
                                                 <input type="checkbox" name="mar_nuit" id="mar_nuit"
-                                                    value="{{ $nounou->calendrier->mar_nuit }}" disabled>
+                                                    value="{{ $nounou->calendrier ? $nounou->calendrier->mar_nuit : '' }}"
+                                                    disabled>
                                                 <input type="checkbox" name="mer_nuit" id="mer_nuit"
-                                                    value="{{ $nounou->calendrier->mer_nuit }}" disabled>
+                                                    value="{{ $nounou->calendrier ? $nounou->calendrier->mer_nuit : '' }}"
+                                                    disabled>
                                                 <input type="checkbox" name="jeu_nuit" id="jeu_nuit"
-                                                    value="{{ $nounou->calendrier->jeu_nuit }}" disabled>
+                                                    value="{{ $nounou->calendrier ? $nounou->calendrier->jeu_nuit : '' }}"
+                                                    disabled>
                                                 <input type="checkbox" name="ven_nuit" id="ven_nuit"
-                                                    value="{{ $nounou->calendrier->ven_nuit }}" disabled>
+                                                    value="{{ $nounou->calendrier ? $nounou->calendrier->ven_nuit : '' }}"
+                                                    disabled>
                                                 <input type="checkbox" name="sam_nuit" id="sam_nuit"
-                                                    value="{{ $nounou->calendrier->sam_nuit }}" disabled>
+                                                    value="{{ $nounou->calendrier ? $nounou->calendrier->sam_nuit : '' }}"
+                                                    disabled>
                                                 <input type="checkbox" name="dim_nuit" id="dim_nuit"
-                                                    value="{{ $nounou->calendrier->dim_nuit }}" disabled>
+                                                    value="{{ $nounou->calendrier ? $nounou->calendrier->dim_nuit : '' }}"
+                                                    disabled>
                                             </div>
                                         @endif
-
-
-
-
 
 
 

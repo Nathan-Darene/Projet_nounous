@@ -29,5 +29,10 @@ class Nounou extends Model
         'email',
         'password',
     ];
+
+    public function calendrier()
+    {
+        return $this->hasOne(Calendriers::class);
+    }
 }
 

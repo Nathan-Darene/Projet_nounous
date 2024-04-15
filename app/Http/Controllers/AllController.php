@@ -83,6 +83,10 @@ class AllController extends Controller
         return view('auth.inscription');
     }
 
+    public function pay(){
+        return view('page.payement');
+    }
+
     /*Enregistrement de la nounou */
     public function registerNounou(Request $request){
 

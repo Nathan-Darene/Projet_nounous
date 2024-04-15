@@ -112,7 +112,11 @@ Route::post('/profiel_nounou', [AllController::class, 'annonce'])->name('annonce
 Route::get('/nounou/{id}/nounou_profile', [ProfilController::class, 'showDetails'])->name('nounou.details');
 
 
+Route::get('/nounou/{id}/payement', [ProfilController::class, 'showDetails'])->name('nounou.payement');
+
 /*Route pour la page d'acceuil */
+
+Route::get('/pay', [AllController::class, 'pay'])->name('pay');
 
 Route::get('/acceuil',[AllController::class, 'acceuil']);
 

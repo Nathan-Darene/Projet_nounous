@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Fonction pour masquer toutes les sections sauf une
     function hideSections(exceptSectionId) {
-        const sectionsToHide = ['dashboardSection', 'notificationSection', 'agendaSection', 'coinSection', 'messagingSection', 'helpSection', 'settingSection'];
+        const sectionsToHide = ['dashboardSection', 'agendaSection', 'coinSection', 'messagingSection', 'helpSection', 'settingSection'];
         sectionsToHide.forEach(sectionId => {
             if (sectionId !== exceptSectionId) {
                 const section = document.getElementById(sectionId);
