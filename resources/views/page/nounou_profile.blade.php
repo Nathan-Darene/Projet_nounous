@@ -87,7 +87,7 @@
                         </div>
                     </label>
 
-                    <button type="submit">Contactez moi </button>
+                    <button type="submit"><a href="{{('reservation')}}" class="contact">Contactez moi</a></button>
                 </nav>
                 <div class="affichage">
                     <div class="affichage">

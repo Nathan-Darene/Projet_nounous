@@ -37,11 +37,7 @@
                     <p>{{ $data['Fonction'] }}</p>
                 @endif
 
-                    <ul class="about">
-                        <li><span>4,073</span>Followers</li>
-                        <li><span>322</span>Following</li>
-                        <li><span>200,543</span>Attraction</li>
-                    </ul>
+
 
                     <div class="content">
                         <h2>Recherche Enfant à garder . Nounou dévouée</h2>
@@ -63,20 +59,20 @@
                         <ul>
                             <li><a href="#">Profil</a></li>
                             <li><a href="{{route('recherche')}}">Rchercher</a></li>
-                            <li><a href="#">groups</a></li>
+                            <li><a href="#">Messagerie</a></li>
                             <li><a href="#">about</a></li>
                         </ul>
                         <button>Follow</button>
                     </nav>
 
-                    <div class="photos">
+                    <!--div class="photos">
                         <img src="img/img_1.avif" alt="Photo" />
                         <img src="img/img_2.avif" alt="Photo" />
                         <img src="img/img_3.avif" alt="Photo" />
                         <img src="img/img_4.avif" alt="Photo" />
                         <img src="img/img_5.avif" alt="Photo" />
                         <img src="img/img_6.avif" alt="Photo" />
-                    </div>
+                    </!--div-->
                 </div>
             </div>
         </form>

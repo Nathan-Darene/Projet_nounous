@@ -5,7 +5,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 260vh; /* Utilise la hauteur totale de la fenêtre */
+    height: 90vh; /* Utilise la hauteur totale de la fenêtre */
     background-color: #FAFAFA;
 }
 
@@ -51,6 +51,7 @@ span {
 }
 
 .main {
+    width: 350vh;
     display: flex;
     flex-wrap: wrap;
     align-content: center;
@@ -58,8 +59,10 @@ span {
 }
 
 .main-card-login {
+    width: 90%;
     height: 100%;
-    margin: 20px 0 20px 0;
+
+    margin: 20px 0 20px 50px;
 }
 
 .login-card {
@@ -86,17 +89,23 @@ span {
 }
 
 .login-card-form {
+    display: flex;
     padding-left: 30px;
     padding-right: 20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
 }
 
 input[type="text"],
 input[type="email"],
 input[type="number"],
 input[type="date"],
-input[type="date"],
+input[type="tel"],
 input[type="password"],
 input[type="file"],
+.time,
 select{
     display: flex;
     flex-direction: column;
@@ -115,6 +124,19 @@ select{
     margin: 5px;
     margin-right: 20px;
 }
+
+/*input[type="date"]{
+    width: 10%;
+}*/
+
+.time{
+    display: flex;
+    border: 1px solid #ccc;
+    justify-content: space-between;
+    width: 40%;
+    flex-direction: row;
+}
+
 select{
     width: 93%;
     height: 50%;
@@ -161,117 +183,11 @@ select{
     text-align: center;
     font-size: 14px;
     padding: 0.5em;
-    width: 95%;
-    margin-top: 10px;
-    margin-left: 5px;
+    width: 35%;
+    margin-top: 2vh;
+    /*margin-top: 10px;*/
     font-weight: bold;
 }
-
-.login-or-first-separation,
-.login-or-last-separation {
-    width: 40%;
-    border: 1px solid #DBDBDB;
-}
-
-.login-or {
-    margin-top: 20px;
-    color: #8E8E8E;
-    font-weight: bold;
-    font-family: sans-serif;
-    font-size: 13px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    text-align: center;
-}
-
-.login-with-facebook {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 20px;
-    font-family: sans-serif;
-    color: #385185;
-    font-size: 14px;
-    font-weight: 550;
-}
-
-.facebook-icon {
-    font-size: 15px;
-}
-
-.forgot-password {
-    font-size: 12px;
-    font-family: sans-serif;
-    display: flex;
-    justify-content: center;
-    font-weight: 500;
-    color: #00376B;
-    margin-top: -5px;
-    margin-bottom: 10px;
-}
-
-.login-card-footer {
-    background-color: #FFFFFF;
-    border: 1px solid rgb(212, 211, 211);
-    border-radius: 50px 0 50px 0;
-    padding: 1.5em;
-    margin: 10px 20px 0 20px;
-    font-family: sans-serif;
-    font-weight: 200;
-    font-size: 15px;
-}
-
-.login-card-footer span {
-    font-weight: 500;
-    color: #0095F6;
-}
-
-.download-app {
-    margin-top: 15px;
-    font-family: sans-serif;
-    font-size: 14px;
-    letter-spacing: 0.5px;
-    font-weight: 400;
-    display: flex;
-    justify-content: center;
-}
-
-.download-app-buttons {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0 10px 0;
-
-}
-
-.download-app-buttons img {
-    margin-left: 5px;
-    cursor: pointer;
-    transition: 0.3s;
-
-
-}
-
-
-.imgs{
-    align-items: center;
-    /*margin-left: 40px;*/
-    /*border-radius: 50%;*/
-}
-.download-app-buttons img:hover{
-    transform: scale(1.03);
-}
-
-.login-link {
-    text-decoration: none;
-    color:#f05462;
-}
-
-.or {
-    color:#f05462;
-    ;
-}
-
 a {
     text-decoration: none;
 }
@@ -315,6 +231,7 @@ label p {
 
 button{
     transition: 0.3s;
+    margin-bottom: 20px;
 }
 
 button:hover,
@@ -329,3 +246,61 @@ button:active {
     background-color: #51e218;
 
 }
+.info{
+    width: 125vh;
+}
+
+
+.info1, .info2, .info3, .info4 , .info5, .info6, .info7, .info8{
+    display: flex;
+    margin-bottom: 10px;
+}
+
+/* */
+
+.checkbox-wrapper input[type="checkbox"] {
+    visibility: hidden;
+    display: none;
+  }
+
+  .checkbox-wrapper *,
+    .checkbox-wrapper ::after,
+    .checkbox-wrapper ::before {
+    box-sizing: border-box;
+    user-select: none;
+  }
+
+  .checkbox-wrapper {
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .checkbox-wrapper .label {
+    cursor: pointer;
+  }
+
+  .checkbox-wrapper .check {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    opacity: 0;
+  }
+
+  .checkbox-wrapper .label svg {
+    vertical-align: middle;
+  }
+
+  .checkbox-wrapper .path1 {
+    stroke-dasharray: 400;
+    stroke-dashoffset: 400;
+    transition: .5s stroke-dashoffset;
+    opacity: 0;
+  }
+
+  .checkbox-wrapper .check:checked + label svg g path {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }

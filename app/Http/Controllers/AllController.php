@@ -6,8 +6,8 @@ use App\Models\Nounou;
 use App\Services\UserService;
 use App\Models\Annonces;
 use App\Models\User;
-use App\Models\calendriers;
-
+use App\Models\Calendriers;
+use App\Models\Reservations;
 
 use Session;
 
@@ -86,6 +86,16 @@ class AllController extends Controller
     public function pay(){
         return view('page.payement');
     }
+
+    public function retour(){
+        return view('page.profile_user');
+    }
+
+    public function direct(){
+        return view('page.reservation');
+    }
+
+
 
     /*Enregistrement de la nounou */
     public function registerNounou(Request $request){
@@ -484,6 +494,7 @@ class AllController extends Controller
             'ven_matin' => 'nullable|boolean',
             'sam_matin' => 'nullable|boolean',
             'dim_matin' => 'nullable|boolean',
+            
             'lun_midi' => 'nullable|boolean',
             'mar_midi' => 'nullable|boolean',
             'mer_midi' => 'nullable|boolean',
@@ -648,4 +659,94 @@ class AllController extends Controller
         return back();
     }
 
+    public function store(Request $request)
+    {
+        $data = array();
+        if(Session::get('loginId')){
+        $data =  Users::where('id', '=',Session::get('loginId'))->first();
+        }
+
+        // Valider les données du formulaire
+        $validatedData = $request->validate([
+            'child_fullname' => 'required|string',
+            'child_birthdate' => 'required|string',
+            'child_gender' => 'required|string|in:masculin,féminin',
+            'child_address' => 'required|string',
+            'parent_fullname' => 'required|string',
+            'parent_address' => 'required|string',
+            'parent_email' => 'nullable|email',
+            'child_allergies' => 'nullable|string',
+            'child_medical_conditions' => 'nullable|string',
+            'doctor_phone' => 'nullable|string',
+            'parent_phone' => 'required|string',
+            'emergency_contact_name' => 'required|string',
+            'emergency_contact_phone' => 'required|string',
+            'school_name' => 'nullable|string',
+            'child_grade_level' => 'nullable|string',
+            /*'photo_authorization' => 'nullable|boolean',*/
+            'special_needs' => 'nullable|string',
+            'child_dietary_preferences' => 'nullable|string',
+            'parental_authorizations' => 'nullable|string',
+            'other_instructions' => 'nullable|string',
+            'form_fill_date' => 'required|date',
+            'parent_signature' => 'required|string',
+            /*'privacy_acceptance' => 'nullable|boolean',*/
+        ]);
+
+        // Créer une nouvelle réservation avec les données validées
+        $reservation = new Reservations();
+        $reservation->child_fullname = $validatedData['child_fullname'];
+        $reservation->child_birthdate = $validatedData['child_birthdate'];
+        $reservation->child_gender = $validatedData['child_gender'];
+        $reservation->child_address = $validatedData['child_address'];
+        $reservation->parent_fullname = $validatedData['parent_fullname'];
+        $reservation->parent_address = $validatedData['parent_address'];
+        $reservation->parent_email = $validatedData['parent_email'];
+        $reservation->child_allergies = $validatedData['child_allergies'];
+        $reservation->child_medical_conditions = $validatedData['child_medical_conditions'];
+        $reservation->doctor_phone = $validatedData['doctor_phone'];
+        $reservation->parent_phone = $validatedData['parent_phone'];
+        $reservation->emergency_contact_name = $validatedData['emergency_contact_name'];
+        $reservation->emergency_contact_phone = $validatedData['emergency_contact_phone'];
+        $reservation->school_name = $validatedData['school_name'];
+        $reservation->child_grade_level = $validatedData['child_grade_level'];
+       /* $reservation->photo_authorization = $validatedData['photo_authorization'];*/
+        $reservation->special_needs = $validatedData['special_needs'];
+        $reservation->child_dietary_preferences = $validatedData['child_dietary_preferences'];
+        $reservation->parental_authorizations = $validatedData['parental_authorizations'];
+        $reservation->other_instructions = $validatedData['other_instructions'];
+        $reservation->form_fill_date = $validatedData['form_fill_date'];
+        $reservation->parent_signature = $validatedData['parent_signature'];
+        /*$reservation->privacy_acceptance = $validatedData['privacy_acceptance'];*/
+
+        if (array_key_exists('photo_authorization', $validatedData)) {
+            $reservation->photo_authorization = $validatedData['photo_authorization'];
+        } else {
+            // La clé "photo_authorization" n'est pas définie, vous pouvez lui attribuer une valeur par défaut ou la laisser vide selon vos besoins
+            $reservation->photo_authorization = null; // ou false ou tout autre valeur par défaut
+        }
+
+        if ($data) {
+            // Récupérer l'ID de la nounou à partir de la session
+            $reservation->user_id = $data->id;
+            } else {
+
+         }
+        $res = $reservation->save();
+
+        // Rediriger avec un message de succè
+        if ($res) {
+            // Rediriger l'utilisateur vers une page de confirmation ou autre
+            return view('page.confirm')->with('success', 'Inscription réussie');
+        }
+         else {
+         session()->flash('error', 'Une erreur est survenue lors de l\'ajout de votre Disponibilité de la semmaine');
+         }
+
+         return back();
+        }
+
+
+
 }
+

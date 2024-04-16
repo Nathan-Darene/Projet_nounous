@@ -110,9 +110,30 @@ Route::post('/profiel_nounou', [AllController::class, 'annonce'])->name('annonce
 
 /*Profile pour la nounou*/
 Route::get('/nounou/{id}/nounou_profile', [ProfilController::class, 'showDetails'])->name('nounou.details');
+Route::get('/nounou/{id}/reservation', [AllController::class, 'reservation'])->name('reservation');
+
+
 
 
 Route::get('/nounou/{id}/payement', [ProfilController::class, 'showDetails'])->name('nounou.payement');
+
+Route::get('/reservation',[AllController::class, 'direct']);
+
+Route::post('/reservation', [AllController::class, 'store'])->name('reservation');
+
+/*Confirmation*/
+
+
+Route::get('/confirm',[AllController::class, 'retour'])->name ('retour');
+
+
+/*Route::get('/confirm', function () {
+    return view('page/confirm');
+});*/
+
+
+
+
 
 /*Route pour la page d'acceuil */
 

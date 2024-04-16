@@ -7,7 +7,7 @@ body {
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    height: 110vh;
+    height: 100vh;
 }
 
 .container {
@@ -27,6 +27,13 @@ p {
     color: #666;
     margin-top: 10px;
 }
+
+a{
+    text-decoration: none;
+    color: #fff;
+}
+
+
 
 .button {
     background-color: #007bff;
@@ -50,34 +57,32 @@ img{
     margin-top: 10px;
     margin-bottom: 20px;
 }
-/*.btn1{
+.btn1{
     position: relative;
-    ;
     border-radius: 50%;
     width: 50px;
     height: 50px;
-    bottom: 49vh;
-    right: 50vh;
-    background-color: #da0f0f;
+    bottom: 32.1vh;
+    right: 3vh;
+    background-color: #f4f4f4;
 }
 .btn{
     position: relative;
     border-radius: 50%;
     width: 50px;
     height: 50px;
-    bottom: 30.5vh;
-    left: 113vh;
-    background-color: #c40606;
+    bottom: 26.7vh;
+    left: 73vh;
+    background-color: #f4f4f4;
 }
 
 .cout {
-    margin-top: 1vh;
     position: relative;
     display: flex;
     align-content: center;
     flex-direction: row;
     align-items: center;
-    bottom: 55vh;
+    bottom: 35.7vh;
 
 }
 
@@ -281,4 +286,3 @@ img{
     height: 10px;
     left: calc(375px + 15px);
 }
-*/
