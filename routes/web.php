@@ -111,8 +111,8 @@ Route::post('/profiel_nounou', [AllController::class, 'annonce'])->name('annonce
 
 /*Profile pour la nounou*/
 Route::get('/nounou/{id}/nounou_profile', [ProfilController::class, 'showDetails'])->name('nounou.details');
-Route::get('/nounou/{id}/reservation', [AllController::class, 'reservation'])->name('reservation');
-Route::post('/reservation', [AllController::class, 'store'])->name('reservation');
+Route::get('/nounou/reservation/{id}', [AllController::class, 'reservation'])->name('reservation');
+Route::post('/reservation', [AllController::class, 'store'])->name('reservations');
 
 
 

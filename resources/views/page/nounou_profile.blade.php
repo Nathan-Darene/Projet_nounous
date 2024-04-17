@@ -33,6 +33,7 @@
                 </div>
                 @if ($nounou ?? '')
                     <h2>{{ $nounou->username }}</h2>
+                    <p>{{ $nounou->id }}</p>
                     <p>{{ $nounou->firstname }} {{ $nounou->lastname }}</p>
                     <p>{{ $nounou->phone }}</p>
                     <p>{{ $nounou->imageUpload }}</p>
@@ -87,7 +88,7 @@
                         </div>
                     </label>
 
-                    <button type="submit"><a href="{{('reservation')}}" class="contact">Faite votre reservation</a></button>
+                    <button type="submit"><a href="{{ route('reservation', ['id' => $nounou->id]) }}" class="contact">Faite votre reservation</a></button>
                 </nav>
                 <div class="affichage">
                     <div class="affichage">

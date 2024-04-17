@@ -23,7 +23,7 @@
                 <i class="fa-solid fa-check-circle"></i>
                 <h2>Confirmation de la réservation</h2>
                 <p>Votre réservation a été enregistrée avec succès !</p>
-                <p>Merci d'avoir contacter <strong>username</strong> pour la
+                <p>Merci d'avoir contacter <strong>{{$nounouName}}</strong> pour la
                     garde de vos enfant !</p>
                 <button class="button" type="submit" ><a href="{{('acceuil')}}">Retour</a></button>
             </form>

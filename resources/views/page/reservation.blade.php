@@ -58,7 +58,7 @@
                         height="70" width="180">
                 </div>
                 <!-- Formulaire d'inscription -->
-                <form class="login-card-form" action="{{route('reservation')}}" method="POST" id="registration-form"
+                <form class="login-card-form" action="{{route('reservations')}}" method="POST" id="registration-form"
                     enctype="multipart/form-data">
 
                     @if (Session::has('success'))
@@ -75,6 +75,7 @@
                         <div class="botton-text alert alert-danger"> {{ Session::get('error') }}</div>
                     @endif
                     @csrf
+                    <input type="hidden" name="nounou_id" value="{{ $nounou->id }}">
                     <div class="info">
                     <!-- Informations personnelles de l'enfant -->
                     <div class="info1">

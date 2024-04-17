@@ -39,9 +39,7 @@ class AllController extends Controller
         return  view('page.caland');
     }
 
-    public function  reservation(){
-        return  view('page.reservation');
-    }
+
 
     public function  message(){
         return  view('page.message');
@@ -564,6 +562,16 @@ class AllController extends Controller
         return back();
     }
 
+    public function reservation($id)
+    {
+        // Récupérer la nounou à partir de l'ID
+        $nounou = Nounou::find($id);
+
+        // Afficher la vue du formulaire de réservation en passant la nounou
+        return view('page/reservation')->with('nounou', $nounou);
+    }
+
+
 
 
     public function store(Request $request)
@@ -573,7 +581,6 @@ class AllController extends Controller
         $data =  Users::where('id', '=',Session::get('loginId'))->first();
         }
         // Récupérer l'ID de la nounou à partir de l'URL
-        $nounouId = $id;
 
         // Valider les données du formulaire
         $validatedData = $request->validate([
@@ -635,7 +642,7 @@ class AllController extends Controller
             $reservation->photo_authorization = null; // ou false ou tout autre valeur par défaut
         }
 
-        $reservation->nounou_id = $nounouId;
+        $reservation->nounou_id = $request->input('nounou_id');
 
         if ($data) {
             // Récupérer l'ID de l'utilisateur à partir de la session
@@ -648,10 +655,12 @@ class AllController extends Controller
 
         $res = $reservation->save();
 
+        $nounou = Nounou::find($reservation->nounou_id);
+
         // Rediriger avec un message de succè
         if ($res) {
             // Rediriger l'utilisateur vers une page de confirmation ou autre
-            return view('page.confirm')->with('success', 'Inscription réussie');
+            return view('page.confirm')->with('nounouName', $nounou->username);
         }
          else {
          session()->flash('error', 'Une erreur est survenue lors de l\'ajout de votre Disponibilité de la semmaine');
