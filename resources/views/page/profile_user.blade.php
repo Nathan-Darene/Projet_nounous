@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
     <!-- CSS -->
     <link rel="stylesheet" href="{{ asset('css/profil.css') }}" />
+    l
 </head>
 
 <body>
@@ -60,7 +61,7 @@
                             <li><a href="#">Profil</a></li>
                             <li><a href="{{route('recherche')}}">Rchercher</a></li>
                             <li><a href="#">Messagerie</a></li>
-                            <li><a href="#">about</a></li>
+                            <li><a href="">about</a></li>
                         </ul>
                         <button>Follow</button>
                     </nav>

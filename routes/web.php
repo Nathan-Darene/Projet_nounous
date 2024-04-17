@@ -105,6 +105,7 @@ Route::post('/enregistrer-donnees', [AllController::class, 'enregistrerDonnees']
 Route::get('/users', [UserController::class, 'index'])->name('page.page_user');
 
 
+
 /*Annonce */
 Route::post('/profiel_nounou', [AllController::class, 'annonce'])->name('annonce');
 
@@ -127,9 +128,9 @@ Route::post('/reservation', [AllController::class, 'store'])->name('reservation'
 Route::get('/confirm',[AllController::class, 'retour'])->name ('retour');
 
 
-/*Route::get('/confirm', function () {
+Route::get('/confirm', function () {
     return view('page/confirm');
-});*/
+});
 
 
 

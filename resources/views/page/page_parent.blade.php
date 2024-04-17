@@ -189,7 +189,7 @@
                                             '<div class="nounou-info">' +
                                                 '<h4 style="color:white; margin-bottom:10px"> Age: ' + nounou.Age + ' ans</h4>' +
                                                 '<h3 style="color:white;"> Type de service proposé :</h3>' +
-                                                '<h3 style="color:white; margin-bottom:10px" > ' + nounou.role + '</h3>' +
+                                                '<h3 style="color:white; margin-bottom:10px" > <i class="fa-solid fa-toolbox"></i>' + nounou.role + '</h3>' +
                                                 '<h3 style="color:white; margin-bottom:10px" > <i class="fa-solid fa-location-dot"></i>' + nounou.city + '</h3>' +
                                                 '<h3 style="color:white; margin-bottom:10px">' + nounou.prix_heure + ' / heure</h3>' +
                                                 '<div class="star">'+

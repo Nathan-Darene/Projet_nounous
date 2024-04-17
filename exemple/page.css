@@ -282,3 +282,46 @@ img{
     left: calc(375px + 15px);
 }
 */
+
+.btn1{
+    position: relative;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    bottom: 32.1vh;
+    right: 3vh;
+    background-color: #000; /* Modification */
+}
+.btn{
+    position: relative;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    bottom: 26.7vh;
+    left: 73vh;
+    background-color: #000; /* Modification */
+}
+
+.cout {
+    position: relative;
+    display: flex;
+    align-content: center;
+    flex-direction: row;
+    align-items: center;
+    bottom: 35.7vh;
+
+}
+
+
+/* Les classes b1 à b25 ont toutes une couleur de fond blanche, nous allons les remplacer par noir */
+
+.b1, .b2, .b3, .b4, .b5, .b6, .b7, .b8, .b9, .b10,
+.b11, .b12, .b13, .b14, .b15, .b16, .b17, .b18, .b19, .b20,
+.b21, .b22, .b23, .b24, .b25 {
+    position: relative;
+    background-color: #d40c0c; /* Modification */
+    width: 10px;
+    height: 10px;
+}
+
+/* Les décalages à gauche restent inchangés car ils sont calculés et ne dépendent pas de la couleur */
