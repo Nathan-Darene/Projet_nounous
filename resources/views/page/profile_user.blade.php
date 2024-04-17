@@ -12,40 +12,47 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
     <!-- CSS -->
     <link rel="stylesheet" href="{{ asset('css/profil.css') }}" />
-    l
+    <link rel="stylesheet" href="{{ asset('css/profil_nounou.css') }}" />
+    <style>
+        /* CSS pour cacher la div au début */
+        #Nounou_pay {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
-    <audio id="lecteur-audio" src="{{asset('sound/relaxed-vlog-night-street-131746.mp3')}}" type="audio/mp3" loop></audio>
+    <audio id="lecteur-audio" src="{{ asset('sound/relaxed-vlog-night-street-131746.mp3') }}" type="audio/mp3"
+        loop></audio>
     <div class="header__wrapper">
         <header></header>
         <form action="" method="post">
             <div class="cols__container">
                 <div class="left__col">
                     <div class="img__container">
-                    @if ($data ?? '')
-                        <img src="profile_users/{{ $data['imageUpload'] }}" alt="{{ $data['username'] }}" />
-                    @endif
+                        @if ($data ?? '')
+                            <img src="profile_users/{{ $data['imageUpload'] }}" alt="{{ $data['username'] }}" />
+                        @endif
                         <span></span>
                     </div>
-                @if ($data ?? '')
-                    <h2>{{ $data['username'] }}</h2>
-                    <p>{{ $data['firstname'] }} {{ $data['lastname'] }}</p>
-                    <p>{{ $data['phone'] }}</p>
-                    <p>{{ $data['city'] }}</p>
-                    <p>{{ $data['postalcode'] }}</p>
-                    <p>{{ $data['email'] }}</p>
-                    <p>{{ $data['Fonction'] }}</p>
-                @endif
+                    @if ($data ?? '')
+                        <h2>{{ $data['username'] }}</h2>
+                        <p>{{ $data['firstname'] }} {{ $data['lastname'] }}</p>
+                        <p>{{ $data['phone'] }}</p>
+                        <p>{{ $data['city'] }}</p>
+                        <p>{{ $data['postalcode'] }}</p>
+                        <p>{{ $data['email'] }}</p>
+                        <p>{{ $data['Fonction'] }}</p>
+                    @endif
 
 
 
                     <div class="content">
-                        <h2>Recherche Enfant à garder . Nounou dévouée</h2>
-                        @if ($data ?? '')
-                        <p>
 
-                        </p>
+                        @if ($data ?? '')
+                            <p>
+
+                            </p>
                         @endif
                         <ul>
                             <li><i class="fab fa-twitter"></i></li>
@@ -58,26 +65,39 @@
                 <div class="right__col">
                     <nav>
                         <ul>
-                            <li><a href="#">Profil</a></li>
-                            <li><a href="{{route('recherche')}}">Rchercher</a></li>
-                            <li><a href="#">Messagerie</a></li>
-                            <li><a href="">about</a></li>
+                            <li><a href="#">>Profil</a></li>
+                            <li><a href="{{ route('recherche') }}">>Rchercher</a></li>
+                            <li><a href="#message">>Messagerie</a></li>
+                            <li><a href="#Nounou_pay">>Nounou et Payement</a></li>
                         </ul>
-                        <button>Follow</button>
+                        <button> <a href="#">Edite Profil</a></button>
                     </nav>
+                    <div class="message" id="message">
+                        sdqfsdfsdfsddfe
+                    </div>
 
-                    <!--div class="photos">
-                        <img src="img/img_1.avif" alt="Photo" />
-                        <img src="img/img_2.avif" alt="Photo" />
-                        <img src="img/img_3.avif" alt="Photo" />
-                        <img src="img/img_4.avif" alt="Photo" />
-                        <img src="img/img_5.avif" alt="Photo" />
-                        <img src="img/img_6.avif" alt="Photo" />
-                    </!--div-->
+                    <div class="Nounou_pay wrapper" id="Nounou_pay">
+                        <div class="nounou">
+                            <div class="affiche_nounou ">
+                                <img src="{{ asset('img/user.png') }}" alt="" class="img">
+                                <h3>UserName</h3>
+                                <span>Role</span>
+                                <span>Numero de tel</span>
+                                <span>prix/heure</span>
+                                <div class="payment-nounou">
+                                    <a href="#">Payer</a>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </form>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="{{asset('js/click.js')}}"></script>
 </body>
 <script src="{{ asset('js/music.js') }}"></script>
 

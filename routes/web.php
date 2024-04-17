@@ -131,12 +131,22 @@ Route::get('/confirm',[AllController::class, 'retour'])->name ('retour');
 Route::get('/confirm', function () {
     return view('page/confirm');
 });
+Route::get('/confirm_pay', function () {
+    return view('page/confirm_pay');
+});
+/*Route pour les payements */
 
 
+Route::post('/payements', [AllController::class, 'payement'])->name('paiements.store');
 
+
+Route::get('/payement', function () {
+    return view('page/payement');
+});
 
 
 /*Route pour la page d'acceuil */
+
 
 Route::get('/pay', [AllController::class, 'pay'])->name('pay');
 

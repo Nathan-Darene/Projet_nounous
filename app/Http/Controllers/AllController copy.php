@@ -5,6 +5,8 @@ use App\Models\Users;
 use App\Models\Nounou;
 use App\Services\UserService;
 use App\Models\Annonces;
+use App\Models\Payement;
+
 use App\Models\User;
 use App\Models\Calendriers;
 use App\Models\Reservations;
@@ -494,7 +496,7 @@ class AllController extends Controller
             'ven_matin' => 'nullable|boolean',
             'sam_matin' => 'nullable|boolean',
             'dim_matin' => 'nullable|boolean',
-            
+
             'lun_midi' => 'nullable|boolean',
             'mar_midi' => 'nullable|boolean',
             'mer_midi' => 'nullable|boolean',
@@ -731,20 +733,60 @@ class AllController extends Controller
             $reservation->user_id = $data->id;
             } else {
 
-         }
+        }
         $res = $reservation->save();
 
         // Rediriger avec un message de succè
         if ($res) {
             // Rediriger l'utilisateur vers une page de confirmation ou autre
-            return view('page.confirm')->with('success', 'Inscription réussie');
+            return view('page.confirm')->with('success', 'Reservation réussie');
         }
          else {
-         session()->flash('error', 'Une erreur est survenue lors de l\'ajout de votre Disponibilité de la semmaine');
-         }
-
-         return back();
+         session()->flash('error', 'Une erreur est survenue lors de l\'enregistrement de votre Reservation ');
         }
+
+        return back();
+    }
+
+    public function payement(Request $request)
+    {
+        // Vérifier si l'utilisateur est connecté
+        if (Session::get('loginId')) {
+            // L'utilisateur est connecté, obtenir son ID
+            $userId = Session::get('loginId');
+
+            // Validation des données du formulaire
+            $validatedData = $request->validate([
+                'payment-method' => 'required|string',
+                'email' => 'required|email',
+                'card-number' => 'required|string',
+                'expiry-date' => 'required|date',
+                'cvv' => 'required|string',
+            ]);
+
+            // Création d'une nouvelle instance du modèle de paiement
+            $payment = new Payments();
+
+            // Remplissage des champs du modèle avec les données validées
+            $payment->user_id = $userId; // Associer l'ID de l'utilisateur connecté
+            $payment->payment_method = $validatedData['payment-method'];
+            $payment->email = $validatedData['email'];
+            $payment->card_number = $validatedData['card-number'];
+            $payment->expiry_date = $validatedData['expiry-date'];
+            $payment->cvv = $validatedData['cvv'];
+
+            // Enregistrement du paiement dans la base de données
+            $payment->save();
+
+            // Redirection vers une page de confirmation ou autre après l'enregistrement réussi
+            return view('page.confirm_pay')->with('success', 'Reservation réussie');
+        } else {
+            // L'utilisateur n'est pas connecté, rediriger vers la page de connexion ou afficher un message d'erreur
+            return redirect()->route('login')->with('error', 'Vous devez être connecté pour effectuer cette action.');
+        }
+    }
+
+
 
 
 

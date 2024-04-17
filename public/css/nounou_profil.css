@@ -377,6 +377,17 @@ select {
     font-family: "poppin", sans-serif;
 }
 
+
+.dispo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.dispo .fa-calendar-check{
+    font-size: 30px;
+    margin-left: 20px;
+}
 .form {
     display: flex;
     flex-direction: column;

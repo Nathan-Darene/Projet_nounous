@@ -115,9 +115,7 @@
                             <div class="niveau">
                                 <div class="atout">
                                     <h2>Compétences</h2>
-                                    @if ($nounou->calendrier)
-                                        <h2> {{ $nounou->calendrier->lun_avant_ecole }}</h2>
-                                    @endif
+
                                     <div class="up">
                                         <i class="fa-solid fa-user-graduate"> <span
                                                 class="span">{{ $nounou->niveau }}</span></i>
