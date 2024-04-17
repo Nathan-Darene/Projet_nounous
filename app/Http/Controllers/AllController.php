@@ -572,6 +572,8 @@ class AllController extends Controller
         if(Session::get('loginId')){
         $data =  Users::where('id', '=',Session::get('loginId'))->first();
         }
+        // Récupérer l'ID de la nounou à partir de l'URL
+        $nounouId = $id;
 
         // Valider les données du formulaire
         $validatedData = $request->validate([
@@ -633,12 +635,17 @@ class AllController extends Controller
             $reservation->photo_authorization = null; // ou false ou tout autre valeur par défaut
         }
 
-        if ($data) {
-            // Récupérer l'ID de la nounou à partir de la session
-            $reservation->user_id = $data->id;
-            } else {
+        $reservation->nounou_id = $nounouId;
 
+        if ($data) {
+            // Récupérer l'ID de l'utilisateur à partir de la session
+            $reservation->user_id = $data->id;
+        }
+        else {
+            //
          }
+
+
         $res = $reservation->save();
 
         // Rediriger avec un message de succè
