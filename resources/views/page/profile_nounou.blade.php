@@ -32,12 +32,12 @@
         <div class="cols__container">
             <div class="left__col">
                 <div class="img__container">
-                    @if ($data ?? '')
-                        <img src="uploads/{{ $data['imageUpload'] }}" alt="{{ $data['username'] }}" />
+                    @if ($data)
+                        <img src="uploads/{{ $data['imageUpload'] }}" alt="{{ $data ?? ''['username'] }}" />
                     @endif
                     <span></span>
                 </div>
-                @if ($data ?? '')
+                @if ($data)
                     <h2>{{ $data['username'] }}</h2>
                     <p>{{ $data['firstname'] }} {{ $data['lastname'] }}</p>
                     <p>{{ $data['phone'] }}</p>

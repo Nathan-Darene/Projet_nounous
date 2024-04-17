@@ -354,6 +354,12 @@ select {
     justify-content: space-between;
 }
 
+.contact{
+    color: #fff;
+    font-size: larger;
+    font-weight: 600;
+}
+
 .up {
     display: flex;
     display: flex;

@@ -87,7 +87,7 @@
                         </div>
                     </label>
 
-                    <button type="submit"><a href="{{('reservation')}}" class="contact">Contactez moi</a></button>
+                    <button type="submit"><a href="{{('reservation')}}" class="contact">Faite votre reservation</a></button>
                 </nav>
                 <div class="affichage">
                     <div class="affichage">
@@ -282,14 +282,6 @@
                                             </div>
                                         @endif
 
-
-
-
-
-
-
-
-
                                     </div>
                                 </div>
                             </div>
@@ -326,6 +318,8 @@
 
 
     <script src="{{ asset('js/music.js') }}"></script>
+    <script src="{{ asset('js/annonce.js') }}"></script>
+
 
 </body>
 

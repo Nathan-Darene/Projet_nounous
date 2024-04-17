@@ -6,6 +6,7 @@
     --primary-400: #8289a9;
     --primary-500: #676e8f;
     --primary-600: #525876;
+    --primary-599:#000000;
     --primary-700: #373c55;
     --primary-800: #282d48;
     --primary-900: #181c2f;
@@ -135,7 +136,7 @@
     font-weight: 600;
     font-size: .75rem;
     white-space: nowrap;
-    color: var(--primary-600)
+    color: var(--primary-599)
 }
 
 .calendar .calendar-days div {
