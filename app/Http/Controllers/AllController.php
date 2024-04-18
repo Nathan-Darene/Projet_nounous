@@ -262,8 +262,6 @@ class AllController extends Controller
             $data =  Nounou::where('id', '=',Session::get('loginId'))->first();
 
 
-
-
         }
         return view('page/profile_nounou', compact('data'));
     }
@@ -448,26 +446,36 @@ class AllController extends Controller
 
 
 
-    public function AfficheProfileUser(Request $request)
-    {
-        $data = array();
-        $nounou = null; // Initialisez la variable $nounou à null
+public function AfficheProfileUser(Request $request)
+{
+    $data = array();
+    $nounou = null;
 
-        if (Session::has('loginId')) {
-            $user_id = Session::get('loginId');
-            $data = Users::where('id', '=', $user_id)->first();
+    if (Session::has('loginId')) {
+        $user_id = Session::get('loginId');
 
-            // Récupérer la réservation faite par l'utilisateur connecté
-            $reservation = Reservations::where('user_id','=', $user_id)->first();
+        // Récupérer l'utilisateur connecté
+        $data = Users::find($user_id);
+
+        // Récupérer la réservation faite par l'utilisateur connecté
+        $reservation = Reservations::where('user_id', $user_id)->first();
 
         if ($reservation) {
-                // Si une réservation est trouvée, récupérer les informations de la nounou associée à cette réservation
-                $nounou = $reservation->nounou;
-            }
-        }
+            // Si une réservation est trouvée, récupérer l'ID de la nounou associée à cette réservation
+            $nounou_id = $reservation->nounou_id;
 
-        return view('page/profile_user', compact('data', 'nounou'));
+            // Maintenant, récupérer les données de la nounou à partir de son ID
+            $nounou = Nounou::find($nounou_id);
+        }
     }
+    return view('page/profile_user', compact('data', 'nounou'));
+
+    // // Retourner les données au format JSON
+    // return response()->json([
+    //     'user' => $data,
+    //     'nounou' => $nounou
+    // ]);
+}
 
 
 

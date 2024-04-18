@@ -80,11 +80,11 @@
                         <div class="nounou">
                             <div class="affiche_nounou ">
                                 @if ($nounou ?? '')
-                                    <img src="img/user.png" alt="" class="img">
-                                    <h3>{{$nounou['username']}}</h3>
-                                    <span>Role</span>
-                                    <span>Numero de tel</span>
-                                    <span>prix/heure</span>
+                                    <img src="uploads/{{$nounou->imageUpload}}" alt="" class="img">
+                                    <h3>{{$nounou->username}}</h3>
+                                    <span>{{$nounou->role}}</span>
+                                    <span>{{$nounou->phone}}</span>
+                                    <span>{{$nounou->prix_heure}}</span>
                                     <div class="payment-nounou">
                                         <a href="#">Payer</a>
                                     </div>
@@ -99,6 +99,7 @@
             </div>
         </form>
     </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="{{ asset('js/click.js') }}"></script>
 </body>
