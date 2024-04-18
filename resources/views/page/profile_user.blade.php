@@ -81,10 +81,11 @@
                             <div class="affiche_nounou ">
                                 @if ($nounou ?? '')
                                     <img src="uploads/{{$nounou->imageUpload}}" alt="" class="img">
+                                    <span class="etat">En service</span>
                                     <h3>{{$nounou->username}}</h3>
                                     <span>{{$nounou->role}}</span>
                                     <span>{{$nounou->phone}}</span>
-                                    <span>{{$nounou->prix_heure}}</span>
+                                    <span>{{$nounou->prix_heure}}/heure</span>
                                     <div class="payment-nounou">
                                         <a href="#">Payer</a>
                                     </div>
