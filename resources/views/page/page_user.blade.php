@@ -264,21 +264,24 @@
     <section id="settingSection">
         <div class="body">
             <div class="affiche_nounou ">
-                    <div class="Nounou_pay wrapper" id="Nounou_pay">
-                        <div class="nounou">
-                            <div class="affiche_nounou1">
-                                    <img src="uploads/" alt="" class="profile_user">
-                                    <h3>Username</h3>
-                                    <span>city</span>
-                                    <span></span>
-                                    <span></span>
-                                    <div class="payment-nounou">
-                                        <a href="{{route('confirm_demande')}}">Accepter la demande</a>
-                                    </div>
+                @foreach ($reservations as $reservation)
+                <div class="Nounou_pay wrapper" id="Nounou_pay">
+                    <div class="nounou">
+                        <div class="affiche_nounou">
+                            <h3>{{ $reservation->id }}</h3>
+                            <span>{{ $reservation->users->id}}</span>
+                            <span>{{ $reservation->parent_fullname}}</span>
+                            <span>{{ $reservation->parent_phone }}</span>
+                            <span>{{ $reservation->child_address}}</span>
+                            <span>{{ $reservation->created_at}}</span>
+                            <div class="payment-nounou">
+                                <a href="{{ route('confirm_demande') }}">Accepeter la demande</a>
                             </div>
-
                         </div>
                     </div>
+                </div>
+            @endforeach
+
 
             </div>
         </div>

@@ -181,6 +181,36 @@ class AllController extends Controller
 
 
     /*Connexion pour la nounou*/
+    // public function loginNounou(Request $request){
+    //     $request->validate([
+    //         'email' => 'required|string|email',
+    //         'password' => 'required|string',
+    //     ]);
+
+    //     $user =  Nounou::where('email', '=', $request->email)->first();
+    //     if ($user){
+    //         if(Hash::check($request->password, $user->password)){
+    //             $request->session()->put('loginId', $user->id);
+    //         }
+    //         else{
+    //             return back()->with('fail', 'Mots de passe incorect');
+    //         }
+    //     }
+    //     else{
+    //         return back()->with('fail', 'Adresse email incorrect');
+    //     }
+
+    //     /*Affiche des donnée de l'utilisateur */
+    //     $data = array();
+    //     if(Session::get('loginId')){
+    //         $data =  Nounou::where('id', '=',Session::get('loginId'))->first();
+    //     }
+    //     return view('page/page_user', compact('data'));
+
+
+
+    // }
+
     public function loginNounou(Request $request){
         $request->validate([
             'email' => 'required|string|email',
@@ -200,16 +230,40 @@ class AllController extends Controller
             return back()->with('fail', 'Adresse email incorrect');
         }
 
+
         /*Affiche des donnée de l'utilisateur */
         $data = array();
+        $reservations = collect(); // Initialisation à une collection vide
+
         if(Session::get('loginId')){
+            // $user = null;
             $data =  Nounou::where('id', '=',Session::get('loginId'))->first();
+            $reservations = Reservations::where('nounou_id', $data->id)->inRandomOrder()->take(6)->get();
         }
-        return view('page/page_user', compact('data'));
 
-
-
+        return view('page/page_user', compact('data', 'reservations'));
     }
+
+    // $pay= null;
+    // if (Session::has('loginId')) {
+    //     $user_id = Session::get('loginId');
+
+    //     // Récupérer l'utilisateur connecté
+    //     $data = Users::find($user_id);
+
+    //     // Récupérer la réservation faite par l'utilisateur connecté
+    //     $reservation = Reservations::where('user_id', $user_id)->first();
+
+    //     if ($reservation) {
+    //         // Si une réservation est trouvée, récupérer l'ID de la nounou associée à cette réservation
+    //         $nounou_id = $reservation->nounou_id;
+
+    //         // Maintenant, récupérer les données de la nounou à partir de son ID
+    //         $nounou = Nounou::find($nounou_id);
+    //     }
+    // }
+    // return view('page/profile_user', compact('data', 'nounou'));
+
 
 
 
