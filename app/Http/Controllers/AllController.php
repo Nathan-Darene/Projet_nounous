@@ -258,7 +258,11 @@ class AllController extends Controller
     public function AfficheProfileNounou(Request $request){
         $data = array();
         if(Session::get('loginId')){
-        $data =  Nounou::where('id', '=',Session::get('loginId'))->first();
+            $data =  Nounou::where('id', '=',Session::get('loginId'))->first();
+
+            
+
+
         }
         return view('page/profile_nounou', compact('data'));
     }
@@ -430,24 +434,24 @@ class AllController extends Controller
 
 
     /*Affichage des donnée sur la page de l'utilisateur */
-    public function AfficheProfileUser(Request $request){
-        $data = array();
-        if(Session::get('loginId')){
-            $data =  Users::where('id', '=',Session::get('loginId'))->first();
-            }
-        return view('page/profile_user', compact('data'));
+    public function AfficheProfileUser(Request $request)
+{
+    $data = array();
+    if (Session::get('loginId')) {
+        $data = Users::where('id', '=', Session::get('loginId'))->first();
     }
+    return view('page/profile_user', compact('data'));
+}
 
 
     public function recherche(Request $request){
         $data = array();
         if(Session::get('loginId')){
-        $data =  Users::where('id', '=',Session::get('loginId'))->first();
+            $data =  Users::where('id', '=',Session::get('loginId'))->first();
+
         }
         return view('page/page_parent', compact('data'));
     }
-
-
 
     public function page_parent(){
         return  view('page/page_parent');

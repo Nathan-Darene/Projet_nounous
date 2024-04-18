@@ -79,16 +79,14 @@
                     <div class="Nounou_pay wrapper" id="Nounou_pay">
                         <div class="nounou">
                             <div class="affiche_nounou ">
-                                <img src="{{ asset('img/user.png') }}" alt="" class="img">
+                                <img src="img/user.png" alt="" class="img">
                                 <h3>UserName</h3>
                                 <span>Role</span>
                                 <span>Numero de tel</span>
                                 <span>prix/heure</span>
                                 <div class="payment-nounou">
                                     <a href="#">Payer</a>
-                                </div>
-
-                            </div>
+                                </div>                            </div>
 
                         </div>
                     </div>
