@@ -7,6 +7,6 @@ $(document).ready(function () {
 $(document).ready(function () {
     $('a[href="#message"]').click(function (e) {
         e.preventDefault();
-        $("#message").toggle(); 
+        $("#message").toggle();
     });
 });

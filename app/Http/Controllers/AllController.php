@@ -706,9 +706,11 @@ public function AfficheProfileUser(Request $request)
          }
 
          return back();
-        }
+    }
 
-
+    public function confirm_demande(){
+        return view('page/confirm_demande');
+    }
 
 }
 

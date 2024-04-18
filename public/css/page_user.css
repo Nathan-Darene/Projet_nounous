@@ -569,11 +569,13 @@ img {
 }
 
 .affiche_nounou
-{
+{   position: sticky;
     display: flex;
     align-items: center;
     flex-direction: row;
     justify-content: space-between;
+    left: 30%;
+    bottom: 70%;
 
 }
 
@@ -601,6 +603,9 @@ img {
 
 .wrapper .etat{
     color: #2afa6a;
+}
+.wrapper .nounou .affice-nounou{
+    display: flex;
 }
 
 .payment-nounou a{
@@ -630,3 +635,13 @@ img {
 
 }
 
+.affiche_nounou1
+{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    left: 30%;
+    bottom: 70%;
+
+}

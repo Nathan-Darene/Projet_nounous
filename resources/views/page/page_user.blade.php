@@ -41,7 +41,7 @@
             </li>
 
             <li class="choix li" data-target="settingSection"><i
-                    class="fa-solid fa-gears"></i>&nbsp;<span>Paramètre</span> </li>
+                    class="fa-solid fa-hand-holding-heart"></i>&nbsp;<span>Demande</span> </li>
             <li class="li dec"><i class="fa-solid fa-door-open"></i>&nbsp;<a href="{{ route('logoutNounou') }}"
                     class="logout"><span>Déconnexion</span></a></li>
         </ul>
@@ -266,14 +266,14 @@
             <div class="affiche_nounou ">
                     <div class="Nounou_pay wrapper" id="Nounou_pay">
                         <div class="nounou">
-                            <div class="affiche_nounou ">
+                            <div class="affiche_nounou1">
                                     <img src="uploads/" alt="" class="profile_user">
                                     <h3>Username</h3>
                                     <span>city</span>
                                     <span></span>
                                     <span></span>
                                     <div class="payment-nounou">
-                                        <a href="{{route('paiements.store')}}">Accepter la demande</a>
+                                        <a href="{{route('confirm_demande')}}">Accepter la demande</a>
                                     </div>
                             </div>
 

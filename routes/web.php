@@ -138,6 +138,8 @@ Route::get('/confirm_pay', function () {
 
 Route::post('/payement', [AllController::class, 'payement'])->name('paiements.store');
 
+Route::get('/confirm_demande', [AllController::class, 'confirm_demande'])->name('confirm_demande');
+
 
 Route::get('/payement', function () {
     return view('page/payement');
