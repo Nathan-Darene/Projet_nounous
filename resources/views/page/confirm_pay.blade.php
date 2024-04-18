@@ -20,11 +20,11 @@
 <body>
     <div class="content">
         <div class="container">
-                <i class="fa-solid fa-check-circle"></i>
-                <h2>Confirmation de la transaction</h2>
-                <p>La  transaction a bien été effectuer avec succès !</p>
-                <p>Merci pour votre confiance !</p>
-                <button class="button" type="submit" ><a href="{{ route('AfficheProfileUser') }}">Retour</a></button>
+            <i class="fa-solid fa-check-circle"></i>
+            <h2>Confirmation de la transaction</h2>
+            <p>La transaction a bien été effectuer avec succès !</p>
+            <p>Merci pour votre confiance !</p>
+            <button class="button" type="submit"><a href="{{ route('AfficheProfileUser') }}">Retour</a></button>
             </form>
         </div>
         <div class="container">
@@ -33,37 +33,46 @@
                 d'Enfants Simplifiée
             </h4>
         </div>
-        <div class="foot">
-            <div class="btn"></div>
-            <div class="btn1"></div>
-            <div class="cout">
-                <div class="b1"></div>
-                <div class="b2"></div>
-                <div class="b3"></div>
-                <div class="b4"></div>
-                <div class="b5"></div>
-                <div class="b6"></div>
-                <div class="b7"></div>
-                <div class="b8"></div>
-                <div class="b9"></div>
-                <div class="b10"></div>
-                <div class="b11"></div>
-                <div class="b12"></div>
-                <div class="b13"></div>
-                <div class="b14"></div>
-                <div class="b15"></div>
-                <div class="b16"></div>
-                <div class="b17"></div>
-                <div class="b18"></div>
-                <div class="b19"></div>
-                <div class="b20"></div>
-                <div class="b21"></div>
-                <div class="b22"></div>
-                <div class="b23"></div>
-                <div class="b24"></div>
-                <!--div class="b25"></!--div-->
+        <div class="btn2"></div>
+        <div class="btn1"></div>
+        <div class="cout">
+            <div class="b"></div>
+            <div class="b"></div>
+            <div class="b"></div>
+            <div class="b"></div>
+            <div class="b"></div>
+            <div class="b"></div>
+            <div class="b"></div>
+            <div class="b"></div>
+            <div class="b"></div>
+            <div class="b"></div>
+            <div class="b"></div>
+            <div class="b"></div>
+            <div class="b"></div>
+            <div class="b"></div>
+            <div class="b"></div>
+            <div class="b"></div>
+            <div class="b"></div>
+            <div class="b"></div>
+            <div class="b"></div>
+            <div class="b"></div>
+            <div class="b"></div>
+            <div class="b"></div>
+            <div class="b"></div>
+            <div class="b"></div>
+            <div class="b"></div>
+            <div class="b"></div>
+            <div class="b"></div>
+            <div class="b"></div>
+            <div class="b"></div>
+            <div class="b"></div>
+            <div class="b"></div>
+            <div class="b"></div>
+            <div class="b"></div>
+            <div class="b"></div>
+            <div class="b"></div>
+            {{-- <div class="b"></div> --}}
 
-            </div>
         </div>
     </div>
 </body>

@@ -10,6 +10,10 @@ body {
     height: 100vh;
 }
 
+.content{
+    width: 60%;
+}
+
 .container {
     background-color: #fff;
     padding: 20px;
@@ -71,51 +75,55 @@ a:hover{
 .fa-check-circle{
     font-size: 60px;
 }
-.foot{
-
-}
 img{
     margin-top: 10px;
     margin-bottom: 20px;
 }
 .btn1{
-    /* position: relative;
-    border-radius: 50%;
+    position: sticky;
+    border-top-right-radius:50%;
+    border-bottom-right-radius: 50%;
     width: 50px;
     height: 50px;
-    bottom: 35vh;
-    right: 3vh; */
+    bottom: 49.5vh; /* Ajustez cette valeur selon vos besoins */
+    left: 5vh; /* Ajustez cette valeur selon vos besoins */
     background-color: #9b9898; /* Modification */
 }
-.btn{
-    /* position: relative;
-    border-radius: 50%;
-    width: 50px;
+.btn2{
+    position: sticky;
+    border-top-left-radius:50%;
+    border-bottom-left-radius: 50%;
+    width: 51px;
     height: 50px;
-    bottom: 29vh;
-    left: 81vh; */
+    bottom: 49.5vh; /* Ajustez cette valeur selon vos besoins */
+    left: 150vh;
     background-color: #9b9898; /* Modification */
 }
 
 .cout {
-    /* position: relative;
+    position: sticky;
     display: flex;
-    left: 16px;
+    width: 90%;
     align-content: center;
     flex-direction: row;
     align-items: center;
-    bottom: 35.7vh; */
+    left: 43.8vh;
+    bottom: 51.8vh;
 }
 
 /* Les classes b1 à b25 ont toutes une couleur de fond blanche, nous allons les remplacer par noir */
 
-.b1, .b2, .b3, .b4, .b5, .b6, .b7, .b8, .b9, .b10,
-.b11, .b12, .b13, .b14, .b15, .b16, .b17, .b18, .b19, .b20,
-.b21, .b22, .b23, .b24, .b25 {
-    /* position: relative;
-    margin-left: 16px;*/
-    background-color: #fff; /* Modification */
-    /* width: 10px;
+.b{
+    position: static;
+    margin-left: 16px;
+    border-radius: 50%;
+    background-color: #ffffff; /* Modification */
+    width: 10px;
     height: 10px;
-    bottom: 25px; */
+    /*bottom: 25px; */
+}
+
+
+@media screen (){
+
 }
