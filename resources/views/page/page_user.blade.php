@@ -127,12 +127,12 @@
                                 <th>Option</th>
                             </tr>
                             @foreach (\App\Models\Nounou::inRandomOrder()->take(6)->get() as $user)
-                            <tr>
-                                <td>{{ $user->username }}</td>
-                                <td>{{ $user->lastname }}</td>
-                                <td>$50</td>
-                                <td><a href="#" class="btn">Voir</a></td>
-                            </tr>
+                                <tr>
+                                    <td>{{ $user->username }}</td>
+                                    <td>{{ $user->lastname }}</td>
+                                    <td>$50</td>
+                                    <td><a href="#" class="btn">Voir</a></td>
+                                </tr>
                             @endforeach
                         </table>
                     </div>
@@ -167,7 +167,7 @@
     </div>
 
     <!--Section Notification-->
-    <section id="notificationSection" >
+    <section id="notificationSection">
         cijdsdsnkc
     </section>
 
@@ -239,7 +239,7 @@
     </section>
 
     <!--Section Coin-->
-    <section id="coinSection" >
+    <section id="coinSection">
 
     </section>
 
@@ -253,8 +253,8 @@
 
     <!--Section Aide-->
 
-    <section id="helpSection" >
-        <div class="body" style="background: rgba(54, 181, 29, 0.479)">
+    <section id="helpSection">
+        <div class="body">
 
         </div>
     </section>
@@ -265,22 +265,24 @@
         <div class="body">
             <div class="affiche_nounou ">
                 @foreach ($reservations as $reservation)
-                <div class="Nounou_pay wrapper" id="Nounou_pay">
-                    <div class="nounou">
-                        <div class="affiche_nounou">
-                            <h3>{{ $reservation->id }}</h3>
-                            <span>{{ $reservation->users->id}}</span>
-                            <span>{{ $reservation->parent_fullname}}</span>
-                            <span>{{ $reservation->parent_phone }}</span>
-                            <span>{{ $reservation->child_address}}</span>
-                            <span>{{ $reservation->created_at}}</span>
-                            <div class="payment-nounou">
-                                <a href="{{ route('confirm_demande') }}">Accepeter la demande</a>
+                    <div class="Nounou_pay wrapper" id="Nounou_pay">
+                        <div class="nounou1">
+                            <div class="affiche_nounou1">
+                                <h3>{{ $reservation->id }}</h3>
+                                @if ($reservation->users)
+                                    <span>{{ $reservation->users->id }}</span>
+                                @endif
+                                <span>{{ $reservation->parent_fullname }}</span>
+                                <span>{{ $reservation->parent_phone }}</span>
+                                <span>{{ $reservation->child_address }}</span>
+                                <span>{{ $reservation->created_at }}</span>
+                                <div class="payment-nounou">
+                                    <a href="{{ route('confirm_demande') }}">Accepeter la demande</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            @endforeach
+                @endforeach
 
 
             </div>

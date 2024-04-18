@@ -575,7 +575,8 @@ img {
     flex-direction: row;
     justify-content: space-between;
     left: 30%;
-    bottom: 70%;
+    bottom: 50%;
+    flex-direction: column;
 
 }
 
@@ -647,5 +648,6 @@ img {
     justify-content: space-between;
     left: 30%;
     bottom: 70%;
+
 
 }

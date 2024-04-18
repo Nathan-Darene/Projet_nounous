@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\Calendriers;
 use App\Models\Reservations;
 use App\Models\Reservation;
+use Illuminate\Http\Response;
 
 use Session;
 
@@ -211,58 +212,156 @@ class AllController extends Controller
 
     // }
 
-    public function loginNounou(Request $request){
-        $request->validate([
-            'email' => 'required|string|email',
-            'password' => 'required|string',
-        ]);
-
-        $user =  Nounou::where('email', '=', $request->email)->first();
-        if ($user){
-            if(Hash::check($request->password, $user->password)){
-                $request->session()->put('loginId', $user->id);
-            }
-            else{
-                return back()->with('fail', 'Mots de passe incorect');
-            }
-        }
-        else{
-            return back()->with('fail', 'Adresse email incorrect');
-        }
 
 
-        /*Affiche des donnée de l'utilisateur */
-        $data = array();
-        $reservations = collect(); // Initialisation à une collection vide
+    // public function loginNounou(Request $request){
+    //     $request->validate([
+    //         'email' => 'required|string|email',
+    //         'password' => 'required|string',
+    //     ]);
 
-        if(Session::get('loginId')){
-            // $user = null;
-            $data =  Nounou::where('id', '=',Session::get('loginId'))->first();
-            $reservations = Reservations::where('nounou_id', $data->id)->inRandomOrder()->take(6)->get();
-        }
+    //     $user =  Nounou::where('email', '=', $request->email)->first();
+    //     if ($user){
+    //         if(Hash::check($request->password, $user->password)){
+    //             $request->session()->put('loginId', $user->id);
 
-        return view('page/page_user', compact('data', 'reservations'));
-    }
+    //             $data = [];
+    //             $reservations = collect(); // Initialisation à une collection vide
 
-    // $pay= null;
-    // if (Session::has('loginId')) {
-    //     $user_id = Session::get('loginId');
+    //             if(Session::has('loginId')){
+    //                 $data =  Nounou::find(Session::get('loginId'));
+    //                 $reservations = Reservations::where('nounou_id', $data->id)->inRandomOrder()->take(6)->get();
+    //             }
 
-    //     // Récupérer l'utilisateur connecté
-    //     $data = Users::find($user_id);
+    //             // Récupérer les utilisateur avec l'ID
+    //             $user_id = $reservations->isNotEmpty() ? $reservations->first()->user_id : null;
+    //             $user = $user_id ? Users::find($user_id) : null;
 
-    //     // Récupérer la réservation faite par l'utilisateur connecté
-    //     $reservation = Reservations::where('user_id', $user_id)->first();
-
-    //     if ($reservation) {
-    //         // Si une réservation est trouvée, récupérer l'ID de la nounou associée à cette réservation
-    //         $nounou_id = $reservation->nounou_id;
-
-    //         // Maintenant, récupérer les données de la nounou à partir de son ID
-    //         $nounou = Nounou::find($nounou_id);
+    //             // Retourner les données JSON dans la vue
+    //             return response()->json([
+    //                 'success' => true,
+    //                 'message' => 'Connexion réussie',
+    //                 'data' => $data,
+    //                 'reservations' => $reservations,
+    //                 'user' => $user // Ajoutez l'utilisateur aux données retournées
+    //             ]);
+    //         } else {
+    //             return response()->json([
+    //                 'success' => false,
+    //                 'message' => 'Mot de passe incorrect',
+    //             ]);
+    //         }
+    //     } else {
+    //         return response()->json([
+    //             'success' => false,
+    //             'message' => 'Adresse email incorrecte',
+    //         ]);
     //     }
     // }
-    // return view('page/profile_user', compact('data', 'nounou'));
+
+    public function loginNounou(Request $request)
+{
+    $request->validate([
+        'email' => 'required|string|email',
+        'password' => 'required|string',
+    ]);
+
+    $user =  Nounou::where('email', '=', $request->email)->first();
+    if ($user){
+        if(Hash::check($request->password, $user->password)){
+            $request->session()->put('loginId', $user->id);
+
+            $data = [];
+            $reservations = collect(); // Initialisation à une collection vide
+
+            if(Session::has('loginId')){
+                $data =  Nounou::find(Session::get('loginId'));
+                $reservations = Reservations::where('nounou_id', $data->id)->inRandomOrder()->take(6)->get();
+            }
+
+            // Récupérer les utilisateurs associés à chaque réservation
+            $reservationUsers = [];
+            foreach ($reservations as $reservation) {
+                $reservationUsers[] = Users::find($reservation->user_id);
+            }
+
+            return view('page/page_user', [
+                'data' => $data,
+                'reservations' => $reservations,
+                'reservationUsers' => $reservationUsers,
+            ]);
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => 'Mot de passe incorrect',
+            ]);
+        }
+    } else {
+        return response()->json([
+            'success' => false,
+            'message' => 'Adresse email incorrecte',
+        ]);
+    }
+}
+
+
+
+            // Retourner les données JSON dans la vue
+            // return response()->json([
+            //     'success' => true,
+            //     'message' => 'Connexion réussie',
+            //     'data' => $data,
+            //     'reservations' => $reservations,
+            //     'booking_users' => $bookingUsers // Ajouter les utilisateurs qui ont réservé la nounou aux données retournées
+            // ]);
+    // public function loginNounou(Request $request){
+    //     $request->validate([
+    //         'email' => 'required|string|email',
+    //         'password' => 'required|string',
+    //     ]);
+
+    //     $user =  Nounou::where('email', '=', $request->email)->first();
+    //     if ($user){
+    //         if(Hash::check($request->password, $user->password)){
+    //             $request->session()->put('loginId', $user->id);
+
+    //             $data = [];
+    //             $reservations = collect(); // Initialisation à une collection vide
+
+    //             if(Session::has('loginId')){
+    //                 $data =  Nounou::find(Session::get('loginId'));
+    //                 $reservations = Reservations::where('nounou_id', $data->id)->inRandomOrder()->get();
+    //             }
+
+    //             // Récupérer l'utilisateur avec l'ID de la première réservation (s'il existe)
+    //             $user_id = $reservations->isNotEmpty() ? $reservations->first()->user_id : null;
+    //             $user = $user_id ? Users::find($user_id) : null;
+
+    //             // Retourner les données JSON dans la vue
+    //             return response()->json([
+    //                 'success' => true,
+    //                 'message' => 'Connexion réussie',
+    //                 'data' => $data,
+    //                 'reservations' => $reservations,
+    //                 'user' => $user // Ajoutez l'utilisateur aux données retournées
+    //             ]);
+    //         } else {
+    //             return response()->json([
+    //                 'success' => false,
+    //                 'message' => 'Mot de passe incorrect',
+    //             ]);
+    //         }
+    //     } else {
+    //         return response()->json([
+    //             'success' => false,
+    //             'message' => 'Adresse email incorrecte',
+    //         ]);
+    //     }
+    // }
+
+
+
+
 
 
 
