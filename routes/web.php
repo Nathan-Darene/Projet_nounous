@@ -145,6 +145,8 @@ Route::get('/payement', function () {
     return view('page/payement');
 });
 
+Route::get('/page_administrateur', [AllController::class, 'Administrateur'])->name('Administrateur');
+
 
 /*Route pour la page d'acceuil */
 

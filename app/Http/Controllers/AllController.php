@@ -20,8 +20,15 @@ class AllController extends Controller
 {
 
     public function  acceuil(){
-        return  view('page.acceuil');
+        return
+
+        view('page.acceuil');
     }
+
+    public function  Administrateur(){
+        return view('page/Aministrateur/page_administrateur');
+    }
+
 
     public function getNounou()
     {
