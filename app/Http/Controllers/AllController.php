@@ -445,12 +445,11 @@ class AllController extends Controller
 //     }
 
 
-
 public function AfficheProfileUser(Request $request)
 {
     $data = array();
     $nounou = null;
-
+    $pay= null;
     if (Session::has('loginId')) {
         $user_id = Session::get('loginId');
 

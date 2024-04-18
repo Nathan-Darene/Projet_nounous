@@ -18,7 +18,8 @@
                     <div class="payment-header">
                         <div class="payment-header-icon"><i class="ri-flashlight-fill"></i></div>
                         <div class="payment-header-title">Username</div>
-                        <p class="payment-header-description"></p>
+
+                        <p class="payment-header-description">Role</p>
                     </div>
                     <div class="payment-content">
                         <div class="payment-body">
@@ -49,6 +50,7 @@
                 </div>
                 <div class="payment-right">
                     <form action="{{route('paiements.store')}}" method="POST" class="payment-form">
+                        @csrf
                         <h1 class="payment-title">Details Payment </h1>
                         <div class="payment-method">
                             <input type="radio" name="payment-method" id="method-1" checked>

@@ -136,8 +136,7 @@ Route::get('/confirm_pay', function () {
 });
 /*Route pour les payements */
 
-
-Route::post('/payements', [AllController::class, 'payement'])->name('paiements.store');
+Route::post('/payement', [AllController::class, 'payement'])->name('paiements.store');
 
 
 Route::get('/payement', function () {
@@ -146,9 +145,6 @@ Route::get('/payement', function () {
 
 
 /*Route pour la page d'acceuil */
-
-
-Route::get('/pay', [AllController::class, 'pay'])->name('pay');
 
 Route::get('/acceuil',[AllController::class, 'acceuil']);
 

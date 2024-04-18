@@ -87,7 +87,7 @@
                                     <span>{{$nounou->phone}}</span>
                                     <span>{{$nounou->prix_heure}}/heure</span>
                                     <div class="payment-nounou">
-                                        <a href="#">Payer</a>
+                                        <a href="{{route('paiements.store')}}">Payer</a>
                                     </div>
                                 @else
                                     <p>Vous n'avez n'a pas encore effectué de réservation de nounou.</p>
