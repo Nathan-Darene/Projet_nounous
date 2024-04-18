@@ -269,9 +269,9 @@
                         <div class="nounou1">
                             <div class="affiche_nounou1">
                                 <h3>{{ $reservation->id }}</h3>
-                                @if ($reservation->users)
-                                    <span>{{ $reservation->users->id }}</span>
-                                @endif
+                                @foreach ($reservationUsers->where('reservation_id', $reservation->id) as $user)
+                                    <span>{{ $user->username }}</span>
+                                @endforeach
                                 <span>{{ $reservation->parent_fullname }}</span>
                                 <span>{{ $reservation->parent_phone }}</span>
                                 <span>{{ $reservation->child_address }}</span>

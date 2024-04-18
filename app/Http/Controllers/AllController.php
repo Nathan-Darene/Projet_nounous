@@ -280,10 +280,11 @@ class AllController extends Controller
             }
 
             // Récupérer les utilisateurs associés à chaque réservation
-            $reservationUsers = [];
+            $reservationUsers = collect();
             foreach ($reservations as $reservation) {
                 $reservationUsers[] = Users::find($reservation->user_id);
             }
+
 
             return view('page/page_user', [
                 'data' => $data,
