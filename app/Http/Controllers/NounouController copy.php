@@ -63,17 +63,6 @@ class NounouController extends Controller
             }
         }
 
-        // foreach ($nounous as $nounou) {
-        //     $calendrier = Reservations::where('nounou_id', $nounou->id)->first();
-        //     if ($reservations) {
-        //         $nounou->reservations = $reservations;
-        //     }
-        //     else {
-        //       // Aucun calendrier trouvé pour cette nounou, vous pouvez lui assigner une valeur par défaut
-        //      $nounou->reservations = null; // Ou toute autre valeur par défaut que vous souhaitez
-        //     }
-        // }
-
         // Initialiser la requête de recherche des annonces
         $annonces = annonces::query();
 

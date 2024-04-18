@@ -433,8 +433,8 @@ class AllController extends Controller
     public function AfficheProfileUser(Request $request){
         $data = array();
         if(Session::get('loginId')){
-        $data =  Users::where('id', '=',Session::get('loginId'))->first();
-        }
+            $data =  Users::where('id', '=',Session::get('loginId'))->first();
+            }
         return view('page/profile_user', compact('data'));
     }
 

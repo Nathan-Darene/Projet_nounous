@@ -34,5 +34,11 @@ class Nounou extends Model
     {
         return $this->hasOne(Calendriers::class);
     }
+
+    public function reservations()
+    {
+        return $this->hasMany(Reservation::class);
+    }
+
 }
 

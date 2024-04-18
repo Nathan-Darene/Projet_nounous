@@ -39,4 +39,9 @@ class Reservations extends Model
     {
         return $this->belongsTo(Users::class);
     }
+
+    public function nounous()
+    {
+        return $this->belongsTo(Nounou::class);
+    }
 }

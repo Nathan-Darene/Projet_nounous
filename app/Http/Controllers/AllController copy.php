@@ -5,8 +5,6 @@ use App\Models\Users;
 use App\Models\Nounou;
 use App\Services\UserService;
 use App\Models\Annonces;
-use App\Models\Payement;
-
 use App\Models\User;
 use App\Models\Calendriers;
 use App\Models\Reservations;
@@ -41,9 +39,7 @@ class AllController extends Controller
         return  view('page.caland');
     }
 
-    public function  reservation(){
-        return  view('page.reservation');
-    }
+
 
     public function  message(){
         return  view('page.message');
@@ -437,8 +433,8 @@ class AllController extends Controller
     public function AfficheProfileUser(Request $request){
         $data = array();
         if(Session::get('loginId')){
-        $data =  Users::where('id', '=',Session::get('loginId'))->first();
-        }
+            $data =  Users::where('id', '=',Session::get('loginId'))->first();
+            }
         return view('page/profile_user', compact('data'));
     }
 
@@ -478,6 +474,12 @@ class AllController extends Controller
         $data = null;
         if (Session::has('loginId')) {
             $data = Nounou::find(Session::get('loginId'));
+        }
+
+        // Assurer que la nounou associée à cette annonce est récupérée avec succès
+        if (!$data) {
+            session()->flash('error', 'Impossible de trouver l\'utilisateur connecté.');
+            return back();
         }
 
         // Récupération des données des cases à cocher
@@ -534,132 +536,43 @@ class AllController extends Controller
             'dim_nuit' => 'nullable|boolean',
         ]);
 
-        $active1 = $request->input('lun_avant_ecole') ?? false;
-        $active2 = $request->input('mar_avant_ecole') ?? false;
-        $active3 = $request->input('mer_avant_ecole') ?? false;
-        $active4 = $request->input('jeu_avant_ecole') ?? false;
-        $active5 = $request->input('ven_avant_ecole') ?? false;
-        $active6 = $request->input('sam_avant_ecole') ?? false;
-        $active7 = $request->input('dim_avant_ecole') ?? false;
-        $active8 = $request->input('lun_matin') ?? false;
-        $active9 = $request->input('mar_matin') ?? false;
-        $active10 = $request->input('mer_matin') ?? false;
-        $active11 = $request->input('jeu_matin') ?? false;
-        $active12 = $request->input('ven_matin') ?? false;
-        $active13 = $request->input('sam_matin') ?? false;
-        $active14 = $request->input('dim_matin') ?? false;
-        $active15 = $request->input('lun_midi') ?? false;
-        $active16 = $request->input('mar_midi') ?? false;
-        $active17 = $request->input('mer_midi') ?? false;
-        $active18 = $request->input('jeu_midi') ?? false;
-        $active19 = $request->input('ven_midi') ?? false;
-        $active20 = $request->input('sam_midi') ?? false;
-        $active21 = $request->input('dim_midi') ?? false;
-        $active22 = $request->input('lun_apres_midi') ?? false;
-        $active23 = $request->input('mar_apres_midi') ?? false;
-        $active24 = $request->input('mer_apres_midi') ?? false;
-        $active25 = $request->input('jeu_apres_midi') ?? false;
-        $active26 = $request->input('ven_apres_midi') ?? false;
-        $active27 = $request->input('sam_apres_midi') ?? false;
-        $active28 = $request->input('dim_apres_midi') ?? false;
-        $active29 = $request->input('lun_apres_ecole') ?? false;
-        $active30 = $request->input('mar_apres_ecole') ?? false;
-        $active31 = $request->input('mer_apres_ecole') ?? false;
-        $active32 = $request->input('jeu_apres_ecole') ?? false;
-        $active33 = $request->input('ven_apres_ecole') ?? false;
-        $active34 = $request->input('sam_apres_ecole') ?? false;
-        $active35 = $request->input('dim_apres_ecole') ?? false;
-        $active36 = $request->input('lun_en_soiree') ?? false;
-        $active37 = $request->input('mar_en_soiree') ?? false;
-        $active38 = $request->input('mer_en_soiree') ?? false;
-        $active39 = $request->input('jeu_en_soiree') ?? false;
-        $active40 = $request->input('ven_en_soiree') ?? false;
-        $active41 = $request->input('sam_en_soiree') ?? false;
-        $active42 = $request->input('dim_en_soiree') ?? false;
-        $active43 = $request->input('lun_nuit') ?? false;
-        $active44 = $request->input('mar_nuit') ?? false;
-        $active45 = $request->input('mer_nuit') ?? false;
-        $active46 = $request->input('jeu_nuit') ?? false;
-        $active47 = $request->input('ven_nuit') ?? false;
-        $active48 = $request->input('sam_nuit') ?? false;
-        $active49 = $request->input('dim_nuit') ?? false;
-
         // Enregistrement des données dans la base de données
-        $calendrier = new Calendriers();
-        $calendrier->lun_avant_ecole = $active1;
-        $calendrier->mar_avant_ecole = $active2;
-        $calendrier->mer_avant_ecole = $active3;
-        $calendrier->jeu_avant_ecole = $active4;
-        $calendrier->ven_avant_ecole = $active5;
-        $calendrier->sam_avant_ecole = $active6;
-        $calendrier->dim_avant_ecole = $active7;
-        $calendrier->lun_matin = $active8;
-        $calendrier->mar_matin = $active9;
-        $calendrier->mer_matin = $active10;
-        $calendrier->jeu_matin = $active11;
-        $calendrier->ven_matin = $active12;
-        $calendrier->sam_matin = $active13;
-        $calendrier->dim_matin = $active14;
-        $calendrier->lun_midi = $active15;
-        $calendrier->mar_midi = $active16;
-        $calendrier->mer_midi = $active17;
-        $calendrier->jeu_midi = $active18;
-        $calendrier->ven_midi = $active19;
-        $calendrier->sam_midi = $active20;
-        $calendrier->dim_midi = $active21;
-        $calendrier->lun_apres_midi = $active22;
-        $calendrier->mar_apres_midi = $active23;
-        $calendrier->mer_apres_midi = $active24;
-        $calendrier->jeu_apres_midi = $active25;
-        $calendrier->ven_apres_midi = $active26;
-        $calendrier->sam_apres_midi = $active27;
-        $calendrier->dim_apres_midi = $active28;
-        $calendrier->lun_apres_ecole = $active29;
-        $calendrier->mar_apres_ecole = $active30;
-        $calendrier->mer_apres_ecole = $active31;
-        $calendrier->jeu_apres_ecole = $active32;
-        $calendrier->ven_apres_ecole = $active33;
-        $calendrier->sam_apres_ecole = $active34;
-        $calendrier->dim_apres_ecole = $active35;
-        $calendrier->lun_en_soiree = $active36;
-        $calendrier->mar_en_soiree = $active37;
-        $calendrier->mer_en_soiree = $active38;
-        $calendrier->jeu_en_soiree = $active39;
-        $calendrier->ven_en_soiree = $active40;
-        $calendrier->sam_en_soiree = $active41;
-        $calendrier->dim_en_soiree = $active42;
-        $calendrier->lun_nuit = $active43;
-        $calendrier->mar_nuit = $active44;
-        $calendrier->mer_nuit = $active45;
-        $calendrier->jeu_nuit = $active46;
-        $calendrier->ven_nuit = $active47;
-        $calendrier->sam_nuit = $active48;
-        $calendrier->dim_nuit = $active49;
+        $calendrier = $data->calendrier ?? new Calendriers();
 
+        // Récupération de toutes les valeurs des cases à cocher
+        $fields = [
+            'lun_avant_ecole', 'mar_avant_ecole', 'mer_avant_ecole', 'jeu_avant_ecole', 'ven_avant_ecole', 'sam_avant_ecole', 'dim_avant_ecole',
+            'lun_matin', 'mar_matin', 'mer_matin', 'jeu_matin', 'ven_matin', 'sam_matin', 'dim_matin',
+            'lun_midi', 'mar_midi', 'mer_midi', 'jeu_midi', 'ven_midi', 'sam_midi', 'dim_midi',
+            'lun_apres_midi', 'mar_apres_midi', 'mer_apres_midi', 'jeu_apres_midi', 'ven_apres_midi', 'sam_apres_midi', 'dim_apres_midi',
+            'lun_apres_ecole', 'mar_apres_ecole', 'mer_apres_ecole', 'jeu_apres_ecole', 'ven_apres_ecole', 'sam_apres_ecole', 'dim_apres_ecole',
+            'lun_en_soiree', 'mar_en_soiree', 'mer_en_soiree', 'jeu_en_soiree', 'ven_en_soiree', 'sam_en_soiree', 'dim_en_soiree',
+            'lun_nuit', 'mar_nuit', 'mer_nuit', 'jeu_nuit', 'ven_nuit', 'sam_nuit', 'dim_nuit'
+        ];
 
-
-        /*$calendrier->fill($donneesCalendrier);*/
-
-        // Assurer que la nounou associée à cette annonce est récupérée avec succès
-        if ($data) {
-            // Récupérer l'ID de la nounou à partir de la session
-            $calendrier->nounou_id = $data->id;
-            } else {
-                // Gérer le cas où l'utilisateur n'est pas connecté ou si la nounou associée n'existe pas
-           // Pour l'instant, j'ai ignoré cette partie ou ajouté une gestion d'erreur appropriée
-         }
-
-        $res = $calendrier->save();
-
-        if ($res) {
-           session()->flash('success', 'Vos jours de disponibilité on été ajoutée avec succès');
+        foreach ($fields as $field) {
+            $calendrier->$field = $request->input($field) ?? false;
         }
-        else {
-        session()->flash('error', 'Une erreur est survenue lors de l\'ajout de votre Disponibilité de la semmaine');
-        }
+
+        // Associer le calendrier à l'utilisateur
+        $data->calendrier()->save($calendrier);
+
+        session()->flash('success', 'Vos jours de disponibilité ont été mis à jour avec succès.');
 
         return back();
     }
+
+    public function reservation($id)
+    {
+        // Récupérer la nounou à partir de l'ID
+        $nounou = Nounou::find($id);
+
+        // Afficher la vue du formulaire de réservation en passant la nounou
+        return view('page/reservation')->with('nounou', $nounou);
+    }
+
+
+
 
     public function store(Request $request)
     {
@@ -667,6 +580,7 @@ class AllController extends Controller
         if(Session::get('loginId')){
         $data =  Users::where('id', '=',Session::get('loginId'))->first();
         }
+        // Récupérer l'ID de la nounou à partir de l'URL
 
         // Valider les données du formulaire
         $validatedData = $request->validate([
@@ -728,65 +642,32 @@ class AllController extends Controller
             $reservation->photo_authorization = null; // ou false ou tout autre valeur par défaut
         }
 
-        if ($data) {
-            // Récupérer l'ID de la nounou à partir de la session
-            $reservation->user_id = $data->id;
-            } else {
+        $reservation->nounou_id = $request->input('nounou_id');
 
+        if ($data) {
+            // Récupérer l'ID de l'utilisateur à partir de la session
+            $reservation->user_id = $data->id;
         }
+        else {
+            //
+         }
+
+
         $res = $reservation->save();
+
+        $nounou = Nounou::find($reservation->nounou_id);
 
         // Rediriger avec un message de succè
         if ($res) {
             // Rediriger l'utilisateur vers une page de confirmation ou autre
-            return view('page.confirm')->with('success', 'Reservation réussie');
+            return view('page.confirm')->with('nounouName', $nounou->username);
         }
          else {
-         session()->flash('error', 'Une erreur est survenue lors de l\'enregistrement de votre Reservation ');
+         session()->flash('error', 'Une erreur est survenue lors de l\'ajout de votre Disponibilité de la semmaine');
+         }
+
+         return back();
         }
-
-        return back();
-    }
-
-    public function payement(Request $request)
-    {
-        // Vérifier si l'utilisateur est connecté
-        if (Session::get('loginId')) {
-            // L'utilisateur est connecté, obtenir son ID
-            $userId = Session::get('loginId');
-
-            // Validation des données du formulaire
-            $validatedData = $request->validate([
-                'payment-method' => 'required|string',
-                'email' => 'required|email',
-                'card-number' => 'required|string',
-                'expiry-date' => 'required|date',
-                'cvv' => 'required|string',
-            ]);
-
-            // Création d'une nouvelle instance du modèle de paiement
-            $payment = new Payments();
-
-            // Remplissage des champs du modèle avec les données validées
-            $payment->user_id = $userId; // Associer l'ID de l'utilisateur connecté
-            $payment->payment_method = $validatedData['payment-method'];
-            $payment->email = $validatedData['email'];
-            $payment->card_number = $validatedData['card-number'];
-            $payment->expiry_date = $validatedData['expiry-date'];
-            $payment->cvv = $validatedData['cvv'];
-
-            // Enregistrement du paiement dans la base de données
-            $payment->save();
-
-            // Redirection vers une page de confirmation ou autre après l'enregistrement réussi
-            return view('page.confirm_pay')->with('success', 'Reservation réussie');
-        } else {
-            // L'utilisateur n'est pas connecté, rediriger vers la page de connexion ou afficher un message d'erreur
-            return redirect()->route('login')->with('error', 'Vous devez être connecté pour effectuer cette action.');
-        }
-    }
-
-
 
 
 
