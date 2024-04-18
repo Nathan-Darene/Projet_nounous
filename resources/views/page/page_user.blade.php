@@ -35,9 +35,9 @@
                     class="fa-solid fa-calendar-check"></i>&nbsp;<span>Agenda</span> </li>
             <li class="choix li" data-target="coinSection"><i
                     class="fa-solid fa-hand-holding-dollar"></i>&nbsp;<span>Coin</span> </li>
-            <li class="choix li" data-target="messagingSection"><i
-                    class="fa-solid fa-envelope-circle-check"></i>&nbsp;<span>Messagerie</span> </li>
-            <li class="choix li" data-target="helpSection"><i class="fa-solid fa-lightbulb"></i>&nbsp; <span>Aide</span>
+            {{-- <li class="choix li" data-target="messagingSection"><i
+                    class="fa-solid fa-envelope-circle-check"></i>&nbsp;<span>Messagerie</span> </li> --}}
+            {{-- <li class="choix li" data-target="helpSection"><i class="fa-solid fa-lightbulb"></i>&nbsp; <span>Aide</span> --}}
             </li>
 
             <li class="choix li" data-target="settingSection"><i
@@ -239,7 +239,7 @@
     </section>
 
     <!--Section Coin-->
-    <section id="coinSection">
+    {{-- <section id="coinSection">
 
     </section>
 
@@ -257,9 +257,9 @@
         <div class="body">
 
         </div>
-    </section>
+    </section> --}}
 
-    <!--Section Parametre-->
+    <!--Section demande-->
 
     <section id="settingSection">
         <div class="body">
