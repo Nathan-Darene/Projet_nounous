@@ -124,6 +124,8 @@ img{
 }
 
 
-@media screen (){
-
+@media screen and (max-width: 1135px) {
+    .cout {
+        display: none;
+    }
 }

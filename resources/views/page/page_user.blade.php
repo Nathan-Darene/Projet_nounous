@@ -126,42 +126,14 @@
                                 <th>Facture</th>
                                 <th>Option</th>
                             </tr>
+                            @foreach (\App\Models\Nounou::inRandomOrder()->take(6)->get() as $user)
                             <tr>
-                                <td>name</td>
-                                <td>Famille 1 </td>
+                                <td>{{ $user->username }}</td>
+                                <td>{{ $user->lastname }}</td>
                                 <td>$50</td>
                                 <td><a href="#" class="btn">Voir</a></td>
                             </tr>
-                            <tr>
-                                <td>name</td>
-                                <td>Famille 2</td>
-                                <td>$120</td>
-                                <td><a href="#" class="btn">Voir</a></td>
-                            </tr>
-                            <tr>
-                                <td>name</td>
-                                <td>Famille 2</td>
-                                <td>$120</td>
-                                <td><a href="#" class="btn">Voir</a></td>
-                            </tr>
-                            <tr>
-                                <td>name</td>
-                                <td>Famille 4</td>
-                                <td>$120</td>
-                                <td><a href="#" class="btn">Voir</a></td>
-                            </tr>
-                            <tr>
-                                <td>name</td>
-                                <td>Famille 5</td>
-                                <td>$120</td>
-                                <td><a href="#" class="btn">Voir</a></td>
-                            </tr>
-                            <tr>
-                                <td>name</td>
-                                <td>Famille 6</td>
-                                <td>$120</td>
-                                <td><a href="#" class="btn">Voir</a></td>
-                            </tr>
+                            @endforeach
                         </table>
                     </div>
                     <div class="new-students">
@@ -291,7 +263,24 @@
 
     <section id="settingSection">
         <div class="body">
-            sjdcgfdfyudsqiugfsdgfuzegfeqçfzesiufzef
+            <div class="affiche_nounou ">
+                    <div class="Nounou_pay wrapper" id="Nounou_pay">
+                        <div class="nounou">
+                            <div class="affiche_nounou ">
+                                    <img src="uploads/" alt="" class="profile_user">
+                                    <h3>Username</h3>
+                                    <span>city</span>
+                                    <span></span>
+                                    <span></span>
+                                    <div class="payment-nounou">
+                                        <a href="{{route('paiements.store')}}">Accepter la demande</a>
+                                    </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+            </div>
         </div>
     </section>
 

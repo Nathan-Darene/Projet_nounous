@@ -1,327 +1,140 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+*{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+body{
     display: flex;
     justify-content: center;
-    flex-direction: column;
     align-items: center;
-    height: 110vh;
+    min-height: 100vh;
 }
 
-.container {
-    background-color: #fff;
+.container{
+    width: 400px;
+    border-radius: 8px;
+    padding: 40px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1),
+                0 5px 12px -2px rgba(0, 0, 0, 0.1),
+                0 18px 36px -6px rgba(0, 0, 0, 0.1);
+}
+
+.container .title{
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container form input{
+    display: none;
+}
+
+.container form .category{
+    margin-top: 10px;
+    padding-top: 20px;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 15px;
+}
+
+.category label{
+    /* width: 100%; */
+    /* height: 65px; */
+    height: 145px;
     padding: 20px;
-    margin-bottom: 5px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-h2 {
-    color: #333;
-}
-
-p {
-    color: #666;
-    margin-top: 10px;
-}
-
-.button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    text-transform: uppercase;
-    border-radius: 3px;
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2);
+    display: flex;
+    /* justify-content: space-between; */
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    border-radius: 5px;
+    position: relative;
 }
 
-.button:hover {
-    background-color: #0056b3;
+/* label:nth-child(2), label:nth-child(3){
+    margin: 15px 0;
+} */
+
+
+#visa:checked ~ .category .visaMethod,
+#mastercard:checked ~ .category .mastercardMethod,
+#paypal:checked ~ .category .paypalMethod,
+#AMEX:checked ~ .category .amexMethod{
+    box-shadow: 0px 0px 0px 1px #6064b6;
 }
 
-.fa-check-circle{
-    font-size: 60px;
+
+#visa:checked ~ .category .visaMethod .check,
+#mastercard:checked ~ .category .mastercardMethod .check,
+#paypal:checked ~ .category .paypalMethod .check,
+#AMEX:checked ~ .category .amexMethod .check{
+    display: block;
 }
+
+
+label .imgName{
+    display: flex;
+    /* justify-content: space-between;
+     */
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.imgName span{
+    /* margin-left: 20px; */
+    font-family: Arial, Helvetica, sans-serif;
+
+    position: absolute;
+    top: 72%;
+    transform: translateY(-72%);
+}
+
+.imgName .imgContainer{
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    top: 35%;
+    transform: translateY(-35%);
+}
+
 img{
-    margin-top: 10px;
-    margin-bottom: 20px;
-}
-/*.btn1{
-    position: relative;
-    ;
-    border-radius: 50%;
     width: 50px;
-    height: 50px;
-    bottom: 49vh;
-    right: 50vh;
-    background-color: #da0f0f;
+    height: auto;
 }
-.btn{
-    position: relative;
-    border-radius: 50%;
+
+.visa img{
+    width: 80px;
+    /* margin-left: 5px; */
+}
+
+.mastercard img{
+    width: 65px;
+}
+
+.paypal img{
+    width: 80px;
+}
+
+.AMEX img{
     width: 50px;
-    height: 50px;
-    bottom: 30.5vh;
-    left: 113vh;
-    background-color: #c40606;
 }
 
-.cout {
-    margin-top: 1vh;
-    position: relative;
-    display: flex;
-    align-content: center;
-    flex-direction: row;
-    align-items: center;
-    bottom: 55vh;
-
+.check{
+    display: none;
+    position: absolute;
+    top: -4px;
+    right: -4px;
 }
 
-
-.b1 {
-    position: relative;
-    background-color: #fff;
-    width: 10px;
-    height: 10px;
-    left: 30px;
+.check i{
+    font-size: 18px;
 }
 
-.b2 {
-    position: relative;
-    background-color: #fff;
-    width: 10px;
-    height: 10px;
-    left: calc(30px + 15px);
-}
-
-.b3 {
-    position: relative;
-    background-color: #fff;
-    width: 10px;
-    height: 10px;
-    left: calc(45px + 15px);
-}
-
-.b4 {
-    position: relative;
-    background-color: #fff;
-    width: 10px;
-    height: 10px;
-    left: calc(60px + 15px);
-}
-
-.b5 {
-    position: relative;
-    background-color: #fff;
-    width: 10px;
-    height: 10px;
-    left: calc(75px + 15px);
-}
-
-.b6 {
-    position: relative;
-    background-color: #fff;
-    width: 10px;
-    height: 10px;
-    left: calc(90px + 15px);
-}
-
-.b7 {
-    position: relative;
-    background-color: #fff;
-    width: 10px;
-    height: 10px;
-    left: calc(105px + 15px);
-}
-
-.b8 {
-    position: relative;
-    background-color: #fff;
-    width: 10px;
-    height: 10px;
-    left: calc(120px + 15px);
-}
-
-.b9 {
-    position: relative;
-    background-color: #fff;
-    width: 10px;
-    height: 10px;
-    left: calc(135px + 15px);
-}
-
-.b10 {
-    position: relative;
-    background-color: #fff;
-    width: 10px;
-    height: 10px;
-    left: calc(150px + 15px);
-}
-
-.b11 {
-    position: relative;
-    background-color: #fff;
-    width: 10px;
-    height: 10px;
-    left: calc(165px + 15px);
-}
-
-.b12 {
-    position: relative;
-    background-color: #fff;
-    width: 10px;
-    height: 10px;
-    left: calc(180px + 15px);
-}
-
-.b13 {
-    position: relative;
-    background-color: #fff;
-    width: 10px;
-    height: 10px;
-    left: calc(195px + 15px);
-}
-
-.b14 {
-    position: relative;
-    background-color: #fff;
-    width: 10px;
-    height: 10px;
-    left: calc(210px + 15px);
-}
-
-.b15 {
-    position: relative;
-    background-color: #fff;
-    width: 10px;
-    height: 10px;
-    left: calc(225px + 15px);
-}
-
-.b16 {
-    position: relative;
-    background-color: #fff;
-    width: 10px;
-    height: 10px;
-    left: calc(240px + 15px);
-}
-
-.b17 {
-    position: relative;
-    background-color: #fff;
-    width: 10px;
-    height: 10px;
-    left: calc(255px + 15px);
-}
-
-.b18 {
-    position: relative;
-    background-color: #fff;
-    width: 10px;
-    height: 10px;
-    left: calc(270px + 15px);
-}
-
-.b19 {
-    position: relative;
-    background-color: #fff;
-    width: 10px;
-    height: 10px;
-    left: calc(285px + 15px);
-}
-
-.b20 {
-    position: relative;
-    background-color: #fff;
-    width: 10px;
-    height: 10px;
-    left: calc(300px + 15px);
-}
-
-.b21 {
-    position: relative;
-    background-color: #fff;
-    width: 10px;
-    height: 10px;
-    left: calc(315px + 15px);
-}
-
-.b22 {
-    position: relative;
-    background-color: #fff;
-    width: 10px;
-    height: 10px;
-    left: calc(330px + 15px);
-}
-
-.b23 {
-    position: relative;
-    background-color: #fff;
-    width: 10px;
-    height: 10px;
-    left: calc(345px + 15px);
-}
-
-.b24 {
-    position: relative;
-    background-color: #fff;
-    width: 10px;
-    height: 10px;
-    left: calc(360px + 15px);
-}
-
-.b25 {
-    position: relative;
-    background-color: #fff;
-    width: 10px;
-    height: 10px;
-    left: calc(375px + 15px);
-}
-*/
-
-.btn1{
-    position: relative;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    bottom: 32.1vh;
-    right: 3vh;
-    background-color: #000; /* Modification */
-}
-.btn{
-    position: relative;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    bottom: 26.7vh;
-    left: 73vh;
-    background-color: #000; /* Modification */
-}
-
-.cout {
-    position: relative;
-    display: flex;
-    align-content: center;
-    flex-direction: row;
-    align-items: center;
-    bottom: 35.7vh;
-
-}
-
-
-/* Les classes b1 à b25 ont toutes une couleur de fond blanche, nous allons les remplacer par noir */
-
-.b1, .b2, .b3, .b4, .b5, .b6, .b7, .b8, .b9, .b10,
-.b11, .b12, .b13, .b14, .b15, .b16, .b17, .b18, .b19, .b20,
-.b21, .b22, .b23, .b24, .b25 {
-    position: relative;
-    background-color: #d40c0c; /* Modification */
-    width: 10px;
-    height: 10px;
-}
-
-/* Les décalages à gauche restent inchangés car ils sont calculés et ne dépendent pas de la couleur */
