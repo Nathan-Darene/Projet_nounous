@@ -8,6 +8,7 @@ use App\Models\Annonces;
 use App\Models\User;
 use App\Models\Calendriers;
 use App\Models\Reservations;
+use App\Models\Reservation;
 
 use Session;
 
@@ -260,7 +261,7 @@ class AllController extends Controller
         if(Session::get('loginId')){
             $data =  Nounou::where('id', '=',Session::get('loginId'))->first();
 
-            
+
 
 
         }
@@ -434,14 +435,41 @@ class AllController extends Controller
 
 
     /*Affichage des donnée sur la page de l'utilisateur */
+//     public function AfficheProfileUser(Request $request)
+// {
+//     $data = array();
+//     if (Session::get('loginId')) {
+//         $data = Users::where('id', '=', Session::get('loginId'))->first();
+
+
+//     }
+//     return view('page/profile_user', compact('data'));
+//     }
+
+
+
     public function AfficheProfileUser(Request $request)
-{
-    $data = array();
-    if (Session::get('loginId')) {
-        $data = Users::where('id', '=', Session::get('loginId'))->first();
+    {
+        $data = array();
+        $nounou = null; // Initialisez la variable $nounou à null
+
+        if (Session::has('loginId')) {
+            $user_id = Session::get('loginId');
+            $data = Users::where('id', '=', $user_id)->first();
+
+            // Récupérer la réservation faite par l'utilisateur connecté
+            $reservation = Reservations::where('user_id','=', $user_id)->first();
+
+        if ($reservation) {
+                // Si une réservation est trouvée, récupérer les informations de la nounou associée à cette réservation
+                $nounou = $reservation->nounou;
+            }
+        }
+
+        return view('page/profile_user', compact('data', 'nounou'));
     }
-    return view('page/profile_user', compact('data'));
-}
+
+
 
 
     public function recherche(Request $request){

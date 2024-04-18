@@ -73,20 +73,25 @@
                         <button> <a href="#">Edite Profil</a></button>
                     </nav>
                     <div class="message" id="message">
-                        sdqfsdfsdfsddfe
+                        Système de messagerie defectueur
                     </div>
 
                     <div class="Nounou_pay wrapper" id="Nounou_pay">
                         <div class="nounou">
                             <div class="affiche_nounou ">
-                                <img src="img/user.png" alt="" class="img">
-                                <h3>UserName</h3>
-                                <span>Role</span>
-                                <span>Numero de tel</span>
-                                <span>prix/heure</span>
-                                <div class="payment-nounou">
-                                    <a href="#">Payer</a>
-                                </div>                            </div>
+                                @if ($nounou ?? '')
+                                    <img src="img/user.png" alt="" class="img">
+                                    <h3>{{$nounou['username']}}</h3>
+                                    <span>Role</span>
+                                    <span>Numero de tel</span>
+                                    <span>prix/heure</span>
+                                    <div class="payment-nounou">
+                                        <a href="#">Payer</a>
+                                    </div>
+                                @else
+                                    <p>Vous n'avez n'a pas encore effectué de réservation de nounou.</p>
+                                @endif
+                            </div>
 
                         </div>
                     </div>
@@ -95,7 +100,7 @@
         </form>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="{{asset('js/click.js')}}"></script>
+    <script src="{{ asset('js/click.js') }}"></script>
 </body>
 <script src="{{ asset('js/music.js') }}"></script>
 
