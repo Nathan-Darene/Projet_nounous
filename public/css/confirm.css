@@ -71,37 +71,40 @@ a:hover{
 .fa-check-circle{
     font-size: 60px;
 }
+.foot{
+
+}
 img{
     margin-top: 10px;
     margin-bottom: 20px;
 }
 .btn1{
-    position: relative;
+    /* position: relative;
     border-radius: 50%;
     width: 50px;
     height: 50px;
     bottom: 35vh;
-    right: 3vh;
+    right: 3vh; */
     background-color: #9b9898; /* Modification */
 }
 .btn{
-    position: relative;
+    /* position: relative;
     border-radius: 50%;
     width: 50px;
     height: 50px;
     bottom: 29vh;
-    left: 81vh;
+    left: 81vh; */
     background-color: #9b9898; /* Modification */
 }
 
 .cout {
-    position: relative;
+    /* position: relative;
     display: flex;
     left: 16px;
     align-content: center;
     flex-direction: row;
     align-items: center;
-    bottom: 35.7vh;
+    bottom: 35.7vh; */
 }
 
 /* Les classes b1 à b25 ont toutes une couleur de fond blanche, nous allons les remplacer par noir */
@@ -109,10 +112,10 @@ img{
 .b1, .b2, .b3, .b4, .b5, .b6, .b7, .b8, .b9, .b10,
 .b11, .b12, .b13, .b14, .b15, .b16, .b17, .b18, .b19, .b20,
 .b21, .b22, .b23, .b24, .b25 {
-    position: relative;
-    margin-left: 16px;
+    /* position: relative;
+    margin-left: 16px;*/
     background-color: #fff; /* Modification */
-    width: 10px;
+    /* width: 10px;
     height: 10px;
-    bottom: 25px;
+    bottom: 25px; */
 }
