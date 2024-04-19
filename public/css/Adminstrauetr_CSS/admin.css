@@ -333,8 +333,8 @@ main .new-users .user-list .user{
 }
 
 main .new-users .user-list .user img{
-    width: 5rem;
-    height: 5rem;
+    width: 6rem;
+    height: 6rem;
     margin-bottom: 0.4rem;
     border-radius: 50%;
 }
@@ -613,7 +613,7 @@ main .recent-orders a{
     @keyframes showMenu {
        to{
         left: 0;
-       } 
+       }
     }
 
     aside .logo{

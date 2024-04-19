@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('/css/Adminstrauetr_CSS/admin.css')}}">
+    <link rel="stylesheet" href="{{ asset('/css/Adminstrauetr_CSS/admin.css') }}">
     <title>Adminitrateur de Social Home</title>
 </head>
 
@@ -16,7 +16,7 @@
         <aside>
             <div class="toggle">
                 <div class="logo">
-                    <img src="{{asset('Logo/8900808870_4aa536ff-86f5-4f1e-9429-0e0ace5a8068.png')}}">
+                    <img src="{{ asset('Logo/8900808870_4aa536ff-86f5-4f1e-9429-0e0ace5a8068.png') }}">
                     <h2>Social <span class="danger"> Home</span></h2>
                 </div>
                 <div class="close" id="close-btn">
@@ -43,7 +43,7 @@
                     <span class="material-icons-sharp">
                         insights
                     </span>
-                    <h3>Analytics</h3>
+                    <h3>Activité</h3>
                 </a>
                 <a href="#">
                     <span class="material-icons-sharp">
@@ -128,40 +128,48 @@
             <div class="new-users">
                 <h2>New Users</h2>
                 <div class="user-list">
-                    <div class="user">
-                        <img src="images/profile-2.jpg">
-                        <h2>Jack</h2>
-                        <p>54 Min Ago</p>
-                    </div>
-                    <div class="user">
-                        <img src="images/profile-3.jpg">
-                        <h2>Amir</h2>
-                        <p>3 Hours Ago</p>
-                    </div>
-                    <div class="user">
-                        <img src="images/profile-4.jpg">
-                        <h2>Ember</h2>
-                        <p>6 Hours Ago</p>
-                    </div>
-                    <div class="user">
-                        <img src="images/plus.png">
-                        <h2>More</h2>
-                        <p>New User</p>
-                    </div>
+
+                    @foreach (\App\Models\Users::inRandomOrder()->take(6)->get() as $user)
+                        <div class="user">
+                            @if ($user->imageUpload)
+                                <img src="profile_users/{{ $user->imageUpload }}">
+                            @else
+                                <img src="{{ asset('uploads/user.png') }}">
+                            @endif
+                            <h2>{{ $user->username }}</h2>
+                            <p>Il y a 54 minutes</p>
+                        </div>
+                    @endforeach
+
+
+                </div>
+            </div>
+            <div class="new-users">
+                <h2>New Nounou</h2>
+                <div class="user-list">
+                    @foreach (\App\Models\Nounou::inRandomOrder()->take(6)->get() as $nounou)
+                        <div class="user">
+                            <img src="uploads/{{ $nounou->imageUpload }}">
+                            <h2>{{ $nounou->username }}</h2>
+                            <p>{{$nounou->role}}</p>
+                        </div>
+                    @endforeach
+
                 </div>
             </div>
             <!-- End of New Users Section -->
 
             <!-- Recent Orders Table -->
             <div class="recent-orders">
-                <h2>Recent Orders</h2>
+                <h2>Reservation recente</h2>
                 <table>
                     <thead>
                         <tr>
-                            <th>Course Name</th>
-                            <th>Course Number</th>
+                            <th>Username</th>
+                            <th>Lastname</th>
                             <th>Payment</th>
                             <th>Status</th>
+                            <th></th>
                             <th></th>
                         </tr>
                     </thead>
@@ -192,23 +200,24 @@
                         dark_mode
                     </span>
                 </div>
-
+                @if ($data ?? '')
                 <div class="profile">
                     <div class="info">
-                        <p>Hey, <b>Username_Admin</b></p>
+
+                        <p>Hey, <b>{{$data->username}}</b></p>
                         <small class="text-muted">Administrateur</small>
                     </div>
                     <div class="profile-photo">
-                        <img src="images/profile-1.jpg">
+                        <img src="{{ $data['profile'] }}">
                     </div>
                 </div>
-
+                @endif
             </div>
             <!-- End of Nav -->
 
             <div class="user-profile">
                 <div class="logo">
-                    <img src="{{asset('Logo/8900808870_4aa536ff-86f5-4f1e-9429-0e0ace5a8068.png')}}">
+                    <img src="{{ asset('Logo/8900808870_4aa536ff-86f5-4f1e-9429-0e0ace5a8068.png') }}">
                     <h2>Socia Home</h2>
                     <p>Nathan & Hugess</p>
                 </div>
@@ -263,9 +272,9 @@
                 <div class="notification add-reminder">
                     <div>
                         <span class="material-icons-sharp">
-                            add
+                            close
                         </span>
-                        <h3>Add Reminder</h3>
+                        <h3>Supprimer un utilisateur</h3>
                     </div>
                 </div>
 
@@ -276,8 +285,8 @@
 
     </div>
 
-    <script src="{{asset('js/Administratuer_JS/admin.js')}}"></script>
-    <script src="{{asset('js/Administratuer_JS/orders.js')}}.js"></script>
+    <script src="{{ asset('js/Administratuer_JS/admin.js') }}"></script>
+    <script src="{{ asset('js/Administratuer_JS/orders.js') }}.js"></script>
 </body>
 
 </html>

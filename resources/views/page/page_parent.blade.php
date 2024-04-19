@@ -226,9 +226,12 @@
 
     <!-- select2 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+    <script src="{{asset('js/select2.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+    <script src="{{asset('js/swiper.js')}}"></script>
     <!-- jQuery -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="{{asset('js/axio.js')}}"></script>
     <script src="{{ asset('js/profil.js') }}"></script>
     <script src="{{ asset('js/distance.js') }}"></script>
     <script src="{{ asset('js/icon.js') }}"></script>

@@ -7,6 +7,7 @@ use App\Services\UserService;
 use App\Models\Annonces;
 use App\Models\User;
 use App\Models\Calendriers;
+use App\Models\Admins;
 use App\Models\Reservations;
 use App\Models\Reservation;
 use Illuminate\Http\Response;
@@ -26,7 +27,7 @@ class AllController extends Controller
     }
 
     public function  Administrateur(){
-        return view('page/Aministrateur/page_administrateur');
+        return view('page/Aministrateur/page_admin');
     }
 
 
@@ -147,14 +148,6 @@ class AllController extends Controller
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
 
-    // Gestion de l'image
-    /*if ($request->hasFile('imageUpload')) {
-        $image = $request->file('imageUpload');
-        $imageName = time() . '.' . $image->getClientOriginalExtension();
-        $image->move(public_path('images'), $imageName); // Stockez l'image dans le dossier 'images' public
-        $user->imageUpload = $imageName; // Stockez le nom de l'image dans la base de données
-    }*/
-
     // Vérifiez si un fichier a été téléchargé
     if($request->hasfile('imageUpload'))
     {
@@ -186,85 +179,6 @@ class AllController extends Controller
         /*echo"Value Posted";*/
 
     }
-
-
-    /*Connexion pour la nounou*/
-    // public function loginNounou(Request $request){
-    //     $request->validate([
-    //         'email' => 'required|string|email',
-    //         'password' => 'required|string',
-    //     ]);
-
-    //     $user =  Nounou::where('email', '=', $request->email)->first();
-    //     if ($user){
-    //         if(Hash::check($request->password, $user->password)){
-    //             $request->session()->put('loginId', $user->id);
-    //         }
-    //         else{
-    //             return back()->with('fail', 'Mots de passe incorect');
-    //         }
-    //     }
-    //     else{
-    //         return back()->with('fail', 'Adresse email incorrect');
-    //     }
-
-    //     /*Affiche des donnée de l'utilisateur */
-    //     $data = array();
-    //     if(Session::get('loginId')){
-    //         $data =  Nounou::where('id', '=',Session::get('loginId'))->first();
-    //     }
-    //     return view('page/page_user', compact('data'));
-
-
-
-    // }
-
-
-
-    // public function loginNounou(Request $request){
-    //     $request->validate([
-    //         'email' => 'required|string|email',
-    //         'password' => 'required|string',
-    //     ]);
-
-    //     $user =  Nounou::where('email', '=', $request->email)->first();
-    //     if ($user){
-    //         if(Hash::check($request->password, $user->password)){
-    //             $request->session()->put('loginId', $user->id);
-
-    //             $data = [];
-    //             $reservations = collect(); // Initialisation à une collection vide
-
-    //             if(Session::has('loginId')){
-    //                 $data =  Nounou::find(Session::get('loginId'));
-    //                 $reservations = Reservations::where('nounou_id', $data->id)->inRandomOrder()->take(6)->get();
-    //             }
-
-    //             // Récupérer les utilisateur avec l'ID
-    //             $user_id = $reservations->isNotEmpty() ? $reservations->first()->user_id : null;
-    //             $user = $user_id ? Users::find($user_id) : null;
-
-    //             // Retourner les données JSON dans la vue
-    //             return response()->json([
-    //                 'success' => true,
-    //                 'message' => 'Connexion réussie',
-    //                 'data' => $data,
-    //                 'reservations' => $reservations,
-    //                 'user' => $user // Ajoutez l'utilisateur aux données retournées
-    //             ]);
-    //         } else {
-    //             return response()->json([
-    //                 'success' => false,
-    //                 'message' => 'Mot de passe incorrect',
-    //             ]);
-    //         }
-    //     } else {
-    //         return response()->json([
-    //             'success' => false,
-    //             'message' => 'Adresse email incorrecte',
-    //         ]);
-    //     }
-    // }
 
     public function loginNounou(Request $request)
 {
@@ -314,66 +228,6 @@ class AllController extends Controller
 
 
 
-            // Retourner les données JSON dans la vue
-            // return response()->json([
-            //     'success' => true,
-            //     'message' => 'Connexion réussie',
-            //     'data' => $data,
-            //     'reservations' => $reservations,
-            //     'booking_users' => $bookingUsers // Ajouter les utilisateurs qui ont réservé la nounou aux données retournées
-            // ]);
-    // public function loginNounou(Request $request){
-    //     $request->validate([
-    //         'email' => 'required|string|email',
-    //         'password' => 'required|string',
-    //     ]);
-
-    //     $user =  Nounou::where('email', '=', $request->email)->first();
-    //     if ($user){
-    //         if(Hash::check($request->password, $user->password)){
-    //             $request->session()->put('loginId', $user->id);
-
-    //             $data = [];
-    //             $reservations = collect(); // Initialisation à une collection vide
-
-    //             if(Session::has('loginId')){
-    //                 $data =  Nounou::find(Session::get('loginId'));
-    //                 $reservations = Reservations::where('nounou_id', $data->id)->inRandomOrder()->get();
-    //             }
-
-    //             // Récupérer l'utilisateur avec l'ID de la première réservation (s'il existe)
-    //             $user_id = $reservations->isNotEmpty() ? $reservations->first()->user_id : null;
-    //             $user = $user_id ? Users::find($user_id) : null;
-
-    //             // Retourner les données JSON dans la vue
-    //             return response()->json([
-    //                 'success' => true,
-    //                 'message' => 'Connexion réussie',
-    //                 'data' => $data,
-    //                 'reservations' => $reservations,
-    //                 'user' => $user // Ajoutez l'utilisateur aux données retournées
-    //             ]);
-    //         } else {
-    //             return response()->json([
-    //                 'success' => false,
-    //                 'message' => 'Mot de passe incorrect',
-    //             ]);
-    //         }
-    //     } else {
-    //         return response()->json([
-    //             'success' => false,
-    //             'message' => 'Adresse email incorrecte',
-    //         ]);
-    //     }
-    // }
-
-
-
-
-
-
-
-
     public function logoutNounou (Request $request){
         $data = array();
         if(Session::get('loginId')){
@@ -383,38 +237,6 @@ class AllController extends Controller
 
     }
 
-    /*public function update(Request $request)
-    {
-        // Récupérer l'identifiant de l'utilisateur connecté depuis la session
-        $loginId = Session::get('loginId');
-
-        // Récupérer l'utilisateur connecté
-        $nounou = Nounou::find($loginId);
-
-        // Validation des données
-        $request->validate([
-            'username' => 'required|string|max:255|unique:nounous',
-            'lastname' => 'required|string|max:255',
-            'firstname' => 'required|string|max:255',
-            'phone' => 'required|string|max:20|unique:nounous',
-            'birthdate' => 'required|date|max:255',
-            'Age' => 'required|string|max:255',
-            'niveau' => 'required|string|max:255',
-            'experience' => 'required|string|max:255',
-            'prix_heure' => 'required|string|max:255',
-            'role' => 'required|string|max:255',
-            'imageUpload' => 'file|image|mimes:jpeg,png,jpg,gif,webp,jpej,svg,avif|max:4048|unique:users',
-            'city' => 'required|string|max:255',
-            'postalcode' => 'string|max:255',
-            'email' => 'required|string|email|max:255|unique:nounous',
-            'password' => 'required|string|min:8|',
-        ]);
-
-        // Mettre à jour les informations de l'utilisateur
-        $nounou->update($request->all());
-
-        return response()->json(['message' => 'Profil mis à jour avec succès']);
-    }*/
 
     /*Affichage des donnée sur la page de l'utilisateur */
     public function AfficheProfileNounou(Request $request){
@@ -873,5 +695,76 @@ public function AfficheProfileUser(Request $request)
         return view('page/confirm_demande');
     }
 
-}
 
+    /*{{{--------------SEVICE ADMINISTRAUER --------------------}}}*/
+
+    public function login_admin(){
+        return view('/page/Aministrateur/login_admin');
+    }
+
+    public function register(){
+        return view('/page/Aministrateur/register_admin');
+    }
+
+    public function registerAdmin(Request $request){
+        $request->validate([
+            'username' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:8|',
+        ]);
+
+
+        // Création d'un nouvel utilisateur
+        /*$user = User::create($validatedData);*/
+        $user = new Admins ();
+        $user->username = $request->username;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+
+
+
+        // Sauvegarder l'utilisateur dans la base de données
+        $res = $user->save();
+
+        if ($res) {
+            // Rediriger l'utilisateur vers une page de confirmation ou autre
+            return view('/page/Aministrateur/login_admin')->with('success', 'Inscription réussie');
+        }
+        else {
+            // Rediriger l'utilisateur vers une page de confirmation ou autre
+            return back()->with('error', 'Une erreur est survenus lors de votre inscription');
+        }
+
+
+    }
+
+    public function loginAdmin(Request $request){
+
+        $request->validate([
+            'email' => 'required|string|email',
+            'password' => 'required|string',
+        ]);
+
+        $user =  Admins::where('email', '=', $request->email)->first();
+        if ($user){
+            if(Hash::check($request->password, $user->password)){
+                $request->session()->put('loginId', $user->id);
+            }
+            else{
+                return back()->with('fail', 'Mots de passe incorect');
+            }
+        }
+        else{
+            return back()->with('fail', 'Adresse email incorrect');
+        }
+
+        /*Affiche des donnée de l'utilisateur */
+        $data = array();
+        if(Session::get('loginId')){
+            $data =  Admins::where('id', '=',Session::get('loginId'))->first();
+        }
+        return view('/page/Aministrateur/page_admin', compact('data'));
+
+
+    }
+}
