@@ -79,43 +79,30 @@
                     <div class="Nounou_pay wrapper" id="Nounou_pay">
                         <div class="nounou">
                             <div class="affiche_nounou ">
-                                @if ($reservations->isNotEmpty())
-                                    <div class="reservation-details">
-                                        <h2>Détails des réservations</h2>
-                                        @foreach ($reservations as $reservation)
-                                            <p>Date de réservation : {{ $reservation->created_at }}</p>
-                                            @if ($reservation->nounou)
-                                                <div class="nounou-info">
-                                                    <img src="uploads/{{ $reservation->nounou->imageUpload }}"
-                                                        alt="" class="img">
-                                                    <span class="etat">En service</span>
-                                                    <h3>{{ $reservation->nounou->username }}</h3>
-                                                    <span>{{ $reservation->nounou->role }}</span>
-                                                    <span>{{ $reservation->nounou->phone }}</span>
-                                                    <span>{{ $reservation->nounou->prix_heure }}/heure</span>
-                                                    <div class="payment-nounou">
-                                                        <a href="{{ route('paiements.store') }}">Payer</a>
-                                                    </div>
-                                                </div>
-                                            @else
-                                                <p>Aucune nounou associée à cette réservation.</p>
-                                            @endif
-                                        @endforeach
+                                @if ($nounou ?? '')
+                                    <img src="uploads/{{$nounou->imageUpload}}" alt="" class="img">
+                                    <span class="etat">En service</span>
+                                    <h3>{{$nounou->username}}</h3>
+                                    <span>{{$nounou->role}}</span>
+                                    <span>{{$nounou->phone}}</span>
+                                    <span>{{$nounou->prix_heure}}/heure</span>
+                                    <div class="payment-nounou">
+                                        <a href="{{route('paiements.store')}}">Payer</a>
                                     </div>
                                 @else
-                                    <p>Vous n'avez pas encore effectué de réservation de nounou.</p>
+                                    <p>Vous n'avez n'a pas encore effectué de réservation de nounou.</p>
                                 @endif
-
-
                             </div>
+
                         </div>
                     </div>
                 </div>
+            </div>
         </form>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="{{ asset('js/jquery.js') }}"></script>
+    <script src="{{asset('js/jquery.js')}}"></script>
     <script src="{{ asset('js/click.js') }}"></script>
 </body>
 <script src="{{ asset('js/music.js') }}"></script>

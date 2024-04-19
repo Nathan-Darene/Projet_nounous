@@ -416,48 +416,38 @@ class AllController extends Controller
 
 
     /*Affichage des donnée sur la page de l'utilisateur */
-//     public function AfficheProfileUser(Request $request)
-// {
-//     $data = array();
-//     if (Session::get('loginId')) {
-//         $data = Users::where('id', '=', Session::get('loginId'))->first();
 
-
-//     }
-//     return view('page/profile_user', compact('data'));
-//     }
-
-
-public function AfficheProfileUser(Request $request)
+    public function AfficheProfileUser(Request $request)
 {
     $data = array();
-    $nounou = null;
-    $pay= null;
+    $reservations = array();
+
     if (Session::has('loginId')) {
         $user_id = Session::get('loginId');
 
         // Récupérer l'utilisateur connecté
         $data = Users::find($user_id);
 
-        // Récupérer la réservation faite par l'utilisateur connecté
-        $reservation = Reservations::where('user_id', $user_id)->first();
+        // Récupérer toutes les réservations faites par l'utilisateur connecté
+        $reservations = Reservations::where('user_id', $user_id)->get();
 
-        if ($reservation) {
-            // Si une réservation est trouvée, récupérer l'ID de la nounou associée à cette réservation
+        // Parcourir chaque réservation pour récupérer les données de la nounou associée
+        foreach ($reservations as $reservation) {
+            // Récupérer l'ID de la nounou associée à cette réservation
             $nounou_id = $reservation->nounou_id;
 
             // Maintenant, récupérer les données de la nounou à partir de son ID
             $nounou = Nounou::find($nounou_id);
+
+            // Ajouter les données de la nounou à la réservation
+            $reservation->nounou = $nounou;
         }
     }
-    return view('page/profile_user', compact('data', 'nounou'));
 
-    // // Retourner les données au format JSON
-    // return response()->json([
-    //     'user' => $data,
-    //     'nounou' => $nounou
-    // ]);
+    return view('page/profile_user', compact('data', 'reservations'));
 }
+
+
 
 
 
