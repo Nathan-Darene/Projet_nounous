@@ -306,7 +306,7 @@
                                 @else
                                     <img src="{{ asset('uploads/user.png') }}">
                                 @endif
-                                <h2>{{ $user->username }}</h2>
+                                <h2>{{ $user->id }} {{ $user->username }}</h2>
                                 <p>{{ $user->created_at->format('d-m-Y H:i:s') }}</p>
                                 <i class="fas fa-trash-can delete-icon" title="suprimer l'utilisateur"
                                     data-user-id="{{ $user->id }}"></i>
@@ -334,7 +334,7 @@
                                 @endif
                                 <h2>{{ $nounou->username }}</h2>
                                 <p>{{ $nounou->created_at->format('d-m-Y H:i:s') }}</p>
-                                <i class="fas fa-trash-can delete-icon" title="suprimer la nounou"
+                                <i class="fas fa-trash-can " title="suprimer la nounou"
                                     data-user-id="{{ $nounou->id }}"></i>
                             </div>
                         @endforeach
@@ -346,13 +346,40 @@
 
     </div>
 
+    <script src="{{ asset('js/Administratuer_JS/jquery_delete_user.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.delete-icon').click(function() {
+                var userId = $(this).data('user-id');
+                if (confirm("Êtes-vous sûr de vouloir supprimer cet utilisateur ?")) {
+                    $.ajax({
+                        url: '{{ route('users.delete', ['id' => '']) }}' + userId,
+                        type: 'DELETE',
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        success: function(result) {
+                            $('#user_' + userId).remove();
+                            alert("L'utilisateur a été supprimé avec succès.");
+                        },
+                        error: function(xhr, status, error) {
+                            console.error(xhr.responseText);
+                            alert(
+                                "Une erreur s'est produite lors de la suppression de l'utilisateur.");
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
 
     <script src="{{ asset('js/Administratuer_JS/admin.js') }}"></script>
     <script src="{{ asset('js/Administratuer_JS/orders.js') }}"></script>
     <script src="{{ asset('js/Administratuer_JS/delete.js') }}"></script>
     <script src="{{ asset('js/Administratuer_JS/time.js') }}"></script>
     <script src="{{ asset('js/Administratuer_JS/date.js') }}"></script>
-    <script src="{{ asset('js/Administratuer_JS/clic_delete.js') }}"></script>
 </body>
 
 </html>

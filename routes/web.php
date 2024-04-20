@@ -113,3 +113,8 @@ Route::get('/page_parent', [AllController::class, 'page_parent']);
 Route::get('/page_user', [AllController::class, 'page_user']);
 Route::get('/slide', [AllController::class, 'slide']);
 Route::get('/logout', [AllController::class, 'logout']);
+
+/*Supression des l'utilisateur*/
+
+Route::delete('/page_admin/{id}', [AllController::class, 'delete'])->name('users.delete');
+

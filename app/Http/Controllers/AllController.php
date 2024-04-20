@@ -11,6 +11,8 @@ use App\Models\Admins;
 use App\Models\Reservations;
 use App\Models\Reservation;
 use Illuminate\Http\Response;
+use Illuminate\Support\Carbon;
+
 
 use Session;
 
@@ -793,11 +795,48 @@ class AllController extends Controller
 
         /*Affiche des donnée de l'utilisateur */
         $data = array();
+        $currentHour = Carbon::now()->format('H:i:s');
         if(Session::get('loginId')){
             $data =  Admins::where('id', '=',Session::get('loginId'))->first();
         }
-        return view('/page/Aministrateur/page_admin', compact('data'));
-
-
+        return view('/page/Aministrateur/page_admin', compact('data','currentHour'));
     }
+
+    // public function delete($id)
+    // {
+    //     // Recherche de l'utilisateur à supprimer par son id
+    //     $user = Users::find($id);
+
+    //     // Suppression de l'utilisateur
+    //     $user->delete();
+
+    //     // return response()->json(['message' => 'L\'utilisateur a été supprimé avec succès.']);
+    //     return view('/page/Aministrateur/page_admin')->with('user', $user);
+    // }
+    public function delete($id)
+{
+    // Recherche de l'utilisateur à supprimer par son id
+    $user = Users::find($id);
+
+    // Vérifier si l'utilisateur existe
+    if (!$user) {
+        return response()->json(['message' => 'Utilisateur non trouvé.'], 404);
+    }
+
+    // Suppression de l'utilisateur
+    $user->delete();
+
+    // Redirection vers une autre page
+    return redirect()->route('page.admin')->with('success', 'L\'utilisateur a été supprimé avec succès.');
 }
+
+
+}
+// public function reservation($id)
+//     {
+//         // Récupérer la nounou à partir de l'ID
+//         $nounou = Nounou::find($id);
+
+//         // Afficher la vue du formulaire de réservation en passant la nounou
+//         return view('page/reservation')->with('nounou', $nounou);
+//     }
