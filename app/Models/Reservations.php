@@ -37,7 +37,7 @@ class Reservations extends Model
     // Définition de la relation entre la réservation et l'utilisateur (many-to-one)
     public function users()
     {
-        return $this->belongsTo(Users::class);
+        return $this->belongsTo(Users::class, 'user_id');
     }
 
     public function nounous()

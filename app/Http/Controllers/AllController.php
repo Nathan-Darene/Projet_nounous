@@ -773,46 +773,41 @@ class AllController extends Controller
 
     }
 
-    public function loginAdmin(Request $request){
+    public function loginAdmin(Request $request) {
 
         $request->validate([
             'email' => 'required|string|email',
             'password' => 'required|string',
         ]);
 
-        $user =  Admins::where('email', '=', $request->email)->first();
-        if ($user){
-            if(Hash::check($request->password, $user->password)){
+        $user = Admins::where('email', '=', $request->email)->first();
+
+        if ($user) {
+            if (Hash::check($request->password, $user->password)) {
                 $request->session()->put('loginId', $user->id);
+            } else {
+                return back()->with('fail', 'Mot de passe incorrect');
             }
-            else{
-                return back()->with('fail', 'Mots de passe incorect');
-            }
-        }
-        else{
-            return back()->with('fail', 'Adresse email incorrect');
+        } else {
+            return back()->with('fail', 'Adresse email incorrecte');
         }
 
-        /*Affiche des donnée de l'utilisateur */
-        $data = array();
+        // Récupérer les réservations avec les utilisateurs associés
+        $reservations = Reservations::with('users')->whereHas('users')->get();
+
+        // Récupérer toutes les nounous associées aux réservations
+        $nounous = Nounou::whereIn('id', $reservations->pluck('nounou_id'))->get();
+
         $currentHour = Carbon::now()->format('H:i:s');
-        if(Session::get('loginId')){
-            $data =  Admins::where('id', '=',Session::get('loginId'))->first();
+
+        if (Session::has('loginId')) {
+            $data = Admins::find(Session::get('loginId'));
+            return view('/page/Aministrateur/page_admin', compact('data', 'currentHour', 'reservations', 'nounous'));
+        } else {
+            return redirect()->route('loginAdmin')->with('fail', 'Session expirée. Veuillez vous connecter à nouveau.');
         }
-        return view('/page/Aministrateur/page_admin', compact('data','currentHour'));
     }
 
-    // public function delete($id)
-    // {
-    //     // Recherche de l'utilisateur à supprimer par son id
-    //     $user = Users::find($id);
-
-    //     // Suppression de l'utilisateur
-    //     $user->delete();
-
-    //     // return response()->json(['message' => 'L\'utilisateur a été supprimé avec succès.']);
-    //     return view('/page/Aministrateur/page_admin')->with('user', $user);
-    // }
     public function delete($id)
 {
     // Recherche de l'utilisateur à supprimer par son id

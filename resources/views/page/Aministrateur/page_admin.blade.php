@@ -30,35 +30,39 @@
             <div class="sidebar">
                 <a href="#">
                     <span class="material-icons-sharp">
-                        dashboard
-                    </span>
-                    <h3>Tableau de bord</h3>
-                </a>
-                <a href="#">
-                    <span class="material-icons-sharp">
-                        person_outline
-                    </span>
-                    <h3>Utilisateurs</h3>
-                </a>
-                <a href="#" class="">
-                    <span class="material-icons-sharp">
-                        insights
-                    </span>
-                    <h3>Activité</h3>
-                </a>
-                <a href="#">
-                    <span class="material-icons-sharp">
                         mail_outline
                     </span>
                     <h3>Réservations</h3>
                     <span class="message-count">5</span>
                 </a>
-                <a href="#">
+                <a href="#" id="users-link">
+                    <span class="material-icons-sharp">
+                        person_outline
+                    </span>
+                    <h3>Utilisateurs</h3>
+                </a>
+
+                <a href="#" id="activity-link">
+                    <span class="material-icons-sharp">
+                        insights
+                    </span>
+                    <h3>Activité</h3>
+                </a>
+
+                <a href="#" id="dashboard-link">
+                    <span class="material-icons-sharp">
+                        dashboard
+                    </span>
+                    <h3>Dashboard</h3>
+                </a>
+
+                <a href="#" id="settings-link">
                     <span class="material-icons-sharp">
                         settings
                     </span>
                     <h3>Paramètres</h3>
                 </a>
+
                 <a href="#">
                     <span class="material-icons-sharp">
                         logout
@@ -345,11 +349,86 @@
             </div>
         </div>
 
-        <!-- Popup des réservations -->
+        <!-- Affichage des réservations -->
         <div id="reservation-popup" class="popup">
-            <div class="popup-content">
+            <div class="modal-content">
                 <span class="close">&times;</span>
                 <h2>Liste des réservations</h2>
+                {{-- Insértion de la liste des réservations --}}
+                @foreach ($reservations as $reservation)
+                    <div class="reservation">
+                        <h2>Informations sur la Réservation</h2>
+                        <p>Date de la réservation: {{ $reservation->created_at->format('d-m-Y H:i:s') }}</p>
+                        <!-- Vérifier si l'utilisateur associé a un nom d'utilisateur -->
+                        @if ($reservation->users && $reservation->users->username)
+                            <h2>Informations sur l'Utilisateur</h2>
+                            <p>Nom d'utilisateur: {{ $reservation->users->username }}</p>
+                            <p>Email: {{ $reservation->users->email }}</
+                            <p>{{$reservation->parent_email}}</p>
+                            <!-- Afficher les autres informations de l'utilisateur ici -->
+                        @else
+                            <p>Aucun utilisateur trouvé</p>
+                        @endif
+                        <!-- Afficher les autres informations de la réservation ici -->
+                    </div>
+                @endforeach
+
+
+                @foreach ($nounous as $nounou)
+                    <div class="nounou">
+                        <h2 class="h2">Nounou ID: {{ $nounou->id }}</h2>
+                        <h3>Informations de la nounou:</h3>
+                        <p>{{$nounou->username}}</p>
+                        <!-- Ajoutez les informations de la nounou ici -->
+                    </div>
+                @endforeach
+
+
+                <ul>
+                    <!-- Les réservations seront affichées ici -->
+                </ul>
+            </div>
+        </div>
+
+        <!-- Affichage des utilisateur -->
+        <div id="users-modal" class="popup">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Liste des utilisateur</h2>
+                <!-- Insérer la liste des réservations ici -->
+                <ul>
+                    <!-- Les réservations seront affichées ici -->
+                </ul>
+            </div>
+        </div>
+
+        <!-- Affichage des parametre -->
+
+        <div id="settings-modal" class="popup">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Paramtre</h2>
+                <!-- Insérer la liste des réservations ici -->
+                <ul>
+                    <!-- Les réservations seront affichées ici -->
+                </ul>
+            </div>
+        </div>
+
+        <div id="dashboard-modal" class="popup">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>dashboard</h2>
+                <!-- Insérer la liste des réservations ici -->
+                <ul>
+                    <!-- Les réservations seront affichées ici -->
+                </ul>
+            </div>
+        </div>
+        <div id="activity-modal" class="popup">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>activité</h2>
                 <!-- Insérer la liste des réservations ici -->
                 <ul>
                     <!-- Les réservations seront affichées ici -->
@@ -369,7 +448,7 @@
     <script src="{{ asset('js/Administratuer_JS/time.js') }}"></script>
     <script src="{{ asset('js/Administratuer_JS/date.js') }}"></script>
     <script src="{{ asset('js/Administratuer_JS/clic_delete.js') }}"></script>
-    <script src="{{ asset('js/Administratuer_JS/reservation.js') }}"></script>
+    <script src="{{ asset('js/Administratuer_JS/affichage.js') }}"></script>
 </body>
 
 </html>

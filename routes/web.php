@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\NounouController;
 use App\Http\Controllers\CheckboxlController;
+use App\Http\Controllers\AdminController;
 use App\Models\User;
 
 
@@ -117,4 +118,6 @@ Route::get('/logout', [AllController::class, 'logout']);
 /*Supression des l'utilisateur*/
 
 Route::delete('/page_admin/{id}', [AllController::class, 'delete'])->name('users.delete');
+
+Route::get('/page_admin', [AdminController::class, 'Allacces'])->name('reservation');
 
