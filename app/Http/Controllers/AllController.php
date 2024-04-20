@@ -199,6 +199,7 @@ class AllController extends Controller
                 $data =  Nounou::find(Session::get('loginId'));
                 $reservations = Reservations::where('nounou_id', $data->id)->inRandomOrder()->take(6)->get();
             }
+            $nombreDeReservations = $reservations->count();
 
             // Récupérer les utilisateurs associés à chaque réservation
             $reservationUsers = collect();
@@ -211,6 +212,8 @@ class AllController extends Controller
                 'data' => $data,
                 'reservations' => $reservations,
                 'reservationUsers' => $reservationUsers,
+                'nombreDeReservations' => $nombreDeReservations,
+
             ]);
         } else {
             return response()->json([
@@ -251,12 +254,31 @@ class AllController extends Controller
 
 
     public function About(Request $request){
-        $data = array();
-        if(Session::get('loginId')){
-        $data =  Nounou::where('id', '=',Session::get('loginId'))->first();
+        $data = [];
+        $reservations = collect(); // Initialisation à une collection vide
+
+        if(Session::has('loginId')){
+            $data =  Nounou::find(Session::get('loginId'));
+            $reservations = Reservations::where('nounou_id', $data->id)->inRandomOrder()->take(6)->get();
         }
-        return view('page/page_user' , compact('data'));
+
+        // Nombre de réservations pour la nounou connectée
+        $nombreDeReservations = $reservations->count();
+
+        // Récupérer les utilisateurs associés à chaque réservation
+        $reservationUsers = collect();
+        foreach ($reservations as $reservation) {
+            $reservationUsers[] = Users::find($reservation->user_id);
+        }
+
+        return view('page/page_user', [
+            'data' => $data,
+            'reservations' => $reservations,
+            'reservationUsers' => $reservationUsers,
+            'nombreDeReservations' => $nombreDeReservations,
+        ]);
     }
+
 
     public function annonce(Request $request)
     {
@@ -394,10 +416,31 @@ class AllController extends Controller
 
         /*Affiche des donnée de l'utilisateur */
         $data = array();
-        if(Session::get('loginId')){
-            $data =  Users::where('id', '=',Session::get('loginId'))->first();
+    $reservations = array();
+
+    if (Session::has('loginId')) {
+        $user_id = Session::get('loginId');
+
+        // Récupérer l'utilisateur connecté
+        $data = Users::find($user_id);
+
+        // Récupérer toutes les réservations faites par l'utilisateur connecté
+        $reservations = Reservations::where('user_id', $user_id)->get();
+
+        // Parcourir chaque réservation pour récupérer les données de la nounou associée
+        foreach ($reservations as $reservation) {
+            // Récupérer l'ID de la nounou associée à cette réservation
+            $nounou_id = $reservation->nounou_id;
+
+            // Maintenant, récupérer les données de la nounou à partir de son ID
+            $nounou = Nounou::find($nounou_id);
+
+            // Ajouter les données de la nounou à la réservation
+            $reservation->nounou = $nounou;
         }
-        return view('page/profile_user', compact('data'));
+    }
+
+    return view('page/profile_user', compact('data', 'reservations'));
 
     }
 

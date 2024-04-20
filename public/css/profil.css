@@ -199,15 +199,56 @@ a {
 {
     display: flex;
     align-items: center;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100vh;
+
+}
+.affiche_nounou .reservation-details{
+    width:100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     justify-content: space-between;
 
 }
 
+.affiche_nounou .reservation-details .nounou_reservé{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100vh;
+    justify-content: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px 10px 10px 10px;
+    margin-bottom: 10px;
+    box-shadow: 10px 10px 3px rgb(163, 163, 163);
+    margin-bottom: 20px;
+}
+
+.affiche_nounou .reservation-details .nounou_reservé .nounou-info{
+  width:100%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+
+
+}
+
+.nounou{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
 .img
 {
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     object-fit: cover;
     margin-right: 20px;

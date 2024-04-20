@@ -73,10 +73,13 @@
             <section id="dashboardSection" class="affiche">
                 <div class="cards">
                     <div class="card">
-                        <div class="box">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        <div class="box1">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
                             <center>
                                 <h3 class="star"> Etoille</h3>
                             </center>
@@ -96,8 +99,8 @@
                     </div>
                     <div class="card">
                         <div class="box">
-                            <h1>5</h1>
-                            <h3>???????</h3>
+                            <h3> Demande en cours</h3>
+                            <h1>{{ $nombreDeReservations ?? '' }} demande <i class="fas fa-user-tie"></i></h1>
                         </div>
                         <div class="icon-case">
                             <img src="schools.png" alt="">
@@ -239,7 +242,7 @@
     </section>
 
     <!--Section Coin-->
-    {{-- <section id="coinSection">
+    <section id="coinSection">
 
     </section>
 
@@ -257,7 +260,7 @@
         <div class="body">
 
         </div>
-    </section> --}}
+    </section>
 
     <!--Section demande-->
 
@@ -277,8 +280,10 @@
                                 <span>{{ $reservation->child_address }}</span>
                                 <span>{{ $reservation->created_at }}</span>
                                 <div class="payment-nounou">
-                                    <a href="{{ route('confirm_demande') }}">Accepeter la demande</a>
+                                    <a href="{{ route('confirm_demande') }}" class="accept-demande">Accepeter la
+                                        demande</a>
                                 </div>
+                                <i class="fas fa-trash-can trach" title="Suprimer la demande "></i>
                             </div>
                         </div>
                     </div>
@@ -294,6 +299,55 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="{{ asset('js/selection.js') }}"></script>
+
+    <script>
+        // Attend que le DOM soit chargé
+        document.addEventListener("DOMContentLoaded", function() {
+            // Sélectionne tous les liens avec la classe "accept-demande"
+            var acceptLinks = document.querySelectorAll('.accept-demande');
+
+            // Parcourt tous les liens
+            acceptLinks.forEach(function(link) {
+                // Initialise une variable pour stocker l'état du texte
+                var isAccepted = false;
+
+                // Ajoute un écouteur d'événement au clic
+                link.addEventListener('click', function(event) {
+                    // Empêche le comportement par défaut du lien
+                    event.preventDefault();
+
+                    // Vérifie l'état actuel du texte
+                    if (isAccepted) {
+                        // Si le texte est déjà "Demande acceptée", revenir au texte précédent
+                        this.textContent = "Accepeter la demande";
+                    } else {
+                        // Sinon, changer le texte en "Demande acceptée"
+                        this.textContent = "Demande acceptée";
+                    }
+
+                    // Inverse l'état du texte
+                    isAccepted = !isAccepted;
+                });
+            });
+        });
+    </script>
+    <script>
+        // Attend que le DOM soit chargé
+        document.addEventListener("DOMContentLoaded", function() {
+            // Sélectionne tous les icônes avec la classe "fas fa-trash-can"
+            var trashIcons = document.querySelectorAll('.fas.fa-trash-can');
+
+            // Parcourt tous les icônes
+            trashIcons.forEach(function(icon) {
+                // Ajoute un écouteur d'événement au clic
+                icon.addEventListener('click', function() {
+                    // Cache l'élément parent de l'icône
+                    this.parentElement.parentElement.parentElement.style.display = 'none';
+                });
+            });
+        });
+    </script>
+
 
 
     <script src="{{ asset('/js/caland.js') }}"></script>

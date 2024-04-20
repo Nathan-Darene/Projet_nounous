@@ -73,45 +73,49 @@
                         <button> <a href="#">Edite Profil</a></button>
                     </nav>
                     <div class="message" id="message">
-                        Système de messagerie defectueur
+                        Système de messagerie
                     </div>
 
-                    <div class="Nounou_pay wrapper" id="Nounou_pay">
-                        <div class="nounou">
-                            <div class="affiche_nounou ">
-                                @if ($reservations->isNotEmpty())
+                    @if ($reservations ?? '')
+                        <div class="Nounou_pay wrapper" id="Nounou_pay">
+                            <div class="nounou">
+                                <h2>Détails des réservations</h2>
+                                <div class="affiche_nounou ">
                                     <div class="reservation-details">
-                                        <h2>Détails des réservations</h2>
-                                        @foreach ($reservations as $reservation)
-                                            <p>Date de réservation : {{ $reservation->created_at }}</p>
-                                            @if ($reservation->nounou)
-                                                <div class="nounou-info">
-                                                    <img src="uploads/{{ $reservation->nounou->imageUpload }}"
-                                                        alt="" class="img">
-                                                    <span class="etat">En service</span>
-                                                    <h3>{{ $reservation->nounou->username }}</h3>
-                                                    <span>{{ $reservation->nounou->role }}</span>
-                                                    <span>{{ $reservation->nounou->phone }}</span>
-                                                    <span>{{ $reservation->nounou->prix_heure }}/heure</span>
-                                                    <div class="payment-nounou">
-                                                        <a href="{{ route('paiements.store') }}">Payer</a>
+                                        @foreach ($reservations ?? '' as $reservation)
+                                            <div class="nounou_reservé">
+                                                <p>Date de réservation : {{ $reservation->created_at->format('d-m-Y H:i:s')  }}</p>
+                                                @if ($reservation->nounou)
+                                                    <div class="nounou-info">
+                                                        <img src="uploads/{{ $reservation->nounou->imageUpload }}"
+                                                            alt="" class="img">
+                                                        <span class="etat">En service</span>
+                                                        <h3>{{ $reservation->nounou->username }}</h3>
+                                                        <span>{{ $reservation->nounou->role }}</span>
+                                                        <span>{{ $reservation->nounou->phone }}</span>
+                                                        <span>{{ $reservation->nounou->prix_heure }}/heure</span>
+                                                        <div class="payment-nounou">
+                                                            <a href="{{ route('paiements.store') }}">Payer</a>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            @else
-                                                <p>Aucune nounou associée à cette réservation.</p>
-                                            @endif
+                                                @else
+                                                    <p>Aucune nounou associée à cette réservation.</p>
+                                                @endif
+                                            </div>
                                         @endforeach
                                     </div>
-                                @else
-                                    <p>Vous n'avez pas encore effectué de réservation de nounou.</p>
-                                @endif
-
-
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @else
+                        <p>Vous n'avez pas encore effectué de réservation de nounou.</p>
+                    @endif
+
+
                 </div>
-        </form>
+            </div>
+    </div>
+    </form>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

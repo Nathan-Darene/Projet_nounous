@@ -25,7 +25,7 @@
                 <p>Votre réservation a été enregistrée avec succès !</p>
                 <p>Merci d'avoir contacter <strong>{{$nounouName}}</strong> pour la
                     garde de vos enfant !</p>
-                <button class="button" type="submit" ><a href="{{('acceuil')}}">Retour</a></button>
+                <button class="button" type="submit" ><a href="{{route('AfficheProfileUser')}}">Retour</a></button>
             </form>
         </div>
         <div class="container">
