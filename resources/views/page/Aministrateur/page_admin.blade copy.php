@@ -28,6 +28,7 @@
             </div>
 
             <div class="sidebar">
+                <!-- Liens de navigation -->
                 <a href="#">
                     <span class="material-icons-sharp">
                         dashboard
@@ -50,7 +51,7 @@
                     <span class="material-icons-sharp">
                         mail_outline
                     </span>
-                    <h3>Réservations</h3>
+                    <h3>Réservation</h3>
                     <span class="message-count">5</span>
                 </a>
                 <a href="#">
@@ -71,9 +72,10 @@
 
         <!-- Contenu principal -->
         <main>
-            <h1>Analytique</h1>
+            <h1>Analytiques</h1>
             <!-- Analyses -->
             <div class="analyse">
+                <!-- Ventes -->
                 <div class="sales">
                     <div class="status">
                         <div class="info">
@@ -90,6 +92,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- Visites -->
                 <div class="visits">
                     <div class="status">
                         <div class="info">
@@ -106,6 +109,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- Recherches -->
                 <div class="searches">
                     <div class="status">
                         <div class="info">
@@ -123,11 +127,11 @@
                     </div>
                 </div>
             </div>
-            <!-- Fin des Analyses -->
+            <!-- Fin des analyses -->
 
-            <!-- Section Nouveaux Utilisateurs -->
+            <!-- Section des nouveaux utilisateurs -->
             <div class="new-users">
-                <h2>Nouveaux Utilisateurs</h2>
+                <h2>Nouveaux utilisateurs</h2>
                 <div class="user-list">
 
                     @foreach (\App\Models\Users::inRandomOrder()->take(6)->get() as $user)
@@ -145,29 +149,16 @@
 
                 </div>
             </div>
-            <div class="new-users">
-                <h2>Nouvelles Nounous</h2>
-                <div class="user-list">
-                    @foreach (\App\Models\Nounou::inRandomOrder()->take(6)->get() as $nounou)
-                        <div class="user">
-                            <img src="uploads/{{ $nounou->imageUpload }}">
-                            <h2>{{ $nounou->username }}</h2>
-                            <p>{{ $nounou->role }}</p>
-                        </div>
-                    @endforeach
+            <!-- Fin de la section des nouveaux utilisateurs -->
 
-                </div>
-            </div>
-            <!-- Fin de la Section Nouveaux Utilisateurs -->
-
-            <!-- Tableau des Réservations Récentes -->
+            <!-- Tableau des réservations récentes -->
             <div class="recent-orders">
                 <h2>Réservations récentes</h2>
                 <table>
                     <thead>
                         <tr>
                             <th>Nom d'utilisateur</th>
-                            <th>Nom</th>
+                            <th>Nom de famille</th>
                             <th>Paiement</th>
                             <th>Statut</th>
                             <th></th>
@@ -178,12 +169,12 @@
 
                     </tbody>
                 </table>
-                <a href="#">Afficher Tout</a>
+                <a href="#">Afficher tout</a>
             </div>
-            <!-- Fin des Réservations Récentes -->
+            <!-- Fin des réservations récentes -->
 
         </main>
-        <!-- Fin du Contenu Principal -->
+        <!-- Fin du contenu principal -->
 
         <!-- Section de droite -->
         <div class="right-section">
@@ -205,7 +196,7 @@
                     <div class="profile">
                         <div class="info">
 
-                            <p>Bonjour, <b>{{ $data->username }}</b></p>
+                            <p>Salut, <b>{{ $data->username }}</b></p>
                             <small class="text-muted">Administrateur</small>
                         </div>
                         <div class="profile-photo">
@@ -214,7 +205,7 @@
                     </div>
                 @endif
             </div>
-            <!-- Fin de la Nav -->
+            <!-- Fin de la navigation -->
 
             <div class="user-profile">
                 <div class="logo">
@@ -232,6 +223,7 @@
                     </span>
                 </div>
 
+                <!-- Rappels individuels -->
                 <div class="notification">
                     <div class="icon">
                         <span class="material-icons-sharp">
@@ -240,8 +232,8 @@
                     </div>
                     <div class="content">
                         <div class="info">
-                            <h3>Date Actuelle</h3>
-                            <small class="text_muted" id="current-date"></small>
+                            <h3>Date actuelle</h3>
+                            <small class="text-muted" id="current-date"></small>
                         </div>
                         <span class="material-icons-sharp">
                             more_vert
@@ -257,8 +249,8 @@
                     </div>
                     <div class="content">
                         <div class="info">
-                            <h3>Heure Actuelle</h3>
-                            <small class="text_muted" id="current-time"></small>
+                            <h3>Heure actuelle</h3>
+                            <small class="text-muted" id="current-time"></small>
                         </div>
                         <span class="material-icons-sharp">
                             more_vert
@@ -266,6 +258,7 @@
                     </div>
                 </div>
 
+                <!-- Bouton de suppression d'utilisateur -->
                 <div class="notification add-reminder">
                     <div>
                         <span class="material-icons-sharp">
@@ -275,7 +268,7 @@
                     </div>
                 </div>
 
-                {{-- Bouton de suppression d'une nounou --}}
+                <!-- Bouton de suppression de nounou -->
                 <div class="notification add-reminder delete-nounou">
                     <div>
                         <span class="material-icons-sharp">
@@ -291,14 +284,12 @@
         </div>
 
 
-        <!-- Ajouter une balise div pour la fenêtre modale -->
-        <!-- Balise div pour la fenêtre modale -->
+        <!-- Ajoutez une balise div pour la fenêtre modale -->
+        <!-- Balise div pour la fenêtre modale de suppression d'utilisateur -->
         <div id="delete-user-modal" class="modal">
             <div class="modal-content">
                 <span class="close">&times;</span>
-                <center>
-                    <h2 class="h2">Liste des utilisateurs à supprimer</h2>
-                </center>
+                <center><h2 class="h2">Liste des utilisateurs à supprimer</h2></center>
                 <div id="delete-user-list">
                     <div class="delete-user-lists">
                         @foreach (\App\Models\Users::inRandomOrder() /*->take(6)*/->get() as $user)
@@ -319,8 +310,7 @@
             </div>
         </div>
 
-        {{-- Suppression d'une nounou --}}
-
+        <!-- Balise div pour la fenêtre modale de suppression de nounou -->
         <div id="delete-nounou-modal" class="modal-nounou">
             <div class="modal-content-nounou">
                 <span class="close">&times;</span>
@@ -345,20 +335,6 @@
             </div>
         </div>
 
-        <!-- Popup des réservations -->
-        <div id="reservation-popup" class="popup">
-            <div class="popup-content">
-                <span class="close">&times;</span>
-                <h2>Liste des réservations</h2>
-                <!-- Insérer la liste des réservations ici -->
-                <ul>
-                    <!-- Les réservations seront affichées ici -->
-                </ul>
-            </div>
-        </div>
-
-
-
 
     </div>
 
@@ -369,7 +345,7 @@
     <script src="{{ asset('js/Administratuer_JS/time.js') }}"></script>
     <script src="{{ asset('js/Administratuer_JS/date.js') }}"></script>
     <script src="{{ asset('js/Administratuer_JS/clic_delete.js') }}"></script>
-    <script src="{{ asset('js/Administratuer_JS/reservation.js') }}"></script>
 </body>
 
 </html>
+
