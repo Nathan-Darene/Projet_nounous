@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -7,13 +7,13 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('/css/Adminstrauetr_CSS/admin.css') }}">
     <link rel="stylesheet" href="{{ asset('fontawesome-free-6.5.1-web/css/all.min.css') }}">
-    <title>Adminitrateur de Social Home</title>
+    <title>Administrateur de Social Home</title>
 </head>
 
 <body>
 
     <div class="container">
-        <!-- Sidebar Section -->
+        <!-- Section de la barre latérale -->
         <aside>
             <div class="toggle">
                 <div class="logo">
@@ -28,17 +28,18 @@
             </div>
 
             <div class="sidebar">
+                <!-- Liens de navigation -->
                 <a href="#">
                     <span class="material-icons-sharp">
                         dashboard
                     </span>
-                    <h3>Dashboard</h3>
+                    <h3>Tableau de bord</h3>
                 </a>
                 <a href="#">
                     <span class="material-icons-sharp">
                         person_outline
                     </span>
-                    <h3>Users</h3>
+                    <h3>Utilisateurs</h3>
                 </a>
                 <a href="#" class="">
                     <span class="material-icons-sharp">
@@ -50,35 +51,36 @@
                     <span class="material-icons-sharp">
                         mail_outline
                     </span>
-                    <h3>Reservation</h3>
+                    <h3>Réservation</h3>
                     <span class="message-count">5</span>
                 </a>
                 <a href="#">
                     <span class="material-icons-sharp">
                         settings
                     </span>
-                    <h3>Paramètre</h3>
+                    <h3>Paramètres</h3>
                 </a>
                 <a href="#">
                     <span class="material-icons-sharp">
                         logout
                     </span>
-                    <h3>Logout</h3>
+                    <h3>Déconnexion</h3>
                 </a>
             </div>
         </aside>
-        <!-- End of Sidebar Section -->
+        <!-- Fin de la section de la barre latérale -->
 
-        <!-- Main Content -->
+        <!-- Contenu principal -->
         <main>
-            <h1>Analytics</h1>
+            <h1>Analytiques</h1>
             <!-- Analyses -->
             <div class="analyse">
+                <!-- Ventes -->
                 <div class="sales">
                     <div class="status">
                         <div class="info">
-                            <h3>Sold Total</h3>
-                            <h1>$65,024</h1>
+                            <h3>Total vendu</h3>
+                            <h1>65 024 $</h1>
                         </div>
                         <div class="progresss">
                             <svg>
@@ -90,11 +92,12 @@
                         </div>
                     </div>
                 </div>
+                <!-- Visites -->
                 <div class="visits">
                     <div class="status">
                         <div class="info">
-                            <h3>Nombre de visite</h3>
-                            <h1>4,981</h1>
+                            <h3>Nombre de visites</h3>
+                            <h1>4 981</h1>
                         </div>
                         <div class="progresss">
                             <svg>
@@ -106,11 +109,12 @@
                         </div>
                     </div>
                 </div>
+                <!-- Recherches -->
                 <div class="searches">
                     <div class="status">
                         <div class="info">
-                            <h3>Recherche effectué</h3>
-                            <h1>14,147</h1>
+                            <h3>Recherches effectuées</h3>
+                            <h1>14 147</h1>
                         </div>
                         <div class="progresss">
                             <svg>
@@ -123,11 +127,11 @@
                     </div>
                 </div>
             </div>
-            <!-- End of Analyses -->
+            <!-- Fin des analyses -->
 
-            <!-- New Users Section -->
+            <!-- Section des nouveaux utilisateurs -->
             <div class="new-users">
-                <h2>New Users</h2>
+                <h2>Nouveaux utilisateurs</h2>
                 <div class="user-list">
 
                     @foreach (\App\Models\Users::inRandomOrder()->take(6)->get() as $user)
@@ -145,31 +149,18 @@
 
                 </div>
             </div>
-            <div class="new-users">
-                <h2>New Nounou</h2>
-                <div class="user-list">
-                    @foreach (\App\Models\Nounou::inRandomOrder()->take(6)->get() as $nounou)
-                        <div class="user">
-                            <img src="uploads/{{ $nounou->imageUpload }}">
-                            <h2>{{ $nounou->username }}</h2>
-                            <p>{{ $nounou->role }}</p>
-                        </div>
-                    @endforeach
+            <!-- Fin de la section des nouveaux utilisateurs -->
 
-                </div>
-            </div>
-            <!-- End of New Users Section -->
-
-            <!-- Recent Orders Table -->
+            <!-- Tableau des réservations récentes -->
             <div class="recent-orders">
-                <h2>Reservation recente</h2>
+                <h2>Réservations récentes</h2>
                 <table>
                     <thead>
                         <tr>
-                            <th>Username</th>
-                            <th>Lastname</th>
-                            <th>Payment</th>
-                            <th>Status</th>
+                            <th>Nom d'utilisateur</th>
+                            <th>Nom de famille</th>
+                            <th>Paiement</th>
+                            <th>Statut</th>
                             <th></th>
                             <th></th>
                         </tr>
@@ -178,14 +169,14 @@
 
                     </tbody>
                 </table>
-                <a href="#">Show All</a>
+                <a href="#">Afficher tout</a>
             </div>
-            <!-- End of Recent Orders -->
+            <!-- Fin des réservations récentes -->
 
         </main>
-        <!-- End of Main Content -->
+        <!-- Fin du contenu principal -->
 
-        <!-- Right Section -->
+        <!-- Section de droite -->
         <div class="right-section">
             <div class="nav">
                 <button id="menu-btn">
@@ -205,7 +196,7 @@
                     <div class="profile">
                         <div class="info">
 
-                            <p>Hey, <b>{{ $data->username }}</b></p>
+                            <p>Salut, <b>{{ $data->username }}</b></p>
                             <small class="text-muted">Administrateur</small>
                         </div>
                         <div class="profile-photo">
@@ -214,24 +205,25 @@
                     </div>
                 @endif
             </div>
-            <!-- End of Nav -->
+            <!-- Fin de la navigation -->
 
             <div class="user-profile">
                 <div class="logo">
                     <img src="{{ asset('Logo/8900808870_4aa536ff-86f5-4f1e-9429-0e0ace5a8068.png') }}">
-                    <h2>Socia Home</h2>
+                    <h2>Social Home</h2>
                     <p>Nathan & Hugess</p>
                 </div>
             </div>
 
             <div class="reminders">
                 <div class="header">
-                    <h2>Reminders</h2>
+                    <h2>Rappels</h2>
                     <span class="material-icons-sharp">
                         notifications_none
                     </span>
                 </div>
 
+                <!-- Rappels individuels -->
                 <div class="notification">
                     <div class="icon">
                         <span class="material-icons-sharp">
@@ -240,8 +232,8 @@
                     </div>
                     <div class="content">
                         <div class="info">
-                            <h3>Date Actule</h3>
-                            <small class="text_muted" id="current-date"></small>
+                            <h3>Date actuelle</h3>
+                            <small class="text-muted" id="current-date"></small>
                         </div>
                         <span class="material-icons-sharp">
                             more_vert
@@ -257,8 +249,8 @@
                     </div>
                     <div class="content">
                         <div class="info">
-                            <h3>L'heure Actuel</h3>
-                            <small class="text_muted" id="current-time"></small>
+                            <h3>Heure actuelle</h3>
+                            <small class="text-muted" id="current-time"></small>
                         </div>
                         <span class="material-icons-sharp">
                             more_vert
@@ -266,6 +258,7 @@
                     </div>
                 </div>
 
+                <!-- Bouton de suppression d'utilisateur -->
                 <div class="notification add-reminder">
                     <div>
                         <span class="material-icons-sharp">
@@ -275,7 +268,7 @@
                     </div>
                 </div>
 
-                {{-- boutton de supression d'une nounou --}}
+                <!-- Bouton de suppression de nounou -->
                 <div class="notification add-reminder delete-nounou">
                     <div>
                         <span class="material-icons-sharp">
@@ -292,11 +285,11 @@
 
 
         <!-- Ajoutez une balise div pour la fenêtre modale -->
-        <!-- Balise div pour la fenêtre modale -->
+        <!-- Balise div pour la fenêtre modale de suppression d'utilisateur -->
         <div id="delete-user-modal" class="modal">
             <div class="modal-content">
                 <span class="close">&times;</span>
-                <h2>Liste des utilisateurs à supprimer</h2>
+                <center><h2 class="h2">Liste des utilisateurs à supprimer</h2></center>
                 <div id="delete-user-list">
                     <div class="delete-user-lists">
                         @foreach (\App\Models\Users::inRandomOrder() /*->take(6)*/->get() as $user)
@@ -306,9 +299,9 @@
                                 @else
                                     <img src="{{ asset('uploads/user.png') }}">
                                 @endif
-                                <h2>{{ $user->id }} {{ $user->username }}</h2>
-                                <p>{{ $user->created_at->format('d-m-Y H:i:s') }}</p>
-                                <i class="fas fa-trash-can delete-icon" title="suprimer l'utilisateur"
+                                <h2 class="h2">{{ $user->username }}</h2>
+                                <p class="h3">{{ $user->created_at->format('d-m-Y H:i:s') }}</p>
+                                <i class="fas fa-trash-can delete-icon" title="supprimer l'utilisateur"
                                     data-user-id="{{ $user->id }}"></i>
                             </div>
                         @endforeach
@@ -317,8 +310,7 @@
             </div>
         </div>
 
-        {{-- Supression d'un nounou --}}
-
+        <!-- Balise div pour la fenêtre modale de suppression de nounou -->
         <div id="delete-nounou-modal" class="modal-nounou">
             <div class="modal-content-nounou">
                 <span class="close">&times;</span>
@@ -332,9 +324,9 @@
                                 @else
                                     <img src="{{ asset('uploads/user.png') }}">
                                 @endif
-                                <h2>{{ $nounou->username }}</h2>
-                                <p>{{ $nounou->created_at->format('d-m-Y H:i:s') }}</p>
-                                <i class="fas fa-trash-can " title="suprimer la nounou"
+                                <h2 class="h2">{{ $nounou->username }}</h2>
+                                <p class="h3">{{ $nounou->created_at->format('d-m-Y H:i:s') }}</p>
+                                <i class="fas fa-trash-can delete-icon" title="supprimer la nounou"
                                     data-user-id="{{ $nounou->id }}"></i>
                             </div>
                         @endforeach
@@ -346,40 +338,14 @@
 
     </div>
 
-    <script src="{{ asset('js/Administratuer_JS/jquery_delete_user.js') }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('.delete-icon').click(function() {
-                var userId = $(this).data('user-id');
-                if (confirm("Êtes-vous sûr de vouloir supprimer cet utilisateur ?")) {
-                    $.ajax({
-                        url: '{{ route('users.delete', ['id' => '']) }}' + userId,
-                        type: 'DELETE',
-                        headers: {
-                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                        },
-                        success: function(result) {
-                            $('#user_' + userId).remove();
-                            alert("L'utilisateur a été supprimé avec succès.");
-                        },
-                        error: function(xhr, status, error) {
-                            console.error(xhr.responseText);
-                            alert(
-                                "Une erreur s'est produite lors de la suppression de l'utilisateur.");
-                        }
-                    });
-                }
-            });
-        });
-    </script>
-
 
     <script src="{{ asset('js/Administratuer_JS/admin.js') }}"></script>
     <script src="{{ asset('js/Administratuer_JS/orders.js') }}"></script>
     <script src="{{ asset('js/Administratuer_JS/delete.js') }}"></script>
     <script src="{{ asset('js/Administratuer_JS/time.js') }}"></script>
     <script src="{{ asset('js/Administratuer_JS/date.js') }}"></script>
+    <script src="{{ asset('js/Administratuer_JS/clic_delete.js') }}"></script>
 </body>
 
 </html>
+

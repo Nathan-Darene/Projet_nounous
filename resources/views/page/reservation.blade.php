@@ -269,6 +269,15 @@
                         </span>
 
                         <!-- Date et signature -->
+                        <label for="" class="time"><p class="time1">date de debut de contrat</p>  <p><i class="fa-solid fa-arrow-right-long"></i></p></label>
+                        <input type="date" name="form_end_date" value="{{ old('form_end_date') }}">
+                        <span class="text-danger">
+                            @error('form_fill_date')
+                                {{ $message }}
+                            @enderror
+                        </span>
+
+                        <!-- Date et signature -->
                         <label for="" class="time"><p class="time1">date de fin de contrat</p>  <p><i class="fa-solid fa-arrow-right-long"></i></p></label>
                         <input type="date" name="form_fill_date" value="{{ old('form_fill_date') }}">
                         <span class="text-danger">

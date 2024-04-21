@@ -828,11 +828,11 @@ main .recent-orders a{
 }
 
 .h2{
-    color: #777777;
+    color: #202528;
 }
 
 .h3{
-    color: #777777;
+    color: #202528;
     font-weight: 600;
 }
 
@@ -840,7 +840,7 @@ main .recent-orders a{
 #current-date{
     font-size: 15px;
     font-weight: 600;
-    color: #777777;
+    color: #202528;
 }
 
 
@@ -864,8 +864,8 @@ main .recent-orders a{
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
-    max-width: 600px; /* Limitez la largeur pour une meilleure lisibilité */
+    width: 100vh;
+    max-width: 100vh; /* Limitez la largeur pour une meilleure lisibilité */
     position: relative; /* Position relative pour le bouton de fermeture absolue */
 }
 
@@ -948,4 +948,28 @@ main .recent-orders a{
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+.fa-bookmark{
+    font-size: 30px;
+}
+
+.effet{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.color
+{
+    color: #202528;
+}
+
+.p
+{
+    font-size: 15px;
+}
+
+.color1{
+    color: #cac82b;
 }

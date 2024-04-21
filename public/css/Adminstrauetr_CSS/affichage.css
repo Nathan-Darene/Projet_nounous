@@ -14,7 +14,7 @@
 
 #users-modal .modal-content {
     background-color: #fefefe;
-    margin: 15% auto;
+    margin: 2% auto;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
@@ -34,6 +34,52 @@
     cursor: pointer;
 }
 
+#users-modal .delete-user {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    gap: 1rem;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 10px 10px 3px rgb(163, 163, 163);
+}
+
+#users-modal .delete-user img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.info-user-modal{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.h3{
+    font-size: 15px;
+}
+.info-user-modal .info{
+    font-weight: 600;
+    font-size: 15px;
+
+}
+.reservation{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    gap: 1rem;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 10px 10px 3px rgb(163, 163, 163);
+}
+
+
 
 /* Styles pour le modal de l'Activité */
 
@@ -51,10 +97,11 @@
 
 #activity-modal .modal-content {
     background-color: #fefefe;
-    margin: 15% auto;
+    margin: 2% auto;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
+
 }
 
 #activity-modal .close {
@@ -69,6 +116,39 @@
     color: #000;
     text-decoration: none;
     cursor: pointer;
+}
+
+#activity-modal .delete-user {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    gap: 1rem;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 10px 10px 3px rgb(163, 163, 163);
+}
+
+#activity-modal .delete-user img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.info-user-modal{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.h3{
+    font-size: 15px;
+}
+.info-user-modal .info{
+    font-weight: 600;
+    font-size: 15px;
+
 }
 
 /* Styles pour le modal de du dashboard */
@@ -87,7 +167,7 @@
 
 #dashboard-modal .modal-content {
     background-color: #fefefe;
-    margin: 15% auto;
+    margin: 2% auto;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
@@ -124,10 +204,37 @@
 
 #settings-modal .modal-content {
     background-color: #fefefe;
-    margin: 15% auto;
+    margin: 2% auto;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
+}
+
+#settings-modal .modal-content .settings{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+#settings-modal .modal-content .settings .setting{
+    display: flex;
+    width: 25%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fa-book-open-reader{
+    font-size: 25px;
+}
+#settings-modal .modal-content .color{
+    color: #202528;
+}
+.secure{
+    display: flex;
+    width: 52%;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 #settings-modal .close {
@@ -144,3 +251,45 @@
     cursor: pointer;
 }
 
+.fa-check-circle{
+    color: rgb(0, 255, 0);
+    font-size: 20px;
+}
+.etat {
+    display: flex;
+}
+
+.bnts button{
+    border:1px solid #202528;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #202528;
+}
+
+/* Style de base pour le textarea */
+textarea {
+    width: 100%; /* Largeur à 100% de son conteneur */
+    height: 100px; /* Hauteur initiale */
+    padding: 10px; /* Espacement intérieur */
+    font-size: 16px; /* Taille de la police */
+    border: 1px solid #ccc; /* Bordure */
+    border-radius: 5px; /* Bordure arrondie */
+    resize: vertical; /* Autoriser le redimensionnement vertical */
+}
+
+/* Style pour le textarea lorsqu'il est focus */
+textarea:focus {
+    border-color: #007bff; /* Changement de couleur de bordure */
+    outline: none; /* Suppression de l'outline par défaut */
+}
+
+/* Style pour le textarea lorsque le texte est en lecture seule */
+textarea[readonly] {
+    background-color: #f4f4f4; /* Couleur de fond */
+    cursor: not-allowed; /* Curseur en mode non autorisé */
+}
+
+/* */

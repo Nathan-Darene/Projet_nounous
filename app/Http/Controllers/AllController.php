@@ -661,6 +661,7 @@ class AllController extends Controller
             'child_dietary_preferences' => 'nullable|string',
             'parental_authorizations' => 'nullable|string',
             'other_instructions' => 'nullable|string',
+            'form_end_date'  => 'required|date',
             'form_fill_date' => 'required|date',
             'parent_signature' => 'required|string',
             /*'privacy_acceptance' => 'nullable|boolean',*/
@@ -688,6 +689,7 @@ class AllController extends Controller
         $reservation->child_dietary_preferences = $validatedData['child_dietary_preferences'];
         $reservation->parental_authorizations = $validatedData['parental_authorizations'];
         $reservation->other_instructions = $validatedData['other_instructions'];
+        $reservation->form_end_date = $validatedData['form_end_date'];
         $reservation->form_fill_date = $validatedData['form_fill_date'];
         $reservation->parent_signature = $validatedData['parent_signature'];
         /*$reservation->privacy_acceptance = $validatedData['privacy_acceptance'];*/
@@ -795,6 +797,9 @@ class AllController extends Controller
         // Récupérer les réservations avec les utilisateurs associés
         $reservations = Reservations::with('users')->whereHas('users')->get();
 
+        $nathan = $reservations->count();
+
+
         // Récupérer toutes les nounous associées aux réservations
         $nounous = Nounou::whereIn('id', $reservations->pluck('nounou_id'))->get();
 
@@ -802,7 +807,7 @@ class AllController extends Controller
 
         if (Session::has('loginId')) {
             $data = Admins::find(Session::get('loginId'));
-            return view('/page/Aministrateur/page_admin', compact('data', 'currentHour', 'reservations', 'nounous'));
+            return view('/page/Aministrateur/page_admin', compact('data', 'currentHour', 'nathan','reservations', 'nounous'));
         } else {
             return redirect()->route('loginAdmin')->with('fail', 'Session expirée. Veuillez vous connecter à nouveau.');
         }

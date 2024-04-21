@@ -30,6 +30,7 @@ class Reservations extends Model
         'parental_authorizations',
         'other_instructions',
         'form_fill_date',
+        'form_end_date',
         'parent_signature',
         'privacy_acceptance',
     ];
