@@ -47,26 +47,25 @@
     box-shadow: 10px 10px 3px rgb(163, 163, 163);
 }
 
-#users-modal .delete-user img{
+#users-modal .delete-user img {
     width: 100px;
     height: 100px;
     border-radius: 50%;
 }
 
-.info-user-modal{
+.info-user-modal {
     margin-top: 20px;
     margin-bottom: 20px;
 }
 
-.h3{
+.h3 {
     font-size: 15px;
 }
-.info-user-modal .info{
+.info-user-modal .info {
     font-weight: 600;
     font-size: 15px;
-
 }
-.reservation{
+.reservation {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -78,8 +77,6 @@
     border-radius: 5px;
     box-shadow: 10px 10px 3px rgb(163, 163, 163);
 }
-
-
 
 /* Styles pour le modal de l'Activité */
 
@@ -101,7 +98,6 @@
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
-
 }
 
 #activity-modal .close {
@@ -131,24 +127,23 @@
     box-shadow: 10px 10px 3px rgb(163, 163, 163);
 }
 
-#activity-modal .delete-user img{
+#activity-modal .delete-user img {
     width: 100px;
     height: 100px;
     border-radius: 50%;
 }
 
-.info-user-modal{
+.info-user-modal {
     margin-top: 20px;
     margin-bottom: 20px;
 }
 
-.h3{
+.h3 {
     font-size: 15px;
 }
-.info-user-modal .info{
+.info-user-modal .info {
     font-weight: 600;
     font-size: 15px;
-
 }
 
 /* Styles pour le modal de du dashboard */
@@ -187,7 +182,6 @@
     cursor: pointer;
 }
 
-
 /* Styles pour le modal de du parametre */
 
 #settings-modal {
@@ -210,26 +204,26 @@
     width: 80%;
 }
 
-#settings-modal .modal-content .settings{
+#settings-modal .modal-content .settings {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 }
-#settings-modal .modal-content .settings .setting{
+#settings-modal .modal-content .settings .setting {
     display: flex;
     width: 25%;
     justify-content: space-between;
     align-items: center;
 }
 
-.fa-book-open-reader{
+.fa-book-open-reader {
     font-size: 25px;
 }
-#settings-modal .modal-content .color{
+#settings-modal .modal-content .color {
     color: #202528;
 }
-.secure{
+.secure {
     display: flex;
     width: 52%;
     align-items: center;
@@ -251,7 +245,7 @@
     cursor: pointer;
 }
 
-.fa-check-circle{
+.fa-check-circle {
     color: rgb(0, 255, 0);
     font-size: 20px;
 }
@@ -259,8 +253,8 @@
     display: flex;
 }
 
-.bnts button{
-    border:1px solid #202528;
+.bnts button {
+    border: 1px solid #202528;
     border-radius: 5px;
     padding: 10px;
     margin: 10px;
@@ -292,4 +286,10 @@ textarea[readonly] {
     cursor: not-allowed; /* Curseur en mode non autorisé */
 }
 
-/* */
+.block {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-left: 8;
+}

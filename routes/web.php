@@ -86,7 +86,7 @@ Route::post('/enregistrer-donnees', [AllController::class, 'enregistrerDonnees']
 Route::get('/users', [UserController::class, 'index'])->name('page.page_user');
 Route::post('/profiel_nounou', [AllController::class, 'annonce'])->name('annonce');
 Route::get('/nounou/{id}/nounou_profile', [ProfilController::class, 'showDetails'])->name('nounou.details');
-Route::get('/nounou/reservation/{id}', [AllController::class, 'reservation'])->name('reservation');
+Route::get('/nounou/reservation/{id}', [AllController::class, 'reservation'])->name('reservations1');
 Route::post('/reservation', [AllController::class, 'store'])->name('reservations');
 Route::get('/nounou/{id}/payement', [ProfilController::class, 'showDetails'])->name('nounou.payement');
 Route::get('/reservation', [AllController::class, 'direct']);
@@ -106,7 +106,7 @@ Route::get('/page_admin', [AllController::class, 'Administrateur'])->name('Admin
 Route::get('/acceuil', [AllController::class, 'acceuil']);
 Route::get('/choix', [AllController::class, 'choix']);
 Route::get('/caland', [AllController::class, 'caland']);
-Route::get('/reservation', [AllController::class, 'reservation']);
+// Route::get('/reservation', [AllController::class, 'reservation']);
 Route::get('/message', [AllController::class, 'message']);
 Route::get('/choix2', [AllController::class, 'choix2']);
 Route::get('/choix2', [AllController::class, 'choix2']);

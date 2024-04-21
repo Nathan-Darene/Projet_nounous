@@ -36,8 +36,6 @@
                     </span>
                     @php
                         $nathan = App\Models\Reservations::count();
-                        $nathan1 = App\Models\Users::count();
-                        $nathan2 = App\Models\Nounou::count();
                     @endphp
                     <h3>Réservations</h3>
                     <span class="message-count">{{ $nathan }}</span>
@@ -47,8 +45,6 @@
                         person_outline
                     </span>
                     <h3>Utilisateurs</h3>
-                    <span class="message-count">{{ $nathan }}1</span>
-
                 </a>
 
                 <a href="#" id="activity-link">
@@ -56,8 +52,6 @@
                         person_outline
                     </span>
                     <h3>Nounou</h3>
-                    <span class="message-count">{{ $nathan2 }}</span>
-
                 </a>
 
                 <a href="#" id="dashboard-link">
@@ -179,42 +173,26 @@
             <div class="recent-orders">
                 <input type="hidden" name="n'guessan banien josue nathan" numero="+225 05-04-31-40-86">
                 <h2>Réservations récentes</h2>
-
                 <table>
                     <thead>
                         <tr>
-                            <th>Utilisateur</th>
-                            <th>Nounou</th>
-                            <th>Date de reservation</th>
-                            <th>Début du contrat</th>
-                            <th>Fin du contrat</th>
+                            <th>Nom d'utilisateur</th>
+                            <th>Nom</th>
+                            <th>Paiement</th>
                             <th>Statut</th>
+                            <th></th>
+                            <th></th>
                         </tr>
                     </thead>
-                    <tbody class="detaille">
-                        @if (isset($reservations) && (is_array($reservations) || is_object($reservations)))
-                            @foreach ($reservations ?? '' as $reservation)
-                                @if ($reservation->users)
-                                    @if ($reservation->nounous)
-                                        <tr>
-                                            <td>{{ $reservation->users->username }}</td>
-                                            <td>{{ $reservation->nounous->username }}</td>
-                                            <td>{{ $reservation->created_at->format('d-m-Y H:i:s') }}</td>
-                                            <td>{{ \Carbon\Carbon::parse($reservation->form_end_date)->format('d-m-Y') }}
-                                            </td>
-                                            <td>{{ \Carbon\Carbon::parse($reservation->form_fill_date)->format('d-m-Y') }}
-                                                </< /td>
-                                            <td>accepté</td>
-
-                                        </tr>
-                                    @endif
-                                @else
-                                    <p class="color ">Aucun utilisateur trouvé</p>
-                                @endif
-                            @endforeach
-                        @else
-                            <p class="color">Aucune réservation trouvée</p>
-                        @endif
+                    <tbody>
+                        <tr>
+                            <td>utilisateur1</td>
+                            <td>John Doe</td>
+                            <td>Carte de crédit</td>
+                            <td>Actif</td>
+                            <td><button>Modifier</button></td>
+                            <td><button>Supprimer</button></td>
+                        </tr>
                     </tbody>
                 </table>
                 <a href="#">Afficher Tout</a>
@@ -397,74 +375,56 @@
                     <h2 class="color">Liste des réservations</h2>
                 </center>
                 {{-- Insértion de la liste des réservations --}}
-                @if (isset($reservations) && (is_array($reservations) || is_object($reservations)))
-                    @foreach ($reservations ?? '' as $reservation)
-                        <div class="reservation">
-                            <div class="effet">
-                                <i class="fas fa-bookmark color1"></i>
-                                <p class="color ">---------------------------------------------------------------------
-                                </p>
-                                <i class="fas fa-bookmark color1"></i>
-                            </div>
-                            <h2 class="color "> Informations sur la Réservation No {{ $reservation->id }}</h2>
-
-                            <div class="block">
-                                <p class="color "><i class="fas fa-calendar-check"></i> Date de la réservation:
-                                    {{ $reservation->created_at->format('d-m-Y H:i:s') }}</p>
-                                <p class="color "><i class="fas fa-clock"></i> &nbsp; Date de début du contrat:
-                                    {{ \Carbon\Carbon::parse($reservation->form_end_date)->format('d-m-Y') }}</p>
-                                <p class="color "><i class="fas fa-clock"></i>&nbsp;Date de fin du contrat:
-                                    {{ \Carbon\Carbon::parse($reservation->form_fill_date)->format('d-m-Y') }}</p>
-                            </div>
-
-
-                            <h2 class="color">Informations sur l'utilisateur</h2>
-                            <div class="block">
-                                @if ($reservation->users)
-                                    <p class="color p"><i class="fas fa-user"></i> &nbsp;Nom d'utilisateur:
-                                        {{ $reservation->users->username }}</p>
-                                    <p class="color p"><i class="fas fa-location-dot"></i> &nbsp;Ville ou Commune :
-                                        {{ $reservation->users->city }}</p>
-
-                                    <p class="color p"><i class="fas fa-phone"></i> &nbsp;phone :
-                                        {{ $reservation->users->phone }}</p>
-
-                                    <p class="color p"><i class="fas fa-envelope"></i> &nbsp;Email:
-                                        {{ $reservation->users->email }}</p>
-                                    <!-- Afficher les autres informations de l'utilisateur ici -->
-                                @else
-                                    <p class="color ">&nbsp;Aucun utilisateur trouvé</p>
-                                @endif
-                            </div>
-
-                            <!-- Vérifier si la nounou associée à la réservation existe -->
-                            <h2 class="color">Informations sur la Nounou</h2>
-                            <div class="block">
-                                @if ($reservation->nounous)
-                                    <p class="color p"><i class="fas fa-user"></i> &nbsp;Nom de la nounou:
-                                        {{ $reservation->nounous->username }}</p>
-                                    <p class="color p"><i class="fas fa-location-dot"></i> &nbsp;Ville ou Commune:
-                                        {{ $reservation->nounous->city }}</p>
-                                    <p class="color p"><i class="fas fa-envelope"></i> &nbsp;Email:
-                                        {{ $reservation->nounous->email }}</p>
-                                    <p class="color p"><i class="fas fa-phone"></i> &nbsp;phone :
-                                        {{ $reservation->nounous->phone }}</p>
-                                    <p class="color p"><i class="fas fa-user-nurse"></i> role:
-                                        {{ $reservation->nounous->role }}</p>
-                                    <!-- Afficher les autres informations de la nounou ici -->
-                                @else
-                                    <p class="color ">Aucune nounou trouvée</p>
-                                @endif
-                            </div>
-                            <p class="color">
-                                -----------------------------------------------------------------------
-                                <i class="fas fa-cart-flatbed" style="font-size: 20px"></i>
-                            </p>
+                @foreach ($reservations as $reservation)
+                    <div class="reservation">
+                        <div class="effet">
+                            <i class="fas fa-bookmark color1"></i>
+                            <p class="color ">---------------------------------------------------------------------</p>
+                            <i class="fas fa-bookmark color1"></i>
                         </div>
-                    @endforeach
-                @else
-                    <p class="color">Aucune réservation trouvée</p>
-                @endif
+                        <h2 class="color "> Informations sur la Réservation No {{ $reservation->id }}</h2>
+                        <p class="color "><i class="fas fa-calendar-check"></i> Date de la réservation:
+                            {{ $reservation->created_at->format('d-m-Y H:i:s') }}</p>
+                        <p class="color "><i class="fas fa-clock"></i>Date de début du contrat:
+                            {{ \Carbon\Carbon::parse($reservation->form_end_date)->format('d-m-Y') }}</p>
+                        <p class="color "><i class="fas fa-clock"></i>Date de fin du contrat:
+                            {{ \Carbon\Carbon::parse($reservation->form_fill_date)->format('d-m-Y') }}</p>
+                        <!-- Afficher les autres informations de la réservation ici -->
+
+                        <!-- Vérifier si l'utilisateur associé à la réservation existe -->
+                        @if ($reservation->users)
+                            <h2 class="color">Informations sur l'Utilisateur</h2>
+                            <p class="color p"><i class="fas fa-user"></i> Nom d'utilisateur:
+                                {{ $reservation->users->username }}</p>
+                            <p class="color p"><i class="fas fa-location-dot"></i> Ville ou Commune:
+                                {{ $reservation->users->city }}</p>
+
+                            <p class="color p"><i class="fas fa-envelope"></i> Email:
+                                {{ $reservation->users->email }}</p>
+                            <!-- Afficher les autres informations de l'utilisateur ici -->
+                        @else
+                            <p class="color ">Aucun utilisateur trouvé</p>
+                        @endif
+
+                        <!-- Vérifier si la nounou associée à la réservation existe -->
+                        @if ($reservation->nounous)
+                            <h2 class="color">Informations sur la Nounou</h2>
+                            <p class="color p"><i class="fas fa-user"></i> Nom de la nounou:
+                                {{ $reservation->nounous->username }}</p>
+                            <p class="color p"><i class="fas fa-location-dot"></i> Ville ou Commune:
+                                {{ $reservation->nounous->city }}</p>
+                            <p class="color p"><i class="fas fa-envelope"></i> Email:
+                                {{ $reservation->nounous->email }}</p>
+                            <p class="color p"><i class="fas fa-user-nurse"></i> role:
+                                {{ $reservation->nounous->role }}</p>
+                            <!-- Afficher les autres informations de la nounou ici -->
+                        @else
+                            <p class="color ">Aucune nounou trouvée</p>
+                        @endif
+                        <p class="color">---------------------------------------------------------------------------
+                        </p>
+                    </div>
+                @endforeach
             </div>
         </div>
 
@@ -484,17 +444,17 @@
                                 <img src="{{ asset('uploads/user.png') }}">
                             @endif
                             <div class="info-user-modal">
-                                <p class="h3"><i class="fas fa-user-pen"></i> &nbsp;Nom: <span
+                                <p class="h3"><i class="fas fa-user-pen"></i> Nom: <span
                                         class="info">{{ $user->username }}</span></p>
-                                <p class="h3"><i class="fas fa-venus-mars"></i> &nbsp;Genre: <span
+                                <p class="h3"><i class="fas fa-venus-mars"></i> Genre: <span
                                         class="info">{{ $user->gender }}</span></p>
-                                <p class="h3"><i class="fas fa-at"></i> &nbsp;Adresse E-mail: <span
+                                <p class="h3"><i class="fas fa-at"></i> Adresse E-mail: <span
                                         class="info">{{ $user->email }}</span></p>
-                                <p class="h3"><i class="fas fa-phone"></i> &nbsp;Telephone: <span
+                                <p class="h3"><i class="fas fa-phone"></i> Telephone: <span
                                         class="info">{{ $user->phone }}</span></p>
-                                <p class="h3"><i class="fas fa-location-dot"></i> &nbsp;Ville ou Commune: <span
+                                <p class="h3"><i class="fas fa-location-dot"></i> Ville ou Commune: <span
                                         class="info">{{ $user->city }}</span></p>
-                                <p class="h3"><i class="fas fa-calendar-check"></i> &nbsp;Date de creation: <span
+                                <p class="h3"><i class="fas fa-calendar-check"></i> Date de creation: <span
                                         class="info">{{ $user->created_at->format('d-m-Y H:i:s') }}</span< /p>
                             </div>
 
@@ -542,8 +502,7 @@
                         <h2 class="color">>Paramètres généraux</h2>
                         <form id="general-settings-form">
                             <label for="site-name" class="color">Nom du site : <span
-                                    class="social color">Social</span>
-                                <span class="home color">Home</span> </label>
+                                    class="social color">Social</span> <span class="home color">Home</span> </label>
                             <label for="language" class="color">Langue par défaut :</label>
                             <select id="language" name="language">
                                 <option value="fr">Français</option>
