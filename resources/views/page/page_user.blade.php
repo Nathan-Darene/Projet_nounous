@@ -124,13 +124,22 @@
                         </div>
                         <table>
                             <tr>
+                                <th>Profile</th>
                                 <th>Nom</th>
                                 <th>Famille</th>
                                 <th>Facture</th>
                                 <th>Option</th>
                             </tr>
-                            @foreach (\App\Models\Nounou::inRandomOrder()->take(6)->get() as $user)
+                            @foreach (\App\Models\Users::inRandomOrder()->take(6)->get() as $user)
                                 <tr>
+                                    <td>
+                                        @if ($user->imageUpload)
+                                            <img src="profile_users/{{ $user->imageUpload }}" alt=""
+                                                class="nathan">
+                                        @else
+                                            <img src="{{ asset('uploads/user.png') }}" class="nathan">
+                                        @endif
+                                    </td>
                                     <td>{{ $user->username }}</td>
                                     <td>{{ $user->lastname }}</td>
                                     <td>$50</td>
@@ -146,17 +155,19 @@
                         </div>
                         <table>
                             <tr>
-                                <th>Profile</th>
+                                <th>Nom</th>
                                 <th>Famille</th>
                                 <th>option</th>
                                 <th>Call</th>
                             </tr>
-                            @foreach (\App\Models\Users::inRandomOrder()->take(6)->get() as $user)
+                            @foreach ($reservations as $reservation)
                                 <tr>
                                     <!-- Accès au champ lastname pour le nom de famille -->
-                                    <td><img src="profile_users/{{ $user->imageUpload }}" alt=""
-                                            style="border-radius: 50%"></td>
-                                    <td>{{ $user->lastname }}</td>
+                                    <td>
+                                        <span>{{ $reservation->parent_fullname }}</span>
+                                    </td>
+                                        <td>
+                                        </td>
                                     <td><img src="img/info.png" alt=""></td>
                                     <td><i class="fa-solid fa-phone"></i></td>
                                 </tr>
@@ -198,8 +209,9 @@
                         <div class="goto-today">
                             <div class="goto">
                                 <input type="text" placeholder="mm/yyyy" class="date-input" />
-                                <button class="goto-btn"><i
-                                        class="fa-solid fa-magnifying-glass"></i>Recherche</button>
+                                <button class="goto-btn"><i class="fa-solid fa-magnifying-glass"></i>
+                                    <span>Recherche</span>
+                                </button>
                             </div>
                             <button class="today-btn">Date Actuelle</button>
                         </div>

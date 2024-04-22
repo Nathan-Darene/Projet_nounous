@@ -13,7 +13,7 @@
 
 <body>
     <div class="login">
-        <img src="{{ asset('img/login-bg.png') }}" alt="login image" class="login__img">
+        <img src="{{ asset('img_tech/1.jpg') }}" alt="login image" class="login__img">
 
         <form action="{{ route('register-admin') }}" method="POST" class="login__form">
             @if (Session::has('success'))
@@ -23,7 +23,7 @@
                 <div class="botton-text alert alert-danger"> {{ Session::get('fail') }}</div>
             @endif
             @csrf
-            <h1 class="login__title">Connexion Administrateur</h1>
+            <h1 class="login__title">Registrations Administrateur</h1>
 
             <div class="login__content">
                 <div class="login__box">

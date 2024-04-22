@@ -11,7 +11,7 @@
 </head>
 <body>
       <div class="login">
-        <img src="{{asset('img/login-bg.png')}}" alt="login image" class="login__img">
+        <img src="{{asset('img_tech/1.jpg')}}" alt="login image" class="login__img">
 
         <form action="{{route('login.admin')}}" method="POST" class="login__form">
             @if (Session::has('success'))
@@ -57,7 +57,7 @@
           <button type="submit" class="login__button">Connexion</button>
 
           <p class="login__register">
-            Don't have an account? <a href="#">Register</a>
+            Don't have an account? <a href="{{route('register_admin')}}">Register</a>
           </p>
         </form>
       </div>

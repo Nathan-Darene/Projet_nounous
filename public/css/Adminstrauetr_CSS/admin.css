@@ -6,6 +6,7 @@
     --color-success: #1B9C85;
     --color-warning: #F7D060;
     --color-white: #fff;
+    --color-white1: #383838;
     --color-info-dark: #7d8da1;
     --color-dark: #363949;
     --color-light: rgba(132, 139, 200, 0.18);
@@ -253,7 +254,8 @@ aside .sidebar .message-count{
     background-color: var(--color-danger);
     padding: 2px 6px;
     color: var(--color-white);
-    font-size: 11px;
+    font-size: 12px;
+    font-weight: 600;
     border-radius: var(--border-radius-1);
 }
 

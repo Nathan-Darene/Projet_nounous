@@ -96,6 +96,9 @@
                                                         <span>{{ $reservation->nounou->prix_heure }}/heure</span>
                                                         <div class="payment-nounou">
                                                             <a href="{{ route('paiements.store') }}">Payer</a>
+                                                            <a href="">
+                                                                <i class="fas fa-"></i>
+                                                            </a>
                                                         </div>
                                                     </div>
                                                 @else

@@ -40,14 +40,14 @@
                         $nathan2 = App\Models\Nounou::count();
                     @endphp
                     <h3>Réservations</h3>
-                    <span class="message-count">{{ $nathan }}</span>
+                    <span class="message-count ">{{ $nathan }}</span>
                 </a>
                 <a href="#" id="users-link">
                     <span class="material-icons-sharp">
                         person_outline
                     </span>
                     <h3>Utilisateurs</h3>
-                    <span class="message-count">{{ $nathan }}1</span>
+                    <span class="message-count">{{ $nathan1 }}</span>
 
                 </a>
 
@@ -183,8 +183,10 @@
                 <table>
                     <thead>
                         <tr>
+                            <th>Profile</th>
                             <th>Utilisateur</th>
                             <th>Nounou</th>
+                            <th>Prix par heure</th>
                             <th>Date de reservation</th>
                             <th>Début du contrat</th>
                             <th>Fin du contrat</th>
@@ -197,8 +199,14 @@
                                 @if ($reservation->users)
                                     @if ($reservation->nounous)
                                         <tr>
+                                            @if ($reservation->users->imageUpload)
+                                            <td><img src="profile_users/{{ $reservation->users->imageUpload}}" alt="" class="recente"></td>
+                                            @else
+                                            <td><img src="{{ asset('uploads/user.png')}}" alt="" class="recente"></td>
+                                            @endif
                                             <td>{{ $reservation->users->username }}</td>
                                             <td>{{ $reservation->nounous->username }}</td>
+                                            <td>{{ $reservation->nounous->prix_heure }} / heure</td>
                                             <td>{{ $reservation->created_at->format('d-m-Y H:i:s') }}</td>
                                             <td>{{ \Carbon\Carbon::parse($reservation->form_end_date)->format('d-m-Y') }}
                                             </td>
@@ -217,7 +225,7 @@
                         @endif
                     </tbody>
                 </table>
-                <a href="#">Afficher Tout</a>
+                {{-- <a href="#reservation-popup">Afficher Tout</a> --}}
             </div>
             <!-- Fin des Réservations Récentes -->
 
@@ -258,7 +266,7 @@
             <div class="user-profile">
                 <div class="logo">
                     <img src="{{ asset('Logo/8900808870_4aa536ff-86f5-4f1e-9429-0e0ace5a8068.png') }}">
-                    <h2>Social Home</h2>
+                    <h2>Social <span class="danger"> Home</span></h2>
                     <p>Nathan & Hugess</p>
                 </div>
             </div>
@@ -365,7 +373,7 @@
         <div id="delete-nounou-modal" class="modal-nounou">
             <div class="modal-content-nounou">
                 <span class="close">&times;</span>
-                <h2>Liste des nounous à supprimer</h2>
+                <center><h2 class="color">Liste des nounous à supprimer</h2></center>
                 <div id="delete-nounou-list">
                     <div class="delete-nounou-lists">
                         @foreach (\App\Models\Nounou::inRandomOrder()->get() as $nounou)
@@ -451,6 +459,20 @@
                                         {{ $reservation->nounous->phone }}</p>
                                     <p class="color p"><i class="fas fa-user-nurse"></i> role:
                                         {{ $reservation->nounous->role }}</p>
+                                    <!-- Afficher les autres informations de la nounou ici -->
+                                @else
+                                    <p class="color ">Aucune nounou trouvée</p>
+                                @endif
+                            </div>
+
+                            <h2 class="color">Informations sur l'enfant</h2>
+                            <div class="block">
+                                @if ($reservation)
+                                    <p class="color p"><i class="fas fa-user"></i> &nbsp;Nom de l'enfant: {{ $reservation->child_fullname }}</p>
+                                    <p class="color p"><i class="fas fa-location-dot"></i> &nbsp;reside à : {{ $reservation->child_address}}</p>
+                                    <p class="color p"><i class="fas fa-venus-mars"></i> &nbsp;genre: {{ $reservation->child_gender }}</p>
+                                    <p class="color p"><i class="fas fa-ruler-combined"></i> &nbsp; Age: {{ $reservation->child_birthdate}}</p>
+                                    <p class="color p"><i class="fas fa-user-doctor"></i>&nbsp; En cas d'urgence: {{ $reservation->emergency_contact_phone }}</p>
                                     <!-- Afficher les autres informations de la nounou ici -->
                                 @else
                                     <p class="color ">Aucune nounou trouvée</p>
@@ -625,6 +647,24 @@
                             <textarea id="admin-notes" name="admin-notes" placeholder="Entrer un  message" class="message">
 
                             </textarea>
+                            <button type="submit" class="submit cssbuttons-io-button">
+                                Envoyer <!--i class="fas fa-rocket send"></i-->
+                                <div class="icon">
+                                    <svg
+                                      height="24"
+                                      width="24"
+                                      viewBox="0 0 24 24"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <path d="M0 0h24v24H0z" fill="none"></path>
+                                      <path
+                                        d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
+                                        fill="currentColor"
+                                      ></path>
+                                    </svg>
+                                  </div>
+                            </button>
+
                             <!-- Autres fonctionnalités de gestion du contenu -->
                         </div>
                     </section>
